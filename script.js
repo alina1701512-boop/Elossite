@@ -116,4 +116,41 @@ document.addEventListener('DOMContentLoaded', function() {
             setTimeout(() => { formMessage.textContent = ''; }, 5000);
         });
     }
-});
+    // --- 8. Попап при уходе (exit-intent) ---
+    const exitPopup = document.getElementById('exitPopup');
+    const closePopup = document.getElementById('closePopup');
+    const declinePopup = document.getElementById('declinePopup');
+    let popupShown = false;
+
+    // Показываем попап, когда курсор уходит за верхнюю границу сайта
+    if (exitPopup) {
+        document.addEventListener('mouseout', function(e) {
+            if (!popupShown && e.clientY < 10 && e.relatedTarget === null) {
+                exitPopup.classList.add('visible');
+                popupShown = true;
+            }
+        });
+    }
+
+    // Закрыть попап по крестику
+    if (closePopup) {
+        closePopup.addEventListener('click', function() {
+            exitPopup.classList.remove('visible');
+        });
+    }
+
+    // Закрыть попап по кнопке "Нет, спасибо"
+    if (declinePopup) {
+        declinePopup.addEventListener('click', function() {
+            exitPopup.classList.remove('visible');
+        });
+    }
+
+    // Закрыть попап при клике на затемнённый фон
+    if (exitPopup) {
+        exitPopup.addEventListener('click', function(e) {
+            if (e.target === exitPopup) {
+                exitPopup.classList.remove('visible');
+            }
+        });
+    }});

@@ -1,4 +1,4 @@
-// 📝 Изменено: 2026-06-03 / FAQ: плавный ховер с задержкой + клик
+// 📝 Изменено: 2026-06-03 / FAQ: плавный ховер + клик + кнопки + другие зоны
 document.addEventListener('DOMContentLoaded', function() {
 
     // --- 1. Мобильное меню ---
@@ -76,7 +76,22 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // --- 5. Анимация при скролле ---
+    // --- 5. Раскрывающийся список "Другие зоны" ---
+    const toggleZones = document.getElementById('toggleZones');
+    const otherZones = document.getElementById('otherZones');
+    if (toggleZones && otherZones) {
+        toggleZones.addEventListener('click', function() {
+            if (otherZones.style.display === 'none') {
+                otherZones.style.display = 'block';
+                toggleZones.textContent = 'Скрыть другие зоны ↑';
+            } else {
+                otherZones.style.display = 'none';
+                toggleZones.textContent = 'Смотреть другие зоны и цены ↓';
+            }
+        });
+    }
+
+    // --- 6. Анимация при скролле ---
     const fadeSections = document.querySelectorAll('.fade-in-section');
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -88,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }, { rootMargin: '0px 0px -50px 0px', threshold: 0.1 });
     fadeSections.forEach(section => observer.observe(section));
 
-    // --- 6. Форма ---
+    // --- 7. Форма ---
     const contactForm = document.getElementById('contactForm');
     const formMessage = document.getElementById('formMessage');
     if (contactForm) {

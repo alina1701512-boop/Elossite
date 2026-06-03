@@ -1,4 +1,4 @@
-/* / 📝 Изменено: 2026-06-03 / FAQ: средняя воздушность + ховер (исправлен) / */
+/* / 📝 Изменено: 2026-06-03 / Финал: все стили, без дублей / */
 :root {
     --color-bg: #FAF8F6;
     --color-surface: #FFFFFF;
@@ -112,7 +112,7 @@ h1, h2, h3 { font-family: 'Montserrat', sans-serif; line-height: 1.3; }
 .badge { background-color: var(--color-accent); color: #fff; padding: 8px 18px; border-radius: 30px; font-size: 0.85rem; display: inline-block; margin-bottom: 15px; }
 .pricing-info { margin-top: 40px; display: flex; flex-direction: column; gap: 15px; align-items: center; }
 
-/* === FAQ (СРЕДНЯЯ ВОЗДУШНОСТЬ + ХОВЕР) === */
+/* === FAQ === */
 .faq-list { max-width: 700px; margin: 30px auto 0; }
 .faq-item { border-bottom: 1px solid #f0f0f0; }
 .faq-question { width: 100%; text-align: left; background: none; border: none; padding: 8px 0; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 0.95rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: var(--transition); }
@@ -123,20 +123,29 @@ h1, h2, h3 { font-family: 'Montserrat', sans-serif; line-height: 1.3; }
 .faq-answer p { padding-bottom: 10px; font-size: 0.9rem; color: var(--color-text-light); line-height: 1.5; }
 .faq-question[aria-expanded="true"] + .faq-answer { max-height: 200px; }
 
-/* Стили для ховера (только на десктопе) */
 @media (hover: hover) {
     .faq-item:hover .faq-question { color: var(--color-accent); }
     .faq-item:hover .faq-answer { max-height: 200px; }
     .faq-item:hover .faq-answer p { padding-bottom: 10px; }
 }
 
-/* Стили для ховера (только на десктопе) */
-@media (hover: hover) {
-    .faq-item:hover .faq-question { color: var(--color-accent); }
-    .faq-item:hover .faq-answer { max-height: 200px; }
-    .faq-item:hover .faq-answer p { padding-bottom: 10px; }
-}
+/* === АКЦИИ === */
+.promo-grid { display: grid; grid-template-columns: 1fr; gap: 20px; margin: 40px 0; }
+.promo-card { background-color: var(--color-surface); padding: 30px; border-radius: var(--radius-md); text-align: center; box-shadow: var(--shadow); transition: var(--transition); }
+.promo-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); }
+.promo-icon { font-size: 2.5rem; display: block; margin-bottom: 15px; }
+.promo-card h3 { margin-bottom: 10px; font-size: 1.1rem; }
+.promo-card p { color: var(--color-text-light); margin-bottom: 20px; font-size: 0.95rem; }
+.promo-card .btn { width: 100%; }
 
+/* === ЦЕНЫ (доп. стили) === */
+.price-old { text-decoration: line-through; color: var(--color-text-light); font-size: 1rem; margin-bottom: 5px; }
+.price-new { font-size: 2rem; font-weight: 800; color: var(--color-accent); margin-bottom: 10px; }
+.badge-sale { display: inline-block; background-color: #FFF0ED; color: var(--color-accent-hover); padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; margin-bottom: 10px; }
+.price-save { font-size: 0.85rem; color: #4CAF50; font-weight: 600; margin-bottom: 15px; }
+.price-card .btn { margin-top: 5px; width: 100%; }
+
+/* === КОНТАКТЫ === */
 .contacts-grid { display: grid; grid-template-columns: 1fr; gap: 50px; margin-top: 40px; }
 .form-group { margin-bottom: 20px; }
 .form-group label { display: block; margin-bottom: 8px; font-weight: 600; }
@@ -158,6 +167,7 @@ h1, h2, h3 { font-family: 'Montserrat', sans-serif; line-height: 1.3; }
 .site-footer a { color: var(--color-accent); text-decoration: none; }
 .footer-content { display: flex; flex-direction: column; gap: 15px; align-items: center; }
 
+/* === АДАПТИВНОСТЬ === */
 @media (min-width: 768px) {
     .hero-grid { flex-direction: row; }
     .hero-title { font-size: 3.5rem; }
@@ -167,6 +177,7 @@ h1, h2, h3 { font-family: 'Montserrat', sans-serif; line-height: 1.3; }
     .pricing-grid { grid-template-columns: repeat(3, 1fr); }
     .contacts-grid { grid-template-columns: 1fr 1fr; }
     .master-intro { flex-direction: row; text-align: left; }
+    .promo-grid { grid-template-columns: repeat(3, 1fr); }
 }
 @media (min-width: 1024px) {
     .hero-title { font-size: 4rem; }
@@ -181,9 +192,3 @@ h1, h2, h3 { font-family: 'Montserrat', sans-serif; line-height: 1.3; }
     .burger-menu { display: flex; flex-direction: column; gap: 6px; background: none; border: none; cursor: pointer; padding: 5px; z-index: 101; }
     .burger-menu span { display: block; width: 26px; height: 3px; background-color: var(--color-text); transition: var(--transition); }
 }
-/* Стили для блока Цен */
-.price-old { text-decoration: line-through; color: var(--color-text-light); font-size: 1rem; margin-bottom: 5px; }
-.price-new { font-size: 2rem; font-weight: 800; color: var(--color-accent); margin-bottom: 10px; }
-.badge-sale { display: inline-block; background-color: #FFF0ED; color: var(--color-accent-hover); padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; margin-bottom: 10px; }
-.price-save { font-size: 0.85rem; color: #4CAF50; font-weight: 600; margin-bottom: 15px; }
-.price-card .btn { margin-top: 5px; width: 100%; }

@@ -181,3 +181,9 @@ h1, h2, h3 { font-family: 'Montserrat', sans-serif; line-height: 1.3; }
     .burger-menu { display: flex; flex-direction: column; gap: 6px; background: none; border: none; cursor: pointer; padding: 5px; z-index: 101; }
     .burger-menu span { display: block; width: 26px; height: 3px; background-color: var(--color-text); transition: var(--transition); }
 }
+/* Стили для блока Цен */
+.price-old { text-decoration: line-through; color: var(--color-text-light); font-size: 1rem; margin-bottom: 5px; }
+.price-new { font-size: 2rem; font-weight: 800; color: var(--color-accent); margin-bottom: 10px; }
+.badge-sale { display: inline-block; background-color: #FFF0ED; color: var(--color-accent-hover); padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; margin-bottom: 10px; }
+.price-save { font-size: 0.85rem; color: #4CAF50; font-weight: 600; margin-bottom: 15px; }
+.price-card .btn { margin-top: 5px; width: 100%; }

@@ -1,4 +1,4 @@
-// 📝 Изменено: 2026-06-03 / FAQ: плавный ховер + клик + кнопки + другие зоны
+// 📝 Изменено: 2026-06-03 / FAQ + попапы (исправлено)
 document.addEventListener('DOMContentLoaded', function() {
 
     // --- 1. Мобильное меню ---
@@ -116,7 +116,8 @@ document.addEventListener('DOMContentLoaded', function() {
             setTimeout(() => { formMessage.textContent = ''; }, 5000);
         });
     }
-      // --- 8. Попап при уходе (exit-intent) — два этапа ---
+
+    // --- 8. Попап при уходе (exit-intent) — два этапа ---
     const exitPopup1 = document.getElementById('exitPopup1');
     const exitPopup2 = document.getElementById('exitPopup2');
     const closePopup1 = document.getElementById('closePopup1');
@@ -177,3 +178,5 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+});

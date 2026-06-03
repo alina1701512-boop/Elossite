@@ -1,4 +1,4 @@
-// 📝 Изменено: 2026-06-03 / FAQ: ховер + клик + две кнопки
+// 📝 Изменено: 2026-06-03 / FAQ: плавный ховер с задержкой + клик
 document.addEventListener('DOMContentLoaded', function() {
 
     // --- 1. Мобильное меню ---
@@ -17,10 +17,43 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // --- 2. FAQ Аккордеон (клик) ---
+    // --- 2. FAQ: Плавный ховер (наведение мыши) ---
+    const faqItems = document.querySelectorAll('.faq-item');
+    let hoverTimeout;
+    let leaveTimeout;
+
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        if (!question) return;
+
+        // Навели мышь — плавно открываем через 200мс
+        item.addEventListener('mouseenter', function() {
+            clearTimeout(leaveTimeout);
+            hoverTimeout = setTimeout(() => {
+                // Закрываем все
+                document.querySelectorAll('.faq-question').forEach(q => q.setAttribute('aria-expanded', 'false'));
+                // Открываем текущий
+                question.setAttribute('aria-expanded', 'true');
+            }, 200);
+        });
+
+        // Увели мышь — плавно закрываем через 300мс
+        item.addEventListener('mouseleave', function() {
+            clearTimeout(hoverTimeout);
+            leaveTimeout = setTimeout(() => {
+                question.setAttribute('aria-expanded', 'false');
+            }, 300);
+        });
+    });
+
+    // --- 3. FAQ: Клик (для телефона и закрепления) ---
     const faqQuestions = document.querySelectorAll('.faq-question');
     faqQuestions.forEach(question => {
-        question.addEventListener('click', function() {
+        question.addEventListener('click', function(e) {
+            // Очищаем таймеры ховера, чтобы не конфликтовали
+            clearTimeout(hoverTimeout);
+            clearTimeout(leaveTimeout);
+            
             const isExpanded = this.getAttribute('aria-expanded') === 'true';
             faqQuestions.forEach(q => q.setAttribute('aria-expanded', 'false'));
             if (!isExpanded) {
@@ -28,10 +61,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-
-    // --- 3. FAQ Ховер (наведение мыши) ---
-    // Работает автоматически через CSS @media (hover: hover)
-    // Никакого дополнительного JS не нужно — всё в style.css
 
     // --- 4. Кнопки "Смотреть все" и "Скрыть" ---
     const hiddenFaq = document.getElementById('hiddenFaq');

@@ -423,126 +423,116 @@
             </div>
         </section>
 
-        <section id="faq" class="section-padding bg-surface" aria-labelledby="faq-heading">
-            <div class="container">
-                <h2 class="section-title text-center fade-in-section" id="faq-heading">Сомневаетесь?</h2>
-                <div class="faq-list">
-                    
-                    <!-- 5 главных вопросов (видны сразу) -->
-                    <div class="faq-item fade-in-section">
-                        <button class="faq-question" aria-expanded="false">Больно ли делать лазерную эпиляцию?</button>
-                        <div class="faq-answer">
-                            <p>Зависит от индивидуальной чувствительности. Я подбираю мощность индивидуально. Большинство клиенток говорят: «Как лёгкие щипки» или «как пощёлкивание резинки по коже». Начинаем с маленькой зоны, чтобы вы привыкли.</p>
-                        </div>
-                    </div>
-                    <div class="faq-item fade-in-section">
-                        <button class="faq-question" aria-expanded="false">Сколько процедур нужно для полного удаления волос?</button>
-                        <div class="faq-answer">
-                            <p>В среднем 8-12 процедур с интервалом 6-8 недель. Точное количество зависит от типа волос, гормонального фона и зоны. Я честно скажу вам прогноз после первой процедуры и теста.</p>
-                        </div>
-                    </div>
-                    <div class="faq-item fade-in-section">
-                        <button class="faq-question" aria-expanded="false">Когда будет виден первый результат?</button>
-                        <div class="faq-answer">
-                            <p>Первые волоски начнут выпадать через 1-2 недели после процедуры. Не все сразу — только те, что были в фазе роста. После 3-4 процедуры разница становится очень заметной.</p>
-                        </div>
-                    </div>
-                    <div class="faq-item fade-in-section">
-                        <button class="faq-question" aria-expanded="false">Как подготовиться к процедуре?</button>
-                        <div class="faq-answer">
-                            <p>За неделю до процедуры: не загорать, не использовать автозагар. За 2-3 дня: побрить зону (только бритьё, не воск и не шугаринг). В день процедуры: прийти с чистой кожей без косметики, крема и дезодоранта.</p>
-                        </div>
-                    </div>
-                    <div class="faq-item fade-in-section">
-                        <button class="faq-question" aria-expanded="false">Какие противопоказания у лазерной эпиляции?</button>
-                        <div class="faq-answer">
-                            <p>Основные: беременность и кормление грудью, онкологические заболевания, свежий загар, приём фотосенсибилизирующих препаратов (некоторые антибиотики, ретиноиды), обострение кожных заболеваний в зоне обработки. Всё обсуждаем на консультации.</p>
-                        </div>
-                    </div>
+       // 📝 Изменено: 2026-06-03 / FAQ: плавный ховер с задержкой + клик
+document.addEventListener('DOMContentLoaded', function() {
 
-                    <!-- Кнопка "Смотреть все вопросы" (видна, когда список скрыт) -->
-                    <div class="text-center fade-in-section" style="margin-top: 15px;" id="showAllFaqButton">
-                        <button class="btn btn-secondary" id="toggleAllFaq">Смотреть все вопросы ↓</button>
-                    </div>
+    // --- 1. Мобильное меню ---
+    const burgerMenu = document.getElementById('burgerMenu');
+    const mainNav = document.getElementById('mainNav');
+    if (burgerMenu && mainNav) {
+        burgerMenu.addEventListener('click', function() {
+            const isOpen = mainNav.classList.toggle('active');
+            burgerMenu.setAttribute('aria-expanded', isOpen);
+        });
+        mainNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mainNav.classList.remove('active');
+                burgerMenu.setAttribute('aria-expanded', 'false');
+            });
+        });
+    }
 
-                    <!-- Остальные 11 вопросов (скрыты по умолчанию) -->
-                    <div id="hiddenFaq" style="display: none;">
-                        <div class="faq-item fade-in-section">
-                            <button class="faq-question" aria-expanded="false">Что нельзя делать после процедуры?</button>
-                            <div class="faq-answer">
-                                <p>48 часов: не загорать, не ходить в баню/сауну/бассейн, не принимать горячую ванну, не наносить спиртосодержащие средства, не тереть кожу мочалкой. Можно использовать успокаивающий крем (пантенол, бепантен).</p>
-                            </div>
-                        </div>
-                        <div class="faq-item fade-in-section">
-                            <button class="faq-question" aria-expanded="false">Можно ли делать лазерную эпиляцию летом?</button>
-                            <div class="faq-answer">
-                                <p>Да, можно. Но важно не загорать минимум неделю до и после процедуры. Летом удобно делать закрытые зоны (бикини, подмышки), а открытые (ноги) — в менее солнечный период.</p>
-                            </div>
-                        </div>
-                        <div class="faq-item fade-in-section">
-                            <button class="faq-question" aria-expanded="false">Можно ли бриться между процедурами?</button>
-                            <div class="faq-answer">
-                                <p>Да, брить можно и нужно. Это единственный разрешённый способ удаления волос между процедурами. Нельзя использовать воск, шугаринг, эпилятор — они выдёргивают волос с корнем, и лазеру не на что будет воздействовать.</p>
-                            </div>
-                        </div>
-                        <div class="faq-item fade-in-section">
-                            <button class="faq-question" aria-expanded="false">Почему нельзя загорать до и после?</button>
-                            <div class="faq-answer">
-                                <p>Лазер воздействует на меланин — пигмент волоса. Если кожа загорелая, в ней тоже много меланина. Лазер может перегреть кожу, вызвать ожог или пигментацию. Поэтому минимум 7 дней без загара до и после.</p>
-                            </div>
-                        </div>
-                        <div class="faq-item fade-in-section">
-                            <button class="faq-question" aria-expanded="false">Помогает ли лазер от вросших волос?</button>
-                            <div class="faq-answer">
-                                <p>Да, это одно из главных показаний. Лазер разрушает фолликул, и волос перестаёт расти. Со временем вросшие волосы исчезают, кожа становится гладкой, без воспалений и тёмных точек.</p>
-                            </div>
-                        </div>
-                        <div class="faq-item fade-in-section">
-                            <button class="faq-question" aria-expanded="false">Может ли лазер вызвать пигментацию или ожог?</button>
-                            <div class="faq-answer">
-                                <p>На правильно настроенном оборудовании и при соблюдении рекомендаций — нет. Я использую диодный лазер с точной настройкой мощности. Важно честно предупредить меня о загаре и принимаемых лекарствах — это снижает риски до нуля.</p>
-                            </div>
-                        </div>
-                        <div class="faq-item fade-in-section">
-                            <button class="faq-question" aria-expanded="false">Можно ли делать лазер при беременности?</button>
-                            <div class="faq-answer">
-                                <p>Нет. Исследований о влиянии лазера на плод недостаточно, поэтому во время беременности и кормления грудью процедура не проводится. Это временное противопоказание — после завершения кормления можно возвращаться.</p>
-                            </div>
-                        </div>
-                        <div class="faq-item fade-in-section">
-                            <button class="faq-question" aria-expanded="false">Можно ли делать лазер при онкологии?</button>
-                            <div class="faq-answer">
-                                <p>Нет. При онкологических заболеваниях лазерная эпиляция противопоказана. Даже в ремиссии — требуется разрешение лечащего врача. Безопасность клиента — превыше всего.</p>
-                            </div>
-                        </div>
-                        <div class="faq-item fade-in-section">
-                            <button class="faq-question" aria-expanded="false">Как лазер влияет на самооценку?</button>
-                            <div class="faq-answer">
-                                <p>Огромное влияние. Когда вы перестаёте думать о волосах, планировать бритьё, стесняться щетины — вы становитесь увереннее. Свобода носить что угодно, когда угодно. Свобода от раздражения и красных точек. Свобода быть спонтанной. Это не просто гладкая кожа — это спокойствие.</p>
-                            </div>
-                        </div>
-                        <div class="faq-item fade-in-section">
-                            <button class="faq-question" aria-expanded="false">Почему волосы выпадают не сразу, а через неделю?</button>
-                            <div class="faq-answer">
-                                <p>Лазер разрушает фолликул, но сам волос остаётся в коже. Организму нужно время, чтобы «вытолкнуть» его. Этот процесс занимает 1-2 недели. Кажется, что волосы растут — но на самом деле они отмирают и выходят наружу.</p>
-                            </div>
-                        </div>
-                        <div class="faq-item fade-in-section">
-                            <button class="faq-question" aria-expanded="false">Можно ли оставить полоску или треугольник?</button>
-                            <div class="faq-answer">
-                                <p>Да! Я подстраиваю форму бикини под вас. Хоть полоску, хоть треугольник, хоть полностью.</p>
-                            </div>
-                        </div>
+    // --- 2. FAQ: Плавный ховер (наведение мыши) ---
+    const faqItems = document.querySelectorAll('.faq-item');
+    let hoverTimeout;
+    let leaveTimeout;
 
-                        <!-- Кнопка "Скрыть вопросы" (в самом конце) -->
-                        <div class="text-center" style="margin-top: 15px;">
-                            <button class="btn btn-secondary" id="hideAllFaq">Скрыть вопросы ↑</button>
-                        </div>
-                    </div>
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        if (!question) return;
 
-                </div>
-            </div>
-        </section>
+        // Навели мышь — плавно открываем через 200мс
+        item.addEventListener('mouseenter', function() {
+            clearTimeout(leaveTimeout);
+            hoverTimeout = setTimeout(() => {
+                // Закрываем все
+                document.querySelectorAll('.faq-question').forEach(q => q.setAttribute('aria-expanded', 'false'));
+                // Открываем текущий
+                question.setAttribute('aria-expanded', 'true');
+            }, 200);
+        });
+
+        // Увели мышь — плавно закрываем через 300мс
+        item.addEventListener('mouseleave', function() {
+            clearTimeout(hoverTimeout);
+            leaveTimeout = setTimeout(() => {
+                question.setAttribute('aria-expanded', 'false');
+            }, 300);
+        });
+    });
+
+    // --- 3. FAQ: Клик (для телефона и закрепления) ---
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    faqQuestions.forEach(question => {
+        question.addEventListener('click', function(e) {
+            // Очищаем таймеры ховера, чтобы не конфликтовали
+            clearTimeout(hoverTimeout);
+            clearTimeout(leaveTimeout);
+            
+            const isExpanded = this.getAttribute('aria-expanded') === 'true';
+            faqQuestions.forEach(q => q.setAttribute('aria-expanded', 'false'));
+            if (!isExpanded) {
+                this.setAttribute('aria-expanded', 'true');
+            }
+        });
+    });
+
+    // --- 4. Кнопки "Смотреть все" и "Скрыть" ---
+    const hiddenFaq = document.getElementById('hiddenFaq');
+    const toggleAllFaq = document.getElementById('toggleAllFaq');
+    const hideAllFaq = document.getElementById('hideAllFaq');
+    const showAllButton = document.getElementById('showAllFaqButton');
+
+    if (toggleAllFaq && hiddenFaq && showAllButton) {
+        toggleAllFaq.addEventListener('click', function() {
+            hiddenFaq.style.display = 'block';
+            showAllButton.style.display = 'none';
+        });
+    }
+
+    if (hideAllFaq && hiddenFaq && showAllButton) {
+        hideAllFaq.addEventListener('click', function() {
+            hiddenFaq.style.display = 'none';
+            showAllButton.style.display = 'block';
+        });
+    }
+
+    // --- 5. Анимация при скролле ---
+    const fadeSections = document.querySelectorAll('.fade-in-section');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { rootMargin: '0px 0px -50px 0px', threshold: 0.1 });
+    fadeSections.forEach(section => observer.observe(section));
+
+    // --- 6. Форма ---
+    const contactForm = document.getElementById('contactForm');
+    const formMessage = document.getElementById('formMessage');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            formMessage.textContent = 'Спасибо! Я свяжусь с вами в ближайшее время.';
+            formMessage.style.color = 'green';
+            formMessage.style.marginTop = '15px';
+            contactForm.reset();
+            setTimeout(() => { formMessage.textContent = ''; }, 5000);
+        });
+    }
+});
 
         <section id="contacts" class="section-padding bg-pastel" aria-labelledby="contacts-heading">
             <div class="container">

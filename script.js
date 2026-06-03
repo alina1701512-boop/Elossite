@@ -26,18 +26,14 @@ document.addEventListener('DOMContentLoaded', function() {
         const question = item.querySelector('.faq-question');
         if (!question) return;
 
-        // Навели мышь — плавно открываем через 200мс
         item.addEventListener('mouseenter', function() {
             clearTimeout(leaveTimeout);
             hoverTimeout = setTimeout(() => {
-                // Закрываем все
                 document.querySelectorAll('.faq-question').forEach(q => q.setAttribute('aria-expanded', 'false'));
-                // Открываем текущий
                 question.setAttribute('aria-expanded', 'true');
             }, 200);
         });
 
-        // Увели мышь — плавно закрываем через 300мс
         item.addEventListener('mouseleave', function() {
             clearTimeout(hoverTimeout);
             leaveTimeout = setTimeout(() => {
@@ -46,14 +42,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // --- 3. FAQ: Клик (для телефона и закрепления) ---
+    // --- 3. FAQ: Клик ---
     const faqQuestions = document.querySelectorAll('.faq-question');
     faqQuestions.forEach(question => {
         question.addEventListener('click', function(e) {
-            // Очищаем таймеры ховера, чтобы не конфликтовали
             clearTimeout(hoverTimeout);
             clearTimeout(leaveTimeout);
-            
             const isExpanded = this.getAttribute('aria-expanded') === 'true';
             faqQuestions.forEach(q => q.setAttribute('aria-expanded', 'false'));
             if (!isExpanded) {

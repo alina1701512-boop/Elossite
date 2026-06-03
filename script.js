@@ -1,4 +1,4 @@
-// 📝 Изменено: 2026-06-03 / FAQ: кнопка "Смотреть все вопросы"
+// 📝 Изменено: 2026-06-03 / Две кнопки: "Смотреть все" и "Скрыть" в конце
 document.addEventListener('DOMContentLoaded', function() {
 
     // --- 1. Мобильное меню ---
@@ -29,18 +29,23 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // --- 3. Кнопка "Смотреть все вопросы" ---
-    const toggleAllFaq = document.getElementById('toggleAllFaq');
+    // --- 3. Кнопки "Смотреть все" и "Скрыть" ---
     const hiddenFaq = document.getElementById('hiddenFaq');
-    if (toggleAllFaq && hiddenFaq) {
+    const toggleAllFaq = document.getElementById('toggleAllFaq');
+    const hideAllFaq = document.getElementById('hideAllFaq');
+    const showAllButton = document.getElementById('showAllFaqButton');
+
+    if (toggleAllFaq && hiddenFaq && showAllButton) {
         toggleAllFaq.addEventListener('click', function() {
-            if (hiddenFaq.style.display === 'none') {
-                hiddenFaq.style.display = 'block';
-                toggleAllFaq.textContent = 'Скрыть вопросы ↑';
-            } else {
-                hiddenFaq.style.display = 'none';
-                toggleAllFaq.textContent = 'Смотреть все вопросы ↓';
-            }
+            hiddenFaq.style.display = 'block';
+            showAllButton.style.display = 'none';
+        });
+    }
+
+    if (hideAllFaq && hiddenFaq && showAllButton) {
+        hideAllFaq.addEventListener('click', function() {
+            hiddenFaq.style.display = 'none';
+            showAllButton.style.display = 'block';
         });
     }
 

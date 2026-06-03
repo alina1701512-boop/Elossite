@@ -116,41 +116,64 @@ document.addEventListener('DOMContentLoaded', function() {
             setTimeout(() => { formMessage.textContent = ''; }, 5000);
         });
     }
-    // --- 8. Попап при уходе (exit-intent) ---
-    const exitPopup = document.getElementById('exitPopup');
-    const closePopup = document.getElementById('closePopup');
-    const declinePopup = document.getElementById('declinePopup');
-    let popupShown = false;
+      // --- 8. Попап при уходе (exit-intent) — два этапа ---
+    const exitPopup1 = document.getElementById('exitPopup1');
+    const exitPopup2 = document.getElementById('exitPopup2');
+    const closePopup1 = document.getElementById('closePopup1');
+    const closePopup2 = document.getElementById('closePopup2');
+    let popup1Shown = false;
+    let popup2Shown = false;
 
-    // Показываем попап, когда курсор уходит за верхнюю границу сайта
-    if (exitPopup) {
+    // Функция показа первого попапа
+    function showPopup1() {
+        if (!popup1Shown && exitPopup1) {
+            exitPopup1.classList.add('visible');
+            popup1Shown = true;
+        }
+    }
+
+    // Функция показа второго попапа
+    function showPopup2() {
+        if (!popup2Shown && exitPopup2) {
+            exitPopup2.classList.add('visible');
+            popup2Shown = true;
+        }
+    }
+
+    // Отслеживаем уход курсора — сначала первый попап, потом второй
+    if (exitPopup1 && exitPopup2) {
         document.addEventListener('mouseout', function(e) {
-            if (!popupShown && e.clientY < 10 && e.relatedTarget === null) {
-                exitPopup.classList.add('visible');
-                popupShown = true;
+            if (e.clientY < 10 && e.relatedTarget === null) {
+                if (!popup1Shown) {
+                    showPopup1();
+                } else if (!popup2Shown) {
+                    showPopup2();
+                }
             }
         });
     }
 
-    // Закрыть попап по крестику
-    if (closePopup) {
-        closePopup.addEventListener('click', function() {
-            exitPopup.classList.remove('visible');
-        });
+    // Закрытие попапов по крестику и кнопке "Нет, спасибо"
+    function closePopup(popup) {
+        if (popup) popup.classList.remove('visible');
     }
 
-    // Закрыть попап по кнопке "Нет, спасибо"
-    if (declinePopup) {
-        declinePopup.addEventListener('click', function() {
-            exitPopup.classList.remove('visible');
-        });
-    }
+    if (closePopup1) closePopup1.addEventListener('click', () => closePopup(exitPopup1));
+    if (closePopup2) closePopup2.addEventListener('click', () => closePopup(exitPopup2));
 
-    // Закрыть попап при клике на затемнённый фон
-    if (exitPopup) {
-        exitPopup.addEventListener('click', function(e) {
-            if (e.target === exitPopup) {
-                exitPopup.classList.remove('visible');
+    // Все кнопки "Нет, спасибо" (ищем по классу)
+    document.querySelectorAll('.close-popup-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const popup = this.closest('.exit-popup-overlay');
+            if (popup) popup.classList.remove('visible');
+        });
+    });
+
+    // Закрытие по клику на затемнённый фон
+    document.querySelectorAll('.exit-popup-overlay').forEach(overlay => {
+        overlay.addEventListener('click', function(e) {
+            if (e.target === overlay) {
+                overlay.classList.remove('visible');
             }
         });
-    }});
+    });

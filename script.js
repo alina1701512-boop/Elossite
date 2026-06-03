@@ -1,4 +1,4 @@
-// 📝 Изменено: 2026-06-03 / Две кнопки: "Смотреть все" и "Скрыть" в конце
+// 📝 Изменено: 2026-06-03 / FAQ: ховер + клик + две кнопки
 document.addEventListener('DOMContentLoaded', function() {
 
     // --- 1. Мобильное меню ---
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // --- 2. FAQ Аккордеон ---
+    // --- 2. FAQ Аккордеон (клик) ---
     const faqQuestions = document.querySelectorAll('.faq-question');
     faqQuestions.forEach(question => {
         question.addEventListener('click', function() {
@@ -29,7 +29,11 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // --- 3. Кнопки "Смотреть все" и "Скрыть" ---
+    // --- 3. FAQ Ховер (наведение мыши) ---
+    // Работает автоматически через CSS @media (hover: hover)
+    // Никакого дополнительного JS не нужно — всё в style.css
+
+    // --- 4. Кнопки "Смотреть все" и "Скрыть" ---
     const hiddenFaq = document.getElementById('hiddenFaq');
     const toggleAllFaq = document.getElementById('toggleAllFaq');
     const hideAllFaq = document.getElementById('hideAllFaq');
@@ -49,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // --- 4. Анимация при скролле ---
+    // --- 5. Анимация при скролле ---
     const fadeSections = document.querySelectorAll('.fade-in-section');
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -61,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }, { rootMargin: '0px 0px -50px 0px', threshold: 0.1 });
     fadeSections.forEach(section => observer.observe(section));
 
-    // --- 5. Форма ---
+    // --- 6. Форма ---
     const contactForm = document.getElementById('contactForm');
     const formMessage = document.getElementById('formMessage');
     if (contactForm) {

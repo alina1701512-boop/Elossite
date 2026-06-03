@@ -1,16 +1,16 @@
-// 📝 Изменено: 2026-06-03 / FAQ + попапы (исправлено)
+// 📝 Изменено: 2026-06-03 / Все функции + попапы (финальная версия)
 document.addEventListener('DOMContentLoaded', function() {
 
     // --- 1. Мобильное меню ---
-    const burgerMenu = document.getElementById('burgerMenu');
-    const mainNav = document.getElementById('mainNav');
+    var burgerMenu = document.getElementById('burgerMenu');
+    var mainNav = document.getElementById('mainNav');
     if (burgerMenu && mainNav) {
         burgerMenu.addEventListener('click', function() {
-            const isOpen = mainNav.classList.toggle('active');
+            var isOpen = mainNav.classList.toggle('active');
             burgerMenu.setAttribute('aria-expanded', isOpen);
         });
-        mainNav.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
+        mainNav.querySelectorAll('a').forEach(function(link) {
+            link.addEventListener('click', function() {
                 mainNav.classList.remove('active');
                 burgerMenu.setAttribute('aria-expanded', 'false');
             });
@@ -18,38 +18,42 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // --- 2. FAQ: Плавный ховер (наведение мыши) ---
-    const faqItems = document.querySelectorAll('.faq-item');
-    let hoverTimeout;
-    let leaveTimeout;
+    var faqItems = document.querySelectorAll('.faq-item');
+    var hoverTimeout;
+    var leaveTimeout;
 
-    faqItems.forEach(item => {
-        const question = item.querySelector('.faq-question');
+    faqItems.forEach(function(item) {
+        var question = item.querySelector('.faq-question');
         if (!question) return;
 
         item.addEventListener('mouseenter', function() {
             clearTimeout(leaveTimeout);
-            hoverTimeout = setTimeout(() => {
-                document.querySelectorAll('.faq-question').forEach(q => q.setAttribute('aria-expanded', 'false'));
+            hoverTimeout = setTimeout(function() {
+                document.querySelectorAll('.faq-question').forEach(function(q) {
+                    q.setAttribute('aria-expanded', 'false');
+                });
                 question.setAttribute('aria-expanded', 'true');
             }, 200);
         });
 
         item.addEventListener('mouseleave', function() {
             clearTimeout(hoverTimeout);
-            leaveTimeout = setTimeout(() => {
+            leaveTimeout = setTimeout(function() {
                 question.setAttribute('aria-expanded', 'false');
             }, 300);
         });
     });
 
     // --- 3. FAQ: Клик ---
-    const faqQuestions = document.querySelectorAll('.faq-question');
-    faqQuestions.forEach(question => {
+    var faqQuestions = document.querySelectorAll('.faq-question');
+    faqQuestions.forEach(function(question) {
         question.addEventListener('click', function(e) {
             clearTimeout(hoverTimeout);
             clearTimeout(leaveTimeout);
-            const isExpanded = this.getAttribute('aria-expanded') === 'true';
-            faqQuestions.forEach(q => q.setAttribute('aria-expanded', 'false'));
+            var isExpanded = this.getAttribute('aria-expanded') === 'true';
+            faqQuestions.forEach(function(q) {
+                q.setAttribute('aria-expanded', 'false');
+            });
             if (!isExpanded) {
                 this.setAttribute('aria-expanded', 'true');
             }
@@ -57,10 +61,10 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // --- 4. Кнопки "Смотреть все" и "Скрыть" ---
-    const hiddenFaq = document.getElementById('hiddenFaq');
-    const toggleAllFaq = document.getElementById('toggleAllFaq');
-    const hideAllFaq = document.getElementById('hideAllFaq');
-    const showAllButton = document.getElementById('showAllFaqButton');
+    var hiddenFaq = document.getElementById('hiddenFaq');
+    var toggleAllFaq = document.getElementById('toggleAllFaq');
+    var hideAllFaq = document.getElementById('hideAllFaq');
+    var showAllButton = document.getElementById('showAllFaqButton');
 
     if (toggleAllFaq && hiddenFaq && showAllButton) {
         toggleAllFaq.addEventListener('click', function() {
@@ -77,8 +81,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // --- 5. Раскрывающийся список "Другие зоны" ---
-    const toggleZones = document.getElementById('toggleZones');
-    const otherZones = document.getElementById('otherZones');
+    var toggleZones = document.getElementById('toggleZones');
+    var otherZones = document.getElementById('otherZones');
     if (toggleZones && otherZones) {
         toggleZones.addEventListener('click', function() {
             if (otherZones.style.display === 'none') {
@@ -92,20 +96,22 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // --- 6. Анимация при скролле ---
-    const fadeSections = document.querySelectorAll('.fade-in-section');
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
+    var fadeSections = document.querySelectorAll('.fade-in-section');
+    var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
                 observer.unobserve(entry.target);
             }
         });
     }, { rootMargin: '0px 0px -50px 0px', threshold: 0.1 });
-    fadeSections.forEach(section => observer.observe(section));
+    fadeSections.forEach(function(section) {
+        observer.observe(section);
+    });
 
     // --- 7. Форма ---
-    const contactForm = document.getElementById('contactForm');
-    const formMessage = document.getElementById('formMessage');
+    var contactForm = document.getElementById('contactForm');
+    var formMessage = document.getElementById('formMessage');
     if (contactForm) {
         contactForm.addEventListener('submit', function(event) {
             event.preventDefault();
@@ -113,19 +119,18 @@ document.addEventListener('DOMContentLoaded', function() {
             formMessage.style.color = 'green';
             formMessage.style.marginTop = '15px';
             contactForm.reset();
-            setTimeout(() => { formMessage.textContent = ''; }, 5000);
+            setTimeout(function() {
+                formMessage.textContent = '';
+            }, 5000);
         });
     }
 
     // --- 8. Попап при уходе (exit-intent) — два этапа ---
-    const exitPopup1 = document.getElementById('exitPopup1');
-    const exitPopup2 = document.getElementById('exitPopup2');
-    const closePopup1 = document.getElementById('closePopup1');
-    const closePopup2 = document.getElementById('closePopup2');
-    let popup1Shown = false;
-    let popup2Shown = false;
+    var exitPopup1 = document.getElementById('exitPopup1');
+    var exitPopup2 = document.getElementById('exitPopup2');
+    var popup1Shown = false;
+    var popup2Shown = false;
 
-    // Функция показа первого попапа
     function showPopup1() {
         if (!popup1Shown && exitPopup1) {
             exitPopup1.classList.add('visible');
@@ -133,7 +138,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Функция показа второго попапа
     function showPopup2() {
         if (!popup2Shown && exitPopup2) {
             exitPopup2.classList.add('visible');
@@ -141,7 +145,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Отслеживаем уход курсора — сначала первый попап, потом второй
     if (exitPopup1 && exitPopup2) {
         document.addEventListener('mouseout', function(e) {
             if (e.clientY < 10 && e.relatedTarget === null) {
@@ -154,27 +157,29 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Закрытие попапов по крестику и кнопке "Нет, спасибо"
-    function closePopup(popup) {
-        if (popup) popup.classList.remove('visible');
-    }
-
-    if (closePopup1) closePopup1.addEventListener('click', () => closePopup(exitPopup1));
-    if (closePopup2) closePopup2.addEventListener('click', () => closePopup(exitPopup2));
-
-    // Все кнопки "Нет, спасибо" (ищем по классу)
-    document.querySelectorAll('.close-popup-btn').forEach(btn => {
-        btn.addEventListener('click', function() {
-            const popup = this.closest('.exit-popup-overlay');
-            if (popup) popup.classList.remove('visible');
-        });
-    });
-
-    // Закрытие по клику на затемнённый фон
-    document.querySelectorAll('.exit-popup-overlay').forEach(overlay => {
+    // Закрытие попапов
+    document.querySelectorAll('.exit-popup-overlay').forEach(function(overlay) {
         overlay.addEventListener('click', function(e) {
             if (e.target === overlay) {
                 overlay.classList.remove('visible');
+            }
+        });
+    });
+
+    document.querySelectorAll('.exit-popup-close').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            var popup = this.closest('.exit-popup-overlay');
+            if (popup) {
+                popup.classList.remove('visible');
+            }
+        });
+    });
+
+    document.querySelectorAll('.close-popup-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            var popup = this.closest('.exit-popup-overlay');
+            if (popup) {
+                popup.classList.remove('visible');
             }
         });
     });

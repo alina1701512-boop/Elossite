@@ -1,10 +1,9 @@
-// 📝 Изменено: 2026-06-03 / FAQ: только один открытый вопрос одновременно
+// 📝 Изменено: 2026-06-03 / FAQ: кнопка "Смотреть все вопросы"
 document.addEventListener('DOMContentLoaded', function() {
 
-    // --- 1. Мобильное меню (гамбургер) ---
+    // --- 1. Мобильное меню ---
     const burgerMenu = document.getElementById('burgerMenu');
     const mainNav = document.getElementById('mainNav');
-
     if (burgerMenu && mainNav) {
         burgerMenu.addEventListener('click', function() {
             const isOpen = mainNav.classList.toggle('active');
@@ -18,27 +17,34 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // --- 2. FAQ Аккордеон (закрывать предыдущий при открытии нового) ---
+    // --- 2. FAQ Аккордеон ---
     const faqQuestions = document.querySelectorAll('.faq-question');
-    
     faqQuestions.forEach(question => {
         question.addEventListener('click', function() {
             const isExpanded = this.getAttribute('aria-expanded') === 'true';
-            
-            // Закрываем ВСЕ вопросы
-            faqQuestions.forEach(q => {
-                q.setAttribute('aria-expanded', 'false');
-            });
-            
-            // Если текущий вопрос был закрыт — открываем его
+            faqQuestions.forEach(q => q.setAttribute('aria-expanded', 'false'));
             if (!isExpanded) {
                 this.setAttribute('aria-expanded', 'true');
             }
-            // Если был открыт — оставляем закрытым (пользователь кликнул, чтобы закрыть)
         });
     });
 
-    // --- 3. Плавная анимация при скролле (IntersectionObserver) ---
+    // --- 3. Кнопка "Смотреть все вопросы" ---
+    const toggleAllFaq = document.getElementById('toggleAllFaq');
+    const hiddenFaq = document.getElementById('hiddenFaq');
+    if (toggleAllFaq && hiddenFaq) {
+        toggleAllFaq.addEventListener('click', function() {
+            if (hiddenFaq.style.display === 'none') {
+                hiddenFaq.style.display = 'block';
+                toggleAllFaq.textContent = 'Скрыть вопросы ↑';
+            } else {
+                hiddenFaq.style.display = 'none';
+                toggleAllFaq.textContent = 'Смотреть все вопросы ↓';
+            }
+        });
+    }
+
+    // --- 4. Анимация при скролле ---
     const fadeSections = document.querySelectorAll('.fade-in-section');
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -50,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }, { rootMargin: '0px 0px -50px 0px', threshold: 0.1 });
     fadeSections.forEach(section => observer.observe(section));
 
-    // --- 4. Обработка формы записи ---
+    // --- 5. Форма ---
     const contactForm = document.getElementById('contactForm');
     const formMessage = document.getElementById('formMessage');
     if (contactForm) {

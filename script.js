@@ -1,4 +1,4 @@
-// 📝 Изменено: 2026-06-04 / Все функции + калькулятор (исправлено)
+// 📝 Изменено: 2026-06-04 / Все функции + калькулятор (5 лет, 26 процедур)
 document.addEventListener('DOMContentLoaded', function() {
 
     // --- 1. Мобильное меню ---
@@ -184,7 +184,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-       // --- 9. Калькулятор (5 лет, 26 процедур) ---
+    // --- 9. Калькулятор (5 лет, 26 процедур) ---
     var calcButton = document.getElementById('calcButton');
     if (calcButton) {
         calcButton.addEventListener('click', function() {
@@ -204,14 +204,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
 
-            // Период сравнения — 5 лет
             var years = 5;
             var totalMoney = years * 12 * monthly;
-            var weeklyTime = 30; // минут в неделю
+            var weeklyTime = 30;
             var totalMinutes = years * 52 * weeklyTime;
             var totalHours = Math.round(totalMinutes / 60);
 
-            // Стоимость лазера: 26 процедур за 5 лет
             var fullPrice, laserMinutes;
             if (zone === '1') {
                 fullPrice = 2300;
@@ -224,8 +222,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 laserMinutes = 80;
             }
 
-            var firstDiscounted = Math.round(fullPrice * 0.65); // скидка 35%
-            var totalLaserProcedures = 26; // 12 основной курс + 14 поддерживающих
+            var firstDiscounted = Math.round(fullPrice * 0.65);
+            var totalLaserProcedures = 26;
             var totalLaserCost = firstDiscounted + (fullPrice * (totalLaserProcedures - 1));
             var totalLaserMinutes = laserMinutes * totalLaserProcedures;
             var totalLaserHours = Math.round(totalLaserMinutes / 60);
@@ -243,7 +241,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 saveText = '💡 Да, лазер стоит своих денег. Но за 5 лет ты провела ' + totalHours + ' часов с бритвой в руках. Лазер — это ' + totalLaserHours + ' часов и свобода от щетины на 5 лет.';
             }
 
-            // Показываем результат
             document.getElementById('calcYears').textContent = years;
             document.getElementById('calcMoney').textContent = totalMoney.toLocaleString() + ' ₽';
             document.getElementById('calcTime').textContent = totalHours.toLocaleString() + ' часов';
@@ -255,3 +252,5 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('calcResult').scrollIntoView({ behavior: 'smooth' });
         });
     }
+
+});

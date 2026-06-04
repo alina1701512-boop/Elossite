@@ -233,12 +233,23 @@ document.addEventListener('DOMContentLoaded', function() {
             var savedHours = totalHours - totalLaserHours;
             if (savedHours < 0) savedHours = 0;
 
-            if (saveMoney > 5000) {
+                        if (saveMoney > 5000) {
                 saveText = '🎉 Экономия: ' + saveMoney.toLocaleString() + ' ₽ и ' + savedHours + ' часов жизни!';
             } else if (saveMoney > 0) {
                 saveText = '👍 Экономия: ' + saveMoney.toLocaleString() + ' ₽. Даже небольшая выгода — это приятно!';
             } else {
-                saveText = '💡 Да, лазер стоит своих денег. Но за 5 лет ты провела ' + totalHours + ' часов с бритвой в руках. Лазер — это ' + totalLaserHours + ' часов и свобода от щетины на 5 лет.';
+                // Текст зависит от выбранного способа
+                var methodText = '';
+                if (method === 'Бритва (станок)') {
+                    methodText = 'с бритвой в руках';
+                } else if (method === 'Воск / Шугаринг') {
+                    methodText = 'в кабинете косметолога, терпя боль и отращивая волосы';
+                } else if (method === 'Эпилятор') {
+                    methodText = 'с эпилятором в руках, превозмогая боль и борясь с вросшими волосами';
+                } else if (method === 'Крем для депиляции') {
+                    methodText = 'на химическую депиляцию с её запахом и риском ожогов';
+                }
+                saveText = '💡 Да, лазер стоит своих денег. Но за 5 лет ты провела ' + totalHours + ' часов ' + methodText + '. Лазер — это всего ' + totalLaserHours + ' часов за 5 лет и свобода от щетины.';
             }
 
             document.getElementById('calcYears').textContent = years;

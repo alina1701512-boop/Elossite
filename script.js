@@ -237,18 +237,27 @@ document.addEventListener('DOMContentLoaded', function() {
             var totalLaserMinutes = laserMinutes * 10 * coursesNeeded;
             var totalLaserHours = Math.round(totalLaserMinutes / 60);
 
-            var saveMoney = totalMoney - totalLaserCost;
-            if (saveMoney < 0) saveMoney = 0;
+                       var saveMoney = totalMoney - totalLaserCost;
+            var saveText = '';
+            var savedHours = totalHours - totalLaserHours;
+            if (savedHours < 0) savedHours = 0;
 
+            if (saveMoney > 5000) {
+                saveText = '🎉 Экономия: ' + saveMoney.toLocaleString() + ' ₽ и ' + savedHours + ' часов жизни!';
+            } else if (saveMoney > 0) {
+                saveText = '👍 Экономия: ' + saveMoney.toLocaleString() + ' ₽. Даже небольшая выгода — это приятно!';
+            } else {
+                saveText = '💡 Да, лазер стоит своих денег. Но за эти ' + years + ' лет ты провела ' + totalHours + ' часов с бритвой в руках. Лазер — это ' + totalLaserHours + ' часов и свобода от щетины на 5 лет.';
+            }
+
+            // Показываем результат
             document.getElementById('calcYears').textContent = years;
             document.getElementById('calcMoney').textContent = totalMoney.toLocaleString() + ' ₽';
             document.getElementById('calcTime').textContent = totalHours.toLocaleString() + ' часов';
             document.getElementById('calcLaserCost').textContent = totalLaserCost.toLocaleString() + ' ₽';
             document.getElementById('calcLaserTime').textContent = 'займёт всего ' + totalLaserHours + ' часов за ' + coursesNeeded + ' курс(а)';
-            document.getElementById('calcSave').textContent = saveMoney.toLocaleString() + ' ₽';
+            document.getElementById('calcSave').textContent = saveText;
             document.getElementById('calcResult').style.display = 'block';
-
-            document.getElementById('calcResult').scrollIntoView({ behavior: 'smooth' });
         });
     }
 

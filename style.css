@@ -198,7 +198,13 @@ h1, h2, h3 { font-family: 'Montserrat', sans-serif; line-height: 1.3; }
     transition: var(--transition);
 }
 .exit-popup-close:hover { color: var(--color-text); }
+/* === СЕТКА ДЛЯ БЛОКА "ВАШ ПУТЬ" === */
+.how-grid { display: grid; grid-template-columns: 1fr; gap: 40px; align-items: start; }
+.how-calculator { background-color: var(--color-pastel); padding: 25px; border-radius: var(--radius-md); }
 
+@media (min-width: 768px) {
+    .how-grid { grid-template-columns: 1fr 1fr; }
+}
 /* === АДАПТИВНОСТЬ === */
 @media (min-width: 768px) {
     .hero-grid { flex-direction: row; }

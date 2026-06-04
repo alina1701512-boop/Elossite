@@ -210,7 +210,7 @@ h1, h2, h3 { font-family: 'Montserrat', sans-serif; line-height: 1.3; }
 .body-silhouette {
     position: relative;
     width: 160px;
-    height: 360px;
+    height: 380px;
     margin: 0 auto;
 }
 /* Голова */
@@ -273,7 +273,7 @@ h1, h2, h3 { font-family: 'Montserrat', sans-serif; line-height: 1.3; }
 .zone-dot {
     display: block;
     width: 14px; height: 14px;
-    background-color: #E8DDD8;
+    background-color: var(--color-accent);
     border: 2.5px solid #fff;
     border-radius: 50%;
     box-shadow: 0 2px 6px rgba(232,165,152,0.5);
@@ -287,12 +287,12 @@ h1, h2, h3 { font-family: 'Montserrat', sans-serif; line-height: 1.3; }
 .pain-zone:hover .zone-dot { transform: scale(1.5); animation: none; }
 
 /* Позиции точек */
-.zone-underarms { top: 165px; left: 10px; }
-.zone-underarms-right { top: 165px; right: 10px; left: auto; }
-.zone-bikini { top: 225px; left: 50%; transform: translateX(-50%); }
-.zone-legs { top: 315px; left: 20px; }
-.zone-legs-right { top: 315px; right: 20px; left: auto; }
-.zone-face { top: 10px; left: 50%; transform: translateX(-50%); }
+.zone-underarms { top: 168px; left: 0px; }
+.zone-underarms-right { top: 168px; right: 0px; left: auto; }
+.zone-bikini { top: 230px; left: 50%; transform: translateX(-50%); }
+.zone-legs { top: 320px; left: 15px; }
+.zone-legs-right { top: 320px; right: 15px; left: auto; }
+.zone-face { top: 5px; left: 50%; transform: translateX(-50%); }
 
 /* Всплывающая подсказка */
 .zone-tooltip {
@@ -313,14 +313,13 @@ h1, h2, h3 { font-family: 'Montserrat', sans-serif; line-height: 1.3; }
 .pain-zone:hover .zone-tooltip { display: block; }
 
 /* Позиции подсказок */
-.zone-underarms .zone-tooltip { top: -80px; left: 25px; }
-.zone-underarms-right .zone-tooltip { top: -80px; right: 25px; left: auto; }
-.zone-bikini .zone-tooltip { top: -80px; left: -95px; }
-.zone-legs .zone-tooltip { top: -80px; left: 25px; }
-.zone-legs-right .zone-tooltip { top: -80px; right: 25px; left: auto; }
-.zone-face .zone-tooltip { top: -90px; left: -95px; }
+.zone-underarms .zone-tooltip { top: -85px; left: 25px; }
+.zone-underarms-right .zone-tooltip { top: -85px; right: 25px; left: auto; }
+.zone-bikini .zone-tooltip { top: -85px; left: -95px; }
+.zone-legs .zone-tooltip { top: -85px; left: 25px; }
+.zone-legs-right .zone-tooltip { top: -85px; right: 25px; left: auto; }
+.zone-face .zone-tooltip { top: -95px; left: -95px; }
 
-/* Адаптив */
 @media (max-width: 768px) {
     .zone-tooltip { width: 190px; font-size: 0.78rem; }
     .zone-bikini .zone-tooltip { left: -80px; }

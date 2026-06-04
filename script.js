@@ -1,4 +1,4 @@
-// 📝 Изменено: 2026-06-03 / Все функции + попапы (финальная версия)
+// 📝 Изменено: 2026-06-04 / Все функции + калькулятор (исправлено)
 document.addEventListener('DOMContentLoaded', function() {
 
     // --- 1. Мобильное меню ---
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // --- 2. FAQ: Плавный ховер (наведение мыши) ---
+    // --- 2. FAQ: Плавный ховер ---
     var faqItems = document.querySelectorAll('.faq-item');
     var hoverTimeout;
     var leaveTimeout;
@@ -125,7 +125,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // --- 8. Попап при уходе (exit-intent) — два этапа ---
+    // --- 8. Попап при уходе ---
     var exitPopup1 = document.getElementById('exitPopup1');
     var exitPopup2 = document.getElementById('exitPopup2');
     var popup1Shown = false;
@@ -183,7 +183,8 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-        // --- 9. Калькулятор ---
+
+    // --- 9. Калькулятор ---
     var calcButton = document.getElementById('calcButton');
     if (calcButton) {
         calcButton.addEventListener('click', function() {
@@ -203,14 +204,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
 
-            // Считаем годы
             var years = currentAge - startAge;
             var totalMoney = years * 12 * monthly;
-            var weeklyTime = 30; // минут в неделю по умолчанию
+            var weeklyTime = 30;
             var totalMinutes = years * 52 * weeklyTime;
             var totalHours = Math.round(totalMinutes / 60);
 
-            // Стоимость лазера за тот же период
             var fullPrice, laserMinutes;
             if (zone === '1') {
                 fullPrice = 2300;
@@ -223,29 +222,24 @@ document.addEventListener('DOMContentLoaded', function() {
                 laserMinutes = 80;
             }
 
-            // Основной курс: 1-я со скидкой 35%, 9 полных = 10 процедур за 5-6 лет
             var firstDiscounted = Math.round(fullPrice * 0.65);
             var mainCourse = firstDiscounted + (fullPrice * 9);
-
-            // Сколько курсов нужно за весь период
-            var coursesNeeded = Math.ceil(years / 5); // каждые 5 лет — новый курс
+            var coursesNeeded = Math.ceil(years / 5);
             var totalLaserCost = 0;
             for (var i = 0; i < coursesNeeded; i++) {
                 if (i === 0) {
-                    totalLaserCost += mainCourse; // первый курс со скидкой
+                    totalLaserCost += mainCourse;
                 } else {
-                    totalLaserCost += fullPrice * 10; // остальные курсы по полной
+                    totalLaserCost += fullPrice * 10;
                 }
             }
 
-            // Время на лазер: 10 процедур × длительность × количество курсов
             var totalLaserMinutes = laserMinutes * 10 * coursesNeeded;
             var totalLaserHours = Math.round(totalLaserMinutes / 60);
 
             var saveMoney = totalMoney - totalLaserCost;
             if (saveMoney < 0) saveMoney = 0;
 
-            // Показываем результат
             document.getElementById('calcYears').textContent = years;
             document.getElementById('calcMoney').textContent = totalMoney.toLocaleString() + ' ₽';
             document.getElementById('calcTime').textContent = totalHours.toLocaleString() + ' часов';
@@ -254,8 +248,8 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('calcSave').textContent = saveMoney.toLocaleString() + ' ₽';
             document.getElementById('calcResult').style.display = 'block';
 
-            // Прокрутка к результату
             document.getElementById('calcResult').scrollIntoView({ behavior: 'smooth' });
         });
     }
+
 });

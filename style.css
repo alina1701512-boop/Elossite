@@ -209,71 +209,120 @@ h1, h2, h3 { font-family: 'Montserrat', sans-serif; line-height: 1.3; }
 .pain-map-container { display: flex; justify-content: center; margin-top: 20px; }
 .body-silhouette {
     position: relative;
-    width: 200px;
-    height: 400px;
-    background-color: var(--color-pastel);
-    border-radius: 100px 100px 30px 30px;
+    width: 160px;
+    height: 360px;
     margin: 0 auto;
 }
 /* Голова */
-.body-silhouette::before {
-    content: '';
-    position: absolute;
-    top: -60px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 80px;
+.silhouette-head {
+    width: 50px; height: 55px;
     background-color: var(--color-pastel);
     border-radius: 50%;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
 }
+/* Шея */
+.silhouette-neck {
+    width: 16px; height: 15px;
+    background-color: var(--color-pastel);
+    margin: -3px auto 0;
+    position: relative;
+    z-index: 1;
+}
+/* Тело */
+.silhouette-body {
+    width: 90px; height: 120px;
+    background-color: var(--color-pastel);
+    margin: -5px auto 0;
+    border-radius: 40px 40px 0 0;
+    position: relative;
+}
+/* Руки */
+.silhouette-arms {
+    position: relative;
+    width: 160px;
+    margin: -10px auto 0;
+}
+.silhouette-arm-left, .silhouette-arm-right {
+    width: 22px; height: 130px;
+    background-color: var(--color-pastel);
+    border-radius: 20px 20px 5px 5px;
+    position: absolute;
+    top: 0;
+}
+.silhouette-arm-left { left: 10px; transform: rotate(8deg); transform-origin: top center; }
+.silhouette-arm-right { right: 10px; transform: rotate(-8deg); transform-origin: top center; }
+/* Ноги */
+.silhouette-legs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: -8px;
+    position: relative;
+    z-index: 0;
+}
+.silhouette-leg-left, .silhouette-leg-right {
+    width: 28px; height: 130px;
+    background-color: var(--color-pastel);
+    border-radius: 0 0 5px 5px;
+}
+
 /* Точки на зонах */
-.pain-zone { position: absolute; cursor: pointer; }
+.pain-zone { position: absolute; cursor: pointer; z-index: 5; }
 .zone-dot {
     display: block;
-    width: 16px;
-    height: 16px;
+    width: 14px; height: 14px;
     background-color: var(--color-accent);
-    border: 3px solid #fff;
+    border: 2.5px solid #fff;
     border-radius: 50%;
-    box-shadow: 0 2px 8px rgba(232,165,152,0.5);
+    box-shadow: 0 2px 6px rgba(232,165,152,0.5);
     transition: transform 0.3s ease;
     animation: pulse 2s infinite;
 }
 @keyframes pulse {
     0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.3); }
+    50% { transform: scale(1.25); }
 }
 .pain-zone:hover .zone-dot { transform: scale(1.5); animation: none; }
+
 /* Позиции точек */
-.zone-underarms { top: 90px; left: 30px; }
-.zone-bikini { top: 210px; left: 50%; transform: translateX(-50%); }
-.zone-legs { top: 300px; left: 30px; }
-.zone-face { top: -30px; left: 50%; transform: translateX(-50%); }
+.zone-underarms { top: 165px; left: 10px; }
+.zone-underarms-right { top: 165px; right: 10px; left: auto; }
+.zone-bikini { top: 225px; left: 50%; transform: translateX(-50%); }
+.zone-legs { top: 315px; left: 20px; }
+.zone-legs-right { top: 315px; right: 20px; left: auto; }
+.zone-face { top: 10px; left: 50%; transform: translateX(-50%); }
+
 /* Всплывающая подсказка */
 .zone-tooltip {
     display: none;
     position: absolute;
-    width: 250px;
+    width: 230px;
     background-color: #fff;
     border-radius: var(--radius-md);
-    padding: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    padding: 12px 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
     z-index: 10;
-    font-size: 0.85rem;
+    font-size: 0.82rem;
     line-height: 1.5;
     color: var(--color-text);
+    text-align: left;
 }
-.zone-tooltip strong { color: var(--color-accent); }
+.zone-tooltip strong { color: var(--color-accent); display: block; margin-bottom: 4px; }
 .pain-zone:hover .zone-tooltip { display: block; }
+
 /* Позиции подсказок */
-.zone-underarms .zone-tooltip { top: -20px; left: 30px; }
-.zone-bikini .zone-tooltip { top: -50px; left: -100px; }
-.zone-legs .zone-tooltip { top: -60px; left: 30px; }
-.zone-face .zone-tooltip { top: -100px; left: -100px; }
-/* Адаптив для планшетов и телефонов */
+.zone-underarms .zone-tooltip { top: -80px; left: 25px; }
+.zone-underarms-right .zone-tooltip { top: -80px; right: 25px; left: auto; }
+.zone-bikini .zone-tooltip { top: -80px; left: -95px; }
+.zone-legs .zone-tooltip { top: -80px; left: 25px; }
+.zone-legs-right .zone-tooltip { top: -80px; right: 25px; left: auto; }
+.zone-face .zone-tooltip { top: -90px; left: -95px; }
+
+/* Адаптив */
 @media (max-width: 768px) {
-    .zone-tooltip { width: 200px; font-size: 0.8rem; }
+    .zone-tooltip { width: 190px; font-size: 0.78rem; }
     .zone-bikini .zone-tooltip { left: -80px; }
     .zone-face .zone-tooltip { left: -80px; }
 }

@@ -183,5 +183,64 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+    // --- 9. Калькулятор ---
+    var calcButton = document.getElementById('calcButton');
+    if (calcButton) {
+        calcButton.addEventListener('click', function() {
+            var method = document.getElementById('calcMethod').value;
+            var startAge = parseInt(document.getElementById('calcStartAge').value);
+            var currentAge = parseInt(document.getElementById('calcCurrentAge').value);
+            var zone = document.getElementById('calcZone').value;
+            var monthly = parseInt(document.getElementById('calcMonthly').value);
 
+            if (!method || !startAge || !currentAge || !zone || !monthly) {
+                alert('Пожалуйста, заполните все поля!');
+                return;
+            }
+
+            if (startAge >= currentAge) {
+                alert('Возраст начала должен быть меньше текущего возраста');
+                return;
+            }
+
+            // Считаем годы
+            var years = currentAge - startAge;
+            var totalMoney = years * 12 * monthly;
+            var weeklyTime = 30; // минут в неделю по умолчанию
+            var totalMinutes = years * 52 * weeklyTime;
+            var totalHours = Math.round(totalMinutes / 60);
+
+            // Стоимость лазера: первая процедура со скидкой 35%, остальные 9 — полная цена
+            var fullPrice, firstDiscounted, totalLaserCost, laserMinutes;
+            if (zone === '1') {
+                fullPrice = 2300;
+                laserMinutes = 30;
+            } else if (zone === '2') {
+                fullPrice = 3500;
+                laserMinutes = 60;
+            } else if (zone === '3') {
+                fullPrice = 4400;
+                laserMinutes = 80;
+            }
+            firstDiscounted = Math.round(fullPrice * 0.65); // скидка 35%
+            totalLaserCost = firstDiscounted + (fullPrice * 9); // 1 со скидкой + 9 полных
+            var totalLaserMinutes = laserMinutes * 10;
+            var totalLaserHours = Math.round(totalLaserMinutes / 60);
+
+            var saveMoney = totalMoney - totalLaserCost;
+            if (saveMoney < 0) saveMoney = 0;
+
+            // Показываем результат
+            document.getElementById('calcYears').textContent = years;
+            document.getElementById('calcMoney').textContent = totalMoney.toLocaleString() + ' ₽';
+            document.getElementById('calcTime').textContent = totalHours.toLocaleString() + ' часов';
+            document.getElementById('calcLaserCost').textContent = totalLaserCost.toLocaleString() + ' ₽';
+            document.getElementById('calcLaserTime').textContent = 'займёт всего ' + totalLaserHours + ' часов';
+            document.getElementById('calcSave').textContent = saveMoney.toLocaleString() + ' ₽';
+            document.getElementById('calcResult').style.display = 'block';
+
+            // Прокрутка к результату
+            document.getElementById('calcResult').scrollIntoView({ behavior: 'smooth' });
+        });
+    }
 });

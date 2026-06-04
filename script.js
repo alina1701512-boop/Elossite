@@ -157,7 +157,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Закрытие попапов
+      // Закрытие попапов
     document.querySelectorAll('.exit-popup-overlay').forEach(function(overlay) {
         overlay.addEventListener('click', function(e) {
             if (e.target === overlay) {

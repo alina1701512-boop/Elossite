@@ -1,4 +1,4 @@
-// 📝 Изменено: 2026-06-04 / Все функции + калькулятор (5 лет, 26 процедур)
+// 📝 Изменено: 2026-06-04 / Все функции + калькулятор (исправлено)
 document.addEventListener('DOMContentLoaded', function() {
 
     // --- 1. Мобильное меню ---
@@ -157,7 +157,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-      // Закрытие попапов
+    // Закрытие попапов
     document.querySelectorAll('.exit-popup-overlay').forEach(function(overlay) {
         overlay.addEventListener('click', function(e) {
             if (e.target === overlay) {

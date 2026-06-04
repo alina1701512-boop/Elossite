@@ -264,40 +264,82 @@
             </div>
         </section>
         <!-- КАРТА БОЛИ -->
+               <!-- КАРТА БОЛИ -->
         <section id="pain-map" class="section-padding bg-pastel" aria-labelledby="pain-map-heading">
             <div class="container">
                 <h2 class="section-title text-center fade-in-section" id="pain-map-heading">Что ты почувствуешь?</h2>
                 <p class="text-center section-subtext fade-in-section" style="margin-bottom: 30px;">Наведи на зону — узнаешь реальные ощущения от девушек, которые уже прошли процедуру</p>
                 
                 <div class="pain-map-container fade-in-section">
-                    <!-- Силуэт тела (CSS-рисунок) -->
                     <div class="body-silhouette">
-                        <div class="pain-zone zone-bikini" data-zone="bikini">
+                        <!-- Голова -->
+                        <div class="silhouette-head"></div>
+                        <!-- Шея -->
+                        <div class="silhouette-neck"></div>
+                        <!-- Тело -->
+                        <div class="silhouette-body"></div>
+                        <!-- Руки -->
+                        <div class="silhouette-arms">
+                            <div class="silhouette-arm-left"></div>
+                            <div class="silhouette-arm-right"></div>
+                        </div>
+                        <!-- Ноги -->
+                        <div class="silhouette-legs">
+                            <div class="silhouette-leg-left"></div>
+                            <div class="silhouette-leg-right"></div>
+                        </div>
+
+                        <!-- Точка: Верхняя губа -->
+                        <div class="pain-zone zone-face">
                             <span class="zone-dot"></span>
                             <div class="zone-tooltip">
-                                <strong>Глубокое бикини</strong><br>
-                                Чувствительнее, чем подмышки, но терпимо. Как щелчок резинки. Длится 5-7 минут. Большинство девушек говорят: «Я боялась гораздо сильнее!»
+                                <strong>Верхняя губа</strong>
+                                Чувствительно, но вы даже не успеете испугаться. Занимает 2 минуты.
                             </div>
                         </div>
-                        <div class="pain-zone zone-underarms" data-zone="underarms">
+
+                        <!-- Точка: Подмышки (левая) -->
+                        <div class="pain-zone zone-underarms">
                             <span class="zone-dot"></span>
                             <div class="zone-tooltip">
-                                <strong>Подмышки</strong><br>
+                                <strong>Подмышки</strong>
                                 Как лёгкое пощипывание. 9 из 10 девушек говорят: «И это всё? Я боялась зря!» Самая быстрая зона — 10 минут.
                             </div>
                         </div>
-                        <div class="pain-zone zone-legs" data-zone="legs">
+
+                        <!-- Точка: Подмышки (правая) -->
+                        <div class="pain-zone zone-underarms-right">
                             <span class="zone-dot"></span>
                             <div class="zone-tooltip">
-                                <strong>Голени</strong><br>
-                                Почти не чувствуется. Самая безболезненная зона. Можно расслабиться и думать о приятном. 30 минут — и готово!
+                                <strong>Подмышки</strong>
+                                Как лёгкое пощипывание. 9 из 10 девушек говорят: «И это всё? Я боялась зря!» Самая быстрая зона — 10 минут.
                             </div>
                         </div>
-                        <div class="pain-zone zone-face" data-zone="face">
+
+                        <!-- Точка: Глубокое бикини -->
+                        <div class="pain-zone zone-bikini">
                             <span class="zone-dot"></span>
                             <div class="zone-tooltip">
-                                <strong>Верхняя губа</strong><br>
-                                Мгновенно! Одна вспышка — и готово. Даже не успеете испугаться. Занимает 2 минуты.
+                                <strong>Глубокое бикини</strong>
+                                Самая чувствительная зона, но терпимо. Как щелчок резинки. Большинство девушек говорят: «Я боялась гораздо сильнее!»
+                            </div>
+                        </div>
+
+                        <!-- Точка: Голени (левая) -->
+                        <div class="pain-zone zone-legs">
+                            <span class="zone-dot"></span>
+                            <div class="zone-tooltip">
+                                <strong>Голени</strong>
+                                Почти не чувствуется, только у косточки спереди. Самая безболезненная зона. Можно расслабиться и думать о приятном. 30 минут — и готово!
+                            </div>
+                        </div>
+
+                        <!-- Точка: Голени (правая) -->
+                        <div class="pain-zone zone-legs-right">
+                            <span class="zone-dot"></span>
+                            <div class="zone-tooltip">
+                                <strong>Голени</strong>
+                                Почти не чувствуется, только у косточки спереди. Самая безболезненная зона. Можно расслабиться и думать о приятном. 30 минут — и готово!
                             </div>
                         </div>
                     </div>

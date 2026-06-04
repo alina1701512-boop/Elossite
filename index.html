@@ -141,71 +141,7 @@
                 <p class="section-subtext text-center fade-in-section">Вы устали. Вы хотите просто носить что угодно, когда угодно. Не думать «успела ли я побриться?», не краснеть при близости. Хотите забыть о волосах. Навсегда.</p>
             </div>
         </section>
-        <!-- КАЛЬКУЛЯТОР -->
-        <section id="calculator" class="section-padding bg-pastel" aria-labelledby="calculator-heading">
-            <div class="container">
-                <h2 class="section-title text-center fade-in-section" id="calculator-heading">💸 Посчитай, сколько ты тратишь на бритьё</h2>
-                <p class="text-center section-subtext fade-in-section" style="margin-bottom: 30px;">Узнай за 30 секунд, сколько денег и времени ты отдашь бритью за всю жизнь — и сравни с лазером</p>
-                
-                <div class="calculator-form fade-in-section" style="max-width: 600px; margin: 0 auto; background-color: var(--color-surface); padding: 30px; border-radius: var(--radius-md); box-shadow: var(--shadow);">
-                    
-                    <div class="form-group">
-                        <label for="calcMethod">Чем пользуешься?</label>
-                        <select id="calcMethod" required style="width:100%; padding:14px 18px; border:1px solid #ddd; border-radius:var(--radius-sm); font-family:inherit; font-size:1rem; background-color:var(--color-bg);">
-                            <option value="">Выберите способ</option>
-                            <option value="Бритва (станок)">Бритва (станок)</option>
-                            <option value="Воск / Шугаринг">Воск / Шугаринг</option>
-                            <option value="Эпилятор">Эпилятор</option>
-                            <option value="Крем для депиляции">Крем для депиляции</option>
-                        </select>
-                    </div>
-
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
-                        <div class="form-group">
-                            <label for="calcStartAge">Во сколько лет начала?</label>
-                            <input type="number" id="calcStartAge" min="10" max="60" placeholder="Например: 16" required style="width:100%; padding:14px 18px; border:1px solid #ddd; border-radius:var(--radius-sm); font-family:inherit; font-size:1rem; background-color:var(--color-bg);">
-                        </div>
-                        <div class="form-group">
-                            <label for="calcCurrentAge">Сколько сейчас лет?</label>
-                            <input type="number" id="calcCurrentAge" min="10" max="80" placeholder="Например: 28" required style="width:100%; padding:14px 18px; border:1px solid #ddd; border-radius:var(--radius-sm); font-family:inherit; font-size:1rem; background-color:var(--color-bg);">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="calcZone">Какую зону хочешь?</label>
-                        <select id="calcZone" required style="width:100%; padding:14px 18px; border:1px solid #ddd; border-radius:var(--radius-sm); font-family:inherit; font-size:1rem; background-color:var(--color-bg);">
-                            <option value="">Выберите комплекс</option>
-                            <option value="1">Подмышки + глубокое бикини (2300 ₽ / 30 мин)</option>
-                            <option value="2">Подмышки + бикини + голени (3500 ₽ / 60 мин)</option>
-                            <option value="3">Подмышки + бикини + ноги полностью (4400 ₽ / 1 ч 20 мин)</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="calcMonthly">Сколько тратишь в месяц? (₽)</label>
-                        <input type="number" id="calcMonthly" min="0" max="50000" placeholder="Например: 500" required style="width:100%; padding:14px 18px; border:1px solid #ddd; border-radius:var(--radius-sm); font-family:inherit; font-size:1rem; background-color:var(--color-bg);">
-                    </div>
-
-                    <button id="calcButton" class="btn btn-primary btn-block">🔢 Посчитать</button>
-
-                    <div id="calcResult" style="display:none; margin-top:25px; padding:25px; background-color:#FFF9F8; border-radius:var(--radius-md); text-align:center;">
-                        <p style="font-size:1.1rem; font-weight:600; margin-bottom:15px;">📊 Результат за <span id="calcYears">0</span> лет бритья:</p>
-                        <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:15px;">
-                            <div><span style="font-size:1.5rem;">💰</span><br><strong id="calcMoney">0 ₽</strong><br><span style="font-size:0.8rem; color:var(--color-text-light);">потрачено денег</span></div>
-                            <div><span style="font-size:1.5rem;">⏰</span><br><strong id="calcTime">0 часов</strong><br><span style="font-size:0.8rem; color:var(--color-text-light);">потрачено времени</span></div>
-                        </div>
-                        <div style="background-color:var(--color-pastel); padding:15px; border-radius:var(--radius-sm); margin-bottom:15px;">
-                            <p style="margin-bottom:5px;">✨ <strong>С лазерной эпиляцией (26 процедур за 5 лет):</strong></p>
-                            <p style="font-size:1.2rem; font-weight:700; color:var(--color-accent);" id="calcLaserCost">0 ₽</p>
-                           <p style="font-size:0.9rem; color:var(--color-text-light);">Первая процедура со скидкой 35%, остальные 9 — полная цена</p>
-                            <p style="font-size:0.8rem; color:var(--color-text-light);" id="calcLaserTime">займёт всего 0 часов</p>
-                        </div>
-                                    <p style="font-size:1.1rem; font-weight:600; color:var(--color-text);"><span id="calcSave"></span></p>
-                        <a href="https://dikidi.app/714399?p=0.pi-po-ss-sd-cf-ai&o=2&m=1701055&s=8690938" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-block" style="margin-top:15px;">Записаться и начать экономить</a>
-                    </div>
-                </div>
-            </div>
-        </section>
+  
         <section id="why-us" class="section-padding bg-pastel" aria-labelledby="why-us-heading">
             <div class="container">
                 <h2 class="section-title text-center fade-in-section" id="why-us-heading">Почему здесь всё иначе</h2>
@@ -222,14 +158,108 @@
             </div>
         </section>
 
-        <section id="how-it-works" class="section-padding bg-surface" aria-labelledby="how-heading">
+               <section id="how-it-works" class="section-padding bg-surface" aria-labelledby="how-heading">
             <div class="container">
                 <h2 class="section-title text-center fade-in-section" id="how-heading">Ваш путь к гладкой коже</h2>
-                <div class="steps-timeline">
-                    <div class="step-item fade-in-section"><div class="step-number">1</div><div class="step-content"><span class="step-time">Бесплатно</span><h3>Консультация</h3><p>Отвечаю на все вопросы. Никаких обязательств.</p></div></div>
-                    <div class="step-item fade-in-section"><div class="step-number">2</div><div class="step-content"><span class="step-time">10–40 минут</span><h3>Процедура</h3><p>Подмышки — 10 мин, бикини — 25 мин, ноги — 40 мин. Комфортная мощность.</p></div></div>
-                    <div class="step-item fade-in-section"><div class="step-number">3</div><div class="step-content"><span class="step-time">Сразу после</span><h3>Памятка и поддержка</h3><p>Что можно/нельзя 48 часов. Я на связи в Telegram.</p></div></div>
-                    <div class="step-item fade-in-section"><div class="step-number">4</div><div class="step-content"><span class="step-time">Через неделю</span><h3>Результат</h3><p>Волосы начнут выпадать. Курс — 12 процедур с интервалом 6-8 недель.</p></div></div>
+                
+                <div class="how-grid">
+                    <!-- Левая колонка: шаги -->
+                    <div class="how-steps fade-in-section">
+                        <div class="steps-timeline">
+                            <div class="step-item">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <span class="step-time">Бесплатно</span>
+                                    <h3>Консультация</h3>
+                                    <p>Отвечаю на все вопросы. Никаких обязательств.</p>
+                                </div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <span class="step-time">10–40 минут</span>
+                                    <h3>Процедура</h3>
+                                    <p>Подмышки — 10 мин, бикини — 25 мин, ноги — 40 мин. Комфортная мощность.</p>
+                                </div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <span class="step-time">Сразу после</span>
+                                    <h3>Памятка и поддержка</h3>
+                                    <p>Что можно/нельзя 48 часов. Я на связи в Telegram.</p>
+                                </div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-number">4</div>
+                                <div class="step-content">
+                                    <span class="step-time">Через неделю</span>
+                                    <h3>Результат</h3>
+                                    <p>Волосы начнут выпадать. Курс — 12 процедур с интервалом 6-8 недель.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Правая колонка: калькулятор -->
+                    <div class="how-calculator fade-in-section">
+                        <h3 style="text-align:center; margin-bottom:20px;">💸 Посчитай, сколько ты тратишь на бритьё</h3>
+                        
+                        <div class="form-group">
+                            <label for="calcMethod">Чем пользуешься?</label>
+                            <select id="calcMethod" required style="width:100%; padding:12px 15px; border:1px solid #ddd; border-radius:var(--radius-sm); font-family:inherit; font-size:0.9rem; background-color:var(--color-bg);">
+                                <option value="">Выберите способ</option>
+                                <option value="Бритва (станок)">Бритва (станок)</option>
+                                <option value="Воск / Шугаринг">Воск / Шугаринг</option>
+                                <option value="Эпилятор">Эпилятор</option>
+                                <option value="Крем для депиляции">Крем для депиляции</option>
+                            </select>
+                        </div>
+
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                            <div class="form-group">
+                                <label for="calcStartAge">Во сколько лет начала?</label>
+                                <input type="number" id="calcStartAge" min="10" max="60" placeholder="Например: 16" required style="width:100%; padding:12px 15px; border:1px solid #ddd; border-radius:var(--radius-sm); font-family:inherit; font-size:0.9rem; background-color:var(--color-bg);">
+                            </div>
+                            <div class="form-group">
+                                <label for="calcCurrentAge">Сколько сейчас лет?</label>
+                                <input type="number" id="calcCurrentAge" min="10" max="80" placeholder="Например: 28" required style="width:100%; padding:12px 15px; border:1px solid #ddd; border-radius:var(--radius-sm); font-family:inherit; font-size:0.9rem; background-color:var(--color-bg);">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="calcZone">Какую зону хочешь?</label>
+                            <select id="calcZone" required style="width:100%; padding:12px 15px; border:1px solid #ddd; border-radius:var(--radius-sm); font-family:inherit; font-size:0.9rem; background-color:var(--color-bg);">
+                                <option value="">Выберите комплекс</option>
+                                <option value="1">Подмышки + бикини (2300 ₽ / 30 мин)</option>
+                                <option value="2">Подмышки + бикини + голени (3500 ₽ / 60 мин)</option>
+                                <option value="3">Подмышки + бикини + ноги (4400 ₽ / 1 ч 20 мин)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="calcMonthly">Сколько тратишь в месяц? (₽)</label>
+                            <input type="number" id="calcMonthly" min="0" max="50000" placeholder="Например: 500" required style="width:100%; padding:12px 15px; border:1px solid #ddd; border-radius:var(--radius-sm); font-family:inherit; font-size:0.9rem; background-color:var(--color-bg);">
+                        </div>
+
+                        <button id="calcButton" class="btn btn-primary btn-block">🔢 Посчитать</button>
+
+                        <div id="calcResult" style="display:none; margin-top:20px; padding:20px; background-color:#FFF9F8; border-radius:var(--radius-md); text-align:center;">
+                            <p style="font-size:1rem; font-weight:600; margin-bottom:10px;">📊 Результат за <span id="calcYears">5</span> лет:</p>
+                            <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:10px;">
+                                <div><span style="font-size:1.2rem;">💰</span><br><strong id="calcMoney">0 ₽</strong><br><span style="font-size:0.7rem; color:var(--color-text-light);">потрачено денег</span></div>
+                                <div><span style="font-size:1.2rem;">⏰</span><br><strong id="calcTime">0 часов</strong><br><span style="font-size:0.7rem; color:var(--color-text-light);">потрачено времени</span></div>
+                            </div>
+                            <div style="background-color:var(--color-pastel); padding:12px; border-radius:var(--radius-sm); margin-bottom:10px;">
+                                <p style="margin-bottom:3px; font-size:0.9rem;">✨ <strong>С лазером (24 процедуры за 5 лет):</strong></p>
+                                <p style="font-size:1.1rem; font-weight:700; color:var(--color-accent);" id="calcLaserCost">0 ₽</p>
+                                <p style="font-size:0.75rem; color:var(--color-text-light);">Первая со скидкой 35%, остальные 23 — полная цена</p>
+                                <p style="font-size:0.75rem; color:var(--color-text-light);" id="calcLaserTime">займёт 0 часов</p>
+                            </div>
+                            <p style="font-size:0.95rem; font-weight:600; color:var(--color-text);"><span id="calcSave"></span></p>
+                            <a href="https://dikidi.app/714399?p=0.pi-po-ss-sd-cf-ai&o=2&m=1701055&s=8690938" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-block" style="margin-top:10px; font-size:0.9rem;">Записаться и начать экономить</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

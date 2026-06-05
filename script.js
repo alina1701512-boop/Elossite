@@ -1,4 +1,4 @@
-// 📝 Изменено: 2026-06-05 / Добавлен таймер 30 секунд между попапами
+// 📝 Изменено: 2026-06-05 / Таймер 30 сек между попапами + 24 процедуры в калькуляторе
 document.addEventListener('DOMContentLoaded', function() {
 
     // --- 1. Мобильное меню ---
@@ -220,7 +220,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // --- 9. Калькулятор (5 лет, 26 процедур) ---
+    // --- 9. Калькулятор (5 лет, 24 процедуры) ---
     var calcButton = document.getElementById('calcButton');
     if (calcButton) {
         calcButton.addEventListener('click', function() {
@@ -259,7 +259,8 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             var firstDiscounted = Math.round(fullPrice * 0.65);
-            var totalLaserProcedures = 26;
+            // ✅ ИСПРАВЛЕНО: 24 процедуры вместо 26
+            var totalLaserProcedures = 24;
             var totalLaserCost = firstDiscounted + (fullPrice * (totalLaserProcedures - 1));
             var totalLaserMinutes = laserMinutes * totalLaserProcedures;
             var totalLaserHours = Math.round(totalLaserMinutes / 60);
@@ -292,6 +293,7 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('calcMoney').textContent = totalMoney.toLocaleString() + ' ₽';
             document.getElementById('calcTime').textContent = totalHours.toLocaleString() + ' часов';
             document.getElementById('calcLaserCost').textContent = totalLaserCost.toLocaleString() + ' ₽';
+            // ✅ ИСПРАВЛЕНО: текст показывает 24 процедуры
             document.getElementById('calcLaserTime').textContent = 'займёт всего ' + totalLaserHours + ' часов (' + totalLaserProcedures + ' процедур за 5 лет)';
             document.getElementById('calcSave').textContent = saveText;
             document.getElementById('calcResult').style.display = 'block';

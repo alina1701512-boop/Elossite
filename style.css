@@ -1502,3 +1502,21 @@ h1, h2, h3 {
     text-decoration: none;
     color: inherit;
 }
+/* ========================================
+   📸 ФОТО МАСТЕРА
+   ======================================== */
+.hero-photo {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow);
+    object-fit: cover;
+}
+
+.master-photo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}

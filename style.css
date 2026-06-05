@@ -40,6 +40,11 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
+/* Фикс тёмного фона во встроенном браузере Telegram */
+meta[name="color-scheme"] {
+    content: "light only";
+}
+
 .container {
     width: 100%;
     max-width: 1140px;

@@ -795,6 +795,12 @@ h1, h2, h3 {
     align-items: start;
 }
 
+@media (min-width: 768px) {
+    .contacts-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
 .contact-form-block {
     width: 100%;
 }

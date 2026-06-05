@@ -1507,13 +1507,19 @@ h1, h2, h3 {
    ======================================== */
 .hero-photo {
     width: 100%;
-    max-width: 450px;
+    max-width: 300px;
     height: auto;
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow);
     object-fit: cover;
     display: block;
     margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+    .hero-photo {
+        max-width: 380px;
+    }
 }
 
 .master-photo {

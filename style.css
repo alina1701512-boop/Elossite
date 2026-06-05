@@ -467,3 +467,33 @@ h1, h2, h3 { font-family: 'Montserrat', sans-serif; line-height: 1.3; }
     .burger-menu { display: flex; flex-direction: column; gap: 6px; background: none; border: none; cursor: pointer; padding: 5px; z-index: 101; }
     .burger-menu span { display: block; width: 26px; height: 3px; background-color: var(--color-text); transition: var(--transition); }
 }
+/* ===== ВЫРАВНИВАНИЕ СЕКЦИИ КОНТАКТОВ ===== */
+.contacts-grid {
+    align-items: center; /* Выравниваем колонки по центру вертикально */
+}
+
+/* Делаем правую колонку более компактной */
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Уменьшаем отступы между пунктами контактов */
+.contact-item {
+    margin-bottom: 12px;
+}
+.contact-item:last-of-type {
+    margin-bottom: 0;
+}
+
+/* Отступы между кнопками и картой */
+.contact-buttons {
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+/* Скругление для карты */
+.map-container iframe {
+    border-radius: 20px;
+}

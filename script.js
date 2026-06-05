@@ -1,19 +1,41 @@
 // 📝 Изменено: 2026-06-05 / Таймер 30 сек между попапами + 24 процедуры в калькуляторе
 document.addEventListener('DOMContentLoaded', function() {
 
-    // --- 1. Мобильное меню ---
+       // --- 1. Мобильное меню ---
     var burgerMenu = document.getElementById('burgerMenu');
     var mainNav = document.getElementById('mainNav');
+    var body = document.body;
+
     if (burgerMenu && mainNav) {
-        burgerMenu.addEventListener('click', function() {
+        // Открытие/закрытие по бургеру
+        burgerMenu.addEventListener('click', function(e) {
+            e.stopPropagation();
             var isOpen = mainNav.classList.toggle('active');
             burgerMenu.setAttribute('aria-expanded', isOpen);
         });
+
+        // Закрытие при клике на ссылку в меню
         mainNav.querySelectorAll('a').forEach(function(link) {
             link.addEventListener('click', function() {
                 mainNav.classList.remove('active');
                 burgerMenu.setAttribute('aria-expanded', 'false');
             });
+        });
+
+        // Закрытие при клике на пустое место (мимо меню)
+        document.addEventListener('click', function(e) {
+            if (mainNav.classList.contains('active') && !mainNav.contains(e.target) && e.target !== burgerMenu) {
+                mainNav.classList.remove('active');
+                burgerMenu.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        // Закрытие при клике на сам main (пустая область)
+        mainNav.addEventListener('click', function(e) {
+            if (e.target === mainNav) {
+                mainNav.classList.remove('active');
+                burgerMenu.setAttribute('aria-expanded', 'false');
+            }
         });
     }
 

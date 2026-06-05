@@ -1,4 +1,4 @@
-// 📝 Изменено: 2026-06-04 / Все функции + калькулятор (исправлено)
+// 📝 Изменено: 2026-06-05 / Добавлен таймер 30 секунд между попапами
 document.addEventListener('DOMContentLoaded', function() {
 
     // --- 1. Мобильное меню ---
@@ -125,39 +125,75 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // --- 8. Попап при уходе ---
+    // --- 8. Попап при уходе (С ТАЙМЕРОМ 30 СЕКУНД МЕЖДУ ПОПАПАМИ) ---
     var exitPopup1 = document.getElementById('exitPopup1');
     var exitPopup2 = document.getElementById('exitPopup2');
     var popup1Shown = false;
     var popup2Shown = false;
+    var timerActive = false;      // Активен ли таймер (жду 30 секунд)
+    var timerStartTime = null;    // Когда был запущен таймер
+    var popup2Ready = false;      // Можно ли показывать второй попап (30 сек прошло)
 
-    function showPopup1() {
+    // Функция проверки, прошло ли 30 секунд
+    function isTimerFinished() {
+        if (!timerActive) return true;
+        if (!timerStartTime) return true;
+        var now = Date.now();
+        var diffSeconds = (now - timerStartTime) / 1000;
+        return diffSeconds >= 30;
+    }
+
+    // Функция для проверки и отображения попапа (вызывается при попытке ухода)
+    function checkAndShowPopup() {
+        // Если первый ещё не показывали — показываем первый
         if (!popup1Shown && exitPopup1) {
             exitPopup1.classList.add('visible');
             popup1Shown = true;
+            
+            // ЗАПУСКАЕМ ТАЙМЕР НА 30 СЕКУНД
+            timerActive = true;
+            timerStartTime = Date.now();
+            popup2Ready = false;
+            
+            // Через 30 секунд снимаем блокировку
+            setTimeout(function() {
+                timerActive = false;
+                popup2Ready = true;
+                console.log('30 секунд прошло, второй попап теперь может показаться');
+            }, 30000);
+            
+            return true;
         }
-    }
-
-    function showPopup2() {
-        if (!popup2Shown && exitPopup2) {
-            exitPopup2.classList.add('visible');
-            popup2Shown = true;
+        
+        // Если первый уже показан, проверяем таймер для второго
+        if (popup1Shown && !popup2Shown && exitPopup2) {
+            // Если таймер ещё активен — НЕ ПОКАЗЫВАЕМ второй попап
+            if (timerActive) {
+                console.log('Ещё не прошло 30 секунд с первого попапа, второй не показываем');
+                return false;
+            }
+            
+            // Если прошло 30 секунд — показываем второй
+            if (popup2Ready || !timerActive) {
+                exitPopup2.classList.add('visible');
+                popup2Shown = true;
+                return true;
+            }
         }
+        
+        return false;
     }
 
     if (exitPopup1 && exitPopup2) {
         document.addEventListener('mouseout', function(e) {
+            // Проверяем, что курсор уходит за верхнюю границу окна
             if (e.clientY < 10 && e.relatedTarget === null) {
-                if (!popup1Shown) {
-                    showPopup1();
-                } else if (!popup2Shown) {
-                    showPopup2();
-                }
+                checkAndShowPopup();
             }
         });
     }
 
-    // Закрытие попапов
+    // Закрытие попапов (оставляем как было)
     document.querySelectorAll('.exit-popup-overlay').forEach(function(overlay) {
         overlay.addEventListener('click', function(e) {
             if (e.target === overlay) {

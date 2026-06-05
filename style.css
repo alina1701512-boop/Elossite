@@ -26,19 +26,12 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 html {
+    scroll-behavior: smooth;
     overflow-x: hidden;
     width: 100%;
     max-width: 100vw;
-}
-
-body {
-    width: 100%;
-    max-width: 100vw;
-    position: relative;
-}
-html {
-    scroll-behavior: smooth;
 }
 
 body {
@@ -48,6 +41,10 @@ body {
     color: var(--color-text);
     background-color: var(--color-bg);
     -webkit-font-smoothing: antialiased;
+    width: 100%;
+    max-width: 100vw;
+    position: relative;
+    overflow-x: hidden;
 }
 
 /* Фикс тёмного фона во встроенном браузере Telegram */

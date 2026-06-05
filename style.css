@@ -1507,7 +1507,7 @@ h1, h2, h3 {
    ======================================== */
 .hero-photo {
     width: 100%;
-    max-width: 300px;
+    max-width: 450px;
     height: auto;
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow);

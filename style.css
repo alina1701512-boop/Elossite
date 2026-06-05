@@ -1517,19 +1517,25 @@ h1, h2, h3 {
    📸 ФОТО МАСТЕРА
    ======================================== */
 .hero-photo {
-    width: 100%;
-    max-width: 450px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60%;
+    max-width: 300px;
     height: auto;
     border-radius: var(--radius-lg);
-    box-shadow: var(--shadow);
+    opacity: 0.2;
     object-fit: cover;
-    display: block;
-    margin: 0 auto;
+    z-index: 0;
 }
 
 @media (min-width: 768px) {
     .hero-photo {
+        position: relative;
+        opacity: 1;
+        width: 100%;
         max-width: 380px;
+        z-index: 1;
     }
 }
 

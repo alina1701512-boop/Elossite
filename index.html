@@ -63,6 +63,28 @@
                 height: 550px;
             }
         }
+            /* ===== ВЫРАВНИВАНИЕ СЕКЦИИ КОНТАКТОВ ===== */
+        .contacts-grid {
+            align-items: center;
+        }
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .contact-item {
+            margin-bottom: 12px;
+        }
+        .contact-item:last-of-type {
+            margin-bottom: 0;
+        }
+        .contact-buttons {
+            margin-bottom: 20px;
+            margin-top: 10px;
+        }
+        .map-container iframe {
+            border-radius: 20px;
+        }
     </style>
 
     <script type="application/ld+json">
@@ -372,18 +394,6 @@
                 </div>
             </div>
         </section>
-
-      /* Уменьшаем отступы между пунктами контактов */
-.contact-item {
-    margin-bottom: 12px;
-}
-.contact-item:last-of-type {
-    margin-bottom: 0;
-}
-/* Уменьшаем отступы между кнопками и картой */
-.contact-buttons {
-    margin-bottom: 20px;
-}
     </main>
 
     <!-- ========== ПОДВАЛ САЙТА ========== -->

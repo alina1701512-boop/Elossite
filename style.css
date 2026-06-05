@@ -1468,20 +1468,20 @@ h1, h2, h3 {
 @media (max-width: 767px) {
     .main-nav {
         position: fixed;
-        top: 0;
-        right: -100%;
-        width: 75%;
-        height: 100vh;
+        top: -100%;
+        left: 0;
+        width: 100%;
+        height: auto;
+        max-height: 80vh;
         background-color: var(--color-surface);
-        flex-direction: column;
-        padding: 80px 30px;
-        box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
-        transition: right 0.3s ease;
-        visibility: hidden;
+        padding: 80px 30px 30px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        transition: top 0.3s ease;
+        z-index: 99;
+        overflow-y: auto;
     }
     .main-nav.active {
-        right: 0;
-        visibility: visible;
+        top: 0;
     }
     .main-nav ul {
         flex-direction: column;
@@ -1496,6 +1496,7 @@ h1, h2, h3 {
         cursor: pointer;
         padding: 5px;
         z-index: 101;
+        position: relative;
     }
     .burger-menu span {
         display: block;
@@ -1503,10 +1504,6 @@ h1, h2, h3 {
         height: 3px;
         background-color: var(--color-text);
         transition: var(--transition);
-    }
-
-    body {
-        overflow-x: hidden;
     }
 }
 .hero-map-link {

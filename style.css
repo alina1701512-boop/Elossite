@@ -1498,3 +1498,7 @@ h1, h2, h3 {
         transition: var(--transition);
     }
 }
+.hero-map-link {
+    text-decoration: none;
+    color: inherit;
+}

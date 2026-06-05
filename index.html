@@ -12,8 +12,8 @@
     <meta property="og:description" content="Диодный лазер Honkon. 5 лет опыта, 5635+ процедур. Без боли и навязывания. Запись на бесплатную консультацию.">
     <meta property="og:image" content="https://elos-kazan.ru/assets/og-image.jpg">
     <meta property="og:url" content="https://elos-kazan.ru/">
-    <meta name="yandex-verification" content="8c71dfd1925f41ca" />    
-    
+    <meta name="yandex-verification" content="8c71dfd1925f41ca" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
@@ -21,36 +21,44 @@
     <link rel="stylesheet" href="style.css">
     <!-- Font Awesome 6 (иконки с анимацией) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <style>
         /* Плавная прокрутка по якорям */
         html {
             scroll-behavior: smooth;
         }
+
         /* Отступ для фиксированного хедера при прокрутке к якорю */
         #mapAnchor {
             scroll-margin-top: 80px;
         }
+
         /* Стили для иконок в герое */
         .hero-meta i {
             margin-right: 8px;
             color: var(--color-accent);
         }
+
         .trust-bar__inner i {
             margin-right: 8px;
         }
+
         .contact-item i {
             width: 32px;
             font-size: 1.4rem;
             color: var(--color-accent);
         }
+
         .promo-card i {
             font-size: 2.5rem;
             margin-bottom: 15px;
             color: var(--color-accent);
         }
+
         .btn i {
             margin-right: 8px;
         }
+
         /* Стили для Яндекс.Формы */
         .ya-form-iframe {
             width: 100%;
@@ -58,30 +66,37 @@
             border-radius: 20px;
             border: none;
         }
+
         @media (max-width: 768px) {
             .ya-form-iframe {
                 height: 550px;
             }
         }
-/* ===== ВЫРАВНИВАНИЕ СЕКЦИИ КОНТАКТОВ ===== */
+
+        /* ===== ВЫРАВНИВАНИЕ СЕКЦИИ КОНТАКТОВ ===== */
         .contacts-grid {
             align-items: center;
         }
+
         .contact-details {
             display: flex;
             flex-direction: column;
             justify-content: center;
         }
+
         .contact-item {
             margin-bottom: 12px;
         }
+
         .contact-item:last-of-type {
             margin-bottom: 0;
         }
+
         .contact-buttons {
             margin-bottom: 20px;
             margin-top: 10px;
         }
+
         .map-container iframe {
             border-radius: 20px;
         }
@@ -93,15 +108,48 @@
             "@type": "LocalBusiness",
             "name": "Студия лазерной эпиляции Elos",
             "description": "Лазерная эпиляция в центре Казани. Диодный лазер Honkon. 5 лет опыта, 5635+ процедур.",
-            "address": { "@type": "PostalAddress", "streetAddress": "ул. Московская, 13а, 3 этаж", "addressLocality": "Казань" },
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "ул. Московская, 13а, 3 этаж",
+                "addressLocality": "Казань"
+            },
             "telephone": "+79969005413",
             "openingHours": "Mo-Su 10:00-23:00",
             "url": "https://elos-kazan.ru/",
-            "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "bestRating": "5", "reviewCount": "24" },
+            "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "5.0",
+                "bestRating": "5",
+                "reviewCount": "24"
+            },
             "makesOffer": [
-                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Лазерная эпиляция подмышек и глубокого бикини" }, "price": "2300", "priceCurrency": "RUB" },
-                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Лазерная эпиляция подмышек, бикини и голеней" }, "price": "3500", "priceCurrency": "RUB" },
-                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Лазерная эпиляция подмышек, бикини и ног полностью" }, "price": "4400", "priceCurrency": "RUB" }
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Лазерная эпиляция подмышек и глубокого бикини"
+                    },
+                    "price": "2300",
+                    "priceCurrency": "RUB"
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Лазерная эпиляция подмышек, бикини и голеней"
+                    },
+                    "price": "3500",
+                    "priceCurrency": "RUB"
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Лазерная эпиляция подмышек, бикини и ног полностью"
+                    },
+                    "price": "4400",
+                    "priceCurrency": "RUB"
+                }
             ]
         }
     </script>
@@ -111,27 +159,127 @@
             "@context": "https://schema.org",
             "@type": "FAQPage",
             "mainEntity": [
-                { "@type": "Question", "name": "Больно ли делать лазерную эпиляцию?", "acceptedAnswer": { "@type": "Answer", "text": "Зависит от индивидуальной чувствительности. Я подбираю мощность индивидуально. Большинство клиенток говорят: «Как лёгкие щипки». Начинаем с маленькой зоны, чтобы вы привыкли." } },
-                { "@type": "Question", "name": "Сколько процедур нужно для полного удаления волос?", "acceptedAnswer": { "@type": "Answer", "text": "В среднем 8-12 процедур с интервалом 6-8 недель. Точное количество зависит от типа волос, гормонального фона и зоны. Я честно скажу вам прогноз после первой процедуры и теста." } },
-                { "@type": "Question", "name": "Когда будет виден первый результат?", "acceptedAnswer": { "@type": "Answer", "text": "Первые волоски начнут выпадать через 1-2 недели после процедуры. После 3-4 процедуры разница становится очень заметной." } },
-                { "@type": "Question", "name": "Как подготовиться к лазерной эпиляции?", "acceptedAnswer": { "@type": "Answer", "text": "За неделю: не загорать, не использовать автозагар. За 2-3 дня: побрить зону (только бритьё!). В день процедуры: чистая кожа без косметики и крема." } },
-                { "@type": "Question", "name": "Какие противопоказания у лазерной эпиляции?", "acceptedAnswer": { "@type": "Answer", "text": "Беременность, кормление грудью, онкология, свежий загар, приём фотосенсибилизирующих препаратов. Всё обсуждаем на консультации." } },
-                { "@type": "Question", "name": "Можно ли делать лазерную эпиляцию летом?", "acceptedAnswer": { "@type": "Answer", "text": "Да, можно. Но важно не загорать минимум неделю до и после. Летом удобно делать закрытые зоны." } },
-                { "@type": "Question", "name": "Можно ли бриться между процедурами?", "acceptedAnswer": { "@type": "Answer", "text": "Да! Только бритьё. Никакого воска, шугаринга или эпилятора — они выдёргивают волос с корнем." } },
-                { "@type": "Question", "name": "Почему нельзя загорать до и после?", "acceptedAnswer": { "@type": "Answer", "text": "Лазер воздействует на меланин. Загорелая кожа содержит много меланина — есть риск ожога. Минимум 7 дней без загара." } },
-                { "@type": "Question", "name": "Помогает ли лазер от вросших волос?", "acceptedAnswer": { "@type": "Answer", "text": "Да! Лазер разрушает фолликул, вросшие волосы исчезают, кожа становится гладкой без воспалений." } },
-                { "@type": "Question", "name": "Может ли лазер вызвать пигментацию или ожог?", "acceptedAnswer": { "@type": "Answer", "text": "На правильно настроенном оборудовании и при соблюдении рекомендаций — нет. Важно честно предупредить меня о загаре и лекарствах." } },
-                { "@type": "Question", "name": "Можно ли делать лазер при беременности?", "acceptedAnswer": { "@type": "Answer", "text": "Нет. Во время беременности и кормления грудью процедура не проводится. Это временное противопоказание." } },
-                { "@type": "Question", "name": "Можно ли делать лазер при онкологии?", "acceptedAnswer": { "@type": "Answer", "text": "Нет. Даже в ремиссии требуется разрешение лечащего врача. Безопасность клиента — превыше всего." } },
-                { "@type": "Question", "name": "Как лазер влияет на самооценку?", "acceptedAnswer": { "@type": "Answer", "text": "Вы перестаёте думать о волосах, планировать бритьё, стесняться щетины. Это свобода носить что угодно. Спокойствие и уверенность." } },
-                { "@type": "Question", "name": "Почему волосы выпадают не сразу?", "acceptedAnswer": { "@type": "Answer", "text": "Лазер разрушает фолликул, но волос остаётся в коже. Организму нужно 1-2 недели, чтобы «вытолкнуть» его." } }
+                {
+                    "@type": "Question",
+                    "name": "Больно ли делать лазерную эпиляцию?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Зависит от индивидуальной чувствительности. Я подбираю мощность индивидуально. Большинство клиенток говорят: «Как лёгкие щипки». Начинаем с маленькой зоны, чтобы вы привыкли."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Сколько процедур нужно для полного удаления волос?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "В среднем 8-12 процедур с интервалом 6-8 недель. Точное количество зависит от типа волос, гормонального фона и зоны. Я честно скажу вам прогноз после первой процедуры и теста."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Когда будет виден первый результат?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Первые волоски начнут выпадать через 1-2 недели после процедуры. После 3-4 процедуры разница становится очень заметной."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Как подготовиться к лазерной эпиляции?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "За неделю: не загорать, не использовать автозагар. За 2-3 дня: побрить зону (только бритьё!). В день процедуры: чистая кожа без косметики и крема."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Какие противопоказания у лазерной эпиляции?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Беременность, кормление грудью, онкология, свежий загар, приём фотосенсибилизирующих препаратов. Всё обсуждаем на консультации."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Можно ли делать лазерную эпиляцию летом?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Да, можно. Но важно не загорать минимум неделю до и после. Летом удобно делать закрытые зоны."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Можно ли бриться между процедурами?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Да! Только бритьё. Никакого воска, шугаринга или эпилятора — они выдёргивают волос с корнем."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Почему нельзя загорать до и после?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Лазер воздействует на меланин. Загорелая кожа содержит много меланина — есть риск ожога. Минимум 7 дней без загара."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Помогает ли лазер от вросших волос?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Да! Лазер разрушает фолликул, вросшие волосы исчезают, кожа становится гладкой без воспалений."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Может ли лазер вызвать пигментацию или ожог?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "На правильно настроенном оборудовании и при соблюдении рекомендаций — нет. Важно честно предупредить меня о загаре и лекарствах."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Можно ли делать лазер при беременности?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Нет. Во время беременности и кормления грудью процедура не проводится. Это временное противопоказание."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Можно ли делать лазер при онкологии?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Нет. Даже в ремиссии требуется разрешение лечащего врача. Безопасность клиента — превыше всего."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Как лазер влияет на самооценку?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Вы перестаёте думать о волосах, планировать бритьё, стесняться щетины. Это свобода носить что угодно. Спокойствие и уверенность."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Почему волосы выпадают не сразу?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Лазер разрушает фолликул, но волос остаётся в коже. Организму нужно 1-2 недели, чтобы «вытолкнуть» его."
+                    }
+                }
             ]
         }
     </script>
 </head>
 <body>
 
-<!-- ========== ШАПКА САЙТА (НАВИГАЦИЯ) ========== -->
+    <!-- ======================================== -->
+    <!-- ========== ШАПКА САЙТА (НАВИГАЦИЯ) ========== -->
+    <!-- ======================================== -->
     <header class="site-header" id="mainHeader">
         <div class="container nav-container">
             <a href="index.html" class="logo" aria-label="Логотип Elos">Elos</a>
@@ -154,7 +302,10 @@
     </header>
 
     <main>
-<!-- ========== ХЛЕБНЫЕ КРОШКИ (СКРЫТЫ) ========== -->
+
+        <!-- ======================================== -->
+        <!-- ========== ХЛЕБНЫЕ КРОШКИ (СКРЫТЫ) ========== -->
+        <!-- ======================================== -->
         <nav class="breadcrumbs" aria-label="Хлебные крошки" hidden>
             <div class="container">
                 <ol>
@@ -164,7 +315,9 @@
             </div>
         </nav>
 
-<!-- ========== БЛОК HERO (ПЕРВЫЙ ЭКРАН) ========== -->
+        <!-- ======================================== -->
+        <!-- ========== БЛОК HERO (ПЕРВЫЙ ЭКРАН) ========== -->
+        <!-- ======================================== -->
         <section id="hero" class="hero-section section-padding">
             <div class="container hero-grid">
                 <div class="hero-content fade-in-section">
@@ -188,7 +341,9 @@
             </div>
         </section>
 
-<!-- ========== TRUST BAR (БЕГУЩАЯ СТРОКА С ПРЕИМУЩЕСТВАМИ) ========== -->
+        <!-- ======================================== -->
+        <!-- ========== TRUST BAR (БЕГУЩАЯ СТРОКА) ========== -->
+        <!-- ======================================== -->
         <div class="trust-bar">
             <div class="trust-bar__inner">
                 <span><i class="fas fa-check-circle"></i> 5635+ довольных клиенток</span>
@@ -225,60 +380,162 @@
             </div>
         </div>
 
-<!-- ========== СЕКЦИЯ "ЗНАКОМО?" (ПРОБЛЕМЫ) ========== -->
+        <!-- ======================================== -->
+        <!-- ========== СЕКЦИЯ "ЗНАКОМО?" (ПРОБЛЕМЫ) ========== -->
+        <!-- ======================================== -->
         <section id="problem" class="section-padding bg-surface" aria-labelledby="problem-heading">
             <div class="container">
                 <h2 class="section-title text-center fade-in-section" id="problem-heading">Знакомо?</h2>
                 <div class="problems-grid">
-                    <div class="problem-card fade-in-section"><i class="fas fa-razor problem-icon"></i><h3>После бритья</h3><p>Раздражение и щетина к вечеру. Вросшие волосы, красные точки, колется, чёрные точки от бритья. И так каждый день.</p></div>
-                    <div class="problem-card fade-in-section"><i class="fas fa-face-frown problem-icon"></i><h3>Шугаринг</h3><p>Это больно. Плюс нужно отращивать волосы неделю. А летом? В отпуске? Невозможно.</p></div>
-                    <div class="problem-card fade-in-section"><i class="fas fa-money-bill problem-icon"></i><h3>Пробовали лазер</h3><p>Обещали «5 сеансов и всё», а волосы всё равно растут. Знакомая история.</p></div>
+                    <div class="problem-card fade-in-section">
+                        <i class="fas fa-razor problem-icon"></i>
+                        <h3>После бритья</h3>
+                        <p>Раздражение и щетина к вечеру. Вросшие волосы, красные точки, колется, чёрные точки от бритья. И так каждый день.</p>
+                    </div>
+                    <div class="problem-card fade-in-section">
+                        <i class="fas fa-face-frown problem-icon"></i>
+                        <h3>Шугаринг</h3>
+                        <p>Это больно. Плюс нужно отращивать волосы неделю. А летом? В отпуске? Невозможно.</p>
+                    </div>
+                    <div class="problem-card fade-in-section">
+                        <i class="fas fa-money-bill problem-icon"></i>
+                        <h3>Пробовали лазер</h3>
+                        <p>Обещали «5 сеансов и всё», а волосы всё равно растут. Знакомая история.</p>
+                    </div>
                 </div>
                 <p class="section-subtext text-center fade-in-section">Вы устали. Вы хотите просто носить что угодно, когда угодно. Не думать «успела ли я побриться?», не краснеть при близости. Хотите забыть о волосах. Навсегда.</p>
             </div>
         </section>
-  
-<!-- ========== СЕКЦИЯ "ПОЧЕМУ ЗДЕСЬ ВСЁ ИНАЧЕ" (ПРЕИМУЩЕСТВА) ========== -->
+
+        <!-- ======================================== -->
+        <!-- ========== СЕКЦИЯ "ПОЧЕМУ ЗДЕСЬ ВСЁ ИНАЧЕ" ========== -->
+        <!-- ======================================== -->
         <section id="why-us" class="section-padding bg-pastel" aria-labelledby="why-us-heading">
             <div class="container">
                 <h2 class="section-title text-center fade-in-section" id="why-us-heading">Почему здесь всё иначе</h2>
                 <div class="why-grid">
-                    <div class="why-card fade-in-section"><i class="fas fa-bullseye why-icon"></i><h3>Честный прогноз</h3><p>Я не продаю пакеты на первой встрече. Сначала — тест, потом — честный прогноз под ваш тип волос и кожи.</p></div>
-                    <div class="why-card fade-in-section"><i class="fas fa-bolt why-icon"></i><h3>Диодный лазер Honkon</h3><p>Работает на светлой и смуглой коже. Точная настройка мощности под вашу чувствительность.</p></div>
-                    <div class="why-card fade-in-section"><i class="fas fa-lock why-icon"></i><h3>Без навязывания</h3><p>Я никогда не тороплю, не обещаю «всё за 5 раз» и не спамлю «акциями» в мессенджеры.</p></div>
-                    <div class="why-card fade-in-section"><i class="fas fa-message why-icon"></i><h3>На связи</h3><p>Не «до свидания», а «напиши, если что — я отвечу». Памятка, рекомендации, поддержка.</p></div>
+                    <div class="why-card fade-in-section">
+                        <i class="fas fa-bullseye why-icon"></i>
+                        <h3>Честный прогноз</h3>
+                        <p>Я не продаю пакеты на первой встрече. Сначала — тест, потом — честный прогноз под ваш тип волос и кожи.</p>
+                    </div>
+                    <div class="why-card fade-in-section">
+                        <i class="fas fa-bolt why-icon"></i>
+                        <h3>Диодный лазер Honkon</h3>
+                        <p>Работает на светлой и смуглой коже. Точная настройка мощности под вашу чувствительность.</p>
+                    </div>
+                    <div class="why-card fade-in-section">
+                        <i class="fas fa-lock why-icon"></i>
+                        <h3>Без навязывания</h3>
+                        <p>Я никогда не тороплю, не обещаю «всё за 5 раз» и не спамлю «акциями» в мессенджеры.</p>
+                    </div>
+                    <div class="why-card fade-in-section">
+                        <i class="fas fa-message why-icon"></i>
+                        <h3>На связи</h3>
+                        <p>Не «до свидания», а «напиши, если что — я отвечу». Памятка, рекомендации, поддержка.</p>
+                    </div>
                 </div>
                 <div class="master-intro fade-in-section">
                     <div class="image-placeholder small-round"><span>Фото</span></div>
-                    <div><h3>Алина, ваш мастер</h3><p>5 лет практики. 5635+ процедур. Обучение на производителе Honkon. Процедура косметическая, не медицинская.</p></div>
+                    <div>
+                        <h3>Алина, ваш мастер</h3>
+                        <p>5 лет практики. 5635+ процедур. Обучение на производителе Honkon. Процедура косметическая, не медицинская.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-<!-- ========== СЕКЦИЯ "ВАШ ПУТЬ" + КАЛЬКУЛЯТОР ========== -->
+        <!-- ======================================== -->
+        <!-- ========== СЕКЦИЯ "ВАШ ПУТЬ" + КАЛЬКУЛЯТОР ========== -->
+        <!-- ======================================== -->
         <section id="how-it-works" class="section-padding bg-surface" aria-labelledby="how-heading">
             <div class="container">
                 <h2 class="section-title text-center fade-in-section" id="how-heading">Ваш путь к гладкой коже</h2>
                 <div class="how-grid">
                     <div class="how-steps fade-in-section">
                         <div class="steps-timeline">
-                            <div class="step-item"><div class="step-number">1</div><div class="step-content"><span class="step-time">Бесплатно</span><h3>Консультация</h3><p>Отвечаю на все вопросы. Никаких обязательств.</p></div></div>
-                            <div class="step-item"><div class="step-number">2</div><div class="step-content"><span class="step-time">10–40 минут</span><h3>Процедура</h3><p>Подмышки — 10 мин, бикини — 25 мин, ноги — 40 мин. Комфортная мощность.</p></div></div>
-                            <div class="step-item"><div class="step-number">3</div><div class="step-content"><span class="step-time">Сразу после</span><h3>Памятка и поддержка</h3><p>Что можно/нельзя 48 часов. Я на связи в Telegram.</p></div></div>
-                            <div class="step-item"><div class="step-number">4</div><div class="step-content"><span class="step-time">Через неделю</span><h3>Результат</h3><p>Волосы начнут выпадать. Курс — 12 процедур с интервалом 6-8 недель.</p></div></div>
+                            <div class="step-item">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <span class="step-time">Бесплатно</span>
+                                    <h3>Консультация</h3>
+                                    <p>Отвечаю на все вопросы. Никаких обязательств.</p>
+                                </div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <span class="step-time">10–40 минут</span>
+                                    <h3>Процедура</h3>
+                                    <p>Подмышки — 10 мин, бикини — 25 мин, ноги — 40 мин. Комфортная мощность.</p>
+                                </div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <span class="step-time">Сразу после</span>
+                                    <h3>Памятка и поддержка</h3>
+                                    <p>Что можно/нельзя 48 часов. Я на связи в Telegram.</p>
+                                </div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-number">4</div>
+                                <div class="step-content">
+                                    <span class="step-time">Через неделю</span>
+                                    <h3>Результат</h3>
+                                    <p>Волосы начнут выпадать. Курс — 12 процедур с интервалом 6-8 недель.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="how-calculator fade-in-section">
                         <h3 style="text-align:center; margin-bottom:20px;"><i class="fas fa-calculator"></i> Посчитай, сколько ты тратишь на бритьё</h3>
-                        <div class="form-group"><label for="calcMethod">Чем пользуешься?</label><select id="calcMethod" required style="width:100%; padding:12px 15px; border:1px solid #ddd; border-radius:var(--radius-sm); font-family:inherit; font-size:0.9rem; background-color:var(--color-bg);"><option value="">Выберите способ</option><option value="Бритва (станок)">Бритва (станок)</option><option value="Воск / Шугаринг">Воск / Шугаринг</option><option value="Эпилятор">Эпилятор</option><option value="Крем для депиляции">Крем для депиляции</option></select></div>
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;"><div class="form-group"><label for="calcStartAge">Во сколько лет начала?</label><input type="number" id="calcStartAge" min="10" max="60" placeholder="Например: 16" required style="width:100%; padding:12px 15px; border:1px solid #ddd; border-radius:var(--radius-sm); font-family:inherit; font-size:0.9rem; background-color:var(--color-bg);"></div><div class="form-group"><label for="calcCurrentAge">Сколько сейчас лет?</label><input type="number" id="calcCurrentAge" min="10" max="80" placeholder="Например: 28" required style="width:100%; padding:12px 15px; border:1px solid #ddd; border-radius:var(--radius-sm); font-family:inherit; font-size:0.9rem; background-color:var(--color-bg);"></div></div>
-                        <div class="form-group"><label for="calcZone">Какую зону хочешь?</label><select id="calcZone" required style="width:100%; padding:12px 15px; border:1px solid #ddd; border-radius:var(--radius-sm); font-family:inherit; font-size:0.9rem; background-color:var(--color-bg);"><option value="">Выберите комплекс</option><option value="1">Подмышки + бикини (2300 ₽ / 30 мин)</option><option value="2">Подмышки + бикини + голени (3500 ₽ / 60 мин)</option><option value="3">Подмышки + бикини + ноги (4400 ₽ / 1 ч 20 мин)</option></select></div>
-                        <div class="form-group"><label for="calcMonthly">Сколько тратишь в месяц? (₽)</label><input type="number" id="calcMonthly" min="0" max="50000" placeholder="Например: 500" required style="width:100%; padding:12px 15px; border:1px solid #ddd; border-radius:var(--radius-sm); font-family:inherit; font-size:0.9rem; background-color:var(--color-bg);"></div>
+                        <div class="form-group">
+                            <label for="calcMethod">Чем пользуешься?</label>
+                            <select id="calcMethod" required style="width:100%; padding:12px 15px; border:1px solid #ddd; border-radius:var(--radius-sm); font-family:inherit; font-size:0.9rem; background-color:var(--color-bg);">
+                                <option value="">Выберите способ</option>
+                                <option value="Бритва (станок)">Бритва (станок)</option>
+                                <option value="Воск / Шугаринг">Воск / Шугаринг</option>
+                                <option value="Эпилятор">Эпилятор</option>
+                                <option value="Крем для депиляции">Крем для депиляции</option>
+                            </select>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                            <div class="form-group">
+                                <label for="calcStartAge">Во сколько лет начала?</label>
+                                <input type="number" id="calcStartAge" min="10" max="60" placeholder="Например: 16" required style="width:100%; padding:12px 15px; border:1px solid #ddd; border-radius:var(--radius-sm); font-family:inherit; font-size:0.9rem; background-color:var(--color-bg);">
+                            </div>
+                            <div class="form-group">
+                                <label for="calcCurrentAge">Сколько сейчас лет?</label>
+                                <input type="number" id="calcCurrentAge" min="10" max="80" placeholder="Например: 28" required style="width:100%; padding:12px 15px; border:1px solid #ddd; border-radius:var(--radius-sm); font-family:inherit; font-size:0.9rem; background-color:var(--color-bg);">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="calcZone">Какую зону хочешь?</label>
+                            <select id="calcZone" required style="width:100%; padding:12px 15px; border:1px solid #ddd; border-radius:var(--radius-sm); font-family:inherit; font-size:0.9rem; background-color:var(--color-bg);">
+                                <option value="">Выберите комплекс</option>
+                                <option value="1">Подмышки + бикини (2300 ₽ / 30 мин)</option>
+                                <option value="2">Подмышки + бикини + голени (3500 ₽ / 60 мин)</option>
+                                <option value="3">Подмышки + бикини + ноги (4400 ₽ / 1 ч 20 мин)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="calcMonthly">Сколько тратишь в месяц? (₽)</label>
+                            <input type="number" id="calcMonthly" min="0" max="50000" placeholder="Например: 500" required style="width:100%; padding:12px 15px; border:1px solid #ddd; border-radius:var(--radius-sm); font-family:inherit; font-size:0.9rem; background-color:var(--color-bg);">
+                        </div>
                         <button id="calcButton" class="btn btn-primary btn-block"><i class="fas fa-calculator"></i> Посчитать</button>
                         <div id="calcResult" style="display:none; margin-top:20px; padding:20px; background-color:#FFF9F8; border-radius:var(--radius-md); text-align:center;">
                             <p style="font-size:1rem; font-weight:600; margin-bottom:10px;"><i class="fas fa-chart-line"></i> Результат за <span id="calcYears">5</span> лет:</p>
-                            <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:10px;"><div><i class="fas fa-money-bill-wave" style="font-size:1.2rem;"></i><br><strong id="calcMoney">0 ₽</strong><br><span style="font-size:0.7rem; color:var(--color-text-light);">потрачено денег</span></div><div><i class="fas fa-hourglass-half" style="font-size:1.2rem;"></i><br><strong id="calcTime">0 часов</strong><br><span style="font-size:0.7rem; color:var(--color-text-light);">потрачено времени</span></div></div>
-                            <div style="background-color:var(--color-pastel); padding:12px; border-radius:var(--radius-sm); margin-bottom:10px;"><p style="margin-bottom:3px; font-size:0.9rem;"><i class="fas fa-star"></i> <strong>С лазером (24 процедуры за 5 лет):</strong></p><p style="font-size:1.1rem; font-weight:700; color:var(--color-accent);" id="calcLaserCost">0 ₽</p><p style="font-size:0.75rem; color:var(--color-text-light);">Первая со скидкой 35%, остальные 23 — полная цена</p><p style="font-size:0.75rem; color:var(--color-text-light);" id="calcLaserTime">займёт 0 часов</p></div>
+                            <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:10px;">
+                                <div><i class="fas fa-money-bill-wave" style="font-size:1.2rem;"></i><br><strong id="calcMoney">0 ₽</strong><br><span style="font-size:0.7rem; color:var(--color-text-light);">потрачено денег</span></div>
+                                <div><i class="fas fa-hourglass-half" style="font-size:1.2rem;"></i><br><strong id="calcTime">0 часов</strong><br><span style="font-size:0.7rem; color:var(--color-text-light);">потрачено времени</span></div>
+                            </div>
+                            <div style="background-color:var(--color-pastel); padding:12px; border-radius:var(--radius-sm); margin-bottom:10px;">
+                                <p style="margin-bottom:3px; font-size:0.9rem;"><i class="fas fa-star"></i> <strong>С лазером (24 процедуры за 5 лет):</strong></p>
+                                <p style="font-size:1.1rem; font-weight:700; color:var(--color-accent);" id="calcLaserCost">0 ₽</p>
+                                <p style="font-size:0.75rem; color:var(--color-text-light);">Первая со скидкой 35%, остальные 23 — полная цена</p>
+                                <p style="font-size:0.75rem; color:var(--color-text-light);" id="calcLaserTime">займёт 0 часов</p>
+                            </div>
                             <p style="font-size:0.95rem; font-weight:600; color:var(--color-text);"><span id="calcSave"></span></p>
                             <a href="https://dikidi.app/714399?p=0.pi-po-ss-sd-cf-ai&o=2&m=1701055&s=8690938" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-block" style="margin-top:10px; font-size:0.9rem;">Записаться и начать экономить</a>
                         </div>
@@ -287,26 +544,56 @@
             </div>
         </section>
 
-<!-- ========== КАРТА БОЛИ (СИЛУЭТ С ТОЧКАМИ) ========== -->
+        <!-- ======================================== -->
+        <!-- ========== КАРТА БОЛИ (СИЛУЭТ С ТОЧКАМИ) ========== -->
+        <!-- ======================================== -->
         <section id="pain-map" class="section-padding bg-pastel" aria-labelledby="pain-map-heading">
             <div class="container">
                 <h2 class="section-title text-center fade-in-section" id="pain-map-heading">Что ты почувствуешь?</h2>
                 <div class="pain-map-container fade-in-section">
                     <div class="body-silhouette">
-                        <div class="silhouette-head"></div><div class="silhouette-neck"></div><div class="silhouette-shoulders"></div><div class="silhouette-body"></div><div class="silhouette-waist"></div><div class="silhouette-hips"></div>
-                        <div class="silhouette-legs"><div class="silhouette-leg-left"></div><div class="silhouette-leg-right"></div></div>
-                        <div class="pain-zone zone-face"><span class="zone-dot"></span><div class="zone-tooltip"><strong>Верхняя губа</strong>Чувствительно, но вы даже не успеете испугаться. Занимает 2 минуты.</div></div>
-                        <div class="pain-zone zone-underarms"><span class="zone-dot"></span><div class="zone-tooltip"><strong>Подмышки</strong>Как лёгкое пощипывание. 9 из 10 девушек говорят: «И это всё? Я боялась зря!» Самая быстрая зона — 10 минут.</div></div>
-                        <div class="pain-zone zone-underarms-right"><span class="zone-dot"></span><div class="zone-tooltip"><strong>Подмышки</strong>Как лёгкое пощипывание. 9 из 10 девушек говорят: «И это всё? Я боялась зря!» Самая быстрая зона — 10 минут.</div></div>
-                        <div class="pain-zone zone-bikini"><span class="zone-dot"></span><div class="zone-tooltip"><strong>Глубокое бикини</strong>Самая чувствительная зона, но терпимо. Как щелчок резинки. Большинство девушек говорят: «Я боялась гораздо сильнее!»</div></div>
-                        <div class="pain-zone zone-legs"><span class="zone-dot"></span><div class="zone-tooltip"><strong>Голени</strong>Почти не чувствуется, только у косточки спереди. Самая безболезненная зона. 30 минут — и готово!</div></div>
-                        <div class="pain-zone zone-legs-right"><span class="zone-dot"></span><div class="zone-tooltip"><strong>Голени</strong>Почти не чувствуется, только у косточки спереди. Самая безболезненная зона. 30 минут — и готово!</div></div>
+                        <div class="silhouette-head"></div>
+                        <div class="silhouette-neck"></div>
+                        <div class="silhouette-shoulders"></div>
+                        <div class="silhouette-body"></div>
+                        <div class="silhouette-waist"></div>
+                        <div class="silhouette-hips"></div>
+                        <div class="silhouette-legs">
+                            <div class="silhouette-leg-left"></div>
+                            <div class="silhouette-leg-right"></div>
+                        </div>
+                        <div class="pain-zone zone-face">
+                            <span class="zone-dot"></span>
+                            <div class="zone-tooltip"><strong>Верхняя губа</strong>Чувствительно, но вы даже не успеете испугаться. Занимает 2 минуты.</div>
+                        </div>
+                        <div class="pain-zone zone-underarms">
+                            <span class="zone-dot"></span>
+                            <div class="zone-tooltip"><strong>Подмышки</strong>Как лёгкое пощипывание. 9 из 10 девушек говорят: «И это всё? Я боялась зря!» Самая быстрая зона — 10 минут.</div>
+                        </div>
+                        <div class="pain-zone zone-underarms-right">
+                            <span class="zone-dot"></span>
+                            <div class="zone-tooltip"><strong>Подмышки</strong>Как лёгкое пощипывание. 9 из 10 девушек говорят: «И это всё? Я боялась зря!» Самая быстрая зона — 10 минут.</div>
+                        </div>
+                        <div class="pain-zone zone-bikini">
+                            <span class="zone-dot"></span>
+                            <div class="zone-tooltip"><strong>Глубокое бикини</strong>Самая чувствительная зона, но терпимо. Как щелчок резинки. Большинство девушек говорят: «Я боялась гораздо сильнее!»</div>
+                        </div>
+                        <div class="pain-zone zone-legs">
+                            <span class="zone-dot"></span>
+                            <div class="zone-tooltip"><strong>Голени</strong>Почти не чувствуется, только у косточки спереди. Самая безболезненная зона. 30 минут — и готово!</div>
+                        </div>
+                        <div class="pain-zone zone-legs-right">
+                            <span class="zone-dot"></span>
+                            <div class="zone-tooltip"><strong>Голени</strong>Почти не чувствуется, только у косточки спереди. Самая безболезненная зона. 30 минут — и готово!</div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-<!-- ========== СЕКЦИЯ ОТЗЫВОВ (КАРУСЕЛЬ) ========== -->
+        <!-- ======================================== -->
+        <!-- ========== СЕКЦИЯ ОТЗЫВОВ (КАРУСЕЛЬ) ========== -->
+        <!-- ======================================== -->
         <section id="testimonials" class="section-padding bg-pastel" aria-labelledby="testimonials-heading">
             <div class="container">
                 <h2 class="section-title text-center fade-in-section" id="testimonials-heading">Они уже забыли о волосах</h2>
@@ -338,87 +625,238 @@
             </div>
         </section>
 
-<!-- ========== СЕКЦИЯ ЦЕН ========== -->
+        <!-- ======================================== -->
+        <!-- ========== СЕКЦИЯ ЦЕН ========== -->
+        <!-- ======================================== -->
         <section id="pricing" class="section-padding bg-surface" aria-labelledby="pricing-heading">
             <div class="container">
                 <h2 class="section-title text-center fade-in-section" id="pricing-heading">Честные цены без сюрпризов</h2>
                 <div class="pricing-grid">
-                    <div class="price-card fade-in-section"><h3>Подмышки + глубокое бикини</h3><p class="price-old">2300 ₽</p><p class="price-new">1495 ₽</p><span class="badge-sale">Скидка 35% на первый визит</span><p class="price-save">Экономия: 805 ₽</p><a href="https://dkd.su/714399/s/8690972" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Записаться</a></div>
-                    <div class="price-card featured fade-in-section"><span class="badge"><i class="fas fa-star"></i> Популярный выбор</span><h3>Подмышки + бикини + голени</h3><p class="price-old">3500 ₽</p><p class="price-new">2275 ₽</p><span class="badge-sale">Скидка 35% на первый визит</span><p class="price-save">Экономия: 1225 ₽</p><a href="https://dkd.su/714399/s/8690938" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Записаться</a></div>
-                    <div class="price-card fade-in-section"><h3>Подмышки + бикини + ноги полностью</h3><p class="price-old">4400 ₽</p><p class="price-new">2860 ₽</p><span class="badge-sale">Скидка 35% на первый визит</span><p class="price-save">Экономия: 1540 ₽</p><a href="https://dkd.su/714399/s/8690898" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Записаться</a></div>
+                    <div class="price-card fade-in-section">
+                        <h3>Подмышки + глубокое бикини</h3>
+                        <p class="price-old">2300 ₽</p>
+                        <p class="price-new">1495 ₽</p>
+                        <span class="badge-sale">Скидка 35% на первый визит</span>
+                        <p class="price-save">Экономия: 805 ₽</p>
+                        <a href="https://dkd.su/714399/s/8690972" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Записаться</a>
+                    </div>
+                    <div class="price-card featured fade-in-section">
+                        <span class="badge"><i class="fas fa-star"></i> Популярный выбор</span>
+                        <h3>Подмышки + бикини + голени</h3>
+                        <p class="price-old">3500 ₽</p>
+                        <p class="price-new">2275 ₽</p>
+                        <span class="badge-sale">Скидка 35% на первый визит</span>
+                        <p class="price-save">Экономия: 1225 ₽</p>
+                        <a href="https://dkd.su/714399/s/8690938" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Записаться</a>
+                    </div>
+                    <div class="price-card fade-in-section">
+                        <h3>Подмышки + бикини + ноги полностью</h3>
+                        <p class="price-old">4400 ₽</p>
+                        <p class="price-new">2860 ₽</p>
+                        <span class="badge-sale">Скидка 35% на первый визит</span>
+                        <p class="price-save">Экономия: 1540 ₽</p>
+                        <a href="https://dkd.su/714399/s/8690898" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Записаться</a>
+                    </div>
                 </div>
-                <div class="fade-in-section" style="margin-top: 25px;"><button class="btn btn-secondary btn-block" id="toggleZones" style="background-color: var(--color-pastel); border-color: transparent; font-weight: 600;"><i class="fas fa-list"></i> Смотреть все зоны и цены ↓</button>
-                    <div id="otherZones" style="display: none; margin-top: 15px; background-color: var(--color-pastel); padding: 20px; border-radius: var(--radius-md);"><div style="display: grid; grid-template-columns: 1fr auto; gap: 8px; font-size: 0.9rem;"><span>Линия над губой</span><span style="text-align: right; font-weight: 600;">500 ₽</span><span>Лицо полностью</span><span style="text-align: right; font-weight: 600;">1 700 ₽</span><span>Виски / Бакенбарды</span><span style="text-align: right; font-weight: 600;">600 ₽</span><span>Нос</span><span style="text-align: right; font-weight: 600;">600 ₽</span><span>Шея</span><span style="text-align: right; font-weight: 600;">600 ₽</span><span>Межбровье</span><span style="text-align: right; font-weight: 600;">400 ₽</span><span>Подбородок</span><span style="text-align: right; font-weight: 600;">600 ₽</span><span>Щеки</span><span style="text-align: right; font-weight: 600;">600 ₽</span><span>Руки до локтя</span><span style="text-align: right; font-weight: 600;">1 200 ₽</span><span>Руки выше локтя</span><span style="text-align: right; font-weight: 600;">1 400 ₽</span><span>Руки полностью</span><span style="text-align: right; font-weight: 600;">2 300 ₽</span><span>Кисти рук + пальчики</span><span style="text-align: right; font-weight: 600;">500 ₽</span><span>Плечи</span><span style="text-align: right; font-weight: 600;">900 ₽</span><span>Ареолы</span><span style="text-align: right; font-weight: 600;">500 ₽</span><span>Грудь полностью</span><span style="text-align: right; font-weight: 600;">1 600 ₽</span><span>Подмышки (отдельно)</span><span style="text-align: right; font-weight: 600;">600 ₽</span><span>Линия на животе</span><span style="text-align: right; font-weight: 600;">600 ₽</span><span>Живот полностью</span><span style="text-align: right; font-weight: 600;">1 300 ₽</span><span>Поясница и крестец</span><span style="text-align: right; font-weight: 600;">1 000 ₽</span><span>Спина полностью</span><span style="text-align: right; font-weight: 600;">2 300 ₽</span><span>Бикини классика</span><span style="text-align: right; font-weight: 600;">1 000 ₽</span><span>Глубокое бикини + межъягодичка</span><span style="text-align: right; font-weight: 600;">1 900 ₽</span><span>Ягодицы</span><span style="text-align: right; font-weight: 600;">900 ₽</span><span>Голени + колени</span><span style="text-align: right; font-weight: 600;">1 600 ₽</span><span>Пальчики ног</span><span style="text-align: right; font-weight: 600;">400 ₽</span><span>Бёдра</span><span style="text-align: right; font-weight: 600;">1 900 ₽</span><span>Ноги полностью</span><span style="text-align: right; font-weight: 600;">3 000 ₽</span></div><p style="margin-top: 10px; font-size: 0.8rem; color: var(--color-text-light); text-align: center;">* Хотите добавить зону к комплексу? Напишите в Telegram — я всё посчитаю</p></div>
+                <div class="fade-in-section" style="margin-top: 25px;">
+                    <button class="btn btn-secondary btn-block" id="toggleZones" style="background-color: var(--color-pastel); border-color: transparent; font-weight: 600;"><i class="fas fa-list"></i> Смотреть все зоны и цены ↓</button>
+                    <div id="otherZones" style="display: none; margin-top: 15px; background-color: var(--color-pastel); padding: 20px; border-radius: var(--radius-md);">
+                        <div style="display: grid; grid-template-columns: 1fr auto; gap: 8px; font-size: 0.9rem;">
+                            <span>Линия над губой</span><span style="text-align: right; font-weight: 600;">500 ₽</span>
+                            <span>Лицо полностью</span><span style="text-align: right; font-weight: 600;">1 700 ₽</span>
+                            <span>Виски / Бакенбарды</span><span style="text-align: right; font-weight: 600;">600 ₽</span>
+                            <span>Нос</span><span style="text-align: right; font-weight: 600;">600 ₽</span>
+                            <span>Шея</span><span style="text-align: right; font-weight: 600;">600 ₽</span>
+                            <span>Межбровье</span><span style="text-align: right; font-weight: 600;">400 ₽</span>
+                            <span>Подбородок</span><span style="text-align: right; font-weight: 600;">600 ₽</span>
+                            <span>Щеки</span><span style="text-align: right; font-weight: 600;">600 ₽</span>
+                            <span>Руки до локтя</span><span style="text-align: right; font-weight: 600;">1 200 ₽</span>
+                            <span>Руки выше локтя</span><span style="text-align: right; font-weight: 600;">1 400 ₽</span>
+                            <span>Руки полностью</span><span style="text-align: right; font-weight: 600;">2 300 ₽</span>
+                            <span>Кисти рук + пальчики</span><span style="text-align: right; font-weight: 600;">500 ₽</span>
+                            <span>Плечи</span><span style="text-align: right; font-weight: 600;">900 ₽</span>
+                            <span>Ареолы</span><span style="text-align: right; font-weight: 600;">500 ₽</span>
+                            <span>Грудь полностью</span><span style="text-align: right; font-weight: 600;">1 600 ₽</span>
+                            <span>Подмышки (отдельно)</span><span style="text-align: right; font-weight: 600;">600 ₽</span>
+                            <span>Линия на животе</span><span style="text-align: right; font-weight: 600;">600 ₽</span>
+                            <span>Живот полностью</span><span style="text-align: right; font-weight: 600;">1 300 ₽</span>
+                            <span>Поясница и крестец</span><span style="text-align: right; font-weight: 600;">1 000 ₽</span>
+                            <span>Спина полностью</span><span style="text-align: right; font-weight: 600;">2 300 ₽</span>
+                            <span>Бикини классика</span><span style="text-align: right; font-weight: 600;">1 000 ₽</span>
+                            <span>Глубокое бикини + межъягодичка</span><span style="text-align: right; font-weight: 600;">1 900 ₽</span>
+                            <span>Ягодицы</span><span style="text-align: right; font-weight: 600;">900 ₽</span>
+                            <span>Голени + колени</span><span style="text-align: right; font-weight: 600;">1 600 ₽</span>
+                            <span>Пальчики ног</span><span style="text-align: right; font-weight: 600;">400 ₽</span>
+                            <span>Бёдра</span><span style="text-align: right; font-weight: 600;">1 900 ₽</span>
+                            <span>Ноги полностью</span><span style="text-align: right; font-weight: 600;">3 000 ₽</span>
+                        </div>
+                        <p style="margin-top: 10px; font-size: 0.8rem; color: var(--color-text-light); text-align: center;">* Хотите добавить зону к комплексу? Напишите в Telegram — я всё посчитаю</p>
+                    </div>
                 </div>
-                <div class="pricing-info text-center fade-in-section"><p><i class="fas fa-check-circle" style="color: var(--color-accent);"></i> Оплата по факту — наличные, перевод, QR-код</p><p><i class="fas fa-check-circle" style="color: var(--color-accent);"></i> Чек самозанятого</p><p><i class="fas fa-check-circle" style="color: var(--color-accent);"></i> Можно платить за каждую процедуру отдельно</p><p><i class="fas fa-check-circle" style="color: var(--color-accent);"></i> Первая консультация — бесплатно</p><p style="font-size: 0.9rem; color: var(--color-accent); font-weight: 600;"><i class="fas fa-gift"></i> Скидка 35% действует только на первый визит</p></div>
+                <div class="pricing-info text-center fade-in-section">
+                    <p><i class="fas fa-check-circle" style="color: var(--color-accent);"></i> Оплата по факту — наличные, перевод, QR-код</p>
+                    <p><i class="fas fa-check-circle" style="color: var(--color-accent);"></i> Чек самозанятого</p>
+                    <p><i class="fas fa-check-circle" style="color: var(--color-accent);"></i> Можно платить за каждую процедуру отдельно</p>
+                    <p><i class="fas fa-check-circle" style="color: var(--color-accent);"></i> Первая консультация — бесплатно</p>
+                    <p style="font-size: 0.9rem; color: var(--color-accent); font-weight: 600;"><i class="fas fa-gift"></i> Скидка 35% действует только на первый визит</p>
+                </div>
             </div>
         </section>
 
+        <!-- ======================================== -->
         <!-- ========== СЕКЦИЯ АКЦИЙ ========== -->
+        <!-- ======================================== -->
         <section id="promo" class="section-padding bg-pastel" aria-labelledby="promo-heading">
             <div class="container">
                 <h2 class="section-title text-center fade-in-section" id="promo-heading">Акции</h2>
                 <div class="promo-grid">
-                    <div class="promo-card fade-in-section"><i class="fas fa-mug-hot"></i><h3>Тест-драйв: подмышки за 250 ₽</h3><p>Сомневаетесь? Попробуйте лазер по цене чашки кофе. Ощущения, результат — всё поймёте без риска.</p><a href="https://dkd.su/714399/s/22597670" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Записаться на тест-драйв</a></div>
-                    <div class="promo-card fade-in-section"><i class="fas fa-gift"></i><h3>Скидка 35% для новых клиенток</h3><p>Первый визит — со скидкой 35% на любой комплекс. Если не подойдёт — не буду уговаривать. Честно.</p><a href="https://dikidi.app/714399?p=0.pi-po-ss-sd-cf-ai&o=2&m=1701055&s=8690938" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Записаться со скидкой</a></div>
-                    <div class="promo-card fade-in-section"><i class="fas fa-users"></i><h3>Приведи подругу</h3><p>Приводите подругу — и обе получаете скидку 20% на любой комплекс. Напишите в форме «я с подругой», и я всё расскажу!</p><a href="#contacts" class="btn btn-secondary">Записаться вдвоём</a></div>
+                    <div class="promo-card fade-in-section">
+                        <i class="fas fa-mug-hot"></i>
+                        <h3>Тест-драйв: подмышки за 250 ₽</h3>
+                        <p>Сомневаетесь? Попробуйте лазер по цене чашки кофе. Ощущения, результат — всё поймёте без риска.</p>
+                        <a href="https://dkd.su/714399/s/22597670" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Записаться на тест-драйв</a>
+                    </div>
+                    <div class="promo-card fade-in-section">
+                        <i class="fas fa-gift"></i>
+                        <h3>Скидка 35% для новых клиенток</h3>
+                        <p>Первый визит — со скидкой 35% на любой комплекс. Если не подойдёт — не буду уговаривать. Честно.</p>
+                        <a href="https://dikidi.app/714399?p=0.pi-po-ss-sd-cf-ai&o=2&m=1701055&s=8690938" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Записаться со скидкой</a>
+                    </div>
+                    <div class="promo-card fade-in-section">
+                        <i class="fas fa-users"></i>
+                        <h3>Приведи подругу</h3>
+                        <p>Приводите подругу — и обе получаете скидку 20% на любой комплекс. Напишите в форме «я с подругой», и я всё расскажу!</p>
+                        <a href="#contacts" class="btn btn-secondary">Записаться вдвоём</a>
+                    </div>
                 </div>
             </div>
         </section>
 
-<!-- ========== СЕКЦИЯ FAQ (ВОПРОСЫ И ОТВЕТЫ) ========== -->
+        <!-- ======================================== -->
+        <!-- ========== СЕКЦИЯ FAQ (ВОПРОСЫ И ОТВЕТЫ) ========== -->
+        <!-- ======================================== -->
         <section id="faq" class="section-padding bg-surface" aria-labelledby="faq-heading">
             <div class="container">
                 <h2 class="section-title text-center fade-in-section" id="faq-heading">FAQ</h2>
                 <div class="faq-list">
-                    <div class="faq-item fade-in-section"><button class="faq-question" aria-expanded="false">Больно ли делать лазерную эпиляцию?</button><div class="faq-answer"><p>Зависит от индивидуальной чувствительности. Я подбираю мощность индивидуально. Большинство клиенток говорят: «Как лёгкие щипки». Начинаем с маленькой зоны, чтобы вы привыкли.</p></div></div>
-                    <div class="faq-item fade-in-section"><button class="faq-question" aria-expanded="false">Сколько процедур нужно для полного удаления волос?</button><div class="faq-answer"><p>В среднем 8-12 процедур с интервалом 6-8 недель. Точное количество зависит от типа волос, гормонального фона и зоны. Я честно скажу вам прогноз после первой процедуры и теста.</p></div></div>
-                    <div class="faq-item fade-in-section"><button class="faq-question" aria-expanded="false">Когда будет виден первый результат?</button><div class="faq-answer"><p>Первые волоски начнут выпадать через 1-2 недели после процедуры. После 3-4 процедуры разница становится очень заметной.</p></div></div>
-                    <div class="faq-item fade-in-section"><button class="faq-question" aria-expanded="false">Как подготовиться к процедуре?</button><div class="faq-answer"><p>За неделю: не загорать, не использовать автозагар. За 2-3 дня: побрить зону (только бритьё!). В день процедуры: чистая кожа без косметики и крема.</p></div></div>
-                    <div class="faq-item fade-in-section"><button class="faq-question" aria-expanded="false">Какие противопоказания у лазерной эпиляции?</button><div class="faq-answer"><p>Беременность, кормление грудью, онкология, свежий загар, приём фотосенсибилизирующих препаратов. Всё обсуждаем на консультации.</p></div></div>
-                    <div class="text-center fade-in-section" style="margin-top: 15px;" id="showAllFaqButton"><button class="btn btn-secondary" id="toggleAllFaq"><i class="fas fa-chevron-down"></i> Смотреть все вопросы ↓</button></div>
+                    <div class="faq-item fade-in-section">
+                        <button class="faq-question" aria-expanded="false">Больно ли делать лазерную эпиляцию?</button>
+                        <div class="faq-answer"><p>Зависит от индивидуальной чувствительности. Я подбираю мощность индивидуально. Большинство клиенток говорят: «Как лёгкие щипки». Начинаем с маленькой зоны, чтобы вы привыкли.</p></div>
+                    </div>
+                    <div class="faq-item fade-in-section">
+                        <button class="faq-question" aria-expanded="false">Сколько процедур нужно для полного удаления волос?</button>
+                        <div class="faq-answer"><p>В среднем 8-12 процедур с интервалом 6-8 недель. Точное количество зависит от типа волос, гормонального фона и зоны. Я честно скажу вам прогноз после первой процедуры и теста.</p></div>
+                    </div>
+                    <div class="faq-item fade-in-section">
+                        <button class="faq-question" aria-expanded="false">Когда будет виден первый результат?</button>
+                        <div class="faq-answer"><p>Первые волоски начнут выпадать через 1-2 недели после процедуры. После 3-4 процедуры разница становится очень заметной.</p></div>
+                    </div>
+                    <div class="faq-item fade-in-section">
+                        <button class="faq-question" aria-expanded="false">Как подготовиться к процедуре?</button>
+                        <div class="faq-answer"><p>За неделю: не загорать, не использовать автозагар. За 2-3 дня: побрить зону (только бритьё!). В день процедуры: чистая кожа без косметики и крема.</p></div>
+                    </div>
+                    <div class="faq-item fade-in-section">
+                        <button class="faq-question" aria-expanded="false">Какие противопоказания у лазерной эпиляции?</button>
+                        <div class="faq-answer"><p>Беременность, кормление грудью, онкология, свежий загар, приём фотосенсибилизирующих препаратов. Всё обсуждаем на консультации.</p></div>
+                    </div>
+                    <div class="text-center fade-in-section" style="margin-top: 15px;" id="showAllFaqButton">
+                        <button class="btn btn-secondary" id="toggleAllFaq"><i class="fas fa-chevron-down"></i> Смотреть все вопросы ↓</button>
+                    </div>
                     <div id="hiddenFaq" style="display: none;">
-                        <div class="faq-item fade-in-section"><button class="faq-question" aria-expanded="false">Что нельзя делать после процедуры?</button><div class="faq-answer"><p>48 часов: не загорать, не ходить в баню/сауну/бассейн, не принимать горячую ванну, не тереть кожу мочалкой.</p></div></div>
-                        <div class="faq-item fade-in-section"><button class="faq-question" aria-expanded="false">Можно ли делать лазерную эпиляцию летом?</button><div class="faq-answer"><p>Да, можно. Но важно не загорать минимум неделю до и после. Летом удобно делать закрытые зоны.</p></div></div>
-                        <div class="faq-item fade-in-section"><button class="faq-question" aria-expanded="false">Можно ли бриться между процедурами?</button><div class="faq-answer"><p>Да! Только бритьё. Никакого воска, шугаринга или эпилятора — они выдёргивают волос с корнем.</p></div></div>
-                        <div class="faq-item fade-in-section"><button class="faq-question" aria-expanded="false">Почему нельзя загорать до и после?</button><div class="faq-answer"><p>Лазер воздействует на меланин. Загорелая кожа содержит много меланина — есть риск ожога. Минимум 7 дней без загара.</p></div></div>
-                        <div class="faq-item fade-in-section"><button class="faq-question" aria-expanded="false">Помогает ли лазер от вросших волос?</button><div class="faq-answer"><p>Да! Лазер разрушает фолликул, вросшие волосы исчезают, кожа становится гладкой без воспалений.</p></div></div>
-                        <div class="faq-item fade-in-section"><button class="faq-question" aria-expanded="false">Может ли лазер вызвать пигментацию или ожог?</button><div class="faq-answer"><p>На правильно настроенном оборудовании и при соблюдении рекомендаций — нет. Важно честно предупредить меня о загаре и лекарствах.</p></div></div>
-                        <div class="faq-item fade-in-section"><button class="faq-question" aria-expanded="false">Можно ли делать лазер при беременности?</button><div class="faq-answer"><p>Нет. Во время беременности и кормления грудью процедура не проводится. Это временное противопоказание.</p></div></div>
-                        <div class="faq-item fade-in-section"><button class="faq-question" aria-expanded="false">Можно ли делать лазер при онкологии?</button><div class="faq-answer"><p>Нет. Даже в ремиссии требуется разрешение лечащего врача. Безопасность клиента — превыше всего.</p></div></div>
-                        <div class="faq-item fade-in-section"><button class="faq-question" aria-expanded="false">Как лазер влияет на самооценку?</button><div class="faq-answer"><p>Вы перестаёте думать о волосах, планировать бритьё, стесняться щетины. Это свобода носить что угодно. Спокойствие и уверенность.</p></div></div>
-                        <div class="faq-item fade-in-section"><button class="faq-question" aria-expanded="false">Почему волосы выпадают не сразу?</button><div class="faq-answer"><p>Лазер разрушает фолликул, но волос остаётся в коже. Организму нужно 1-2 недели, чтобы «вытолкнуть» его.</p></div></div>
-                        <div class="faq-item fade-in-section"><button class="faq-question" aria-expanded="false">Можно ли оставить полоску или треугольник?</button><div class="faq-answer"><p>Да! Я подстраиваю форму бикини под вас. Хоть полоску, хоть треугольник, хоть полностью.</p></div></div>
-                        <div class="text-center" style="margin-top: 15px;"><button class="btn btn-secondary" id="hideAllFaq"><i class="fas fa-chevron-up"></i> Скрыть вопросы ↑</button></div>
+                        <div class="faq-item fade-in-section">
+                            <button class="faq-question" aria-expanded="false">Что нельзя делать после процедуры?</button>
+                            <div class="faq-answer"><p>48 часов: не загорать, не ходить в баню/сауну/бассейн, не принимать горячую ванну, не тереть кожу мочалкой.</p></div>
+                        </div>
+                        <div class="faq-item fade-in-section">
+                            <button class="faq-question" aria-expanded="false">Можно ли делать лазерную эпиляцию летом?</button>
+                            <div class="faq-answer"><p>Да, можно. Но важно не загорать минимум неделю до и после. Летом удобно делать закрытые зоны.</p></div>
+                        </div>
+                        <div class="faq-item fade-in-section">
+                            <button class="faq-question" aria-expanded="false">Можно ли бриться между процедурами?</button>
+                            <div class="faq-answer"><p>Да! Только бритьё. Никакого воска, шугаринга или эпилятора — они выдёргивают волос с корнем.</p></div>
+                        </div>
+                        <div class="faq-item fade-in-section">
+                            <button class="faq-question" aria-expanded="false">Почему нельзя загорать до и после?</button>
+                            <div class="faq-answer"><p>Лазер воздействует на меланин. Загорелая кожа содержит много меланина — есть риск ожога. Минимум 7 дней без загара.</p></div>
+                        </div>
+                        <div class="faq-item fade-in-section">
+                            <button class="faq-question" aria-expanded="false">Помогает ли лазер от вросших волос?</button>
+                            <div class="faq-answer"><p>Да! Лазер разрушает фолликул, вросшие волосы исчезают, кожа становится гладкой без воспалений.</p></div>
+                        </div>
+                        <div class="faq-item fade-in-section">
+                            <button class="faq-question" aria-expanded="false">Может ли лазер вызвать пигментацию или ожог?</button>
+                            <div class="faq-answer"><p>На правильно настроенном оборудовании и при соблюдении рекомендаций — нет. Важно честно предупредить меня о загаре и лекарствах.</p></div>
+                        </div>
+                        <div class="faq-item fade-in-section">
+                            <button class="faq-question" aria-expanded="false">Можно ли делать лазер при беременности?</button>
+                            <div class="faq-answer"><p>Нет. Во время беременности и кормления грудью процедура не проводится. Это временное противопоказание.</p></div>
+                        </div>
+                        <div class="faq-item fade-in-section">
+                            <button class="faq-question" aria-expanded="false">Можно ли делать лазер при онкологии?</button>
+                            <div class="faq-answer"><p>Нет. Даже в ремиссии требуется разрешение лечащего врача. Безопасность клиента — превыше всего.</p></div>
+                        </div>
+                        <div class="faq-item fade-in-section">
+                            <button class="faq-question" aria-expanded="false">Как лазер влияет на самооценку?</button>
+                            <div class="faq-answer"><p>Вы перестаёте думать о волосах, планировать бритьё, стесняться щетины. Это свобода носить что угодно. Спокойствие и уверенность.</p></div>
+                        </div>
+                        <div class="faq-item fade-in-section">
+                            <button class="faq-question" aria-expanded="false">Почему волосы выпадают не сразу?</button>
+                            <div class="faq-answer"><p>Лазер разрушает фолликул, но волос остаётся в коже. Организму нужно 1-2 недели, чтобы «вытолкнуть» его.</p></div>
+                        </div>
+                        <div class="faq-item fade-in-section">
+                            <button class="faq-question" aria-expanded="false">Можно ли оставить полоску или треугольник?</button>
+                            <div class="faq-answer"><p>Да! Я подстраиваю форму бикини под вас. Хоть полоску, хоть треугольник, хоть полностью.</p></div>
+                        </div>
+                        <div class="text-center" style="margin-top: 15px;">
+                            <button class="btn btn-secondary" id="hideAllFaq"><i class="fas fa-chevron-up"></i> Скрыть вопросы ↑</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>        
-<!-- ========== СЕКЦИЯ КОНТАКТОВ (С ЯНДЕКС.ФОРМОЙ) ========== -->
+        </section>
+
+        <!-- ======================================== -->
+        <!-- ========== СЕКЦИЯ КОНТАКТОВ (С ЯНДЕКС.ФОРМОЙ) ========== -->
+        <!-- ======================================== -->
         <section id="contacts" class="section-padding bg-pastel" style="padding-top: 40px; padding-bottom: 80px;" aria-labelledby="contacts-heading">
             <div class="container">
                 <h2 class="section-title text-center fade-in-section" id="contacts-heading">Контакты</h2>
                 <div class="contacts-grid" style="align-items: center;">
-<!-- ЛЕВАЯ КОЛОНКА: ФОРМА (ЯНДЕКС.ФОРМЫ) -->
+                    <!-- ЛЕВАЯ КОЛОНКА: ФОРМА (ЯНДЕКС.ФОРМЫ) -->
                     <div class="contact-form-block fade-in-section">
-                        <iframe class="ya-form-iframe" 
-                                src="https://forms.yandex.ru/u/6a22c0366d2d730888cd5d8c?iframe=1" 
-                                frameborder="0" 
+                        <iframe class="ya-form-iframe"
+                                src="https://forms.yandex.ru/u/6a22c0366d2d730888cd5d8c?iframe=1"
+                                frameborder="0"
                                 name="ya-form-6a22c0366d2d730888cd5d8c">
                         </iframe>
                     </div>
-<!-- ПРАВАЯ КОЛОНКА: КОНТАКТЫ И КАРТА -->
+                    <!-- ПРАВАЯ КОЛОНКА: КОНТАКТЫ И КАРТА -->
                     <div class="contact-details fade-in-section">
-                        <div class="contact-item"><i class="fas fa-location-dot"></i><p><strong>Центр Казани</strong><br>ул. Московская, 13а, 3 этаж<br>(вход через «Электроцентр», подъезд со двора)</p></div>
-                        <div class="contact-item"><i class="fas fa-train"></i><p>7 минут от метро Кремлёвская</p></div>
-                        <div class="contact-item"><i class="fas fa-bus"></i><p>Автобусы 10, 30, 35а до ост. «Московская»</p></div>
-                        <div class="contact-item"><i class="fas fa-square-parking"></i><p>Парковка бесплатная вечером и в воскресенье</p></div>
-                        <div class="contact-item"><i class="fas fa-clock"></i><p>Ежедневно 10:00 – 23:00</p></div>
+                        <div class="contact-item">
+                            <i class="fas fa-location-dot"></i>
+                            <p><strong>Центр Казани</strong><br>ул. Московская, 13а, 3 этаж<br>(вход через «Электроцентр», подъезд со двора)</p>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-train"></i>
+                            <p>7 минут от метро Кремлёвская</p>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-bus"></i>
+                            <p>Автобусы 10, 30, 35а до ост. «Московская»</p>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-square-parking"></i>
+                            <p>Парковка бесплатная вечером и в воскресенье</p>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-clock"></i>
+                            <p>Ежедневно 10:00 – 23:00</p>
+                        </div>
                         <div class="contact-buttons">
                             <a href="https://t.me/+79969005413" target="_blank" rel="noopener noreferrer" class="btn btn-secondary"><i class="fab fa-telegram"></i> Telegram</a>
                             <a href="https://wa.me/79969005413?text=Здравствуйте!%20Хочу%20записаться%20на%20консультацию" target="_blank" rel="noopener noreferrer" class="btn btn-secondary"><i class="fab fa-whatsapp"></i> WhatsApp</a>
                         </div>
-<!-- ЯКОРЬ ДЛЯ КАРТЫ (на него ведёт ссылка из Hero) -->
+                        <!-- ЯКОРЬ ДЛЯ КАРТЫ (на него ведёт ссылка из Hero) -->
                         <div id="mapAnchor" style="scroll-margin-top: 80px;"></div>
                         <div class="map-container">
                             <iframe src="https://yandex.ru/map-widget/v1/?z=12&ol=biz&oid=210422081484" width="100%" height="300" style="border:0; border-radius: 20px;" allowfullscreen="" loading="lazy"></iframe>
@@ -429,7 +867,9 @@
         </section>
     </main>
 
-<!-- ========== ПОДВАЛ САЙТА ========== -->
+    <!-- ======================================== -->
+    <!-- ========== ПОДВАЛ САЙТА ========== -->
+    <!-- ======================================== -->
     <footer class="site-footer">
         <div class="container footer-content">
             <p>© Elos 2026. Лазерная эпиляция в центре Казани.</p>
@@ -438,18 +878,64 @@
         </div>
     </footer>
 
+    <!-- ======================================== -->
     <!-- ========== ПЛАВАЮЩАЯ КНОПКА ЗАПИСИ ========== -->
+    <!-- ======================================== -->
     <a href="https://dikidi.ru/ru/profile/elos_714399?utm_source=site&utm_medium=landing" target="_blank" rel="noopener noreferrer" class="floating-cta" aria-label="Записаться онлайн"><i class="fas fa-calendar-alt"></i> Запись</a>
 
+    <!-- ======================================== -->
     <!-- ========== ПОПАП ПРИ УХОДЕ №1: ТЕСТ-ДРАЙВ ========== -->
-    <div class="exit-popup-overlay" id="exitPopup1"><div class="exit-popup"><button class="exit-popup-close" id="closePopup1" aria-label="Закрыть">✕</button><i class="fas fa-wave" style="font-size: 2rem; margin-bottom: 10px; display: block;"></i><h3 style="margin-bottom: 10px;">Уже уходите?</h3><p style="margin-bottom: 20px; color: var(--color-text-light);">Запишитесь на тест-драйв за 250 ₽ и попробуйте лазер по цене чашки кофе. Без риска.</p><a href="https://dkd.su/714399/s/22597670" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-block" style="margin-bottom: 10px;">Записаться на тест-драйв</a><button class="btn-text-link close-popup-btn" style="font-size: 0.9rem; color: var(--color-text-light);">Нет, спасибо</button></div></div>
+    <!-- ======================================== -->
+    <div class="exit-popup-overlay" id="exitPopup1">
+        <div class="exit-popup">
+            <button class="exit-popup-close" id="closePopup1" aria-label="Закрыть">✕</button>
+            <i class="fas fa-wave" style="font-size: 2rem; margin-bottom: 10px; display: block;"></i>
+            <h3 style="margin-bottom: 10px;">Уже уходите?</h3>
+            <p style="margin-bottom: 20px; color: var(--color-text-light);">Запишитесь на тест-драйв за 250 ₽ и попробуйте лазер по цене чашки кофе. Без риска.</p>
+            <a href="https://dkd.su/714399/s/22597670" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-block" style="margin-bottom: 10px;">Записаться на тест-драйв</a>
+            <button class="btn-text-link close-popup-btn" style="font-size: 0.9rem; color: var(--color-text-light);">Нет, спасибо</button>
+        </div>
+    </div>
 
-    <!-- ========== ПОПАП ПРИ УХОДЕ №2: СКИДКА 40% ========== -->
-    <div class="exit-popup-overlay" id="exitPopup2"><div class="exit-popup"><button class="exit-popup-close" id="closePopup2" aria-label="Закрыть">✕</button><i class="fas fa-gift" style="font-size: 2rem; margin-bottom: 10px; display: block;"></i><h3 style="margin-bottom: 10px;">Специальное предложение!</h3><p style="margin-bottom: 5px; color: var(--color-text-light);">Только для вас — <strong style="color: var(--color-accent);">скидка 40%</strong> на первый визит.</p><p style="margin-bottom: 20px; color: var(--color-text-light);">Попробуйте комплекс по цене, которую вы не найдёте больше нигде.</p><a href="https://dikidi.app/714399?p=0.pi-po-ss-sd-cf-ai&o=2&m=1701055&s=8690938" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-block" style="margin-bottom: 10px;">Записаться со скидкой 40%</a><button class="btn-text-link close-popup-btn" style="font-size: 0.9rem; color: var(--color-text-light);">Нет, спасибо</button></div></div>
+<!-- ======================================== -->
+<!-- ========== ПОПАП ПРИ УХОДЕ №2: СКИДКА 40% ========== -->
+<!-- ======================================== -->
+    <div class="exit-popup-overlay" id="exitPopup2">
+        <div class="exit-popup">
+            <button class="exit-popup-close" id="closePopup2" aria-label="Закрыть">✕</button>
+            <i class="fas fa-gift" style="font-size: 2rem; margin-bottom: 10px; display: block;"></i>
+            <h3 style="margin-bottom: 10px;">Специальное предложение!</h3>
+            <p style="margin-bottom: 5px; color: var(--color-text-light);">Только для вас — <strong style="color: var(--color-accent);">скидка 40%</strong> на первый визит.</p>
+            <p style="margin-bottom: 20px; color: var(--color-text-light);">Попробуйте комплекс по цене, которую вы не найдёте больше нигде.</p>
+            <a href="https://dikidi.app/714399?p=0.pi-po-ss-sd-cf-ai&o=2&m=1701055&s=8690938" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-block" style="margin-bottom: 10px;">Записаться со скидкой 40%</a>
+            <button class="btn-text-link close-popup-btn" style="font-size: 0.9rem; color: var(--color-text-light);">Нет, спасибо</button>
+        </div>
+    </div>
 
     <!-- Yandex.Metrika counter -->
-    <script type="text/javascript">(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=109650228', 'ym');ym(109650228, 'init', {clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true});</script>
-    <noscript><div><img src="https://mc.yandex.ru/watch/109650228" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <script type="text/javascript">
+        (function(m, e, t, r, i, k, a) {
+            m[i] = m[i] || function() {
+                (m[i].a = m[i].a || []).push(arguments)
+            };
+            m[i].l = 1 * new Date();
+            for (var j = 0; j < document.scripts.length; j++) {
+                if (document.scripts[j].src === r) {
+                    return;
+                }
+            }
+            k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+        })(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js?id=109650228', 'ym');
+        ym(109650228, 'init', {
+            clickmap: true,
+            trackLinks: true,
+            accurateTrackBounce: true,
+            webvisor: true
+        });
+    </script>
+    <noscript>
+        <div><img src="https://mc.yandex.ru/watch/109650228" style="position:absolute; left:-9999px;" alt="" /></div>
+    </noscript>
     <!-- /Yandex.Metrika counter -->
 
     <script src="script.js"></script>

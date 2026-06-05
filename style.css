@@ -1477,9 +1477,11 @@ h1, h2, h3 {
         padding: 80px 30px;
         box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
         transition: right 0.3s ease;
+        visibility: hidden;
     }
     .main-nav.active {
         right: 0;
+        visibility: visible;
     }
     .main-nav ul {
         flex-direction: column;
@@ -1501,6 +1503,10 @@ h1, h2, h3 {
         height: 3px;
         background-color: var(--color-text);
         transition: var(--transition);
+    }
+
+    body {
+        overflow-x: hidden;
     }
 }
 .hero-map-link {

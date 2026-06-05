@@ -1470,16 +1470,18 @@ h1, h2, h3 {
 @media (max-width: 767px) {
     .main-nav {
         position: fixed;
-        top: -100%;
+        top: 0;
         left: 0;
         width: 100%;
         background-color: var(--color-surface);
         padding: 20px 30px;
         box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-        transition: top 0.3s ease;
         z-index: 99;
+        transform: translateY(-100%);
+        transition: transform 0.3s ease;
     }
     .main-nav.active {
+        transform: translateY(0);
         top: 60px;
     }
     .main-nav ul {

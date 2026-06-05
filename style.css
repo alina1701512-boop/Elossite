@@ -255,7 +255,7 @@
                         <a href="#contacts" class="btn btn-text-link">Или просто спросить →</a>
                     </div>
                     <div class="hero-meta">
-                        <a href="#mapAnchor" style="text-decoration: none; color: inherit;"><i class="fas fa-location-dot"></i> Центр Казани, Московская 13а</a>
+                        <a href="#mapAnchor" class="hero-map-link"><i class="fas fa-location-dot"></i> Центр Казани, Московская 13а</a>
                         <span><i class="fas fa-train"></i> 7 мин от Кремлёвской</span>
                         <span><i class="fas fa-clock"></i> Ежедневно 10–23</span>
                     </div>
@@ -372,7 +372,7 @@
             </div>
         </section>
 
-        <!-- ======================================== -->
+           <!-- ======================================== -->
         <!-- ========== СЕКЦИЯ "ВАШ ПУТЬ" + КАЛЬКУЛЯТОР ========== -->
         <!-- ======================================== -->
         <section id="how-it-works" class="section-padding bg-surface" aria-labelledby="how-heading">
@@ -416,10 +416,10 @@
                         </div>
                     </div>
                     <div class="how-calculator fade-in-section">
-                        <h3 style="text-align:center; margin-bottom:20px;"><i class="fas fa-calculator"></i> Посчитай, сколько ты тратишь на бритьё</h3>
+                        <h3 class="calc-title"><i class="fas fa-calculator"></i> Посчитай, сколько ты тратишь на бритьё</h3>
                         <div class="form-group">
                             <label for="calcMethod">Чем пользуешься?</label>
-                            <select id="calcMethod" required style="width:100%; padding:12px 15px; border:1px solid #ddd; border-radius:var(--radius-sm); font-family:inherit; font-size:0.9rem; background-color:var(--color-bg);">
+                            <select id="calcMethod" required class="calc-field">
                                 <option value="">Выберите способ</option>
                                 <option value="Бритва (станок)">Бритва (станок)</option>
                                 <option value="Воск / Шугаринг">Воск / Шугаринг</option>
@@ -427,19 +427,19 @@
                                 <option value="Крем для депиляции">Крем для депиляции</option>
                             </select>
                         </div>
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                        <div class="calc-row">
                             <div class="form-group">
                                 <label for="calcStartAge">Во сколько лет начала?</label>
-                                <input type="number" id="calcStartAge" min="10" max="60" placeholder="Например: 16" required style="width:100%; padding:12px 15px; border:1px solid #ddd; border-radius:var(--radius-sm); font-family:inherit; font-size:0.9rem; background-color:var(--color-bg);">
+                                <input type="number" id="calcStartAge" min="10" max="60" placeholder="Например: 16" required class="calc-field">
                             </div>
                             <div class="form-group">
                                 <label for="calcCurrentAge">Сколько сейчас лет?</label>
-                                <input type="number" id="calcCurrentAge" min="10" max="80" placeholder="Например: 28" required style="width:100%; padding:12px 15px; border:1px solid #ddd; border-radius:var(--radius-sm); font-family:inherit; font-size:0.9rem; background-color:var(--color-bg);">
+                                <input type="number" id="calcCurrentAge" min="10" max="80" placeholder="Например: 28" required class="calc-field">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="calcZone">Какую зону хочешь?</label>
-                            <select id="calcZone" required style="width:100%; padding:12px 15px; border:1px solid #ddd; border-radius:var(--radius-sm); font-family:inherit; font-size:0.9rem; background-color:var(--color-bg);">
+                            <select id="calcZone" required class="calc-field">
                                 <option value="">Выберите комплекс</option>
                                 <option value="1">Подмышки + бикини (2300 ₽ / 30 мин)</option>
                                 <option value="2">Подмышки + бикини + голени (3500 ₽ / 60 мин)</option>
@@ -448,23 +448,23 @@
                         </div>
                         <div class="form-group">
                             <label for="calcMonthly">Сколько тратишь в месяц? (₽)</label>
-                            <input type="number" id="calcMonthly" min="0" max="50000" placeholder="Например: 500" required style="width:100%; padding:12px 15px; border:1px solid #ddd; border-radius:var(--radius-sm); font-family:inherit; font-size:0.9rem; background-color:var(--color-bg);">
+                            <input type="number" id="calcMonthly" min="0" max="50000" placeholder="Например: 500" required class="calc-field">
                         </div>
                         <button id="calcButton" class="btn btn-primary btn-block"><i class="fas fa-calculator"></i> Посчитать</button>
-                        <div id="calcResult" style="display:none; margin-top:20px; padding:20px; background-color:#FFF9F8; border-radius:var(--radius-md); text-align:center;">
-                            <p style="font-size:1rem; font-weight:600; margin-bottom:10px;"><i class="fas fa-chart-line"></i> Результат за <span id="calcYears">5</span> лет:</p>
-                            <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:10px;">
-                                <div><i class="fas fa-money-bill-wave" style="font-size:1.2rem;"></i><br><strong id="calcMoney">0 ₽</strong><br><span style="font-size:0.7rem; color:var(--color-text-light);">потрачено денег</span></div>
-                                <div><i class="fas fa-hourglass-half" style="font-size:1.2rem;"></i><br><strong id="calcTime">0 часов</strong><br><span style="font-size:0.7rem; color:var(--color-text-light);">потрачено времени</span></div>
+                        <div id="calcResult" class="calc-result">
+                            <p class="calc-result-title"><i class="fas fa-chart-line"></i> Результат за <span id="calcYears">5</span> лет:</p>
+                            <div class="calc-result-grid">
+                                <div><i class="fas fa-money-bill-wave calc-result-icon"></i><br><strong id="calcMoney">0 ₽</strong><br><span class="calc-result-label">потрачено денег</span></div>
+                                <div><i class="fas fa-hourglass-half calc-result-icon"></i><br><strong id="calcTime">0 часов</strong><br><span class="calc-result-label">потрачено времени</span></div>
                             </div>
-                            <div style="background-color:var(--color-pastel); padding:12px; border-radius:var(--radius-sm); margin-bottom:10px;">
+                            <div class="calc-laser-block">
                                 <p style="margin-bottom:3px; font-size:0.9rem;"><i class="fas fa-star"></i> <strong>С лазером (24 процедуры за 5 лет):</strong></p>
                                 <p style="font-size:1.1rem; font-weight:700; color:var(--color-accent);" id="calcLaserCost">0 ₽</p>
                                 <p style="font-size:0.75rem; color:var(--color-text-light);">Первая со скидкой 35%, остальные 23 — полная цена</p>
                                 <p style="font-size:0.75rem; color:var(--color-text-light);" id="calcLaserTime">займёт 0 часов</p>
                             </div>
                             <p style="font-size:0.95rem; font-weight:600; color:var(--color-text);"><span id="calcSave"></span></p>
-                            <a href="https://dikidi.app/714399?p=0.pi-po-ss-sd-cf-ai&o=2&m=1701055&s=8690938" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-block" style="margin-top:10px; font-size:0.9rem;">Записаться и начать экономить</a>
+                            <a href="https://dikidi.app/714399?p=0.pi-po-ss-sd-cf-ai&o=2&m=1701055&s=8690938" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-block calc-result-btn">Записаться и начать экономить</a>
                         </div>
                     </div>
                 </div>

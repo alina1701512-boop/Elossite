@@ -109,32 +109,15 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(section);
     });
 
-    // --- 7. Форма ---
-    var contactForm = document.getElementById('contactForm');
-    var formMessage = document.getElementById('formMessage');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(event) {
-            event.preventDefault();
-            formMessage.textContent = 'Спасибо! Я свяжусь с вами в ближайшее время.';
-            formMessage.style.color = 'green';
-            formMessage.style.marginTop = '15px';
-            contactForm.reset();
-            setTimeout(function() {
-                formMessage.textContent = '';
-            }, 5000);
-        });
-    }
-
-    // --- 8. Попап при уходе (С ТАЙМЕРОМ 30 СЕКУНД МЕЖДУ ПОПАПАМИ) ---
+    // --- 7. Попап при уходе (С ТАЙМЕРОМ 30 СЕКУНД МЕЖДУ ПОПАПАМИ) ---
     var exitPopup1 = document.getElementById('exitPopup1');
     var exitPopup2 = document.getElementById('exitPopup2');
     var popup1Shown = false;
     var popup2Shown = false;
-    var timerActive = false;      // Активен ли таймер (жду 30 секунд)
-    var timerStartTime = null;    // Когда был запущен таймер
-    var popup2Ready = false;      // Можно ли показывать второй попап (30 сек прошло)
+    var timerActive = false;
+    var timerStartTime = null;
+    var popup2Ready = false;
 
-    // Функция проверки, прошло ли 30 секунд
     function isTimerFinished() {
         if (!timerActive) return true;
         if (!timerStartTime) return true;
@@ -143,57 +126,46 @@ document.addEventListener('DOMContentLoaded', function() {
         return diffSeconds >= 30;
     }
 
-    // Функция для проверки и отображения попапа (вызывается при попытке ухода)
     function checkAndShowPopup() {
-        // Если первый ещё не показывали — показываем первый
         if (!popup1Shown && exitPopup1) {
             exitPopup1.classList.add('visible');
             popup1Shown = true;
-            
-            // ЗАПУСКАЕМ ТАЙМЕР НА 30 СЕКУНД
+
             timerActive = true;
             timerStartTime = Date.now();
             popup2Ready = false;
-            
-            // Через 30 секунд снимаем блокировку
+
             setTimeout(function() {
                 timerActive = false;
                 popup2Ready = true;
-                console.log('30 секунд прошло, второй попап теперь может показаться');
             }, 30000);
-            
+
             return true;
         }
-        
-        // Если первый уже показан, проверяем таймер для второго
+
         if (popup1Shown && !popup2Shown && exitPopup2) {
-            // Если таймер ещё активен — НЕ ПОКАЗЫВАЕМ второй попап
             if (timerActive) {
-                console.log('Ещё не прошло 30 секунд с первого попапа, второй не показываем');
                 return false;
             }
-            
-            // Если прошло 30 секунд — показываем второй
+
             if (popup2Ready || !timerActive) {
                 exitPopup2.classList.add('visible');
                 popup2Shown = true;
                 return true;
             }
         }
-        
+
         return false;
     }
 
     if (exitPopup1 && exitPopup2) {
         document.addEventListener('mouseout', function(e) {
-            // Проверяем, что курсор уходит за верхнюю границу окна
             if (e.clientY < 10 && e.relatedTarget === null) {
                 checkAndShowPopup();
             }
         });
     }
 
-    // Закрытие попапов (оставляем как было)
     document.querySelectorAll('.exit-popup-overlay').forEach(function(overlay) {
         overlay.addEventListener('click', function(e) {
             if (e.target === overlay) {
@@ -220,7 +192,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // --- 9. Калькулятор (5 лет, 24 процедуры) ---
+    // --- 8. Калькулятор (5 лет, 24 процедуры) ---
     var calcButton = document.getElementById('calcButton');
     if (calcButton) {
         calcButton.addEventListener('click', function() {
@@ -259,7 +231,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             var firstDiscounted = Math.round(fullPrice * 0.65);
-            // ✅ ИСПРАВЛЕНО: 24 процедуры вместо 26
             var totalLaserProcedures = 24;
             var totalLaserCost = firstDiscounted + (fullPrice * (totalLaserProcedures - 1));
             var totalLaserMinutes = laserMinutes * totalLaserProcedures;
@@ -270,12 +241,11 @@ document.addEventListener('DOMContentLoaded', function() {
             var savedHours = totalHours - totalLaserHours;
             if (savedHours < 0) savedHours = 0;
 
-                        if (saveMoney > 5000) {
+            if (saveMoney > 5000) {
                 saveText = '🎉 Экономия: ' + saveMoney.toLocaleString() + ' ₽ и ' + savedHours + ' часов жизни!';
             } else if (saveMoney > 0) {
                 saveText = '👍 Экономия: ' + saveMoney.toLocaleString() + ' ₽. Даже небольшая выгода — это приятно!';
             } else {
-                // Текст зависит от выбранного способа
                 var methodText = '';
                 if (method === 'Бритва (станок)') {
                     methodText = 'с бритвой в руках';
@@ -293,7 +263,6 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('calcMoney').textContent = totalMoney.toLocaleString() + ' ₽';
             document.getElementById('calcTime').textContent = totalHours.toLocaleString() + ' часов';
             document.getElementById('calcLaserCost').textContent = totalLaserCost.toLocaleString() + ' ₽';
-            // ✅ ИСПРАВЛЕНО: текст показывает 24 процедуры
             document.getElementById('calcLaserTime').textContent = 'займёт всего ' + totalLaserHours + ' часов (' + totalLaserProcedures + ' процедур за 5 лет)';
             document.getElementById('calcSave').textContent = saveText;
             document.getElementById('calcResult').style.display = 'block';

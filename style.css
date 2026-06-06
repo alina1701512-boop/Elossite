@@ -1034,7 +1034,7 @@ section.section-padding:not(#hero)::before {
         transform: rotate(-45deg) translate(7px, -7px);
     }
 
-    /* Навигация на мобайле */
+    /* FIX: Навигация на мобайле - максимальная высота меньше чем высота экрана */
     .main-nav {
         position: fixed;
         top: 60px;
@@ -1042,20 +1042,23 @@ section.section-padding:not(#hero)::before {
         right: 0;
         background: #fff;
         max-height: 0;
-        overflow: hidden;
+        overflow-y: auto;
         transition: max-height 0.3s ease-out;
         z-index: 99;
         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
+        /* FIX: Оставляем место внизу для видимости контента */
+        max-height: calc(100vh - 150px);
     }
 
     .main-nav.active {
-        max-height: 400px;
+        max-height: calc(100vh - 150px);
     }
 
     .main-nav ul {
         flex-direction: column;
         gap: 0;
         padding: 20px 24px;
+        padding-bottom: 40px;
     }
 
     .main-nav li {

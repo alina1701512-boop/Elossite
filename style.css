@@ -62,8 +62,39 @@ h1, h2, h3 {
 }
 
 .section-padding {
-    padding-top: 80px;
-    padding-bottom: 80px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    position: relative;
+}
+
+/* Задача 2: заголовки секций с акцентной линией */
+.section-title {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 56px;
+    height: 4px;
+    margin: 18px auto 0;
+    border-radius: 4px;
+    background: linear-gradient(90deg, var(--color-accent), var(--color-accent-hover));
+}
+
+/* Задача 2: тонкий разделитель между секциями */
+section.section-padding:not(#hero)::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(90%, 800px);
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(232, 165, 152, 0.35), transparent);
 }
 
 .bg-pastel {
@@ -105,6 +136,7 @@ h1, h2, h3 {
     background-color: var(--color-accent);
     color: #fff;
     border-color: var(--color-accent);
+    box-shadow: 0 6px 20px rgba(232, 165, 152, 0.35);
 }
 
 .btn-primary:hover,
@@ -112,7 +144,24 @@ h1, h2, h3 {
     background-color: var(--color-accent-hover);
     border-color: var(--color-accent-hover);
     transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(232, 165, 152, 0.4);
+    box-shadow: 0 12px 28px rgba(232, 165, 152, 0.5);
+    animation: none;
+}
+
+/* Задача 2: пульсация главных кнопок записи */
+@keyframes ctaPulse {
+    0%, 100% {
+        box-shadow: 0 6px 20px rgba(232, 165, 152, 0.35);
+    }
+    50% {
+        box-shadow: 0 10px 32px rgba(232, 165, 152, 0.55), 0 0 0 6px rgba(232, 165, 152, 0.12);
+    }
+}
+
+.btn-primary.btn-lg,
+.hero-buttons .btn-primary,
+.floating-cta {
+    animation: ctaPulse 2.8s ease-in-out infinite;
 }
 
 .btn-secondary {
@@ -175,15 +224,24 @@ h1, h2, h3 {
 /* ========================================
    ✨ АНИМАЦИЯ ПОЯВЛЕНИЯ
    ======================================== */
+/* Задача 2: микроанимация появления при скролле */
 .fade-in-section {
     opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
+    transform: translateY(30px);
+    transition: opacity 0.7s cubic-bezier(0.25, 0.8, 0.25, 1), transform 0.7s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .fade-in-section.visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+.fade-in-section:nth-child(2).visible {
+    transition-delay: 0.08s;
+}
+
+.fade-in-section:nth-child(3).visible {
+    transition-delay: 0.16s;
 }
 
 /* ========================================
@@ -403,8 +461,8 @@ h1, h2, h3 {
 .problems-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 20px;
-    margin: 40px 0;
+    gap: 24px;
+    margin: 48px 0;
 }
 
 .problem-card {
@@ -414,6 +472,18 @@ h1, h2, h3 {
     text-align: center;
     box-shadow: var(--shadow);
     transition: var(--transition);
+    border: 1px solid rgba(232, 165, 152, 0.12);
+}
+
+.problem-card h3 {
+    margin-bottom: 10px;
+    font-size: 1.15rem;
+}
+
+.problem-card p {
+    color: var(--color-text-light);
+    font-size: 0.95rem;
+    line-height: 1.65;
 }
 
 .problem-card:hover {
@@ -421,18 +491,31 @@ h1, h2, h3 {
     box-shadow: var(--shadow-hover);
 }
 
-.problem-icon {
-    font-size: 3rem;
+/* Задача 3: иллюстрации вместо иконок в секции «Знакомо?» */
+.problem-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    margin: 0 auto 16px;
     display: block;
-    margin-bottom: 15px;
+}
+
+.problem-cta {
+    display: block;
+    max-width: 350px;
+    margin: 25px auto 0;
+    text-align: center;
 }
 
 .section-subtext {
-    max-width: 700px;
-    margin: 40px auto 0;
+    max-width: 620px;
+    margin: 48px auto 0;
     color: var(--color-text-light);
     font-weight: 500;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
+    line-height: 1.8;
 }
 
 /* ========================================
@@ -441,8 +524,8 @@ h1, h2, h3 {
 .why-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 20px;
-    margin: 40px 0;
+    gap: 24px;
+    margin: 48px 0;
 }
 
 .why-card {
@@ -452,6 +535,18 @@ h1, h2, h3 {
     text-align: center;
     box-shadow: var(--shadow);
     transition: var(--transition);
+    border: 1px solid rgba(232, 165, 152, 0.1);
+}
+
+.why-card h3 {
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+}
+
+.why-card p {
+    color: var(--color-text-light);
+    font-size: 0.95rem;
+    line-height: 1.65;
 }
 
 .why-card:hover {
@@ -608,8 +703,21 @@ h1, h2, h3 {
     box-shadow: var(--shadow-hover);
 }
 
+/* Задача 2: выделение популярного тарифа и цен */
 .price-card.featured {
     border: 2px solid var(--color-accent);
+    background: linear-gradient(180deg, #fff 0%, #FFF9F8 100%);
+    box-shadow: 0 12px 40px rgba(232, 165, 152, 0.18);
+}
+
+@media (min-width: 768px) {
+    .price-card.featured {
+        transform: scale(1.03);
+    }
+
+    .price-card.featured:hover {
+        transform: scale(1.03) translateY(-5px);
+    }
 }
 
 .price {
@@ -645,21 +753,23 @@ h1, h2, h3 {
 }
 
 .price-new {
-    font-size: 2rem;
+    font-size: 2.4rem;
     font-weight: 800;
     color: var(--color-accent);
     margin-bottom: 10px;
+    letter-spacing: -1px;
 }
 
 .badge-sale {
     display: inline-block;
     background-color: #FFF0ED;
     color: var(--color-accent-hover);
-    padding: 5px 12px;
+    padding: 6px 14px;
     border-radius: 20px;
     font-size: 0.8rem;
     font-weight: 600;
     margin-bottom: 10px;
+    border: 1px solid rgba(232, 165, 152, 0.25);
 }
 
 .price-save {
@@ -670,8 +780,10 @@ h1, h2, h3 {
 }
 
 .price-card .btn {
-    margin-top: 5px;
+    margin-top: 8px;
     width: 100%;
+    padding: 18px 24px;
+    font-size: 1.05rem;
 }
 
 /* ========================================
@@ -680,8 +792,8 @@ h1, h2, h3 {
 .promo-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 20px;
-    margin: 40px 0;
+    gap: 24px;
+    margin: 48px 0;
 }
 
 .promo-card {
@@ -691,6 +803,31 @@ h1, h2, h3 {
     text-align: center;
     box-shadow: var(--shadow);
     transition: var(--transition);
+    border: 1px solid rgba(232, 165, 152, 0.15);
+}
+
+/* Задача 2: акцент на главной акции */
+.promo-card--featured {
+    border: 2px solid var(--color-accent);
+    background: linear-gradient(180deg, #fff 0%, #FFF9F8 100%);
+    box-shadow: 0 12px 35px rgba(232, 165, 152, 0.15);
+    position: relative;
+    margin-top: 14px;
+}
+
+.promo-card--featured::before {
+    content: '🔥 Выгодно';
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--color-accent);
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 4px 14px;
+    border-radius: 20px;
+    white-space: nowrap;
 }
 
 .promo-card:hover {
@@ -724,11 +861,12 @@ h1, h2, h3 {
    ======================================== */
 .faq-list {
     max-width: 700px;
-    margin: 30px auto 0;
+    margin: 40px auto 0;
 }
 
 .faq-item {
     border-bottom: 1px solid #f0f0f0;
+    padding: 4px 0;
 }
 
 .faq-question {
@@ -736,7 +874,7 @@ h1, h2, h3 {
     text-align: left;
     background: none;
     border: none;
-    padding: 8px 0;
+    padding: 14px 0;
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
     font-size: 0.95rem;
@@ -1468,21 +1606,71 @@ h1, h2, h3 {
    📱 АДАПТИВНОСТЬ (ТЕЛЕФОНЫ)
    ======================================== */
 @media (max-width: 767px) {
+    /* Задача 2: больше воздуха, одна мысль — один экран */
+    .section-padding {
+        padding-top: 72px;
+        padding-bottom: 72px;
+    }
+
+    .section-title {
+        font-size: 1.65rem;
+    }
+
+    .hero-section {
+        min-height: calc(100svh - 60px);
+        padding-top: 36px;
+        padding-bottom: 40px;
+        justify-content: center;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+        margin-bottom: 16px;
+    }
+
+    .hero-description {
+        font-size: 1rem;
+        margin-bottom: 24px;
+        line-height: 1.65;
+    }
+
+    .hero-buttons {
+        margin-bottom: 20px;
+    }
+
+    .hero-meta {
+        margin-top: 20px;
+        gap: 12px;
+    }
+
+    .problem-card,
+    .why-card,
+    .promo-card,
+    .price-card {
+        padding: 28px 20px;
+    }
+
+    .price-new {
+        font-size: 2.1rem;
+    }
+
+    /* Задача 1: меню полностью скрыто, не занимает место и не вызывает скролл */
     .main-nav {
         position: fixed;
-        top: 0;
+        top: 60px;
         left: 0;
         width: 100%;
         background-color: var(--color-surface);
         padding: 20px 30px;
         box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
         z-index: 99;
-        transform: translateY(-100%);
-        transition: transform 0.3s ease;
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
     }
     .main-nav.active {
-        transform: translateY(0);
-        top: 60px;
+        visibility: visible;
+        opacity: 1;
     }
     .main-nav ul {
         flex-direction: column;

@@ -255,7 +255,19 @@ document.addEventListener('DOMContentLoaded', function() {
             var y = row * cellH * 0.75;
             
             var cell = document.createElement('div');
-            cell.className = 'honeycomb-cell';
+                       cell.className = 'honeycomb-cell';
+            cell.addEventListener('click', function(e) {
+                e.stopPropagation();
+                var wasExpanded = this.classList.contains('expanded');
+                // Закрыть все открытые
+                document.querySelectorAll('.honeycomb-cell.expanded').forEach(function(c) {
+                    c.classList.remove('expanded');
+                });
+                // Открыть текущий, если был закрыт
+                if (!wasExpanded) {
+                    this.classList.add('expanded');
+                }
+            });
             cell.style.left = x + 'px';
             cell.style.top = y + 'px';
             cell.innerHTML = '<div class="cell-stars">' + rev.stars + '</div>' +
@@ -274,7 +286,13 @@ document.addEventListener('DOMContentLoaded', function() {
             honeycombGrid.style.transform = 'translate(calc(-50% + ' + currentGridX + 'px), calc(-50% + ' + currentGridY + 'px))';
         }
 
+               // Закрыть раскрытый отзыв при клике мимо
         honeycombViewport.addEventListener('mousedown', function(e) {
+            if (e.target === honeycombViewport || e.target === honeycombGrid) {
+                document.querySelectorAll('.honeycomb-cell.expanded').forEach(function(c) {
+                    c.classList.remove('expanded');
+                });
+            }
             isDragging = true;
             startX = e.clientX;
             startY = e.clientY;

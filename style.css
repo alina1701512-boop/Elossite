@@ -664,14 +664,31 @@ section.section-padding:not(#hero)::before {
     justify-content: center;
     text-align: center;
     padding: 20px 15px;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    transition: all 0.3s ease;
     overflow: hidden;
+    cursor: pointer;
 }
 
-.honeycomb-cell:hover {
-    transform: scale(1.08);
-    box-shadow: var(--shadow-hover);
-    z-index: 10;
+.honeycomb-cell.expanded {
+    width: 260px;
+    height: 260px;
+    border-radius: var(--radius-lg);
+    z-index: 20;
+    padding: 30px 25px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+}
+
+.honeycomb-cell.expanded .cell-text {
+    -webkit-line-clamp: unset;
+    font-size: 0.75rem;
+}
+
+.honeycomb-cell.expanded .cell-author {
+    font-size: 0.7rem;
+}
+
+.honeycomb-cell.expanded .cell-stars {
+    font-size: 0.9rem;
 }
 
 .honeycomb-cell .cell-stars {
@@ -697,6 +714,31 @@ section.section-padding:not(#hero)::before {
     color: var(--color-accent);
 }
 
+/* Подсказка при наведении */
+.honeycomb-cell::after {
+    content: 'Нажми';
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.5rem;
+    color: var(--color-accent);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    pointer-events: none;
+}
+
+.honeycomb-cell:hover::after {
+    opacity: 1;
+}
+
+.honeycomb-cell.expanded::after {
+    content: '✕';
+    font-size: 0.8rem;
+    bottom: 15px;
+    opacity: 1;
+}
+
 @media (max-width: 767px) {
     .honeycomb-viewport {
         height: 420px;
@@ -710,15 +752,27 @@ section.section-padding:not(#hero)::before {
         height: 120px;
         padding: 15px 10px;
     }
+    .honeycomb-cell.expanded {
+        width: 220px;
+        height: 220px;
+        padding: 25px 20px;
+    }
     .honeycomb-cell .cell-text {
         font-size: 0.5rem;
         -webkit-line-clamp: 3;
+    }
+    .honeycomb-cell.expanded .cell-text {
+        font-size: 0.65rem;
     }
     .honeycomb-cell .cell-stars {
         font-size: 0.6rem;
     }
     .honeycomb-cell .cell-author {
         font-size: 0.5rem;
+    }
+    .honeycomb-cell::after {
+        font-size: 0.45rem;
+        bottom: 8px;
     }
 }
 
@@ -1268,7 +1322,7 @@ section.section-padding:not(#hero)::before {
     background-color: var(--color-accent);
     color: #fff;
     padding: 14px 24px;
-    border-radius: 50px;
+       border-radius: 50px;
     box-shadow: 0 8px 25px rgba(232, 165, 152, 0.5);
     text-decoration: none;
     font-weight: 600;

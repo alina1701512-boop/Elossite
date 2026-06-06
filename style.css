@@ -1548,18 +1548,13 @@ section.section-padding:not(#hero)::before {
         gap: 12px;
     }
 
-    .problem-card,
+      .problem-card,
     .why-card,
-    .promo-card,
-    .price-card {
+    .promo-card {
         padding: 28px 20px;
     }
 
-    .price-new {
-        font-size: 2.1rem;
-    }
-
-    /* Задача 1: меню полностью скрыто, не занимает место и не вызывает скролл */
+    /* Задача 1: меню полностью скрыто... */
     .main-nav {
         position: fixed;
         top: 60px;

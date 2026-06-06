@@ -1,4 +1,4 @@
-// 📝 Изменено: 2026-06-05 / Таймер 30 сек между попапами + 24 процедуры в калькуляторе
+// 📝 Изменено: 2026-06-06 / Соты: 3 отзыва перенесены вниз + уменьшена высота грида на мобильных
 document.addEventListener('DOMContentLoaded', function() {
 
        // --- 1. Мобильное меню ---
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (mainNav.classList.contains('active') && !mainNav.contains(e.target) && e.target !== burgerMenu) {
                 mainNav.classList.remove('active');
                 burgerMenu.setAttribute('aria-expanded', 'false');
-            }
+            });
         });
 
         // Закрытие при клике на сам main (пустая область)
@@ -218,34 +218,40 @@ document.addEventListener('DOMContentLoaded', function() {
     var honeycombViewport = document.getElementById('honeycombViewport');
     
     if (honeycombGrid && honeycombViewport) {
+        // Три отзыва, которые обрезались справа — перенесены в конец списка,
+        // чтобы они оказались в новом ряду снизу, а не справа
         var reviews = [
             { stars: '⭐⭐⭐⭐⭐', text: '«Минусов вообще нет! Комфортная обстановка и располагающий мастер!»', author: 'Валерия Р.' },
             { stars: '⭐⭐⭐⭐⭐', text: '«Хожу уже год, очень нравится мастер Алина, и цена и качество»', author: 'Инкогнито 7258' },
             { stars: '⭐⭐⭐⭐⭐', text: '«Отличное место, комфортный мастер. Приятные цены и интерьер»', author: 'Поля' },
             { stars: '⭐⭐⭐⭐⭐', text: '«Пришла по рекомендации подруги. Очень волновалась, но всё прошло отлично»', author: 'Эльмира' },
             { stars: '⭐⭐⭐⭐⭐', text: '«Отличная студия, хороший мастер, знающий свою работу»', author: 'Ирэн' },
-            { stars: '⭐⭐⭐⭐⭐', text: '«Был на лазерной эпиляции, очень всё понравилось. Персонал классный»', author: 'Максим К.' },
             { stars: '⭐⭐⭐⭐⭐', text: '«Хожу теперь только к вам! Приятная и уютная атмосфера»', author: 'Алёна С.' },
             { stars: '⭐⭐⭐⭐⭐', text: '«Уютная и комфортная студия, мастера профессионалы своего дела»', author: 'Татьяна Р.' },
             { stars: '⭐⭐⭐⭐⭐', text: '«Отличное место, уютная атмосфера, грамотные специалисты»', author: 'Анастасия' },
             { stars: '⭐⭐⭐⭐⭐', text: '«Корректировал бороду, результатом доволен. Парковка бесплатная»', author: 'Искандер Х.' },
-            { stars: '⭐⭐⭐⭐⭐', text: '«Мастер Алина просто супер! Встретила, всё рассказала, очень чисто»', author: 'Михаил Л.' },
             { stars: '⭐⭐⭐⭐⭐', text: '«Очень боялась, но с 1 процедуры волос попадало больше чем у подруг за 2»', author: 'Анастасия Ч.' },
             { stars: '⭐⭐⭐⭐⭐', text: '«Благодарю мастера Алину за мужскую эпиляцию и непринуждённое общение»', author: 'Рустам К.' },
             { stars: '⭐⭐⭐⭐⭐', text: '«2 процедуры и ушло уже 30% волос, очень крутой результат»', author: 'Alina' },
             { stars: '⭐⭐⭐⭐⭐', text: '«Спасибо за тёплый приём! Сервис, уют, атмосфера — на высшем уровне!»', author: 'Регишка С.' },
             { stars: '⭐⭐⭐⭐⭐', text: '«Делала процедуру впервые и ужасно боялась. Но всё прошло замечательно!»', author: 'Екатерина П.' },
             { stars: '⭐⭐⭐⭐⭐', text: '«Прошла курс в этой студии, этим летом я как младенец без растительности»', author: 'Татьяна А.' },
-            { stars: '⭐⭐⭐⭐⭐', text: '«Очень понравился персонал, все вежливые. Рада, что выбрала эту студию»', author: 'Мария Р.' },
             { stars: '⭐⭐⭐⭐⭐', text: '«Была у мастера Ирины. Очень понравилось, спасибо за внимательность!»', author: 'Аня С.' },
             { stars: '⭐⭐⭐⭐⭐', text: '«Девчата вы лучшие, за красотой только к вам! Рекомендую всем!»', author: 'Наталья Г.' },
-            { stars: '⭐⭐⭐⭐⭐', text: '«Отличный салон, всегда приятная обстановка и лучший результат»', author: 'Иринка К.' }
+            { stars: '⭐⭐⭐⭐⭐', text: '«Отличный салон, всегда приятная обстановка и лучший результат»', author: 'Иринка К.' },
+            // --- Три отзыва, перенесённые из правого края вниз ---
+            { stars: '⭐⭐⭐⭐⭐', text: '«Был на лазерной эпиляции, очень всё понравилось. Персонал классный»', author: 'Максим К.' },
+            { stars: '⭐⭐⭐⭐⭐', text: '«Мастер Алина просто супер! Встретила, всё рассказала, очень чисто»', author: 'Михаил Л.' },
+            { stars: '⭐⭐⭐⭐⭐', text: '«Очень понравился персонал, все вежливые. Рада, что выбрала эту студию»', author: 'Мария Р.' }
         ];
 
-        // Сотовая раскладка: строки со сдвигом
-        var cellW = 170, cellH = 190;
-        var cols = 6;
-        var rowOffsetX = 85;
+        // Определяем размеры в зависимости от экрана
+        var isMobile = window.innerWidth < 768;
+        // На мобильных: 5 колонок, меньше ячейки, чтобы всё влезло без обрезания
+        var cols = isMobile ? 5 : 6;
+        var cellW = isMobile ? 140 : 170;
+        var cellH = isMobile ? 160 : 190;
+        var rowOffsetX = isMobile ? 70 : 85;
 
         reviews.forEach(function(rev, i) {
             var row = Math.floor(i / cols);
@@ -276,11 +282,22 @@ document.addEventListener('DOMContentLoaded', function() {
             honeycombGrid.appendChild(cell);
         });
 
+        // Вычисляем высоту грида: последний ряд × высота ячейки + запас
+        var totalRows = Math.ceil(reviews.length / cols);
+        var gridHeight = totalRows * cellH * 0.75 + cellH * 0.25;
+        // На мобильных применяем уменьшенную высоту
+        if (isMobile) {
+            honeycombGrid.style.width = '900px';
+            honeycombGrid.style.height = gridHeight + 'px';
+        }
+
         // Перетаскивание
         var isDragging = false;
         var startX, startY, gridX = 0, gridY = 0;
         var currentGridX = 0, currentGridY = 0;
-        var maxX = 300, maxY = 300;
+        // Границы: вправо больше, вниз меньше (т.к. высота уменьшена)
+        var maxX = isMobile ? 250 : 300;
+        var maxY = isMobile ? 150 : 300;
 
         function updateGridPosition() {
             honeycombGrid.style.transform = 'translate(calc(-50% + ' + currentGridX + 'px), calc(-50% + ' + currentGridY + 'px))';
@@ -368,16 +385,19 @@ document.addEventListener('DOMContentLoaded', function() {
             var totalMinutes = years * 52 * weeklyTime;
             var totalHours = Math.round(totalMinutes / 60);
 
-            var fullPrice, laserMinutes;
+            var fullPrice, laserMinutes, dikidiLink;
             if (zone === '1') {
                 fullPrice = 2300;
                 laserMinutes = 30;
+                dikidiLink = 'https://dkd.su/714399/s/8690972';
             } else if (zone === '2') {
                 fullPrice = 3500;
                 laserMinutes = 60;
+                dikidiLink = 'https://dkd.su/714399/s/8690938';
             } else if (zone === '3') {
                 fullPrice = 4400;
                 laserMinutes = 80;
+                dikidiLink = 'https://dkd.su/714399/s/8690898';
             }
 
             var firstDiscounted = Math.round(fullPrice * 0.65);
@@ -416,6 +436,12 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('calcLaserTime').textContent = 'займёт всего ' + totalLaserHours + ' часов (' + totalLaserProcedures + ' процедур за 5 лет)';
             document.getElementById('calcSave').textContent = saveText;
             document.getElementById('calcResult').style.display = 'block';
+
+            // Обновляем ссылку в кнопке калькулятора под выбранный комплекс
+            var calcLink = document.getElementById('calcLink');
+            if (calcLink && dikidiLink) {
+                calcLink.href = dikidiLink;
+            }
 
             document.getElementById('calcResult').scrollIntoView({ behavior: 'smooth' });
         });

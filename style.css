@@ -1063,163 +1063,77 @@ section.section-padding:not(#hero)::before {
 }
 
 /* ========================================
-   🗺️ КАРТА БОЛИ (СИЛУЭТ)
+   🗺️ КАРТА БОЛИ (ТАБЛИЦА ЧУВСТВИТЕЛЬНОСТИ)
    ======================================== */
-.pain-map-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-}
-
-.body-silhouette {
-    position: relative;
-    width: 140px;
-    height: 370px;
+.pain-table {
+    max-width: 600px;
     margin: 0 auto;
-}
-
-.silhouette-svg {
-    width: 140px;
-    height: 370px;
-    display: block;
-}
-
-.pain-zone {
-    position: absolute;
-    cursor: pointer;
-    z-index: 5;
-}
-
-.zone-dot {
-    display: block;
-    width: 14px;
-    height: 14px;
-    background-color: var(--color-accent);
-    border: 2.5px solid #fff;
-    border-radius: 50%;
-    box-shadow: 0 2px 6px rgba(232, 165, 152, 0.5);
-    transition: transform 0.3s ease;
-    animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-    0%, 100% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.25);
-    }
-}
-
-.pain-zone:hover .zone-dot {
-    transform: scale(1.5);
-    animation: none;
-}
-
-.zone-face {
-    top: 8px;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.zone-underarms {
-    top: 148px;
-    left: 18px;
-}
-
-.zone-underarms-right {
-    top: 148px;
-    right: 18px;
-    left: auto;
-}
-
-.zone-bikini {
-    top: 225px;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.zone-legs {
-    top: 315px;
-    left: 22px;
-}
-
-.zone-legs-right {
-    top: 315px;
-    right: 22px;
-    left: auto;
-}
-
-.zone-tooltip {
-    display: none;
-    position: absolute;
-    width: 230px;
-    background-color: #fff;
     border-radius: var(--radius-md);
-    padding: 12px 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
-    z-index: 10;
-    font-size: 0.82rem;
-    line-height: 1.5;
-    color: var(--color-text);
-    text-align: left;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    background-color: var(--color-surface);
 }
 
-.zone-tooltip strong {
+.pain-row {
+    display: grid;
+    grid-template-columns: 1.3fr 1.8fr 0.9fr;
+    align-items: center;
+    padding: 18px 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    font-size: 0.95rem;
+}
+
+.pain-row:last-child {
+    border-bottom: none;
+}
+
+.pain-row--header {
+    background-color: var(--color-accent);
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 14px 20px;
+}
+
+.pain-row:not(.pain-row--header):nth-child(even) {
+    background-color: #FFF9F8;
+}
+
+.pain-row:not(.pain-row--header):hover {
+    background-color: #FFF0ED;
+}
+
+.pain-cell {
+    padding: 4px 8px;
+}
+
+.pain-cell:first-child {
+    padding-left: 4px;
+}
+
+.pain-cell:last-child {
+    text-align: center;
+    font-weight: 600;
     color: var(--color-accent);
-    display: block;
-    margin-bottom: 4px;
+    padding-right: 4px;
 }
 
-.pain-zone:hover .zone-tooltip {
-    display: block;
-}
-
-.zone-underarms .zone-tooltip {
-    top: -85px;
-    left: 25px;
-}
-
-.zone-underarms-right .zone-tooltip {
-    top: -85px;
-    right: 25px;
-    left: auto;
-}
-
-.zone-bikini .zone-tooltip {
-    top: -85px;
-    left: -95px;
-}
-
-.zone-legs .zone-tooltip {
-    top: -85px;
-    left: 25px;
-}
-
-.zone-legs-right .zone-tooltip {
-    top: -85px;
-    right: 25px;
-    left: auto;
-}
-
-.zone-face .zone-tooltip {
-    top: -95px;
-    left: -95px;
-}
-
-@media (max-width: 768px) {
-    .zone-tooltip {
-        width: 190px;
-        font-size: 0.78rem;
+@media (max-width: 767px) {
+    .pain-row {
+        grid-template-columns: 1.2fr 1.8fr 0.7fr;
+        padding: 14px 12px;
+        font-size: 0.85rem;
     }
-    .zone-bikini .zone-tooltip {
-        left: -80px;
+    .pain-row--header {
+        font-size: 0.75rem;
+        padding: 10px 12px;
     }
-    .zone-face .zone-tooltip {
-        left: -80px;
+    .pain-cell {
+        padding: 2px 4px;
     }
 }
-
 /* ========================================
    📞 ПОДВАЛ САЙТА
    ======================================== */

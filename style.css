@@ -67,7 +67,6 @@ h1, h2, h3 {
     position: relative;
 }
 
-/* Задача 2: заголовки секций с акцентной линией */
 .section-title {
     font-size: 2rem;
     font-weight: 800;
@@ -85,7 +84,6 @@ h1, h2, h3 {
     background: linear-gradient(90deg, var(--color-accent), var(--color-accent-hover));
 }
 
-/* Задача 2: тонкий разделитель между секциями */
 section.section-padding:not(#hero)::before {
     content: '';
     position: absolute;
@@ -148,7 +146,6 @@ section.section-padding:not(#hero)::before {
     animation: none;
 }
 
-/* Задача 2: пульсация главных кнопок записи */
 @keyframes ctaPulse {
     0%, 100% {
         box-shadow: 0 6px 20px rgba(232, 165, 152, 0.35);
@@ -224,7 +221,6 @@ section.section-padding:not(#hero)::before {
 /* ========================================
    ✨ АНИМАЦИЯ ПОЯВЛЕНИЯ
    ======================================== */
-/* Задача 2: микроанимация появления при скролле */
 .fade-in-section {
     opacity: 0;
     transform: translateY(30px);
@@ -491,7 +487,6 @@ section.section-padding:not(#hero)::before {
     box-shadow: var(--shadow-hover);
 }
 
-/* Задача 3: иллюстрации вместо иконок в секции «Знакомо?» */
 .problem-image {
     width: 100px;
     height: 100px;
@@ -864,7 +859,6 @@ section.section-padding:not(#hero)::before {
     border: 1px solid rgba(232, 165, 152, 0.15);
 }
 
-/* Задача 2: акцент на главной акции */
 .promo-card--featured {
     border: 2px solid var(--color-accent);
     background: linear-gradient(180deg, #fff 0%, #FFF9F8 100%);
@@ -1192,6 +1186,7 @@ section.section-padding:not(#hero)::before {
         padding: 2px 4px;
     }
 }
+
 /* ========================================
    📞 ПОДВАЛ САЙТА
    ======================================== */
@@ -1511,7 +1506,6 @@ section.section-padding:not(#hero)::before {
    📱 АДАПТИВНОСТЬ (ТЕЛЕФОНЫ)
    ======================================== */
 @media (max-width: 767px) {
-    /* Задача 2: больше воздуха, одна мысль — один экран */
     .section-padding {
         padding-top: 72px;
         padding-bottom: 72px;
@@ -1548,13 +1542,52 @@ section.section-padding:not(#hero)::before {
         gap: 12px;
     }
 
-      .problem-card,
+    .problem-card,
     .why-card,
     .promo-card {
         padding: 28px 20px;
     }
 
-    /* Задача 1: меню полностью скрыто... */
+    .pricing-grid {
+        gap: 6px;
+    }
+
+    .price-card {
+        padding: 12px 6px;
+    }
+
+    .price-zone-label {
+        font-size: 0.6rem;
+        margin-bottom: 6px;
+    }
+
+    .price-old {
+        font-size: 0.6rem;
+    }
+
+    .price-new {
+        font-size: 1rem;
+    }
+
+    .badge-sale {
+        font-size: 0.55rem;
+        padding: 2px 6px;
+    }
+
+    .price-save {
+        font-size: 0.6rem;
+    }
+
+    .price-card .btn {
+        padding: 8px 4px;
+        font-size: 0.65rem;
+    }
+
+    .badge {
+        font-size: 0.55rem;
+        padding: 3px 6px;
+    }
+
     .main-nav {
         position: fixed;
         top: 60px;
@@ -1568,15 +1601,18 @@ section.section-padding:not(#hero)::before {
         opacity: 0;
         transition: opacity 0.3s ease, visibility 0.3s ease;
     }
+
     .main-nav.active {
         visibility: visible;
         opacity: 1;
     }
+
     .main-nav ul {
         flex-direction: column;
         gap: 15px;
         text-align: center;
     }
+
     .burger-menu {
         display: flex;
         flex-direction: column;
@@ -1588,6 +1624,7 @@ section.section-padding:not(#hero)::before {
         z-index: 101;
         position: relative;
     }
+
     .burger-menu span {
         display: block;
         width: 26px;
@@ -1596,10 +1633,12 @@ section.section-padding:not(#hero)::before {
         transition: var(--transition);
     }
 }
+
 .hero-map-link {
     text-decoration: none;
     color: inherit;
 }
+
 /* ========================================
    📸 ФОТО МАСТЕРА
    ======================================== */

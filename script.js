@@ -1,20 +1,18 @@
 // 📝 Изменено: 2026-06-06 / Соты: 3 отзыва перенесены вниз + уменьшена высота грида на мобильных
 document.addEventListener('DOMContentLoaded', function() {
 
-       // --- 1. Мобильное меню ---
+    // --- 1. Мобильное меню ---
     var burgerMenu = document.getElementById('burgerMenu');
     var mainNav = document.getElementById('mainNav');
     var body = document.body;
 
     if (burgerMenu && mainNav) {
-        // Открытие/закрытие по бургеру
         burgerMenu.addEventListener('click', function(e) {
             e.stopPropagation();
             var isOpen = mainNav.classList.toggle('active');
             burgerMenu.setAttribute('aria-expanded', isOpen);
         });
 
-        // Закрытие при клике на ссылку в меню
         mainNav.querySelectorAll('a').forEach(function(link) {
             link.addEventListener('click', function() {
                 mainNav.classList.remove('active');
@@ -22,15 +20,13 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
 
-        // Закрытие при клике на пустое место (мимо меню)
         document.addEventListener('click', function(e) {
             if (mainNav.classList.contains('active') && !mainNav.contains(e.target) && e.target !== burgerMenu) {
                 mainNav.classList.remove('active');
                 burgerMenu.setAttribute('aria-expanded', 'false');
-            });
+            }
         });
 
-        // Закрытие при клике на сам main (пустая область)
         mainNav.addEventListener('click', function(e) {
             if (e.target === mainNav) {
                 mainNav.classList.remove('active');
@@ -152,31 +148,23 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!popup1Shown && exitPopup1) {
             exitPopup1.classList.add('visible');
             popup1Shown = true;
-
             timerActive = true;
             timerStartTime = Date.now();
             popup2Ready = false;
-
             setTimeout(function() {
                 timerActive = false;
                 popup2Ready = true;
             }, 30000);
-
             return true;
         }
-
         if (popup1Shown && !popup2Shown && exitPopup2) {
-            if (timerActive) {
-                return false;
-            }
-
+            if (timerActive) return false;
             if (popup2Ready || !timerActive) {
                 exitPopup2.classList.add('visible');
                 popup2Shown = true;
                 return true;
             }
         }
-
         return false;
     }
 
@@ -199,22 +187,149 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.exit-popup-close').forEach(function(btn) {
         btn.addEventListener('click', function() {
             var popup = this.closest('.exit-popup-overlay');
-            if (popup) {
-                popup.classList.remove('visible');
-            }
+            if (popup) popup.classList.remove('visible');
         });
     });
 
     document.querySelectorAll('.close-popup-btn').forEach(function(btn) {
         btn.addEventListener('click', function() {
             var popup = this.closest('.exit-popup-overlay');
-            if (popup) {
-                popup.classList.remove('visible');
-            }
+            if (popup) popup.classList.remove('visible');
         });
     });
 
-// --- 8. Калькулятор (5 лет, 24 процедуры) ---
+    // --- 7.5. Сотовая сетка отзывов ---
+    var honeycombGrid = document.getElementById('honeycombGrid');
+    var honeycombViewport = document.getElementById('honeycombViewport');
+    
+    if (honeycombGrid && honeycombViewport) {
+        var reviews = [
+            { stars: '⭐⭐⭐⭐⭐', text: '«Минусов вообще нет! Комфортная обстановка и располагающий мастер!»', author: 'Валерия Р.' },
+            { stars: '⭐⭐⭐⭐⭐', text: '«Хожу уже год, очень нравится мастер Алина, и цена и качество»', author: 'Инкогнито 7258' },
+            { stars: '⭐⭐⭐⭐⭐', text: '«Отличное место, комфортный мастер. Приятные цены и интерьер»', author: 'Поля' },
+            { stars: '⭐⭐⭐⭐⭐', text: '«Пришла по рекомендации подруги. Очень волновалась, но всё прошло отлично»', author: 'Эльмира' },
+            { stars: '⭐⭐⭐⭐⭐', text: '«Отличная студия, хороший мастер, знающий свою работу»', author: 'Ирэн' },
+            { stars: '⭐⭐⭐⭐⭐', text: '«Хожу теперь только к вам! Приятная и уютная атмосфера»', author: 'Алёна С.' },
+            { stars: '⭐⭐⭐⭐⭐', text: '«Уютная и комфортная студия, мастера профессионалы своего дела»', author: 'Татьяна Р.' },
+            { stars: '⭐⭐⭐⭐⭐', text: '«Отличное место, уютная атмосфера, грамотные специалисты»', author: 'Анастасия' },
+            { stars: '⭐⭐⭐⭐⭐', text: '«Корректировал бороду, результатом доволен. Парковка бесплатная»', author: 'Искандер Х.' },
+            { stars: '⭐⭐⭐⭐⭐', text: '«Очень боялась, но с 1 процедуры волос попадало больше чем у подруг за 2»', author: 'Анастасия Ч.' },
+            { stars: '⭐⭐⭐⭐⭐', text: '«Благодарю мастера Алину за мужскую эпиляцию и непринуждённое общение»', author: 'Рустам К.' },
+            { stars: '⭐⭐⭐⭐⭐', text: '«2 процедуры и ушло уже 30% волос, очень крутой результат»', author: 'Alina' },
+            { stars: '⭐⭐⭐⭐⭐', text: '«Спасибо за тёплый приём! Сервис, уют, атмосфера — на высшем уровне!»', author: 'Регишка С.' },
+            { stars: '⭐⭐⭐⭐⭐', text: '«Делала процедуру впервые и ужасно боялась. Но всё прошло замечательно!»', author: 'Екатерина П.' },
+            { stars: '⭐⭐⭐⭐⭐', text: '«Прошла курс в этой студии, этим летом я как младенец без растительности»', author: 'Татьяна А.' },
+            { stars: '⭐⭐⭐⭐⭐', text: '«Была у мастера Ирины. Очень понравилось, спасибо за внимательность!»', author: 'Аня С.' },
+            { stars: '⭐⭐⭐⭐⭐', text: '«Девчата вы лучшие, за красотой только к вам! Рекомендую всем!»', author: 'Наталья Г.' },
+            { stars: '⭐⭐⭐⭐⭐', text: '«Отличный салон, всегда приятная обстановка и лучший результат»', author: 'Иринка К.' },
+            { stars: '⭐⭐⭐⭐⭐', text: '«Был на лазерной эпиляции, очень всё понравилось. Персонал классный»', author: 'Максим К.' },
+            { stars: '⭐⭐⭐⭐⭐', text: '«Мастер Алина просто супер! Встретила, всё рассказала, очень чисто»', author: 'Михаил Л.' },
+            { stars: '⭐⭐⭐⭐⭐', text: '«Очень понравился персонал, все вежливые. Рада, что выбрала эту студию»', author: 'Мария Р.' }
+        ];
+
+        var isMobile = window.innerWidth < 768;
+        var cols = isMobile ? 5 : 6;
+        var cellW = isMobile ? 140 : 170;
+        var cellH = isMobile ? 160 : 190;
+        var rowOffsetX = isMobile ? 70 : 85;
+
+        reviews.forEach(function(rev, i) {
+            var row = Math.floor(i / cols);
+            var col = i % cols;
+            var offsetX = (row % 2 === 1) ? rowOffsetX : 0;
+            var x = col * cellW + offsetX;
+            var y = row * cellH * 0.75;
+            
+            var cell = document.createElement('div');
+            cell.className = 'honeycomb-cell';
+            cell.addEventListener('click', function(e) {
+                e.stopPropagation();
+                var wasExpanded = this.classList.contains('expanded');
+                document.querySelectorAll('.honeycomb-cell.expanded').forEach(function(c) {
+                    c.classList.remove('expanded');
+                });
+                if (!wasExpanded) {
+                    this.classList.add('expanded');
+                }
+            });
+            cell.style.left = x + 'px';
+            cell.style.top = y + 'px';
+            cell.innerHTML = '<div class="cell-stars">' + rev.stars + '</div>' +
+                             '<div class="cell-text">' + rev.text + '</div>' +
+                             '<div class="cell-author">— ' + rev.author + '</div>';
+            honeycombGrid.appendChild(cell);
+        });
+
+        var totalRows = Math.ceil(reviews.length / cols);
+        var gridHeight = totalRows * cellH * 0.75 + cellH * 0.25;
+        honeycombGrid.style.height = gridHeight + 'px';
+
+        var isDragging = false;
+        var startX, startY, gridX = 0, gridY = 0;
+        var currentGridX = 0, currentGridY = 0;
+        var maxX = isMobile ? 250 : 300;
+        var maxY = isMobile ? 150 : 300;
+
+        function updateGridPosition() {
+            honeycombGrid.style.transform = 'translate(calc(-50% + ' + currentGridX + 'px), calc(-50% + ' + currentGridY + 'px))';
+        }
+
+        honeycombViewport.addEventListener('mousedown', function(e) {
+            if (e.target === honeycombViewport || e.target === honeycombGrid) {
+                document.querySelectorAll('.honeycomb-cell.expanded').forEach(function(c) {
+                    c.classList.remove('expanded');
+                });
+            }
+            isDragging = true;
+            startX = e.clientX;
+            startY = e.clientY;
+            gridX = currentGridX;
+            gridY = currentGridY;
+            honeycombViewport.style.cursor = 'grabbing';
+            e.preventDefault();
+        });
+
+        window.addEventListener('mousemove', function(e) {
+            if (!isDragging) return;
+            var dx = e.clientX - startX;
+            var dy = e.clientY - startY;
+            currentGridX = Math.max(-maxX, Math.min(maxX, gridX + dx));
+            currentGridY = Math.max(-maxY, Math.min(maxY, gridY + dy));
+            updateGridPosition();
+        });
+
+        window.addEventListener('mouseup', function() {
+            if (isDragging) {
+                isDragging = false;
+                honeycombViewport.style.cursor = 'grab';
+            }
+        });
+
+        honeycombViewport.addEventListener('touchstart', function(e) {
+            if (e.touches.length === 1) {
+                isDragging = true;
+                startX = e.touches[0].clientX;
+                startY = e.touches[0].clientY;
+                gridX = currentGridX;
+                gridY = currentGridY;
+            }
+        });
+
+        honeycombViewport.addEventListener('touchmove', function(e) {
+            if (!isDragging) return;
+            var dx = e.touches[0].clientX - startX;
+            var dy = e.touches[0].clientY - startY;
+            currentGridX = Math.max(-maxX, Math.min(maxX, gridX + dx));
+            currentGridY = Math.max(-maxY, Math.min(maxY, gridY + dy));
+            updateGridPosition();
+        });
+
+        honeycombViewport.addEventListener('touchend', function() {
+            isDragging = false;
+        });
+    }
+
+    // --- 8. Калькулятор (5 лет, 24 процедуры) ---
     var calcButton = document.getElementById('calcButton');
     if (calcButton) {
         calcButton.addEventListener('click', function() {
@@ -292,7 +407,6 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('calcSave').textContent = saveText;
             document.getElementById('calcResult').style.display = 'block';
 
-            // Обновляем ссылку в кнопке калькулятора под выбранный комплекс
             var calcLink = document.getElementById('calcLink');
             if (calcLink && dikidiLink) {
                 calcLink.href = dikidiLink;

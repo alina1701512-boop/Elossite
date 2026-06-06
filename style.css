@@ -684,18 +684,19 @@ section.section-padding:not(#hero)::before {
 .pricing-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 24px;
     margin: 40px 0;
 }
 
 .price-card {
     background-color: var(--color-surface);
-    padding: 35px;
+    padding: 35px 30px;
     border-radius: var(--radius-md);
     text-align: center;
     box-shadow: var(--shadow);
     transition: var(--transition);
     position: relative;
+    border: 1px solid rgba(232, 165, 152, 0.12);
 }
 
 .price-card:hover {
@@ -703,7 +704,6 @@ section.section-padding:not(#hero)::before {
     box-shadow: var(--shadow-hover);
 }
 
-/* Задача 2: выделение популярного тарифа и цен */
 .price-card.featured {
     border: 2px solid var(--color-accent);
     background: linear-gradient(180deg, #fff 0%, #FFF9F8 100%);
@@ -714,17 +714,32 @@ section.section-padding:not(#hero)::before {
     .price-card.featured {
         transform: scale(1.03);
     }
-
     .price-card.featured:hover {
         transform: scale(1.03) translateY(-5px);
     }
 }
 
-.price {
-    font-size: 2rem;
+.price-zone-label {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 16px;
+    color: var(--color-text);
+}
+
+.price-old {
+    text-decoration: line-through;
+    color: var(--color-text-light);
+    font-size: 1rem;
+    margin-bottom: 4px;
+}
+
+.price-new {
+    font-size: 2.4rem;
     font-weight: 800;
     color: var(--color-accent);
-    margin: 10px 0;
+    margin-bottom: 10px;
+    letter-spacing: -1px;
 }
 
 .badge {
@@ -737,29 +752,6 @@ section.section-padding:not(#hero)::before {
     margin-bottom: 15px;
 }
 
-.pricing-info {
-    margin-top: 40px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    align-items: center;
-}
-
-.price-old {
-    text-decoration: line-through;
-    color: var(--color-text-light);
-    font-size: 1rem;
-    margin-bottom: 5px;
-}
-
-.price-new {
-    font-size: 2.4rem;
-    font-weight: 800;
-    color: var(--color-accent);
-    margin-bottom: 10px;
-    letter-spacing: -1px;
-}
-
 .badge-sale {
     display: inline-block;
     background-color: #FFF0ED;
@@ -768,7 +760,7 @@ section.section-padding:not(#hero)::before {
     border-radius: 20px;
     font-size: 0.8rem;
     font-weight: 600;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     border: 1px solid rgba(232, 165, 152, 0.25);
 }
 
@@ -776,14 +768,69 @@ section.section-padding:not(#hero)::before {
     font-size: 0.85rem;
     color: #4CAF50;
     font-weight: 600;
-    margin-bottom: 15px;
+    margin-bottom: 16px;
 }
 
 .price-card .btn {
-    margin-top: 8px;
+    margin-top: 4px;
     width: 100%;
     padding: 18px 24px;
     font-size: 1.05rem;
+}
+
+/* Блок «Что входит в стоимость» */
+.pricing-includes {
+    margin-top: 56px;
+    padding: 40px 30px;
+    background-color: var(--color-pastel);
+    border-radius: var(--radius-lg);
+}
+
+.includes-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.include-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.include-item i {
+    font-size: 1.5rem;
+    color: var(--color-accent);
+    width: 32px;
+    text-align: center;
+}
+
+.pricing-info {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+@media (max-width: 767px) {
+    .price-card {
+        padding: 28px 20px;
+    }
+    .price-new {
+        font-size: 2.1rem;
+    }
+    .pricing-includes {
+        padding: 30px 20px;
+    }
+    .includes-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
 }
 
 /* ========================================

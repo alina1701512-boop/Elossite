@@ -575,19 +575,12 @@ section.section-padding:not(#hero)::before {
 /* ========================================
    🗺️ СЕКЦИЯ "ВАШ ПУТЬ" + КАЛЬКУЛЯТОР
    ======================================== */
-/* Задача 4: выравнивание по верхнему краю */
+/* MOBILE-FIRST: по умолчанию 1 колонка на мобайле */
 .how-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 60px;
+    gap: 40px;
     margin: 40px 0;
-}
-
-@media (min-width: 768px) {
-    .how-grid {
-        grid-template-columns: 1fr 1fr;
-        align-items: start;
-    }
 }
 
 .how-steps {
@@ -595,21 +588,13 @@ section.section-padding:not(#hero)::before {
     flex-direction: column;
 }
 
-/* Задача 4: калькулятор приподнят чуть выше для выравнивания заголовков */
 .how-calculator {
     display: flex;
     flex-direction: column;
-    /* Компенсируем разницу в высоте - заголовок калькулятора должен быть на уровне первого заголовка шага */
-}
-
-@media (min-width: 768px) {
-    .how-calculator {
-        margin-top: 0; /* На больших экранах выравнивание по верхнему краю происходит через align-items: start */
-    }
 }
 
 .steps-timeline {
-    max-width: 600px;
+    max-width: 100%;
     margin: 0;
     position: relative;
 }
@@ -741,16 +726,6 @@ section.section-padding:not(#hero)::before {
     border: 2px solid var(--color-accent);
     background: linear-gradient(180deg, #fff 0%, #FFF9F8 100%);
     box-shadow: 0 12px 40px rgba(232, 165, 152, 0.18);
-}
-
-@media (min-width: 768px) {
-    .price-card.featured {
-        transform: scale(1.03);
-    }
-
-    .price-card.featured:hover {
-        transform: scale(1.03) translateY(-5px);
-    }
 }
 
 .price {
@@ -974,12 +949,6 @@ section.section-padding:not(#hero)::before {
     align-items: start;
 }
 
-@media (min-width: 768px) {
-    .contacts-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-}
-
 .contact-form-block {
     width: 100%;
 }
@@ -1031,9 +1000,41 @@ section.section-padding:not(#hero)::before {
 }
 
 /* ========================================
-   🔒 БУРГЕР МЕНЮ (МОБАЙЛ)
+   🔒 МОБИЛЬНОЕ МЕНЮ & АДАПТИВ (320-767px)
    ======================================== */
 @media (max-width: 767px) {
+    /* Бургер меню */
+    .burger-menu {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 8px;
+    }
+
+    .burger-menu span {
+        width: 24px;
+        height: 2px;
+        background-color: var(--color-text);
+        transition: 0.3s;
+        display: block;
+    }
+
+    .burger-menu.active span:nth-child(1) {
+        transform: rotate(45deg) translate(8px, 8px);
+    }
+
+    .burger-menu.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .burger-menu.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
+    }
+
+    /* Навигация на мобайле */
     .main-nav {
         position: fixed;
         top: 60px;
@@ -1066,64 +1067,7 @@ section.section-padding:not(#hero)::before {
         border-bottom: none;
     }
 
-    .burger-menu {
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
-        background: none;
-        border: none;
-        cursor: pointer;
-        padding: 8px;
-    }
-
-    .burger-menu span {
-        width: 24px;
-        height: 2px;
-        background-color: var(--color-text);
-        transition: 0.3s;
-        display: block;
-    }
-
-    .burger-menu.active span:nth-child(1) {
-        transform: rotate(45deg) translate(8px, 8px);
-    }
-
-    .burger-menu.active span:nth-child(2) {
-        opacity: 0;
-    }
-
-    .burger-menu.active span:nth-child(3) {
-        transform: rotate(-45deg) translate(7px, -7px);
-    }
-
-    /* Задача 4: на мобайле секция "Ваш путь" - один столбец */
-    .how-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-
-    .steps-timeline {
-        max-width: 100%;
-    }
-
-    .how-calculator {
-        margin-top: 0;
-    }
-
-    /* Задача 2: адаптив для всех карточек */
-    .why-grid,
-    .problems-grid,
-    .pricing-grid,
-    .promo-grid {
-        grid-template-columns: 1fr;
-    }
-
-    /* Задача 2: героя на мобайле */
-    .hero-grid {
-        flex-direction: column;
-        gap: 30px;
-    }
-
+    /* Адаптив для сеток */
     .hero-title {
         font-size: 1.8rem;
     }
@@ -1136,32 +1080,60 @@ section.section-padding:not(#hero)::before {
         font-size: 1.5rem;
     }
 
-    /* Задача 2: сетки на мобайле */
-    @media (min-width: 768px) {
-        .problems-grid,
-        .why-grid,
-        .pricing-grid,
-        .promo-grid {
-            grid-template-columns: repeat(2, 1fr);
-        }
-
-        .testimonial-card {
-            min-width: 250px;
-        }
-    }
-
-    @media (min-width: 1024px) {
-        .problems-grid,
-        .why-grid,
-        .pricing-grid,
-        .promo-grid {
-            grid-template-columns: repeat(3, 1fr);
-        }
+    .section-padding {
+        padding-top: 60px;
+        padding-bottom: 60px;
     }
 }
 
 /* ========================================
-   🎨 СКРЫТЫЕ ЭЛЕМЕНТЫ И ПРОЧЕЕ
+   💻 ВЕБА-ВЕРСИЯ (768px+)
+   ======================================== */
+@media (min-width: 768px) {
+    /* Задача 4: две колонки на веб-версии */
+    .how-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: start;
+    }
+
+    .steps-timeline {
+        max-width: 600px;
+    }
+
+    /* Выделение популярного тарифа */
+    .price-card.featured {
+        transform: scale(1.03);
+    }
+
+    .price-card.featured:hover {
+        transform: scale(1.03) translateY(-5px);
+    }
+
+    /* Сетки на десктопе */
+    .problems-grid,
+    .why-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .pricing-grid,
+    .promo-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* Контакты */
+    .contacts-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    /* Карточки отзывов */
+    .testimonial-card {
+        min-width: 250px;
+    }
+}
+
+/* ========================================
+   🎨 ОБЩИЕ ЭЛЕМЕНТЫ
    ======================================== */
 .floating-cta {
     position: fixed;

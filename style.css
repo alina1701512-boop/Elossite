@@ -575,27 +575,9 @@ section.section-padding:not(#hero)::before {
 /* ========================================
    🗺️ СЕКЦИЯ "ВАШ ПУТЬ" + КАЛЬКУЛЯТОР
    ======================================== */
-/* MOBILE-FIRST: по умолчанию 1 колонка на мобайле */
-.how-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 40px;
-    margin: 40px 0;
-}
-
-.how-steps {
-    display: flex;
-    flex-direction: column;
-}
-
-.how-calculator {
-    display: flex;
-    flex-direction: column;
-}
-
 .steps-timeline {
-    max-width: 100%;
-    margin: 0;
+    max-width: 600px;
+    margin: 40px auto 0;
     position: relative;
 }
 
@@ -726,6 +708,16 @@ section.section-padding:not(#hero)::before {
     border: 2px solid var(--color-accent);
     background: linear-gradient(180deg, #fff 0%, #FFF9F8 100%);
     box-shadow: 0 12px 40px rgba(232, 165, 152, 0.18);
+}
+
+@media (min-width: 768px) {
+    .price-card.featured {
+        transform: scale(1.03);
+    }
+
+    .price-card.featured:hover {
+        transform: scale(1.03) translateY(-5px);
+    }
 }
 
 .price {
@@ -949,6 +941,12 @@ section.section-padding:not(#hero)::before {
     align-items: start;
 }
 
+@media (min-width: 768px) {
+    .contacts-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
 .contact-form-block {
     width: 100%;
 }
@@ -1000,250 +998,732 @@ section.section-padding:not(#hero)::before {
 }
 
 /* ========================================
-   🔒 МОБИЛЬНОЕ МЕНЮ & АДАПТИВ (320-767px)
+   🔘 ФОРМА (старая, теперь не используется)
    ======================================== */
-@media (max-width: 767px) {
-    /* Бургер меню */
-    .burger-menu {
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
-        background: none;
-        border: none;
-        cursor: pointer;
-        padding: 8px;
-    }
-
-    .burger-menu span {
-        width: 24px;
-        height: 2px;
-        background-color: var(--color-text);
-        transition: 0.3s;
-        display: block;
-    }
-
-    .burger-menu.active span:nth-child(1) {
-        transform: rotate(45deg) translate(8px, 8px);
-    }
-
-    .burger-menu.active span:nth-child(2) {
-        opacity: 0;
-    }
-
-    .burger-menu.active span:nth-child(3) {
-        transform: rotate(-45deg) translate(7px, -7px);
-    }
-
-    /* FIX: Навигация на мобайле - максимальная высота меньше чем высота экрана */
-    .main-nav {
-        position: fixed;
-        top: 60px;
-        left: 0;
-        right: 0;
-        background: #fff;
-        max-height: 0;
-        overflow-y: auto;
-        transition: max-height 0.3s ease-out;
-        z-index: 99;
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
-        /* FIX: Оставляем место внизу для видимости контента */
-        max-height: calc(100vh - 150px);
-    }
-
-    .main-nav.active {
-        max-height: calc(100vh - 150px);
-    }
-
-    .main-nav ul {
-        flex-direction: column;
-        gap: 0;
-        padding: 20px 24px;
-        padding-bottom: 40px;
-    }
-
-    .main-nav li {
-        padding: 12px 0;
-        border-bottom: 1px solid #f0f0f0;
-    }
-
-    .main-nav li:last-child {
-        border-bottom: none;
-    }
-
-    /* Адаптив для сеток */
-    .hero-title {
-        font-size: 1.8rem;
-    }
-
-    .hero-description {
-        font-size: 0.95rem;
-    }
-
-    .section-title {
-        font-size: 1.5rem;
-    }
-
-    .section-padding {
-        padding-top: 60px;
-        padding-bottom: 60px;
-    }
+.form-group {
+    margin-bottom: 20px;
 }
 
-/* ========================================
-   💻 ВЕБА-ВЕРСИЯ (768px+)
-   ======================================== */
-@media (min-width: 768px) {
-    /* Задача 4: две колонки на веб-версии */
-    .how-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 60px;
-        align-items: start;
-    }
-
-    .steps-timeline {
-        max-width: 600px;
-    }
-
-    /* Выделение популярного тарифа */
-    .price-card.featured {
-        transform: scale(1.03);
-    }
-
-    .price-card.featured:hover {
-        transform: scale(1.03) translateY(-5px);
-    }
-
-    /* Сетки на десктопе */
-    .problems-grid,
-    .why-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-
-    .pricing-grid,
-    .promo-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-
-    /* Контакты */
-    .contacts-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    /* Карточки отзывов */
-    .testimonial-card {
-        min-width: 250px;
-    }
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
 }
 
-/* ========================================
-   🎨 ОБЩИЕ ЭЛЕМЕНТЫ
-   ======================================== */
-.floating-cta {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    z-index: 80;
-    display: inline-flex;
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 14px 18px;
+    border: 1px solid #ddd;
+    border-radius: var(--radius-sm);
+    font-family: inherit;
+    font-size: 1rem;
+    transition: var(--transition);
+    background-color: var(--color-bg);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 4px rgba(232, 165, 152, 0.15);
+    background-color: #fff;
+}
+
+.checkbox-group {
+    display: flex;
     align-items: center;
     gap: 10px;
-    padding: 16px 24px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.95rem;
-    box-shadow: 0 8px 24px rgba(232, 165, 152, 0.4);
+}
+
+.checkbox-group input {
+    width: auto;
+    accent-color: var(--color-accent);
+}
+
+.checkbox-group label {
+    font-size: 0.85rem;
+    color: var(--color-text-light);
+}
+
+/* ========================================
+   🧮 СЕТКА ДЛЯ БЛОКА "ВАШ ПУТЬ"
+   ======================================== */
+.how-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+.how-calculator {
+    background-color: var(--color-pastel);
+    padding: 25px;
+    border-radius: var(--radius-md);
+}
+
+/* ========================================
+   🗺️ КАРТА БОЛИ (СИЛУЭТ)
+   ======================================== */
+.pain-map-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.body-silhouette {
+    position: relative;
+    width: 140px;
+    height: 370px;
+    margin: 0 auto;
+}
+
+.silhouette-head {
+    width: 40px;
+    height: 45px;
+    background-color: #E8DDD8;
+    border-radius: 50%;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.silhouette-neck {
+    width: 12px;
+    height: 18px;
+    background-color: #E8DDD8;
+    margin: -2px auto 0;
+    position: relative;
+    z-index: 1;
+}
+
+.silhouette-shoulders {
+    width: 90px;
+    height: 20px;
+    background-color: #E8DDD8;
+    margin: -3px auto 0;
+    border-radius: 30px 30px 0 0;
+    position: relative;
+}
+
+.silhouette-body {
+    width: 60px;
+    height: 100px;
+    background-color: #E8DDD8;
+    margin: -5px auto 0;
+    border-radius: 15px 15px 0 0;
+    position: relative;
+}
+
+.silhouette-waist {
+    width: 45px;
+    height: 30px;
+    background-color: #E8DDD8;
+    margin: -3px auto 0;
+    border-radius: 5px;
+    position: relative;
+    z-index: 1;
+}
+
+.silhouette-hips {
+    width: 80px;
+    height: 50px;
+    background-color: #E8DDD8;
+    margin: -5px auto 0;
+    border-radius: 20px 20px 0 0;
+    position: relative;
+}
+
+.silhouette-legs {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: -5px;
+    position: relative;
+    z-index: 0;
+}
+
+.silhouette-leg-left,
+.silhouette-leg-right {
+    width: 24px;
+    height: 120px;
+    background-color: #E8DDD8;
+    border-radius: 0 0 8px 8px;
+}
+
+.pain-zone {
+    position: absolute;
+    cursor: pointer;
+    z-index: 5;
+}
+
+.zone-dot {
+    display: block;
+    width: 14px;
+    height: 14px;
+    background-color: var(--color-accent);
+    border: 2.5px solid #fff;
+    border-radius: 50%;
+    box-shadow: 0 2px 6px rgba(232, 165, 152, 0.5);
+    transition: transform 0.3s ease;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.25);
+    }
+}
+
+.pain-zone:hover .zone-dot {
+    transform: scale(1.5);
+    animation: none;
+}
+
+.zone-face {
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.zone-underarms {
+    top: 148px;
+    left: 18px;
+}
+
+.zone-underarms-right {
+    top: 148px;
+    right: 18px;
+    left: auto;
+}
+
+.zone-bikini {
+    top: 225px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.zone-legs {
+    top: 315px;
+    left: 22px;
+}
+
+.zone-legs-right {
+    top: 315px;
+    right: 22px;
+    left: auto;
+}
+
+.zone-tooltip {
+    display: none;
+    position: absolute;
+    width: 230px;
+    background-color: #fff;
+    border-radius: var(--radius-md);
+    padding: 12px 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    z-index: 10;
+    font-size: 0.82rem;
+    line-height: 1.5;
+    color: var(--color-text);
+    text-align: left;
+}
+
+.zone-tooltip strong {
+    color: var(--color-accent);
+    display: block;
+    margin-bottom: 4px;
+}
+
+.pain-zone:hover .zone-tooltip {
+    display: block;
+}
+
+.zone-underarms .zone-tooltip {
+    top: -85px;
+    left: 25px;
+}
+
+.zone-underarms-right .zone-tooltip {
+    top: -85px;
+    right: 25px;
+    left: auto;
+}
+
+.zone-bikini .zone-tooltip {
+    top: -85px;
+    left: -95px;
+}
+
+.zone-legs .zone-tooltip {
+    top: -85px;
+    left: 25px;
+}
+
+.zone-legs-right .zone-tooltip {
+    top: -85px;
+    right: 25px;
+    left: auto;
+}
+
+.zone-face .zone-tooltip {
+    top: -95px;
+    left: -95px;
 }
 
 @media (max-width: 768px) {
-    .floating-cta {
-        bottom: 20px;
-        right: 20px;
-        padding: 12px 16px;
-        font-size: 0.85rem;
+    .zone-tooltip {
+        width: 190px;
+        font-size: 0.78rem;
+    }
+    .zone-bikini .zone-tooltip {
+        left: -80px;
+    }
+    .zone-face .zone-tooltip {
+        left: -80px;
     }
 }
 
+/* ========================================
+   📞 ПОДВАЛ САЙТА
+   ======================================== */
+.site-footer {
+    background-color: var(--color-text);
+    color: #fff;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.site-footer a {
+    color: var(--color-accent);
+    text-decoration: none;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+/* ========================================
+   🎈 ПЛАВАЮЩАЯ КНОПКА
+   ======================================== */
+.floating-cta {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background-color: var(--color-accent);
+    color: #fff;
+    padding: 14px 24px;
+    border-radius: 50px;
+    box-shadow: 0 8px 25px rgba(232, 165, 152, 0.5);
+    text-decoration: none;
+    font-weight: 600;
+    z-index: 99;
+    transition: var(--transition);
+}
+
+.floating-cta:hover {
+    background-color: var(--color-accent-hover);
+    transform: translateY(-4px);
+}
+
+/* ========================================
+   🚪 ПОПАПЫ ПРИ УХОДЕ
+   ======================================== */
 .exit-popup-overlay {
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
-    z-index: 200;
-    display: none;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
     align-items: center;
     justify-content: center;
 }
 
-.exit-popup-overlay.active {
+.exit-popup-overlay.visible {
     display: flex;
 }
 
 .exit-popup {
-    background: #fff;
-    border-radius: 20px;
-    padding: 40px;
-    max-width: 400px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    background-color: var(--color-surface);
+    padding: 40px 30px;
+    border-radius: var(--radius-lg);
     text-align: center;
+    max-width: 400px;
+    width: 90%;
     position: relative;
-    animation: popupSlideIn 0.3s ease-out;
-}
-
-@keyframes popupSlideIn {
-    from {
-        opacity: 0;
-        transform: scale(0.9);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
 }
 
 .exit-popup-close {
     position: absolute;
-    top: 15px;
+    top: 12px;
     right: 15px;
     background: none;
     border: none;
     font-size: 1.5rem;
     cursor: pointer;
-    color: #ccc;
-    transition: color 0.2s;
+    color: var(--color-text-light);
+    transition: var(--transition);
 }
 
 .exit-popup-close:hover {
     color: var(--color-text);
 }
 
-.site-footer {
-    background-color: var(--color-text);
-    color: #fff;
-    padding: 30px 0;
-    text-align: center;
+/* ========================================
+   🎬 АНИМАЦИИ ДЛЯ FONT AWESOME
+   ======================================== */
+.fa-check-circle,
+.fa-check {
+    animation: fadeInScale 0.4s ease-out;
 }
 
-.footer-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    flex-wrap: wrap;
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
-.footer-content a {
-    color: #fff;
-    text-decoration: underline;
-    text-underline-offset: 4px;
+.fa-location-dot:hover {
+    animation: shake 0.5s ease-in-out;
 }
 
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-3px);
+    }
+    75% {
+        transform: translateX(3px);
+    }
+}
+
+.fa-star {
+    animation: pulseStar 2s infinite;
+}
+
+@keyframes pulseStar {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.7;
+        transform: scale(1.1);
+    }
+}
+
+.fa-mug-hot {
+    animation: steam 3s infinite;
+}
+
+@keyframes steam {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-5px);
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.fa-gift:hover {
+    animation: wobble 0.6s ease-in-out;
+}
+
+@keyframes wobble {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(5deg);
+    }
+    75% {
+        transform: rotate(-5deg);
+    }
+}
+
+.fa-message:hover,
+.fa-paper-plane:hover {
+    animation: bounce 0.5s ease;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+.fa-calculator:hover {
+    animation: spin 0.8s ease;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.fa-clock {
+    animation: tick 1s infinite;
+}
+
+@keyframes tick {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.fa-train {
+    animation: moveTrain 4s infinite linear;
+}
+
+@keyframes moveTrain {
+    0% {
+        transform: translateX(-3px);
+    }
+    50% {
+        transform: translateX(3px);
+    }
+    100% {
+        transform: translateX(-3px);
+    }
+}
+
+.fa-users {
+    animation: friendsAppear 2s infinite;
+}
+
+@keyframes friendsAppear {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.6;
+    }
+}
+
+.fa-square-parking:hover {
+    animation: fillParking 0.8s ease;
+}
+
+@keyframes fillParking {
+    0% {
+        color: #ccc;
+    }
+    100% {
+        color: var(--color-accent);
+    }
+}
+
+/* ========================================
+   📱 АДАПТИВНОСТЬ (ПЛАНШЕТЫ И ВЫШЕ)
+   ======================================== */
+@media (min-width: 768px) {
+    .hero-grid {
+        flex-direction: row;
+    }
+    .hero-title {
+        font-size: 3.5rem;
+    }
+    .hero-buttons {
+        flex-direction: row;
+        align-items: center;
+    }
+    .problems-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .why-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .pricing-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .contacts-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    .master-intro {
+        flex-direction: row;
+        text-align: left;
+    }
+    .promo-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .how-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* ========================================
+   📱 АДАПТИВНОСТЬ (БОЛЬШИЕ ЭКРАНЫ)
+   ======================================== */
+@media (min-width: 1024px) {
+    .hero-title {
+        font-size: 4rem;
+    }
+    .why-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (min-width: 1440px) {
+    .container {
+        max-width: 1300px;
+    }
+}
+
+/* ========================================
+   📱 АДАПТИВНОСТЬ (ТЕЛЕФОНЫ)
+   ======================================== */
+@media (max-width: 767px) {
+    /* Задача 2: больше воздуха, одна мысль — один экран */
+    .section-padding {
+        padding-top: 72px;
+        padding-bottom: 72px;
+    }
+
+    .section-title {
+        font-size: 1.65rem;
+    }
+
+    .hero-section {
+        min-height: calc(100svh - 60px);
+        padding-top: 36px;
+        padding-bottom: 40px;
+        justify-content: center;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+        margin-bottom: 16px;
+    }
+
+    .hero-description {
+        font-size: 1rem;
+        margin-bottom: 24px;
+        line-height: 1.65;
+    }
+
+    .hero-buttons {
+        margin-bottom: 20px;
+    }
+
+    .hero-meta {
+        margin-top: 20px;
+        gap: 12px;
+    }
+
+    .problem-card,
+    .why-card,
+    .promo-card,
+    .price-card {
+        padding: 28px 20px;
+    }
+
+    .price-new {
+        font-size: 2.1rem;
+    }
+
+    /* Задача 1: меню полностью скрыто, не занимает место и не вызывает скролл */
+    .main-nav {
+        position: fixed;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: var(--color-surface);
+        padding: 20px 30px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        z-index: 99;
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    .main-nav.active {
+        visibility: visible;
+        opacity: 1;
+    }
+    .main-nav ul {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    .burger-menu {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 5px;
+        z-index: 101;
+        position: relative;
+    }
+    .burger-menu span {
+        display: block;
+        width: 26px;
+        height: 3px;
+        background-color: var(--color-text);
+        transition: var(--transition);
+    }
+}
+.hero-map-link {
+    text-decoration: none;
+    color: inherit;
+}
+/* ========================================
+   📸 ФОТО МАСТЕРА
+   ======================================== */
 .hero-photo {
-    width: 100%;
-    max-width: 500px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60%;
+    max-width: 300px;
+    height: auto;
     border-radius: var(--radius-lg);
-    box-shadow: var(--shadow);
+    opacity: 0.2;
+    object-fit: cover;
+    z-index: 0;
+}
+
+@media (min-width: 768px) {
+    .hero-photo {
+        position: relative;
+        opacity: 1;
+        width: 100%;
+        max-width: 380px;
+        z-index: 1;
+    }
 }
 
 .master-photo {
@@ -1251,4 +1731,5 @@ section.section-padding:not(#hero)::before {
     height: 100px;
     border-radius: 50%;
     object-fit: cover;
+    flex-shrink: 0;
 }

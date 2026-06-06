@@ -1646,9 +1646,41 @@ section.section-padding:not(#hero)::before {
     }
 
     .problem-card,
-    .why-card,
     .promo-card {
         padding: 28px 20px;
+    }
+
+    .why-card {
+        display: flex;
+        align-items: flex-start;
+        gap: 14px;
+        text-align: left;
+        padding: 18px 16px;
+    }
+
+    .why-card .why-icon {
+        font-size: 1.6rem;
+        margin-bottom: 0;
+        flex-shrink: 0;
+        width: 32px;
+        text-align: center;
+        margin-top: 2px;
+    }
+
+    .why-card h3 {
+        font-size: 0.95rem;
+        margin-bottom: 4px;
+    }
+
+    .why-card p {
+        font-size: 0.8rem;
+        line-height: 1.45;
+    }
+
+    .master-intro {
+        padding: 20px 16px;
+        margin-top: 28px;
+        gap: 14px;
     }
 
     .pricing-grid {

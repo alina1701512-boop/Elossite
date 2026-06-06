@@ -745,7 +745,6 @@ section.section-padding:not(#hero)::before {
     }
     .honeycomb-grid {
         width: 900px;
-        height: 900px;
     }
     .honeycomb-cell {
         width: 120px;

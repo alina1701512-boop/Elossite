@@ -544,44 +544,51 @@
             </div>
         </section>
 
-        <!-- ======================================== -->
-        <!-- ========== КАРТА БОЛИ (СИЛУЭТ С ТОЧКАМИ) ========== -->
+                <!-- ======================================== -->
+        <!-- ========== КАРТА БОЛИ (ТАБЛИЦА ЧУВСТВИТЕЛЬНОСТИ) ========== -->
         <!-- ======================================== -->
         <section id="pain-map" class="section-padding bg-pastel" aria-labelledby="pain-map-heading">
             <div class="container">
                 <h2 class="section-title text-center fade-in-section" id="pain-map-heading">Что ты почувствуешь?</h2>
-                <div class="pain-map-container fade-in-section">
-                    <div class="body-silhouette">
-                        <!-- SVG силуэт женского тела -->
-                        <svg viewBox="0 0 140 370" class="silhouette-svg" aria-hidden="true">
-                            <path d="M70 8 C78 8 82 16 82 22 C82 28 78 32 72 34 C68 35 70 40 70 44 L70 54 L58 54 L56 48 L52 56 L44 62 L42 72 L40 86 L38 100 L42 110 L50 120 L55 130 L56 144 L54 158 L48 168 L42 178 L40 190 L42 200 L44 210 L40 220 L36 230 L32 240 L30 250 L28 260 L24 270 L22 280 L20 290 L18 300 L20 310 L22 320 L24 330 L26 340 L28 350 L30 358 L32 362 L32 368 L36 370 L40 370 L44 370 L48 370 L52 370 L56 370 L58 368 L58 362 L56 350 L54 338 L56 328 L58 318 L62 310 L66 304 L70 300 L74 304 L78 310 L82 318 L84 328 L86 338 L84 350 L82 362 L82 368 L84 370 L88 370 L92 370 L96 370 L100 370 L104 370 L108 370 L110 368 L110 362 L112 350 L114 338 L116 328 L118 318 L120 310 L122 304 L126 300 L130 310 L132 320 L134 330 L136 342 L138 354 L138 362 L136 370 L140 370 L140 0 L0 0 L0 370 L4 370 L4 362 L6 350 L8 338 L10 328 L12 318 L16 310 L20 302 L24 296 L28 290 L32 280 L36 266 L38 252 L38 238 L36 222 L34 210 L36 198 L40 186 L44 174 L48 164 L52 154 L56 144 L58 132 L58 120 L62 108 L66 100 L70 96 L74 100 L78 108 L82 120 L82 132 L84 144 L88 154 L92 164 L96 174 L100 186 L104 198 L106 210 L104 222 L102 238 L102 252 L104 266 L108 280 L112 290 L116 296 L120 302 L124 310 L128 318 L130 328 L132 338 L134 350 L136 362 L136 370 L140 370" fill="#E8DDD8" opacity="0.9"/>
-                        </svg>
-                        <div class="pain-zone zone-face">
-                            <span class="zone-dot"></span>
-                            <div class="zone-tooltip"><strong>Верхняя губа</strong>Чувствительно, но вы даже не успеете испугаться. Занимает 2 минуты.</div>
-                        </div>
-                        <div class="pain-zone zone-underarms">
-                            <span class="zone-dot"></span>
-                            <div class="zone-tooltip"><strong>Подмышки</strong>Как лёгкое пощипывание. 9 из 10 девушек говорят: «И это всё? Я боялась зря!» Самая быстрая зона — 10 минут.</div>
-                        </div>
-                        <div class="pain-zone zone-underarms-right">
-                            <span class="zone-dot"></span>
-                            <div class="zone-tooltip"><strong>Подмышки</strong>Как лёгкое пощипывание. 9 из 10 девушек говорят: «И это всё? Я боялась зря!» Самая быстрая зона — 10 минут.</div>
-                        </div>
-                        <div class="pain-zone zone-bikini">
-                            <span class="zone-dot"></span>
-                            <div class="zone-tooltip"><strong>Глубокое бикини</strong>Самая чувствительная зона, но терпимо. Как щелчок резинки. Большинство девушек говорят: «Я боялась гораздо сильнее!»</div>
-                        </div>
-                        <div class="pain-zone zone-legs">
-                            <span class="zone-dot"></span>
-                            <div class="zone-tooltip"><strong>Голени</strong>Почти не чувствуется, только у косточки спереди. Самая безболезненная зона. 30 минут — и готово!</div>
-                        </div>
-                        <div class="pain-zone zone-legs-right">
-                            <span class="zone-dot"></span>
-                            <div class="zone-tooltip"><strong>Голени</strong>Почти не чувствуется, только у косточки спереди. Самая безболезненная зона. 30 минут — и готово!</div>
-                        </div>
+                <p class="section-subtext text-center fade-in-section" style="margin-top: 8px; margin-bottom: 40px;">Каждая зона ощущается по-разному. Вот честно — без прикрас.</p>
+                
+                <div class="pain-table fade-in-section">
+                    <div class="pain-row pain-row--header">
+                        <div class="pain-cell">Зона</div>
+                        <div class="pain-cell">Ощущения</div>
+                        <div class="pain-cell">Время</div>
+                    </div>
+                    <div class="pain-row">
+                        <div class="pain-cell"><strong>Верхняя губа</strong></div>
+                        <div class="pain-cell">⭐⭐☆☆☆ Чувствительно, но терпимо</div>
+                        <div class="pain-cell">2 мин</div>
+                    </div>
+                    <div class="pain-row">
+                        <div class="pain-cell"><strong>Подмышки</strong></div>
+                        <div class="pain-cell">⭐☆☆☆☆ Лёгкое пощипывание</div>
+                        <div class="pain-cell">10 мин</div>
+                    </div>
+                    <div class="pain-row">
+                        <div class="pain-cell"><strong>Глубокое бикини</strong></div>
+                        <div class="pain-cell">⭐⭐⭐☆☆ Как щелчок резинки</div>
+                        <div class="pain-cell">25 мин</div>
+                    </div>
+                    <div class="pain-row">
+                        <div class="pain-cell"><strong>Бёдра</strong></div>
+                        <div class="pain-cell">⭐⭐☆☆☆ Умеренно, короткими вспышками</div>
+                        <div class="pain-cell">20 мин</div>
+                    </div>
+                    <div class="pain-row">
+                        <div class="pain-cell"><strong>Голени</strong></div>
+                        <div class="pain-cell">⭐☆☆☆☆ Почти не чувствуется</div>
+                        <div class="pain-cell">30 мин</div>
                     </div>
                 </div>
+                
+                <p class="text-center fade-in-section" style="margin-top: 30px; color: var(--color-text-light); font-size: 0.95rem;">
+                    <i class="fas fa-heart" style="color: var(--color-accent);"></i> 
+                    Мощность подбираю индивидуально. Начинаем с маленькой зоны — вы привыкаете и расслабляетесь.
+                </p>
             </div>
         </section>
 

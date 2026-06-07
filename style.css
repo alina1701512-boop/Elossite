@@ -520,7 +520,7 @@ section.section-padding:not(#hero)::before {
     display: grid;
     grid-template-columns: 1fr;
     gap: 24px;
-    margin: 48px 0;
+    margin: 20px 0 24px;
 }
 
 .why-card {
@@ -560,7 +560,7 @@ section.section-padding:not(#hero)::before {
     flex-direction: column;
     align-items: center;
     gap: 20px;
-    margin-top: 50px;
+    margin-top: 20px;
     background-color: var(--color-surface);
     padding: 35px;
     border-radius: var(--radius-lg);
@@ -1650,14 +1650,18 @@ section.section-padding:not(#hero)::before {
         padding: 28px 20px;
     }
 
-         .why-card {
+      .why-card {
         display: block;
         text-align: left;
-        padding: 14px 14px;
+        padding: 12px 14px;
         border: 1px solid #E8A598;
         border-radius: 10px;
         background-color: #FFFFFF;
-        margin-bottom: 8px;
+        margin-bottom: 6px;
+    }
+
+    .why-card:first-child {
+        margin-top: 0;
     }
 
     .why-card .why-icon {

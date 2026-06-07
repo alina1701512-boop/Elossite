@@ -1,4 +1,4 @@
-<!--/ 📝 Изменено: 2026-06-05 / Версия с Яндекс.Формой и подписями секций / -->
+<!--/ 📝 Изменено: 2026-06-07 / Все стили вынесены в style.css / -->
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -334,35 +334,35 @@
             <div class="container">
                 <h2 class="section-title text-center fade-in-section" id="why-us-heading">Почему здесь всё иначе</h2>
                 <div class="why-grid">
-    <div class="why-card fade-in-section">
-        <i class="fas fa-bullseye why-icon"></i>
-        <h3>Честный прогноз</h3>
-        <p>Сначала тест — потом честный прогноз под ваш тип волос и кожи. Без пакетов на первой встрече.</p>
-    </div>
-    <div class="why-card fade-in-section">
-        <i class="fas fa-bolt why-icon"></i>
-        <h3>Диодный лазер Honkon</h3>
-        <p>Работает на светлой и смуглой коже. Мощность — под вашу чувствительность.</p>
-    </div>
-    <div class="why-card fade-in-section">
-        <i class="fas fa-lock why-icon"></i>
-        <h3>Без навязывания</h3>
-        <p>Не тороплю, не обещаю «всё за 5 раз» и не спамлю «акциями».</p>
-    </div>
-    <div class="why-card fade-in-section">
-        <i class="fas fa-message why-icon"></i>
-        <h3>На связи</h3>
-        <p>Не «до свидания», а «напиши — я отвечу». Памятка и поддержка после процедуры.</p>
-    </div>
-</div>
+                    <div class="why-card fade-in-section">
+                        <i class="fas fa-bullseye why-icon"></i>
+                        <h3>Честный прогноз</h3>
+                        <p>Сначала тест — потом честный прогноз под ваш тип волос и кожи. Без пакетов на первой встрече.</p>
                     </div>
-<div class="master-intro fade-in-section">
-    <img src="assets/master-alina-round.jpg" alt="Алина, мастер лазерной эпиляции" class="master-photo">
-    <div>
-        <h3>Алина, ваш мастер</h3>
-        <p>5 лет практики · 5635+ процедур · обучение на Honkon</p>
-    </div>
-</div>
+                    <div class="why-card fade-in-section">
+                        <i class="fas fa-bolt why-icon"></i>
+                        <h3>Диодный лазер Honkon</h3>
+                        <p>Работает на светлой и смуглой коже. Мощность — под вашу чувствительность.</p>
+                    </div>
+                    <div class="why-card fade-in-section">
+                        <i class="fas fa-lock why-icon"></i>
+                        <h3>Без навязывания</h3>
+                        <p>Не тороплю, не обещаю «всё за 5 раз» и не спамлю «акциями».</p>
+                    </div>
+                    <div class="why-card fade-in-section">
+                        <i class="fas fa-message why-icon"></i>
+                        <h3>На связи</h3>
+                        <p>Не «до свидания», а «напиши — я отвечу». Памятка и поддержка после процедуры.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="master-intro fade-in-section">
+                <img src="assets/master-alina-round.jpg" alt="Алина, мастер лазерной эпиляции" class="master-photo">
+                <div>
+                    <h3>Алина, ваш мастер</h3>
+                    <p>5 лет практики · 5635+ процедур · обучение на Honkon</p>
+                </div>
+            </div>
         </section>
 
         <!-- ======================================== -->
@@ -409,10 +409,10 @@
                         </div>
                     </div>
                     <div class="how-calculator fade-in-section">
-                        <h3 style="text-align:center; margin-bottom:20px;"><i class="fas fa-calculator"></i> Посчитай, сколько ты тратишь на бритьё</h3>
+                        <h3 class="calc-title"><i class="fas fa-calculator"></i> Посчитай, сколько ты тратишь на бритьё</h3>
                         <div class="form-group">
                             <label for="calcMethod">Чем пользуешься?</label>
-                           <select id="calcMethod" required class="calc-select">
+                            <select id="calcMethod" required class="calc-select">
                                 <option value="">Выберите способ</option>
                                 <option value="Бритва (станок)">Бритва (станок)</option>
                                 <option value="Воск / Шугаринг">Воск / Шугаринг</option>
@@ -420,7 +420,7 @@
                                 <option value="Крем для депиляции">Крем для депиляции</option>
                             </select>
                         </div>
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                        <div class="calc-row">
                             <div class="form-group">
                                 <label for="calcStartAge">Во сколько лет начала?</label>
                                 <input type="number" id="calcStartAge" min="10" max="60" placeholder="Например: 16" required class="calc-input">
@@ -445,32 +445,32 @@
                         </div>
                         <button id="calcButton" class="btn btn-primary btn-block"><i class="fas fa-calculator"></i> Посчитать</button>
                         <div id="calcResult" class="calc-result-box" style="display:none;">
-                            <p style="font-size:1rem; font-weight:600; margin-bottom:10px;"><i class="fas fa-chart-line"></i> Результат за <span id="calcYears">5</span> лет:</p>
-                            <div class="all-zones-grid">
-                                <div><i class="fas fa-money-bill-wave" style="font-size:1.2rem;"></i><br><strong id="calcMoney">0 ₽</strong><br><span style="font-size:0.7rem; color:var(--color-text-light);">потрачено денег</span></div>
-                                <div><i class="fas fa-hourglass-half" style="font-size:1.2rem;"></i><br><strong id="calcTime">0 часов</strong><br><span style="font-size:0.7rem; color:var(--color-text-light);">потрачено времени</span></div>
+                            <p class="calc-result-title"><i class="fas fa-chart-line"></i> Результат за <span id="calcYears">5</span> лет:</p>
+                            <div class="calc-result-row">
+                                <div><i class="fas fa-money-bill-wave calc-result-icon"></i><br><strong id="calcMoney">0 ₽</strong><br><span class="calc-result-label">потрачено денег</span></div>
+                                <div><i class="fas fa-hourglass-half calc-result-icon"></i><br><strong id="calcTime">0 часов</strong><br><span class="calc-result-label">потрачено времени</span></div>
                             </div>
-                           <div class="calc-highlight-box">
-                                <p class="all-zones-note">* Хотите добавить зону к комплексу? Напишите в Telegram — я всё посчитаю</p>
-                                <p style="font-size:1.1rem; font-weight:700; color:var(--color-accent);" id="calcLaserCost">0 ₽</p>
-                                <p style="font-size:0.75rem; color:var(--color-text-light);">Первая со скидкой 35%, остальные 23 — полная цена</p>
-                                <p style="font-size:0.75rem; color:var(--color-text-light);" id="calcLaserTime">займёт 0 часов</p>
+                            <div class="calc-highlight-box">
+                                <p class="calc-highlight-title"><i class="fas fa-star"></i> <strong>С лазером (24 процедуры за 5 лет):</strong></p>
+                                <p class="calc-laser-cost" id="calcLaserCost">0 ₽</p>
+                                <p class="calc-laser-desc">Первая со скидкой 35%, остальные 23 — полная цена</p>
+                                <p class="calc-laser-time" id="calcLaserTime">займёт 0 часов</p>
                             </div>
-                            <p style="font-size:0.95rem; font-weight:600; color:var(--color-text);"><span id="calcSave"></span></p>
-                            <a id="calcLink" href="https://dikidi.app/714399?..." target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-block" style="margin-top:10px; font-size:0.9rem;">Записаться и начать экономить</a>
+                            <p class="calc-save-text"><span id="calcSave"></span></p>
+                            <a id="calcLink" href="https://dikidi.app/714399?..." target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-block calc-link-btn">Записаться и начать экономить</a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-                <!-- ======================================== -->
+        <!-- ======================================== -->
         <!-- ========== КАРТА БОЛИ (ТАБЛИЦА ЧУВСТВИТЕЛЬНОСТИ) ========== -->
         <!-- ======================================== -->
         <section id="pain-map" class="section-padding bg-pastel" aria-labelledby="pain-map-heading">
             <div class="container">
                 <h2 class="section-title text-center fade-in-section" id="pain-map-heading">Что ты почувствуешь?</h2>
-                <p class="section-subtext text-center fade-in-section" style="margin-top: 8px; margin-bottom: 40px;">Каждая зона ощущается по-разному. Вот честно — без прикрас.</p>
+                <p class="section-subtext text-center fade-in-section pain-subtitle">Каждая зона ощущается по-разному. Вот честно — без прикрас.</p>
                 
                 <div class="pain-table fade-in-section">
                     <div class="pain-row pain-row--header">
@@ -505,14 +505,14 @@
                     </div>
                 </div>
                 
-                <p class="text-center fade-in-section" style="margin-top: 30px; color: var(--color-text-light); font-size: 0.95rem;">
-                    <i class="fas fa-heart" style="color: var(--color-accent);"></i> 
-                                        Мощность подбираю индивидуально. Начинаем с маленькой и постепенно повышаем, спрашивая вас об ощущениях.
+                <p class="text-center fade-in-section pain-note">
+                    <i class="fas fa-heart heart-accent"></i> 
+                    Мощность подбираю индивидуально. Начинаем с маленькой и постепенно повышаем, спрашивая вас об ощущениях.
                 </p>
             </div>
         </section>
 
-              <!-- ======================================== -->
+        <!-- ======================================== -->
         <!-- ========== СЕКЦИЯ ОТЗЫВОВ (СОТЫ) ========== -->
         <!-- ======================================== -->
         <section id="testimonials" class="section-padding bg-pastel" aria-labelledby="testimonials-heading">
@@ -525,19 +525,19 @@
                     </div>
                 </div>
                 
-                                <p class="text-center fade-in-section" style="margin-top: 12px; color: var(--color-text-light); font-size: 0.8rem;">
+                <p class="text-center fade-in-section honeycomb-hint">
                     <i class="fas fa-hand-pointer"></i> Тяните в любую сторону
                 </p>
             </div>
         </section>
 
-              <!-- ======================================== -->
+        <!-- ======================================== -->
         <!-- ========== СЕКЦИЯ ЦЕН ========== -->
         <!-- ======================================== -->
         <section id="pricing" class="section-padding bg-surface" aria-labelledby="pricing-heading">
             <div class="container">
                 <h2 class="section-title text-center fade-in-section" id="pricing-heading">Честные цены без сюрпризов</h2>
-                <p class="section-subtext text-center fade-in-section" style="margin-top: 8px; margin-bottom: 40px;">Первый визит со скидкой 35%. Выберите комплекс или соберите свой.</p>
+                <p class="section-subtext text-center fade-in-section pricing-subtitle">Первый визит со скидкой 35%. Выберите комплекс или соберите свой.</p>
                 
                 <div class="pricing-grid">
                     <div class="price-card fade-in-section">
@@ -567,47 +567,47 @@
                     </div>
                 </div>
 
-                <div class="fade-in-section" style="margin-top: 25px;">
-                    <button class="btn btn-secondary btn-block" id="toggleZones" style="background-color: var(--color-pastel); border-color: transparent; font-weight: 600;"><i class="fas fa-list"></i> Смотреть все зоны и цены ↓</button>
-                    <div id="otherZones" style="display: none; margin-top: 15px; background-color: var(--color-pastel); padding: 20px; border-radius: var(--radius-md);">
-                        <div style="display: grid; grid-template-columns: 1fr auto; gap: 8px; font-size: 0.9rem;">
-                            <span>Линия над губой</span><span style="text-align: right; font-weight: 600;">500 ₽</span>
-                            <span>Лицо полностью</span><span style="text-align: right; font-weight: 600;">1 700 ₽</span>
-                            <span>Виски / Бакенбарды</span><span style="text-align: right; font-weight: 600;">600 ₽</span>
-                            <span>Нос</span><span style="text-align: right; font-weight: 600;">600 ₽</span>
-                            <span>Шея</span><span style="text-align: right; font-weight: 600;">600 ₽</span>
-                            <span>Межбровье</span><span style="text-align: right; font-weight: 600;">400 ₽</span>
-                            <span>Подбородок</span><span style="text-align: right; font-weight: 600;">600 ₽</span>
-                            <span>Щеки</span><span style="text-align: right; font-weight: 600;">600 ₽</span>
-                            <span>Руки до локтя</span><span style="text-align: right; font-weight: 600;">1 200 ₽</span>
-                            <span>Руки выше локтя</span><span style="text-align: right; font-weight: 600;">1 400 ₽</span>
-                            <span>Руки полностью</span><span style="text-align: right; font-weight: 600;">2 300 ₽</span>
-                            <span>Кисти рук + пальчики</span><span style="text-align: right; font-weight: 600;">500 ₽</span>
-                            <span>Плечи</span><span style="text-align: right; font-weight: 600;">900 ₽</span>
-                            <span>Ареолы</span><span style="text-align: right; font-weight: 600;">500 ₽</span>
-                            <span>Грудь полностью</span><span style="text-align: right; font-weight: 600;">1 600 ₽</span>
-                            <span>Подмышки (отдельно)</span><span style="text-align: right; font-weight: 600;">600 ₽</span>
-                            <span>Линия на животе</span><span style="text-align: right; font-weight: 600;">600 ₽</span>
-                            <span>Живот полностью</span><span style="text-align: right; font-weight: 600;">1 300 ₽</span>
-                            <span>Поясница и крестец</span><span style="text-align: right; font-weight: 600;">1 000 ₽</span>
-                            <span>Спина полностью</span><span style="text-align: right; font-weight: 600;">2 300 ₽</span>
-                            <span>Бикини классика</span><span style="text-align: right; font-weight: 600;">1 000 ₽</span>
-                            <span>Глубокое бикини + межъягодичка</span><span style="text-align: right; font-weight: 600;">1 900 ₽</span>
-                            <span>Ягодицы</span><span style="text-align: right; font-weight: 600;">900 ₽</span>
-                            <span>Голени + колени</span><span style="text-align: right; font-weight: 600;">1 600 ₽</span>
-                            <span>Пальчики ног</span><span style="text-align: right; font-weight: 600;">400 ₽</span>
-                            <span>Бёдра</span><span style="text-align: right; font-weight: 600;">1 900 ₽</span>
-                            <span>Ноги полностью</span><span style="text-align: right; font-weight: 600;">3 000 ₽</span>
+                <div class="fade-in-section toggle-zones-wrapper">
+                    <button class="btn btn-secondary btn-block toggle-zones-btn" id="toggleZones"><i class="fas fa-list"></i> Смотреть все зоны и цены ↓</button>
+                    <div id="otherZones" class="other-zones-box" style="display: none;">
+                        <div class="all-zones-grid">
+                            <span>Линия над губой</span><span class="zone-price">500 ₽</span>
+                            <span>Лицо полностью</span><span class="zone-price">1 700 ₽</span>
+                            <span>Виски / Бакенбарды</span><span class="zone-price">600 ₽</span>
+                            <span>Нос</span><span class="zone-price">600 ₽</span>
+                            <span>Шея</span><span class="zone-price">600 ₽</span>
+                            <span>Межбровье</span><span class="zone-price">400 ₽</span>
+                            <span>Подбородок</span><span class="zone-price">600 ₽</span>
+                            <span>Щеки</span><span class="zone-price">600 ₽</span>
+                            <span>Руки до локтя</span><span class="zone-price">1 200 ₽</span>
+                            <span>Руки выше локтя</span><span class="zone-price">1 400 ₽</span>
+                            <span>Руки полностью</span><span class="zone-price">2 300 ₽</span>
+                            <span>Кисти рук + пальчики</span><span class="zone-price">500 ₽</span>
+                            <span>Плечи</span><span class="zone-price">900 ₽</span>
+                            <span>Ареолы</span><span class="zone-price">500 ₽</span>
+                            <span>Грудь полностью</span><span class="zone-price">1 600 ₽</span>
+                            <span>Подмышки (отдельно)</span><span class="zone-price">600 ₽</span>
+                            <span>Линия на животе</span><span class="zone-price">600 ₽</span>
+                            <span>Живот полностью</span><span class="zone-price">1 300 ₽</span>
+                            <span>Поясница и крестец</span><span class="zone-price">1 000 ₽</span>
+                            <span>Спина полностью</span><span class="zone-price">2 300 ₽</span>
+                            <span>Бикини классика</span><span class="zone-price">1 000 ₽</span>
+                            <span>Глубокое бикини + межъягодичка</span><span class="zone-price">1 900 ₽</span>
+                            <span>Ягодицы</span><span class="zone-price">900 ₽</span>
+                            <span>Голени + колени</span><span class="zone-price">1 600 ₽</span>
+                            <span>Пальчики ног</span><span class="zone-price">400 ₽</span>
+                            <span>Бёдра</span><span class="zone-price">1 900 ₽</span>
+                            <span>Ноги полностью</span><span class="zone-price">3 000 ₽</span>
                         </div>
-                        <p style="margin-top: 10px; font-size: 0.8rem; color: var(--color-text-light); text-align: center;">* Хотите добавить зону к комплексу? Напишите в Telegram — я всё посчитаю</p>
+                        <p class="all-zones-note">* Хотите добавить зону к комплексу? Напишите в Telegram — я всё посчитаю</p>
                     </div>
                 </div>
                 <div class="pricing-info text-center fade-in-section">
-                    <p><i class="fas fa-check-circle" style="color: var(--color-accent);"></i> Оплата по факту — наличные, перевод, QR-код</p>
-                    <p><i class="fas fa-check-circle" style="color: var(--color-accent);"></i> Чек самозанятого</p>
-                    <p><i class="fas fa-check-circle" style="color: var(--color-accent);"></i> Можно платить за каждую процедуру отдельно</p>
-                    <p><i class="fas fa-check-circle" style="color: var(--color-accent);"></i> Первая консультация — бесплатно</p>
-                    <p style="font-size: 0.9rem; color: var(--color-accent); font-weight: 600;"><i class="fas fa-gift"></i> Скидка 35% действует только на первый визит</p>
+                    <p><i class="fas fa-check-circle check-accent"></i> Оплата по факту — наличные, перевод, QR-код</p>
+                    <p><i class="fas fa-check-circle check-accent"></i> Чек самозанятого</p>
+                    <p><i class="fas fa-check-circle check-accent"></i> Можно платить за каждую процедуру отдельно</p>
+                    <p><i class="fas fa-check-circle check-accent"></i> Первая консультация — бесплатно</p>
+                    <p class="pricing-note-accent"><i class="fas fa-gift"></i> Скидка 35% действует только на первый визит</p>
                 </div>
             </div>
         </section>
@@ -668,7 +668,7 @@
                         <button class="faq-question" aria-expanded="false">Какие противопоказания у лазерной эпиляции?</button>
                         <div class="faq-answer"><p>Беременность, кормление грудью, онкология, свежий загар, приём фотосенсибилизирующих препаратов. Всё обсуждаем на консультации.</p></div>
                     </div>
-                    <div class="text-center fade-in-section" style="margin-top: 15px;" id="showAllFaqButton">
+                    <div class="text-center fade-in-section faq-toggle-wrapper" id="showAllFaqButton">
                         <button class="btn btn-secondary" id="toggleAllFaq"><i class="fas fa-chevron-down"></i> Смотреть все вопросы ↓</button>
                     </div>
                     <div id="hiddenFaq" style="display: none;">
@@ -716,7 +716,7 @@
                             <button class="faq-question" aria-expanded="false">Можно ли оставить полоску или треугольник?</button>
                             <div class="faq-answer"><p>Да! Я подстраиваю форму бикини под вас. Хоть полоску, хоть треугольник, хоть полностью.</p></div>
                         </div>
-                        <div class="text-center" style="margin-top: 15px;">
+                        <div class="text-center faq-toggle-wrapper">
                             <button class="btn btn-secondary" id="hideAllFaq"><i class="fas fa-chevron-up"></i> Скрыть вопросы ↑</button>
                         </div>
                     </div>
@@ -724,9 +724,9 @@
             </div>
         </section>
 
-<!-- ======================================== -->
-<!-- ========== СЕКЦИЯ КОНТАКТОВ (С ЯНДЕКС.ФОРМОЙ) ========== -->
-<!-- ======================================== -->
+        <!-- ======================================== -->
+        <!-- ========== СЕКЦИЯ КОНТАКТОВ (С ЯНДЕКС.ФОРМОЙ) ========== -->
+        <!-- ======================================== -->
         <section id="contacts" class="section-padding bg-pastel contacts-section" aria-labelledby="contacts-heading">
             <div class="container">
                 <h2 class="section-title text-center fade-in-section" id="contacts-heading">Контакты</h2>
@@ -766,9 +766,9 @@
                             <a href="https://wa.me/79969005413?text=Здравствуйте!%20Хочу%20записаться%20на%20консультацию" target="_blank" rel="noopener noreferrer" class="btn btn-secondary"><i class="fab fa-whatsapp"></i> WhatsApp</a>
                         </div>
                         <!-- ЯКОРЬ ДЛЯ КАРТЫ (на него ведёт ссылка из Hero) -->
-                        <div id="mapAnchor" style="scroll-margin-top: 80px;"></div>
+                        <div id="mapAnchor"></div>
                         <div class="map-container">
-                            <iframe src="https://yandex.ru/map-widget/v1/?z=12&ol=biz&oid=210422081484" width="100%" height="300" style="border:0; border-radius: 20px;" allowfullscreen="" loading="lazy"></iframe>
+                            <iframe src="https://yandex.ru/map-widget/v1/?z=12&ol=biz&oid=210422081484" width="100%" height="300" class="map-iframe" allowfullscreen="" loading="lazy"></iframe>
                         </div>
                     </div>
                 </div>
@@ -798,26 +798,26 @@
     <div class="exit-popup-overlay" id="exitPopup1">
         <div class="exit-popup">
             <button class="exit-popup-close" id="closePopup1" aria-label="Закрыть">✕</button>
-            <i class="fas fa-wave" style="font-size: 2rem; margin-bottom: 10px; display: block;"></i>
-            <h3 style="margin-bottom: 10px;">Уже уходите?</h3>
-            <p style="margin-bottom: 20px; color: var(--color-text-light);">Запишитесь на тест-драйв за 250 ₽ и попробуйте лазер по цене чашки кофе. Без риска.</p>
-            <a href="https://dkd.su/714399/s/22597670" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-block" style="margin-bottom: 10px;">Записаться на тест-драйв</a>
-            <button class="btn-text-link close-popup-btn" style="font-size: 0.9rem; color: var(--color-text-light);">Нет, спасибо</button>
+            <i class="fas fa-wave"></i>
+            <h3>Уже уходите?</h3>
+            <p>Запишитесь на тест-драйв за 250 ₽ и попробуйте лазер по цене чашки кофе. Без риска.</p>
+            <a href="https://dkd.su/714399/s/22597670" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-block">Записаться на тест-драйв</a>
+            <button class="btn-text-link close-popup-btn">Нет, спасибо</button>
         </div>
     </div>
 
-<!-- ======================================== -->
-<!-- ========== ПОПАП ПРИ УХОДЕ №2: СКИДКА 40% ========== -->
-<!-- ======================================== -->
+    <!-- ======================================== -->
+    <!-- ========== ПОПАП ПРИ УХОДЕ №2: СКИДКА 40% ========== -->
+    <!-- ======================================== -->
     <div class="exit-popup-overlay" id="exitPopup2">
         <div class="exit-popup">
             <button class="exit-popup-close" id="closePopup2" aria-label="Закрыть">✕</button>
-            <i class="fas fa-gift" style="font-size: 2rem; margin-bottom: 10px; display: block;"></i>
-            <h3 style="margin-bottom: 10px;">Специальное предложение!</h3>
-            <p style="margin-bottom: 5px; color: var(--color-text-light);">Только для вас — <strong style="color: var(--color-accent);">скидка 40%</strong> на первый визит.</p>
-            <p style="margin-bottom: 20px; color: var(--color-text-light);">Попробуйте комплекс по цене, которую вы не найдёте больше нигде.</p>
-            <a href="https://dikidi.app/714399?p=0.pi-po-ss-sd-cf-ai&o=2&m=1701055&s=8690938" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-block" style="margin-bottom: 10px;">Записаться со скидкой 40%</a>
-            <button class="btn-text-link close-popup-btn" style="font-size: 0.9rem; color: var(--color-text-light);">Нет, спасибо</button>
+            <i class="fas fa-gift"></i>
+            <h3>Специальное предложение!</h3>
+            <p>Только для вас — <strong>скидка 40%</strong> на первый визит.</p>
+            <p>Попробуйте комплекс по цене, которую вы не найдёте больше нигде.</p>
+            <a href="https://dikidi.app/714399?p=0.pi-po-ss-sd-cf-ai&o=2&m=1701055&s=8690938" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-block">Записаться со скидкой 40%</a>
+            <button class="btn-text-link close-popup-btn">Нет, спасибо</button>
         </div>
     </div>
 

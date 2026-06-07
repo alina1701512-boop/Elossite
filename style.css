@@ -1919,23 +1919,28 @@ section.section-padding:not(#hero)::before {
         text-align: center;
     }
 
-    .burger-menu {
+           .burger-menu {
         display: flex;
         flex-direction: column;
         gap: 6px;
-        background: none;
+        background: rgba(255, 255, 255, 0.5);
         border: none;
+        border-radius: 50%;
+        width: 36px;
+        height: 36px;
+        align-items: center;
+        justify-content: center;
         cursor: pointer;
-        padding: 5px;
+        padding: 0;
         z-index: 101;
         position: relative;
     }
 
-        .burger-menu span {
+    .burger-menu span {
         display: block;
-        width: 22px;
-        height: 2px;
-        background-color: rgba(45, 45, 45, 0.35);
+        width: 18px;
+        height: 1.5px;
+        background-color: rgba(45, 45, 45, 0.5);
         transition: var(--transition);
     }
 }

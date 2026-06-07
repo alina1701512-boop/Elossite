@@ -1646,11 +1646,9 @@ section.section-padding:not(#hero)::before {
     }
 
     /* Hero */
-        .hero-section {
-        min-height: calc(100svh - 60px);
-        padding-top: 24px;
-        padding-bottom: 32px;
-        justify-content: center;
+            .hero-section {
+        padding-top: 20px;
+        padding-bottom: 24px;
     }
 
     .hero-title {

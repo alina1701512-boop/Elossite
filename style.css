@@ -1342,6 +1342,113 @@ section.section-padding:not(#hero)::before {
     border-radius: 20px;
     border: none;
 }
+/* ========================================
+   🧮 КАЛЬКУЛЯТОР (доп. классы)
+   ======================================== */
+.calc-title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.calc-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.calc-result-title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.calc-link-btn {
+    margin-top: 10px;
+    font-size: 0.9rem;
+}
+
+/* ========================================
+   🗺️ КАРТА БОЛИ (доп. классы)
+   ======================================== */
+.pain-subtitle {
+    margin-top: 8px;
+    margin-bottom: 40px;
+}
+
+.pain-note {
+    margin-top: 30px;
+    color: var(--color-text-light);
+    font-size: 0.95rem;
+}
+
+.heart-accent {
+    color: var(--color-accent);
+}
+
+/* ========================================
+   💬 СОТЫ (доп. классы)
+   ======================================== */
+.honeycomb-hint {
+    margin-top: 12px;
+    color: var(--color-text-light);
+    font-size: 0.8rem;
+}
+
+/* ========================================
+   💰 ЦЕНЫ (доп. классы)
+   ======================================== */
+.pricing-subtitle {
+    margin-top: 8px;
+    margin-bottom: 40px;
+}
+
+.toggle-zones-wrapper {
+    margin-top: 25px;
+}
+
+.toggle-zones-btn {
+    background-color: var(--color-pastel);
+    border-color: transparent;
+    font-weight: 600;
+}
+
+.other-zones-box {
+    display: none;
+    margin-top: 15px;
+    background-color: var(--color-pastel);
+    padding: 20px;
+    border-radius: var(--radius-md);
+}
+
+.zone-price {
+    text-align: right;
+    font-weight: 600;
+}
+
+.check-accent {
+    color: var(--color-accent);
+}
+
+.pricing-note-accent {
+    font-size: 0.9rem;
+    color: var(--color-accent);
+    font-weight: 600;
+}
+
+/* ========================================
+   ❓ FAQ (доп. классы)
+   ======================================== */
+.faq-toggle-wrapper {
+    margin-top: 15px;
+}
+
+/* ========================================
+   🗺️ КАРТА (доп. классы)
+   ======================================== */
+.map-iframe {
+    border: 0;
+    border-radius: 20px;
+}
 
 /* ========================================
    🎬 АНИМАЦИИ ДЛЯ FONT AWESOME

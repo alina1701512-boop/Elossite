@@ -1637,8 +1637,8 @@ section.section-padding:not(#hero)::before {
    ======================================== */
 @media (max-width: 767px) {
     .section-padding {
-        padding-top: 48px;
-        padding-bottom: 48px;
+        padding-top: 36px;
+        padding-bottom: 36px;
     }
 
     .section-title {
@@ -1687,12 +1687,16 @@ section.section-padding:not(#hero)::before {
     }
 
     /* Секция "Знакомо?" */
+    .problems-grid {
+        margin: 32px 0;
+    }
+
     .problem-card {
         padding: 28px 20px;
     }
 
     .section-subtext {
-        margin: 24px auto 0;
+        margin: 28px auto 0;
     }
 
     /* Секция "Почему здесь всё иначе" */
@@ -1739,6 +1743,18 @@ section.section-padding:not(#hero)::before {
     }
 
     /* Секция "Ваш путь" */
+    .how-grid {
+        gap: 32px;
+    }
+
+    .steps-timeline {
+        margin: 32px auto 0;
+    }
+
+    .step-item {
+        margin-bottom: 32px;
+    }
+
     .how-calculator {
         padding: 20px 15px;
     }
@@ -1757,6 +1773,15 @@ section.section-padding:not(#hero)::before {
 
     .pain-cell {
         padding: 2px 4px;
+    }
+
+    .pain-subtitle {
+        margin-top: 8px;
+        margin-bottom: 28px;
+    }
+
+    .pain-note {
+        margin-top: 24px;
     }
 
     /* Соты с отзывами */
@@ -1798,6 +1823,7 @@ section.section-padding:not(#hero)::before {
     /* Цены */
     .pricing-grid {
         gap: 6px;
+        margin: 32px 0;
     }
 
     .price-card {
@@ -1836,7 +1862,20 @@ section.section-padding:not(#hero)::before {
         padding: 3px 6px;
     }
 
+    .pricing-subtitle {
+        margin-top: 8px;
+        margin-bottom: 28px;
+    }
+
+    .pricing-info {
+        margin-top: 28px;
+    }
+
     /* Акции */
+    .promo-grid {
+        margin: 32px 0;
+    }
+
     .promo-card {
         padding: 28px 20px;
     }
@@ -1847,6 +1886,10 @@ section.section-padding:not(#hero)::before {
     }
 
     /* Контакты */
+    .contacts-grid {
+        margin-top: 28px;
+    }
+
     .ya-form-iframe {
         height: 550px;
     }

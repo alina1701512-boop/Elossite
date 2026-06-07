@@ -1666,9 +1666,10 @@ section.section-padding:not(#hero)::before {
         margin-bottom: 20px;
     }
 
-    .hero-meta {
+        .hero-meta {
         margin-top: 20px;
-        gap: 12px;
+        gap: 6px;
+        flex-direction: column;
     }
 
     .hero-photo {

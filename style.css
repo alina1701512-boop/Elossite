@@ -384,6 +384,24 @@ section.section-padding:not(#hero)::before {
     color: var(--color-accent);
 }
 
+.hero-map-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.hero-photo {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60%;
+    max-width: 300px;
+    height: auto;
+    border-radius: var(--radius-lg);
+    opacity: 0.2;
+    object-fit: cover;
+    z-index: 0;
+}
+
 /* ========================================
    📊 TRUST BAR (БЕГУЩАЯ СТРОКА)
    ======================================== */
@@ -520,7 +538,7 @@ section.section-padding:not(#hero)::before {
     display: grid;
     grid-template-columns: 1fr;
     gap: 24px;
-    margin: 20px 0 24px;
+    margin: 48px 0;
 }
 
 .why-card {
@@ -560,16 +578,37 @@ section.section-padding:not(#hero)::before {
     flex-direction: column;
     align-items: center;
     gap: 20px;
-    margin-top: 20px;
+    margin-top: 50px;
     background-color: var(--color-surface);
     padding: 35px;
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow);
 }
 
+.master-photo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
 /* ========================================
    🗺️ СЕКЦИЯ "ВАШ ПУТЬ" + КАЛЬКУЛЯТОР
    ======================================== */
+.how-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+.how-calculator {
+    background-color: var(--color-pastel);
+    padding: 25px;
+    border-radius: var(--radius-md);
+}
+
 .steps-timeline {
     max-width: 600px;
     margin: 40px auto 0;
@@ -619,6 +658,33 @@ section.section-padding:not(#hero)::before {
 
 .step-content h3 {
     margin-bottom: 5px;
+}
+
+/* Стили для полей калькулятора */
+.calc-select,
+.calc-input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: var(--radius-sm);
+    font-family: inherit;
+    font-size: 0.9rem;
+    background-color: var(--color-bg);
+}
+
+.calc-result-box {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #FFF9F8;
+    border-radius: var(--radius-md);
+    text-align: center;
+}
+
+.calc-highlight-box {
+    background-color: var(--color-pastel);
+    padding: 12px;
+    border-radius: var(--radius-sm);
+    margin-bottom: 10px;
 }
 
 /* ========================================
@@ -714,7 +780,6 @@ section.section-padding:not(#hero)::before {
     color: var(--color-accent);
 }
 
-/* Подсказка при наведении */
 .honeycomb-cell::after {
     content: 'Нажми';
     position: absolute;
@@ -739,41 +804,62 @@ section.section-padding:not(#hero)::before {
     opacity: 1;
 }
 
-@media (max-width: 767px) {
-    .honeycomb-viewport {
-        height: 420px;
-    }
-    .honeycomb-grid {
-        width: 900px;
-        height: 900px;
-    }
-    .honeycomb-cell {
-        width: 120px;
-        height: 120px;
-        padding: 15px 10px;
-    }
-    .honeycomb-cell.expanded {
-        width: 220px;
-        height: 220px;
-        padding: 25px 20px;
-    }
-    .honeycomb-cell .cell-text {
-        font-size: 0.5rem;
-        -webkit-line-clamp: 3;
-    }
-    .honeycomb-cell.expanded .cell-text {
-        font-size: 0.65rem;
-    }
-    .honeycomb-cell .cell-stars {
-        font-size: 0.6rem;
-    }
-    .honeycomb-cell .cell-author {
-        font-size: 0.5rem;
-    }
-    .honeycomb-cell::after {
-        font-size: 0.45rem;
-        bottom: 8px;
-    }
+/* ========================================
+   🗺️ КАРТА БОЛИ (ТАБЛИЦА ЧУВСТВИТЕЛЬНОСТИ)
+   ======================================== */
+.pain-table {
+    max-width: 600px;
+    margin: 0 auto;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    background-color: var(--color-surface);
+}
+
+.pain-row {
+    display: grid;
+    grid-template-columns: 1.3fr 1.8fr 0.9fr;
+    align-items: center;
+    padding: 18px 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    font-size: 0.95rem;
+}
+
+.pain-row:last-child {
+    border-bottom: none;
+}
+
+.pain-row--header {
+    background-color: var(--color-accent);
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 14px 20px;
+}
+
+.pain-row:not(.pain-row--header):nth-child(even) {
+    background-color: #FFF9F8;
+}
+
+.pain-row:not(.pain-row--header):hover {
+    background-color: #FFF0ED;
+}
+
+.pain-cell {
+    padding: 4px 8px;
+}
+
+.pain-cell:first-child {
+    padding-left: 4px;
+}
+
+.pain-cell:last-child {
+    text-align: center;
+    font-weight: 600;
+    color: var(--color-accent);
+    padding-right: 4px;
 }
 
 /* ========================================
@@ -881,65 +967,19 @@ section.section-padding:not(#hero)::before {
     font-size: 0.85rem;
 }
 
-@media (min-width: 768px) {
-    .pricing-grid {
-        gap: 16px;
-    }
-    .price-card {
-        padding: 30px 20px;
-    }
-    .price-zone-label {
-        font-size: 0.95rem;
-    }
-    .price-old {
-        font-size: 0.9rem;
-    }
-    .price-new {
-        font-size: 1.8rem;
-    }
-    .badge {
-        font-size: 0.75rem;
-        padding: 6px 14px;
-    }
-    .badge-sale {
-        font-size: 0.75rem;
-        padding: 5px 10px;
-    }
-    .price-save {
-        font-size: 0.8rem;
-    }
-    .price-card .btn {
-        padding: 14px 16px;
-        font-size: 0.85rem;
-    }
-    .btn-sm {
-        padding: 14px 16px !important;
-        font-size: 0.85rem !important;
-    }
-    .price-card.featured {
-        transform: scale(1.02);
-    }
-    .price-card.featured:hover {
-        transform: scale(1.02) translateY(-3px);
-    }
+/* Список всех зон (раскрывающийся) */
+.all-zones-grid {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 8px;
+    font-size: 0.9rem;
 }
 
-@media (max-width: 340px) {
-    .pricing-grid {
-        gap: 6px;
-    }
-    .price-card {
-        padding: 14px 8px;
-    }
-    .price-zone-label {
-        font-size: 0.65rem;
-    }
-    .price-new {
-        font-size: 1.1rem;
-    }
-    .price-old {
-        font-size: 0.65rem;
-    }
+.all-zones-note {
+    margin-top: 10px;
+    font-size: 0.8rem;
+    color: var(--color-text-light);
+    text-align: center;
 }
 
 /* ========================================
@@ -1093,13 +1133,7 @@ section.section-padding:not(#hero)::before {
     grid-template-columns: 1fr;
     gap: 50px;
     margin-top: 40px;
-    align-items: start;
-}
-
-@media (min-width: 768px) {
-    .contacts-grid {
-        grid-template-columns: 1fr 1fr;
-    }
+    align-items: center;
 }
 
 .contact-form-block {
@@ -1109,7 +1143,7 @@ section.section-padding:not(#hero)::before {
 .contact-details {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    justify-content: center;
 }
 
 .contact-item {
@@ -1124,9 +1158,9 @@ section.section-padding:not(#hero)::before {
 }
 
 .contact-item i {
-    font-size: 1.8rem;
+    font-size: 1.4rem;
     color: var(--color-accent);
-    width: 40px;
+    width: 32px;
     text-align: center;
 }
 
@@ -1202,95 +1236,6 @@ section.section-padding:not(#hero)::before {
 }
 
 /* ========================================
-   🧮 СЕТКА ДЛЯ БЛОКА "ВАШ ПУТЬ"
-   ======================================== */
-.how-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 40px;
-    align-items: start;
-}
-
-.how-calculator {
-    background-color: var(--color-pastel);
-    padding: 25px;
-    border-radius: var(--radius-md);
-}
-
-/* ========================================
-   🗺️ КАРТА БОЛИ (ТАБЛИЦА ЧУВСТВИТЕЛЬНОСТИ)
-   ======================================== */
-.pain-table {
-    max-width: 600px;
-    margin: 0 auto;
-    border-radius: var(--radius-md);
-    overflow: hidden;
-    box-shadow: var(--shadow);
-    background-color: var(--color-surface);
-}
-
-.pain-row {
-    display: grid;
-    grid-template-columns: 1.3fr 1.8fr 0.9fr;
-    align-items: center;
-    padding: 18px 20px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    font-size: 0.95rem;
-}
-
-.pain-row:last-child {
-    border-bottom: none;
-}
-
-.pain-row--header {
-    background-color: var(--color-accent);
-    color: #fff;
-    font-weight: 700;
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    padding: 14px 20px;
-}
-
-.pain-row:not(.pain-row--header):nth-child(even) {
-    background-color: #FFF9F8;
-}
-
-.pain-row:not(.pain-row--header):hover {
-    background-color: #FFF0ED;
-}
-
-.pain-cell {
-    padding: 4px 8px;
-}
-
-.pain-cell:first-child {
-    padding-left: 4px;
-}
-
-.pain-cell:last-child {
-    text-align: center;
-    font-weight: 600;
-    color: var(--color-accent);
-    padding-right: 4px;
-}
-
-@media (max-width: 767px) {
-    .pain-row {
-        grid-template-columns: 1.2fr 1.8fr 0.7fr;
-        padding: 14px 12px;
-        font-size: 0.85rem;
-    }
-    .pain-row--header {
-        font-size: 0.75rem;
-        padding: 10px 12px;
-    }
-    .pain-cell {
-        padding: 2px 4px;
-    }
-}
-
-/* ========================================
    📞 ПОДВАЛ САЙТА
    ======================================== */
 .site-footer {
@@ -1322,7 +1267,7 @@ section.section-padding:not(#hero)::before {
     background-color: var(--color-accent);
     color: #fff;
     padding: 14px 24px;
-       border-radius: 50px;
+    border-radius: 50px;
     box-shadow: 0 8px 25px rgba(232, 165, 152, 0.5);
     text-decoration: none;
     font-weight: 600;
@@ -1380,6 +1325,22 @@ section.section-padding:not(#hero)::before {
 
 .exit-popup-close:hover {
     color: var(--color-text);
+}
+
+.exit-popup i {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    display: block;
+}
+
+/* ========================================
+   📝 ЯНДЕКС.ФОРМА
+   ======================================== */
+.ya-form-iframe {
+    width: 100%;
+    height: 650px;
+    border-radius: 20px;
+    border: none;
 }
 
 /* ========================================
@@ -1550,63 +1511,14 @@ section.section-padding:not(#hero)::before {
 }
 
 /* ========================================
-   📱 АДАПТИВНОСТЬ (ПЛАНШЕТЫ И ВЫШЕ)
+   🌐 ЯКОРЬ ДЛЯ КАРТЫ
    ======================================== */
-@media (min-width: 768px) {
-    .hero-grid {
-        flex-direction: row;
-    }
-    .hero-title {
-        font-size: 3.5rem;
-    }
-    .hero-buttons {
-        flex-direction: row;
-        align-items: center;
-    }
-    .problems-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-    .why-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    .pricing-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-    .contacts-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-    .master-intro {
-        flex-direction: row;
-        text-align: left;
-    }
-    .promo-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-    .how-grid {
-        grid-template-columns: 1fr 1fr;
-    }
+#mapAnchor {
+    scroll-margin-top: 80px;
 }
 
 /* ========================================
-   📱 АДАПТИВНОСТЬ (БОЛЬШИЕ ЭКРАНЫ)
-   ======================================== */
-@media (min-width: 1024px) {
-    .hero-title {
-        font-size: 4rem;
-    }
-    .why-grid {
-        grid-template-columns: repeat(4, 1fr);
-    }
-}
-
-@media (min-width: 1440px) {
-    .container {
-        max-width: 1300px;
-    }
-}
-
-/* ========================================
-   📱 АДАПТИВНОСТЬ (ТЕЛЕФОНЫ)
+   📱 АДАПТИВНОСТЬ (ТЕЛЕФОНЫ 320–767px)
    ======================================== */
 @media (max-width: 767px) {
     .section-padding {
@@ -1618,6 +1530,7 @@ section.section-padding:not(#hero)::before {
         font-size: 1.65rem;
     }
 
+    /* Hero */
     .hero-section {
         min-height: calc(100svh - 60px);
         padding-top: 36px;
@@ -1645,12 +1558,35 @@ section.section-padding:not(#hero)::before {
         gap: 12px;
     }
 
-    .problem-card,
-    .promo-card {
+    .hero-photo {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 60%;
+        max-width: 300px;
+        height: auto;
+        border-radius: var(--radius-lg);
+        opacity: 0.2;
+        object-fit: cover;
+        z-index: 0;
+    }
+
+    /* Секция "Знакомо?" */
+    .problem-card {
         padding: 28px 20px;
     }
 
-      .why-card {
+    .section-subtext {
+        margin: 24px auto 0;
+    }
+
+    /* Секция "Почему здесь всё иначе" */
+    .why-grid {
+        gap: 6px;
+        margin: 20px 0 24px;
+    }
+
+    .why-card {
         display: block;
         text-align: left;
         padding: 12px 14px;
@@ -1682,6 +1618,69 @@ section.section-padding:not(#hero)::before {
         margin-top: 4px;
         color: var(--color-text-light);
     }
+
+    .master-intro {
+        margin-top: 20px;
+    }
+
+    /* Секция "Ваш путь" */
+    .how-calculator {
+        padding: 20px 15px;
+    }
+
+    /* Таблица боли */
+    .pain-row {
+        grid-template-columns: 1.2fr 1.8fr 0.7fr;
+        padding: 14px 12px;
+        font-size: 0.85rem;
+    }
+
+    .pain-row--header {
+        font-size: 0.75rem;
+        padding: 10px 12px;
+    }
+
+    .pain-cell {
+        padding: 2px 4px;
+    }
+
+    /* Соты с отзывами */
+    .honeycomb-viewport {
+        height: 420px;
+    }
+    .honeycomb-grid {
+        width: 900px;
+        height: 900px;
+    }
+    .honeycomb-cell {
+        width: 120px;
+        height: 120px;
+        padding: 15px 10px;
+    }
+    .honeycomb-cell.expanded {
+        width: 220px;
+        height: 220px;
+        padding: 25px 20px;
+    }
+    .honeycomb-cell .cell-text {
+        font-size: 0.5rem;
+        -webkit-line-clamp: 3;
+    }
+    .honeycomb-cell.expanded .cell-text {
+        font-size: 0.65rem;
+    }
+    .honeycomb-cell .cell-stars {
+        font-size: 0.6rem;
+    }
+    .honeycomb-cell .cell-author {
+        font-size: 0.5rem;
+    }
+    .honeycomb-cell::after {
+        font-size: 0.45rem;
+        bottom: 8px;
+    }
+
+    /* Цены */
     .pricing-grid {
         gap: 6px;
     }
@@ -1722,6 +1721,22 @@ section.section-padding:not(#hero)::before {
         padding: 3px 6px;
     }
 
+    /* Акции */
+    .promo-card {
+        padding: 28px 20px;
+    }
+
+    /* FAQ */
+    .faq-list {
+        margin: 24px auto 0;
+    }
+
+    /* Контакты */
+    .ya-form-iframe {
+        height: 550px;
+    }
+
+    /* Мобильное меню */
     .main-nav {
         position: fixed;
         top: 60px;
@@ -1768,27 +1783,30 @@ section.section-padding:not(#hero)::before {
     }
 }
 
-.hero-map-link {
-    text-decoration: none;
-    color: inherit;
+/* ========================================
+   📱 АДАПТИВНОСТЬ (ОЧЕНЬ МАЛЕНЬКИЕ ТЕЛЕФОНЫ 320–340px)
+   ======================================== */
+@media (max-width: 340px) {
+    .pricing-grid {
+        gap: 6px;
+    }
+    .price-card {
+        padding: 14px 8px;
+    }
+    .price-zone-label {
+        font-size: 0.65rem;
+    }
+    .price-new {
+        font-size: 1.1rem;
+    }
+    .price-old {
+        font-size: 0.65rem;
+    }
 }
 
 /* ========================================
-   📸 ФОТО МАСТЕРА
+   📱 АДАПТИВНОСТЬ (ПЛАНШЕТЫ И ВЫШЕ 768px+)
    ======================================== */
-.hero-photo {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 60%;
-    max-width: 300px;
-    height: auto;
-    border-radius: var(--radius-lg);
-    opacity: 0.2;
-    object-fit: cover;
-    z-index: 0;
-}
-
 @media (min-width: 768px) {
     .hero-photo {
         position: relative;
@@ -1797,12 +1815,116 @@ section.section-padding:not(#hero)::before {
         max-width: 380px;
         z-index: 1;
     }
+
+    .hero-grid {
+        flex-direction: row;
+    }
+
+    .hero-title {
+        font-size: 3.5rem;
+    }
+
+    .hero-buttons {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .problems-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .why-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .pricing-grid {
+        gap: 16px;
+    }
+
+    .price-card {
+        padding: 30px 20px;
+    }
+
+    .price-zone-label {
+        font-size: 0.95rem;
+    }
+
+    .price-old {
+        font-size: 0.9rem;
+    }
+
+    .price-new {
+        font-size: 1.8rem;
+    }
+
+    .badge {
+        font-size: 0.75rem;
+        padding: 6px 14px;
+    }
+
+    .badge-sale {
+        font-size: 0.75rem;
+        padding: 5px 10px;
+    }
+
+    .price-save {
+        font-size: 0.8rem;
+    }
+
+    .price-card .btn {
+        padding: 14px 16px;
+        font-size: 0.85rem;
+    }
+
+    .btn-sm {
+        padding: 14px 16px !important;
+        font-size: 0.85rem !important;
+    }
+
+    .price-card.featured {
+        transform: scale(1.02);
+    }
+
+    .price-card.featured:hover {
+        transform: scale(1.02) translateY(-3px);
+    }
+
+    .contacts-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .master-intro {
+        flex-direction: row;
+        text-align: left;
+    }
+
+    .promo-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .how-grid {
+        grid-template-columns: 1fr 1fr;
+    }
 }
 
-.master-photo {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    object-fit: cover;
-    flex-shrink: 0;
+/* ========================================
+   📱 АДАПТИВНОСТЬ (БОЛЬШИЕ ЭКРАНЫ 1024px+)
+   ======================================== */
+@media (min-width: 1024px) {
+    .hero-title {
+        font-size: 4rem;
+    }
+
+    .why-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* ========================================
+   📱 АДАПТИВНОСТЬ (ОЧЕНЬ БОЛЬШИЕ ЭКРАНЫ 1440px+)
+   ======================================== */
+@media (min-width: 1440px) {
+    .container {
+        max-width: 1300px;
+    }
 }

@@ -23,86 +23,6 @@
     <!-- Font Awesome 6 (иконки с анимацией) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-    <style>
-        /* Плавная прокрутка по якорям */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Отступ для фиксированного хедера при прокрутке к якорю */
-        #mapAnchor {
-            scroll-margin-top: 80px;
-        }
-
-        /* Стили для иконок в герое */
-        .hero-meta i {
-            margin-right: 8px;
-            color: var(--color-accent);
-        }
-
-        .trust-bar__inner i {
-            margin-right: 8px;
-        }
-
-        .contact-item i {
-            width: 32px;
-            font-size: 1.4rem;
-            color: var(--color-accent);
-        }
-
-        .promo-card i {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            color: var(--color-accent);
-        }
-
-        .btn i {
-            margin-right: 8px;
-        }
-
-        /* Стили для Яндекс.Формы */
-        .ya-form-iframe {
-            width: 100%;
-            height: 650px;
-            border-radius: 20px;
-            border: none;
-        }
-
-        @media (max-width: 768px) {
-            .ya-form-iframe {
-                height: 550px;
-            }
-        }
-
-        /* ===== ВЫРАВНИВАНИЕ СЕКЦИИ КОНТАКТОВ ===== */
-        .contacts-grid {
-            align-items: center;
-        }
-
-        .contact-details {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .contact-item {
-            margin-bottom: 12px;
-        }
-
-        .contact-item:last-of-type {
-            margin-bottom: 0;
-        }
-
-        .contact-buttons {
-            margin-bottom: 20px;
-            margin-top: 10px;
-        }
-
-        .map-container iframe {
-            border-radius: 20px;
-        }
-    </style>
-
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -492,7 +412,7 @@
                         <h3 style="text-align:center; margin-bottom:20px;"><i class="fas fa-calculator"></i> Посчитай, сколько ты тратишь на бритьё</h3>
                         <div class="form-group">
                             <label for="calcMethod">Чем пользуешься?</label>
-                            <select id="calcMethod" required style="width:100%; padding:12px 15px; border:1px solid #ddd; border-radius:var(--radius-sm); font-family:inherit; font-size:0.9rem; background-color:var(--color-bg);">
+                           <select id="calcMethod" required class="calc-select">
                                 <option value="">Выберите способ</option>
                                 <option value="Бритва (станок)">Бритва (станок)</option>
                                 <option value="Воск / Шугаринг">Воск / Шугаринг</option>
@@ -503,16 +423,16 @@
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
                             <div class="form-group">
                                 <label for="calcStartAge">Во сколько лет начала?</label>
-                                <input type="number" id="calcStartAge" min="10" max="60" placeholder="Например: 16" required style="width:100%; padding:12px 15px; border:1px solid #ddd; border-radius:var(--radius-sm); font-family:inherit; font-size:0.9rem; background-color:var(--color-bg);">
+                                <input type="number" id="calcStartAge" min="10" max="60" placeholder="Например: 16" required class="calc-input">
                             </div>
                             <div class="form-group">
                                 <label for="calcCurrentAge">Сколько сейчас лет?</label>
-                                <input type="number" id="calcCurrentAge" min="10" max="80" placeholder="Например: 28" required style="width:100%; padding:12px 15px; border:1px solid #ddd; border-radius:var(--radius-sm); font-family:inherit; font-size:0.9rem; background-color:var(--color-bg);">
+                                <input type="number" id="calcCurrentAge" min="10" max="80" placeholder="Например: 28" required class="calc-input">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="calcZone">Какую зону хочешь?</label>
-                            <select id="calcZone" required style="width:100%; padding:12px 15px; border:1px solid #ddd; border-radius:var(--radius-sm); font-family:inherit; font-size:0.9rem; background-color:var(--color-bg);">
+                            <select id="calcZone" required class="calc-select">
                                 <option value="">Выберите комплекс</option>
                                 <option value="1">Подмышки + бикини (2300 ₽ / 30 мин)</option>
                                 <option value="2">Подмышки + бикини + голени (3500 ₽ / 60 мин)</option>
@@ -521,17 +441,17 @@
                         </div>
                         <div class="form-group">
                             <label for="calcMonthly">Сколько тратишь в месяц? (₽)</label>
-                            <input type="number" id="calcMonthly" min="0" max="50000" placeholder="Например: 500" required style="width:100%; padding:12px 15px; border:1px solid #ddd; border-radius:var(--radius-sm); font-family:inherit; font-size:0.9rem; background-color:var(--color-bg);">
+                            <input type="number" id="calcMonthly" min="0" max="50000" placeholder="Например: 500" required class="calc-input">
                         </div>
                         <button id="calcButton" class="btn btn-primary btn-block"><i class="fas fa-calculator"></i> Посчитать</button>
-                        <div id="calcResult" style="display:none; margin-top:20px; padding:20px; background-color:#FFF9F8; border-radius:var(--radius-md); text-align:center;">
+                        <div id="calcResult" class="calc-result-box" style="display:none;">
                             <p style="font-size:1rem; font-weight:600; margin-bottom:10px;"><i class="fas fa-chart-line"></i> Результат за <span id="calcYears">5</span> лет:</p>
-                            <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:10px;">
+                            <div class="all-zones-grid">
                                 <div><i class="fas fa-money-bill-wave" style="font-size:1.2rem;"></i><br><strong id="calcMoney">0 ₽</strong><br><span style="font-size:0.7rem; color:var(--color-text-light);">потрачено денег</span></div>
                                 <div><i class="fas fa-hourglass-half" style="font-size:1.2rem;"></i><br><strong id="calcTime">0 часов</strong><br><span style="font-size:0.7rem; color:var(--color-text-light);">потрачено времени</span></div>
                             </div>
-                            <div style="background-color:var(--color-pastel); padding:12px; border-radius:var(--radius-sm); margin-bottom:10px;">
-                                <p style="margin-bottom:3px; font-size:0.9rem;"><i class="fas fa-star"></i> <strong>С лазером (24 процедуры за 5 лет):</strong></p>
+                           <div class="calc-highlight-box">
+                                <p class="all-zones-note">* Хотите добавить зону к комплексу? Напишите в Telegram — я всё посчитаю</p>
                                 <p style="font-size:1.1rem; font-weight:700; color:var(--color-accent);" id="calcLaserCost">0 ₽</p>
                                 <p style="font-size:0.75rem; color:var(--color-text-light);">Первая со скидкой 35%, остальные 23 — полная цена</p>
                                 <p style="font-size:0.75rem; color:var(--color-text-light);" id="calcLaserTime">займёт 0 часов</p>
@@ -804,10 +724,10 @@
             </div>
         </section>
 
-        <!-- ======================================== -->
-        <!-- ========== СЕКЦИЯ КОНТАКТОВ (С ЯНДЕКС.ФОРМОЙ) ========== -->
-        <!-- ======================================== -->
-        <section id="contacts" class="section-padding bg-pastel" style="padding-top: 40px; padding-bottom: 80px;" aria-labelledby="contacts-heading">
+<!-- ======================================== -->
+<!-- ========== СЕКЦИЯ КОНТАКТОВ (С ЯНДЕКС.ФОРМОЙ) ========== -->
+<!-- ======================================== -->
+        <section id="contacts" class="section-padding bg-pastel contacts-section" aria-labelledby="contacts-heading">
             <div class="container">
                 <h2 class="section-title text-center fade-in-section" id="contacts-heading">Контакты</h2>
                 <div class="contacts-grid">

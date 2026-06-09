@@ -442,8 +442,8 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('calcYears').textContent = years;
             document.getElementById('calcMoney').textContent = totalMoney.toLocaleString() + ' ₽';
             document.getElementById('calcTime').textContent = totalHours.toLocaleString() + ' часов';
-            document.getElementById('calcLaserCost').textContent = totalLaserCost.toLocaleString() + ' ₽';
-            document.getElementById('calcLaserTime').textContent = 'займёт всего ' + totalLaserHours + ' часов (' + totalLaserProcedures + ' процедур за 5 лет)';
+            document.getElementById('calcLaserCostTable').textContent = totalLaserCost.toLocaleString() + ' ₽';
+document.getElementById('calcLaserTimeTable').textContent = totalLaserHours + ' часов';
             document.getElementById('calcSave').textContent = saveText;
             document.getElementById('calcResult').style.display = 'block';
 

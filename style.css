@@ -1757,16 +1757,17 @@ section.section-padding:not(#hero)::before {
     }
 
     .why-card {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        padding: 0;
-        border: none;
-        border-radius: 0;
-        background: none;
-        width: 100%;
-    }
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px 15px;
+    border: none;
+    border-radius: var(--radius-md);
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.7) 0%, rgba(243, 235, 233, 0) 70%);
+    box-shadow: none;
+    width: 100%;
+}
 
     .why-card h3 {
         font-size: 0.85rem;

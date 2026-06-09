@@ -1685,7 +1685,7 @@ section.section-padding:not(#hero)::before {
         z-index: 0;
     }
 
-    /* Секция "Знакомо?" */
+        /* Секция "Знакомо?" */
     .problems-grid {
         margin: 32px 0;
         gap: 16px;
@@ -1693,10 +1693,13 @@ section.section-padding:not(#hero)::before {
 
     .problem-card {
         display: flex;
-        align-items: flex-start;
+        align-items: center;
         gap: 16px;
         padding: 20px 16px;
         text-align: left;
+        border: 1px solid #E8A598;
+        border-radius: 10px;
+        box-shadow: none;
     }
 
     .problem-image {
@@ -1704,6 +1707,11 @@ section.section-padding:not(#hero)::before {
         height: 80px;
         margin: 0;
         flex-shrink: 0;
+    }
+
+    .problem-card div {
+        display: flex;
+        flex-direction: column;
     }
 
     .problem-card h3 {

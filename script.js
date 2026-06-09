@@ -365,15 +365,32 @@ if (calcMethod) {
             }
 
             var years = 5;
-            var totalMoney;
+           var totalMoney;
+var weeklyTime;
 if (method === 'Эпилятор') {
-    totalMoney = monthly; // разовая покупка на 5 лет
+    totalMoney = monthly;
+    weeklyTime = 68;
+} else if (method === 'Бритва (станок)') {
+    totalMoney = years * 12 * monthly;
+    if (zone === '1') {
+        weeklyTime = 22;
+    } else if (zone === '2') {
+        weeklyTime = 54;
+    } else {
+        weeklyTime = 58;
+    }
+} else if (method === 'Воск / Шугаринг') {
+    totalMoney = years * 12 * monthly;
+    weeklyTime = 60;
+} else if (method === 'Крем для депиляции') {
+    totalMoney = years * 12 * monthly;
+    weeklyTime = 45;
 } else {
     totalMoney = years * 12 * monthly;
+    weeklyTime = 30;
 }
-            var weeklyTime = 30;
-            var totalMinutes = years * 52 * weeklyTime;
-            var totalHours = Math.round(totalMinutes / 60);
+var totalMinutes = years * 52 * weeklyTime;
+var totalHours = Math.round(totalMinutes / 60);
 
             var fullPrice, laserMinutes, dikidiLink;
             if (zone === '1') {
@@ -412,7 +429,6 @@ if (method === 'Эпилятор') {
     } else if (method === 'Воск / Шугаринг') {
         methodText = 'в кабинете косметолога, терпя боль и отращивая волосы';
    } else if (method === 'Эпилятор') {
-    totalMoney = monthly;
     methodText = 'с эпилятором в руках, превозмогая боль и борясь с вросшими волосами';
     weeklyTime = 68; // эпиляция занимает больше времени (AAD 2023)
 }

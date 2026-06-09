@@ -338,7 +338,7 @@ var calcMonthly = document.getElementById('calcMonthly');
 if (calcMethod) {
     calcMethod.addEventListener('change', function() {
         if (this.value === 'Эпилятор') {
-            monthlyLabel.textContent = 'Сколько стоит эпилятор? (одна покупка на ~5 лет, ₽)';
+            monthlyLabel.textContent = 'Сколько стоит эпилятор?';
             calcMonthly.placeholder = 'Например: 5000';
         } else {
             monthlyLabel.textContent = 'Сколько тратишь в месяц? (₽)';

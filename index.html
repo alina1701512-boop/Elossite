@@ -476,11 +476,34 @@
 </div>
                         <button id="calcButton" class="btn btn-primary btn-block"><i class="fas fa-calculator"></i> Посчитать</button>
                         <div id="calcResult" class="calc-result-box" style="display:none;">
-                            <p class="calc-result-title"><i class="fas fa-chart-line"></i> Результат за <span id="calcYears">5</span> лет:</p>
-                            <div class="calc-result-row">
-                                <div><i class="fas fa-money-bill-wave calc-result-icon"></i><br><strong id="calcMoney">0 ₽</strong><br><span class="calc-result-label">потрачено денег</span></div>
-                                <div><i class="fas fa-hourglass-half calc-result-icon"></i><br><strong id="calcTime">0 часов</strong><br><span class="calc-result-label">потрачено времени</span></div>
-                            </div>
+    <p class="calc-result-title"><i class="fas fa-chart-line"></i> Сравнение за <span id="calcYears">5</span> лет</p>
+    
+    <div class="calc-compare-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px;">
+        <!-- ЛЕВАЯ КОЛОНКА -->
+        <div style="background: #FFF5F5; border-radius: 12px; padding: 12px 8px; text-align: center;">
+            <p style="font-weight: 700; font-size: 0.8rem; color: #C0392B; margin-bottom: 6px;">Без лазера</p>
+            <p style="font-size: 0.7rem; color: var(--color-text-light);">Денег</p>
+            <p style="font-weight: 700; font-size: 1rem;" id="calcMoney">0 ₽</p>
+            <p style="font-size: 0.7rem; color: var(--color-text-light); margin-top: 6px;">Времени</p>
+            <p style="font-weight: 700; font-size: 1rem;" id="calcTime">0 часов</p>
+            <p style="font-size: 0.65rem; color: #C0392B; margin-top: 6px;">Раздражение<br>Щетина<br>Вросшие волосы</p>
+        </div>
+        
+        <!-- ПРАВАЯ КОЛОНКА -->
+        <div style="background: #F0FAF0; border-radius: 12px; padding: 12px 8px; text-align: center;">
+            <p style="font-weight: 700; font-size: 0.8rem; color: #27AE60; margin-bottom: 6px;">С лазером Elos</p>
+            <p style="font-size: 0.7rem; color: var(--color-text-light);">Денег</p>
+            <p style="font-weight: 700; font-size: 1rem;" id="calcLaserCost">0 ₽</p>
+            <p style="font-size: 0.7rem; color: var(--color-text-light); margin-top: 6px;">Времени</p>
+            <p style="font-weight: 700; font-size: 1rem;" id="calcLaserTimeShort">0 часов</p>
+            <p style="font-size: 0.65rem; color: #27AE60; margin-top: 6px;">Гладкая кожа 24/7<br>Свобода<br>Уверенность</p>
+        </div>
+    </div>
+    
+    <p id="calcSave" style="margin-top: 14px; font-weight: 600; font-size: 0.9rem; text-align: center;"></p>
+    <p style="font-size: 0.65rem; color: var(--color-text-light); text-align: center; margin-top: 6px;">* Первая процедура — со скидкой 35% (от 1495 ₽). Итоговая сумма может быть меньше.</p>
+    <a id="calcLink" href="https://dikidi.ru/ru/profile/elos_714399" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-block calc-link-btn">Записаться и начать экономить</a>
+</div>
                             <div class="calc-highlight-box">
                                 <p class="calc-highlight-title"><i class="fas fa-star"></i> <strong>С лазером (24 процедуры за 5 лет):</strong></p>
                                 <p class="calc-laser-cost" id="calcLaserCost">0 ₽</p>

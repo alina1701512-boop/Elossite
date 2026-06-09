@@ -1739,8 +1739,30 @@ section.section-padding:not(#hero)::before {
     .why-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 8px;
+        gap: 20px 8px;
         margin: 20px 0 24px;
+    }
+
+    .why-card-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .why-card-wrapper .why-icon {
+        font-size: 1.6rem;
+        color: var(--color-accent);
+        margin-bottom: -10px;
+        z-index: 2;
+        background: #F3EBE9;
+        padding: 0 10px;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .why-card {
@@ -1748,25 +1770,11 @@ section.section-padding:not(#hero)::before {
         flex-direction: column;
         align-items: center;
         text-align: center;
-        padding: 0 10px 16px;
+        padding: 20px 10px 16px;
         border: 1px solid #E8A598;
         border-radius: 10px;
         background-color: #FFFFFF;
-        margin-bottom: 0;
-        position: relative;
-        padding-top: 24px;
-    }
-
-    .why-card .why-icon {
-        font-size: 1.8rem;
-        color: var(--color-accent);
-        margin-right: 0;
-        margin-bottom: 8px;
-        display: block;
-        position: absolute;
-        top: -14px;
-        background: #FAF8F6;
-        padding: 0 8px;
+        width: 100%;
     }
 
     .why-card h3 {

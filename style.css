@@ -685,6 +685,7 @@ section.section-padding:not(#hero)::before {
     background-color: #FFF9F8;
     border-radius: var(--radius-md);
     text-align: center;
+    display: none; /* Скрыто по умолчанию, показывается через JS */
 }
 
 .calc-highlight-box {
@@ -1757,17 +1758,17 @@ section.section-padding:not(#hero)::before {
     }
 
     .why-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 20px 15px;
-    border: none;
-    border-radius: var(--radius-md);
-    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.7) 0%, rgba(243, 235, 233, 0) 70%);
-    box-shadow: none;
-    width: 100%;
-}
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 20px 15px;
+        border: none;
+        border-radius: var(--radius-md);
+        background: radial-gradient(circle at center, rgba(255, 255, 255, 0.7) 0%, rgba(243, 235, 233, 0) 70%);
+        box-shadow: none;
+        width: 100%;
+    }
 
     .why-card h3 {
         font-size: 0.85rem;
@@ -1991,7 +1992,7 @@ section.section-padding:not(#hero)::before {
         text-align: center;
     }
 
-          .burger-menu {
+    .burger-menu {
         flex-direction: column;
         gap: 5px;
         background: none;

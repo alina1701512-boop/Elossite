@@ -331,21 +331,22 @@ document.addEventListener('DOMContentLoaded', function() {
     // --- 8. Калькулятор (5 лет, 24 процедуры) ---
     var calcButton = document.getElementById('calcButton');
     var calcMethod = document.getElementById('calcMethod');
-var monthlyLabel = document.getElementById('monthlyLabel');
-var calcMonthly = document.getElementById('calcMonthly');
+    var monthlyLabel = document.getElementById('monthlyLabel');
+    var calcMonthly = document.getElementById('calcMonthly');
 
-// Меняем подпись поля при выборе эпилятора
-if (calcMethod) {
-    calcMethod.addEventListener('change', function() {
-        if (this.value === 'Эпилятор') {
-            monthlyLabel.textContent = 'Сколько стоит эпилятор?';
-            calcMonthly.placeholder = 'Например: 5000';
-        } else {
-            monthlyLabel.textContent = 'Сколько тратишь в месяц? (₽)';
-            calcMonthly.placeholder = 'Например: 500';
-        }
-    });
-}
+    // Меняем подпись поля при выборе эпилятора
+    if (calcMethod) {
+        calcMethod.addEventListener('change', function() {
+            if (this.value === 'Эпилятор') {
+                monthlyLabel.textContent = 'Сколько стоит эпилятор?';
+                calcMonthly.placeholder = 'Например: 5000';
+            } else {
+                monthlyLabel.textContent = 'Сколько тратишь в месяц? (₽)';
+                calcMonthly.placeholder = 'Например: 500';
+            }
+        });
+    }
+
     if (calcButton) {
         calcButton.addEventListener('click', function() {
             var method = document.getElementById('calcMethod').value;
@@ -365,32 +366,33 @@ if (calcMethod) {
             }
 
             var years = 5;
-           var totalMoney;
-var weeklyTime;
-if (method === 'Эпилятор') {
-    totalMoney = monthly;
-    weeklyTime = 68;
-} else if (method === 'Бритва (станок)') {
-    totalMoney = years * 12 * monthly;
-    if (zone === '1') {
-        weeklyTime = 22;
-    } else if (zone === '2') {
-        weeklyTime = 54;
-    } else {
-        weeklyTime = 58;
-    }
-} else if (method === 'Воск / Шугаринг') {
-    totalMoney = years * 12 * monthly;
-    weeklyTime = 60;
-} else if (method === 'Крем для депиляции') {
-    totalMoney = years * 12 * monthly;
-    weeklyTime = 45;
-} else {
-    totalMoney = years * 12 * monthly;
-    weeklyTime = 30;
-}
-var totalMinutes = years * 52 * weeklyTime;
-var totalHours = Math.round(totalMinutes / 60);
+            var totalMoney, weeklyTime;
+
+            if (method === 'Эпилятор') {
+                totalMoney = monthly;
+                weeklyTime = 68;
+            } else if (method === 'Бритва (станок)') {
+                totalMoney = years * 12 * monthly;
+                if (zone === '1') {
+                    weeklyTime = 22;
+                } else if (zone === '2') {
+                    weeklyTime = 54;
+                } else {
+                    weeklyTime = 58;
+                }
+            } else if (method === 'Воск / Шугаринг') {
+                totalMoney = years * 12 * monthly;
+                weeklyTime = 60;
+            } else if (method === 'Крем для депиляции') {
+                totalMoney = years * 12 * monthly;
+                weeklyTime = 45;
+            } else {
+                totalMoney = years * 12 * monthly;
+                weeklyTime = 30;
+            }
+
+            var totalMinutes = years * 52 * weeklyTime;
+            var totalHours = Math.round(totalMinutes / 60);
 
             var fullPrice, laserMinutes, dikidiLink;
             if (zone === '1') {
@@ -419,24 +421,24 @@ var totalHours = Math.round(totalMinutes / 60);
             if (savedHours < 0) savedHours = 0;
 
             if (saveMoney > 5000) {
-    saveText = 'Экономия: ' + saveMoney.toLocaleString() + ' ₽ и ' + savedHours + ' часов жизни!';
-} else if (saveMoney > 0) {
-    saveText = 'Экономия: ' + saveMoney.toLocaleString() + ' ₽. Даже небольшая выгода — это приятно!';
-} else {
-    var methodText = '';
-    if (method === 'Бритва (станок)') {
-        methodText = 'с бритвой в руках';
-    } else if (method === 'Воск / Шугаринг') {
-        methodText = 'в кабинете косметолога, терпя боль и отращивая волосы';
-   } else if (method === 'Эпилятор') {
-    methodText = 'с эпилятором в руках, превозмогая боль и борясь с вросшими волосами';
-}
-    else if (method === 'Крем для депиляции') {
-        methodText = 'на химическую депиляцию с её запахом и риском ожогов';
-    }
-    saveText = 'Да, лазер стоит своих денег. Но за 5 лет ты провела ' + totalHours + ' часов ' + methodText + '. Лазер — это всего ' + totalLaserHours + ' часов за 5 лет и свобода от щетины.';
-}
+                saveText = 'Экономия: ' + saveMoney.toLocaleString() + ' ₽ и ' + savedHours + ' часов жизни!';
+            } else if (saveMoney > 0) {
+                saveText = 'Экономия: ' + saveMoney.toLocaleString() + ' ₽. Даже небольшая выгода — это приятно!';
+            } else {
+                var methodText = '';
+                if (method === 'Бритва (станок)') {
+                    methodText = 'с бритвой в руках';
+                } else if (method === 'Воск / Шугаринг') {
+                    methodText = 'в кабинете косметолога, терпя боль и отращивая волосы';
+                } else if (method === 'Эпилятор') {
+                    methodText = 'с эпилятором в руках, превозмогая боль и борясь с вросшими волосами';
+                } else if (method === 'Крем для депиляции') {
+                    methodText = 'на химическую депиляцию с её запахом и риском ожогов';
+                }
+                saveText = 'Да, лазер стоит своих денег. Но за 5 лет ты провела ' + totalHours + ' часов ' + methodText + '. Лазер — это всего ' + totalLaserHours + ' часов за 5 лет и свобода от щетины.';
+            }
 
+            // Обновляем текст на странице
             document.getElementById('calcYears').textContent = years;
             document.getElementById('calcMoney').textContent = totalMoney.toLocaleString() + ' ₽';
             document.getElementById('calcTime').textContent = totalHours.toLocaleString() + ' часов';
@@ -445,6 +447,7 @@ var totalHours = Math.round(totalMinutes / 60);
             document.getElementById('calcSave').textContent = saveText;
             document.getElementById('calcResult').style.display = 'block';
 
+            // Обновляем ссылку на запись
             var calcLink = document.getElementById('calcLink');
             if (calcLink && dikidiLink) {
                 calcLink.href = dikidiLink;

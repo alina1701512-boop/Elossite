@@ -1832,11 +1832,11 @@ section.section-padding:not(#hero)::before {
     }
 
 /* Таблица боли */
-    .pain-row {
-        grid-template-columns: 1.2fr 1.8fr 0.7fr;
-        padding: 14px 12px;
-        font-size: 0.85rem;
-    }
+.pain-row {
+    grid-template-columns: 1fr 1.5fr 0.5fr;
+    padding: 14px 8px;
+    font-size: 0.8rem;
+}
 
     .pain-row--header {
         font-size: 0.75rem;

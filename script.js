@@ -330,6 +330,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // --- 8. Калькулятор (5 лет, 24 процедуры) ---
     var calcButton = document.getElementById('calcButton');
+    var calcMethod = document.getElementById('calcMethod');
+var monthlyLabel = document.getElementById('monthlyLabel');
+var calcMonthly = document.getElementById('calcMonthly');
+
+// Меняем подпись поля при выборе эпилятора
+if (calcMethod) {
+    calcMethod.addEventListener('change', function() {
+        if (this.value === 'Эпилятор') {
+            monthlyLabel.textContent = 'Сколько стоит эпилятор? (одна покупка на ~5 лет, ₽)';
+            calcMonthly.placeholder = 'Например: 5000';
+        } else {
+            monthlyLabel.textContent = 'Сколько тратишь в месяц? (₽)';
+            calcMonthly.placeholder = 'Например: 500';
+        }
+    });
+}
     if (calcButton) {
         calcButton.addEventListener('click', function() {
             var method = document.getElementById('calcMethod').value;
@@ -349,7 +365,12 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             var years = 5;
-            var totalMoney = years * 12 * monthly;
+            var totalMoney;
+if (method === 'Эпилятор') {
+    totalMoney = monthly; // разовая покупка на 5 лет
+} else {
+    totalMoney = years * 12 * monthly;
+}
             var weeklyTime = 30;
             var totalMinutes = years * 52 * weeklyTime;
             var totalHours = Math.round(totalMinutes / 60);
@@ -390,9 +411,12 @@ document.addEventListener('DOMContentLoaded', function() {
         methodText = 'с бритвой в руках';
     } else if (method === 'Воск / Шугаринг') {
         methodText = 'в кабинете косметолога, терпя боль и отращивая волосы';
-    } else if (method === 'Эпилятор') {
-        methodText = 'с эпилятором в руках, превозмогая боль и борясь с вросшими волосами';
-    } else if (method === 'Крем для депиляции') {
+   } else if (method === 'Эпилятор') {
+    totalMoney = monthly;
+    methodText = 'с эпилятором в руках, превозмогая боль и борясь с вросшими волосами';
+    weeklyTime = 68; // эпиляция занимает больше времени (AAD 2023)
+}
+    else if (method === 'Крем для депиляции') {
         methodText = 'на химическую депиляцию с её запахом и риском ожогов';
     }
     saveText = 'Да, лазер стоит своих денег. Но за 5 лет ты провела ' + totalHours + ' часов ' + methodText + '. Лазер — это всего ' + totalLaserHours + ' часов за 5 лет и свобода от щетины.';

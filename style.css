@@ -1652,7 +1652,7 @@ section.section-padding:not(#hero)::before {
         font-size: 1.65rem;
     }
 
-    /* Hero */
+/* Hero */
             .hero-section {
         padding-top: 20px;
         padding-bottom: 24px;
@@ -1984,8 +1984,7 @@ section.section-padding:not(#hero)::before {
         text-align: center;
     }
 
-       .burger-menu {
-        display: flex;
+          .burger-menu {
         flex-direction: column;
         gap: 5px;
         background: none;

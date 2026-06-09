@@ -1967,7 +1967,7 @@ section.section-padding:not(#hero)::before {
     }
 
     /* Мобильное меню */
-    .main-nav {
+       .main-nav {
     position: fixed;
     top: 0;
     left: 0;
@@ -1979,14 +1979,11 @@ section.section-padding:not(#hero)::before {
     padding: 80px 30px 20px;
     box-shadow: none;
     z-index: 10000;
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
+    display: none;
 }
 
     .main-nav.active {
-        visibility: visible;
-        opacity: 1;
+        display: block;
     }
 
     .main-nav ul {

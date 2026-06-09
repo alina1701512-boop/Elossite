@@ -470,10 +470,10 @@
                                 <option value="3">Подмышки + бикини + ноги (4400 ₽ / 1 ч 20 мин)</option>
                             </select>
                         </div>
-                        <div class="form-group">
-                            <label for="calcMonthly">Сколько тратишь в месяц? (₽)</label>
-                            <input type="number" id="calcMonthly" min="0" max="50000" placeholder="Например: 500" required class="calc-input">
-                        </div>
+                        <div class="form-group" id="monthlyGroup">
+    <label for="calcMonthly" id="monthlyLabel">Сколько тратишь в месяц? (₽)</label>
+    <input type="number" id="calcMonthly" min="0" max="100000" placeholder="Например: 500" required class="calc-input">
+</div>
                         <button id="calcButton" class="btn btn-primary btn-block"><i class="fas fa-calculator"></i> Посчитать</button>
                         <div id="calcResult" class="calc-result-box" style="display:none;">
                             <p class="calc-result-title"><i class="fas fa-chart-line"></i> Результат за <span id="calcYears">5</span> лет:</p>

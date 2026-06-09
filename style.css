@@ -1686,12 +1686,35 @@ section.section-padding:not(#hero)::before {
     }
 
     /* Секция "Знакомо?" */
+        /* Секция "Знакомо?" */
     .problems-grid {
         margin: 32px 0;
+        gap: 16px;
     }
 
     .problem-card {
-        padding: 28px 20px;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 20px 16px;
+        text-align: left;
+    }
+
+    .problem-image {
+        width: 80px;
+        height: 80px;
+        margin: 0;
+        flex-shrink: 0;
+    }
+
+    .problem-card h3 {
+        font-size: 1rem;
+        margin-bottom: 4px;
+    }
+
+    .problem-card p {
+        font-size: 0.85rem;
+        line-height: 1.4;
     }
 
     .section-subtext {

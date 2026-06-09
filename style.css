@@ -1542,7 +1542,6 @@ section.section-padding:not(#hero)::before {
     }
 }
 
-.fa-message:hover,
 .fa-paper-plane:hover {
     animation: bounce 0.5s ease;
 }

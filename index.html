@@ -462,9 +462,9 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="calcZone">Какую зону хочешь?</label>
+                            <label for="calcZone">Какую зону делаешь? <span style="color: #E8A598;">*</span></label>
                             <select id="calcZone" required class="calc-select">
-                                <option value="">Выберите комплекс</option>
+                                <option value="">Выберите зону (обязательно)</option>
                                 <option value="1">Подмышки + бикини (2300 ₽ / 30 мин)</option>
                                 <option value="2">Подмышки + бикини + голени (3500 ₽ / 60 мин)</option>
                                 <option value="3">Подмышки + бикини + ноги (4400 ₽ / 1 ч 20 мин)</option>
@@ -475,6 +475,12 @@
     <input type="number" id="calcMonthly" min="0" max="100000" placeholder="Например: 500" required class="calc-input">
 </div>
                         <button id="calcButton" class="btn btn-primary btn-block"><i class="fas fa-calculator"></i> Посчитать</button>
+                        <div id="calcResult" class="calc-result-box" style="display:none;">
+                            <p class="calc-result-title"><i class="fas fa-chart-line"></i> Результат за <span id="calcYears">5</span> лет:</p>
+                            <div class="calc-result-row">
+                                <div><i class="fas fa-money-bill-wave calc-result-icon"></i><br><strong id="calcMoney">0 ₽</strong><br><span class="calc-result-label">потрачено денег</span></div>
+                                <div><i class="fas fa-hourglass-half calc-result-icon"></i><br><strong id="calcTime">0 часов</strong><br><span class="calc-result-label">потрачено времени</span></div>
+                            </div>
                             <div class="calc-highlight-box">
                                 <p class="calc-highlight-title"><i class="fas fa-star"></i> <strong>С лазером (24 процедуры за 5 лет):</strong></p>
                                 <p class="calc-laser-cost" id="calcLaserCost">0 ₽</p>
@@ -482,7 +488,7 @@
                                 <p class="calc-laser-time" id="calcLaserTime">займёт 0 часов</p>
                             </div>
                             <p class="calc-save-text"><span id="calcSave"></span></p>
-                            <a id="calcLink" href="https://dikidi.app/714399?..." target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-block calc-link-btn">Записаться и начать экономить</a>
+                            <a id="calcLink" href="https://dikidi.ru/ru/profile/elos_714399" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-block calc-link-btn">Записаться и начать экономить</a>
                         </div>
                     </div>
                 </div>

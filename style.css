@@ -1993,6 +1993,7 @@ section.section-padding:not(#hero)::before {
     }
 
     .burger-menu {
+      display: flex;
         flex-direction: column;
         gap: 5px;
         background: none;

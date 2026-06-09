@@ -1686,7 +1686,7 @@ section.section-padding:not(#hero)::before {
         z-index: 0;
     }
 
-        /* Секция "Знакомо?" */
+/* Секция "Знакомо?" */
     .problems-grid {
         margin: 32px 0;
         gap: 16px;
@@ -1729,7 +1729,7 @@ section.section-padding:not(#hero)::before {
         margin: 28px auto 0;
     }
 
-        /* Секция "Почему здесь всё иначе" */
+/* Секция "Почему здесь всё иначе" */
     .why-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -1770,8 +1770,19 @@ section.section-padding:not(#hero)::before {
         color: var(--color-text-light);
     }
 
-    .master-intro {
+        .master-intro {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 16px;
         margin-top: 20px;
+        padding: 20px;
+        text-align: left;
+    }
+
+    .master-photo {
+        width: 80px;
+        height: 80px;
     }
 
 /* Секция "Ваш путь" */

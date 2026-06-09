@@ -548,13 +548,13 @@ section.section-padding:not(#hero)::before {
 }
 
 .why-card {
-    background-color: var(--color-surface);
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.7) 0%, rgba(243, 235, 233, 0) 70%);
     padding: 35px 25px;
     border-radius: var(--radius-md);
     text-align: center;
-    box-shadow: var(--shadow);
+    box-shadow: none;
     transition: var(--transition);
-    border: 1px solid rgba(232, 165, 152, 0.1);
+    border: none;
 }
 
 .why-card h3 {

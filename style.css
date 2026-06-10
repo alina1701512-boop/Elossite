@@ -2148,7 +2148,7 @@ section.section-padding:not(#hero)::before {
     display: block;
     width: 22px;
     height: 2px;
-    background-color: #2D2D2D;
+    background-color: rgba(45, 45, 45, 0.45);
     transition: all 0.3s ease;
 }
 
@@ -2174,7 +2174,7 @@ section.section-padding:not(#hero)::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.3);
     opacity: 0;
     transition: opacity 0.3s ease;
 }
@@ -2189,7 +2189,9 @@ section.section-padding:not(#hero)::before {
     right: 0;
     width: 280px;
     height: 100%;
-    background: #fff;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     padding: 60px 30px 30px;
     transform: translateX(100%);
     transition: transform 0.3s ease;
@@ -2197,17 +2199,6 @@ section.section-padding:not(#hero)::before {
 
 .slide-menu.active .slide-menu__panel {
     transform: translateX(0);
-}
-
-.slide-menu__close {
-    position: absolute;
-    top: 16px;
-    right: 20px;
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: #2D2D2D;
 }
 
 .slide-menu__panel ul {
@@ -2238,7 +2229,6 @@ section.section-padding:not(#hero)::before {
     text-align: center;
 }
 
-/* На маленьких экранах панель уже */
 @media (max-width: 400px) {
     .slide-menu__panel {
         width: 260px;

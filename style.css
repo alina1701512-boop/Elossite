@@ -302,34 +302,6 @@ section.section-padding:not(#hero)::before {
     color: #fff !important;
 }
 
-.burger-menu {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 5px;
-    z-index: 10001;
-}
-
-.burger-menu span {
-    display: block;
-    width: 22px;
-    height: 2px;
-    background-color: rgba(45, 45, 45, 0.45);
-    transition: var(--transition);
-}
-
-@media (max-width: 767px) {
-    .burger-menu {
-        display: flex;
-        position: fixed;
-        top: 16px;
-        right: 24px;
-    }
-}
-
 /* ========================================
    🍞 ХЛЕБНЫЕ КРОШКИ
    ======================================== */
@@ -2009,29 +1981,6 @@ section.section-padding:not(#hero)::before {
         gap: 15px;
         text-align: center;
     }
-
-    .burger-menu {
-      display: flex;
-        flex-direction: column;
-        gap: 5px;
-        background: none;
-        border: none;
-        cursor: pointer;
-        padding: 5px;
-        z-index: 9999;
-        position: fixed;
-        top: 16px;
-        right: 24px;
-    }
-
-    .burger-menu span {
-        display: block;
-        width: 22px;
-        height: 2px;
-        background-color: rgba(45, 45, 45, 0.45);
-        transition: var(--transition);
-    }
-}
 
 /* ========================================
    📱 АДАПТИВНОСТЬ (ОЧЕНЬ МАЛЕНЬКИЕ ТЕЛЕФОНЫ 320–340px)

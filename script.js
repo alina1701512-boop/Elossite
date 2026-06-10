@@ -1,41 +1,7 @@
 // 📝 Изменено: 2026-06-06 / Соты: 3 отзыва перенесены вниз + уменьшена высота грида на мобильных
 document.addEventListener('DOMContentLoaded', function() {
 
-    // --- 1. Мобильное меню ---
-    var burgerMenu = document.getElementById('burgerMenu');
-    var mainNav = document.getElementById('mainNav');
-    var body = document.body;
-
-    if (burgerMenu && mainNav) {
-        burgerMenu.addEventListener('click', function(e) {
-            e.stopPropagation();
-            var isOpen = mainNav.classList.toggle('active');
-            burgerMenu.setAttribute('aria-expanded', isOpen);
-        });
-
-        mainNav.querySelectorAll('a').forEach(function(link) {
-            link.addEventListener('click', function() {
-                mainNav.classList.remove('active');
-                burgerMenu.setAttribute('aria-expanded', 'false');
-            });
-        });
-
-        document.addEventListener('click', function(e) {
-            if (mainNav.classList.contains('active') && !mainNav.contains(e.target) && e.target !== burgerMenu) {
-                mainNav.classList.remove('active');
-                burgerMenu.setAttribute('aria-expanded', 'false');
-            }
-        });
-
-        mainNav.addEventListener('click', function(e) {
-            if (e.target === mainNav) {
-                mainNav.classList.remove('active');
-                burgerMenu.setAttribute('aria-expanded', 'false');
-            }
-        });
-    }
-
-    // --- 2. FAQ: Плавный ховер ---
+// --- 2. FAQ: Плавный ховер ---
     var faqItems = document.querySelectorAll('.faq-item');
     var hoverTimeout;
     var leaveTimeout;

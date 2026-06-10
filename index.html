@@ -37,7 +37,28 @@
     </script>
 </head>
 <body>
+<!-- Кнопка меню (всегда на экране) -->
+<button class="burger-menu" id="burgerMenu" aria-label="Меню">
+    <span></span><span></span><span></span>
+</button>
 
+<!-- Выдвижное меню -->
+<div class="slide-menu" id="slideMenu">
+    <div class="slide-menu__overlay"></div>
+    <div class="slide-menu__panel">
+        <button class="slide-menu__close" id="slideMenuClose">✕</button>
+        <ul>
+            <li><a href="#why-us">Мастер</a></li>
+            <li><a href="#how-it-works">Ваш путь</a></li>
+            <li><a href="#pricing">Цены</a></li>
+            <li><a href="#promo">Акции</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="blog.html">Блог</a></li>
+            <li><a href="#contacts">Контакты</a></li>
+            <li><a href="https://dikidi.ru/ru/profile/elos_714399?utm_source=site&utm_medium=landing" target="_blank" rel="noopener noreferrer" class="nav-link-cta">Записаться онлайн</a></li>
+        </ul>
+    </div>
+</div>
     <header class="site-header" id="mainHeader">
         <div class="container nav-container">
             <a href="index.html" class="logo">Elos</a>

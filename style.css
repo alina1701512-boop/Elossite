@@ -2127,3 +2127,120 @@ section.section-padding:not(#hero)::before {
         max-width: 1300px;
     }
 }
+/* ========================================
+   🍔 НОВОЕ МЕНЮ (ВЫДВИЖНОЕ СПРАВА)
+   ======================================== */
+.burger-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    z-index: 10001;
+    position: fixed;
+    top: 16px;
+    right: 24px;
+}
+
+.burger-menu span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background-color: #2D2D2D;
+    transition: all 0.3s ease;
+}
+
+/* Меню-панель */
+.slide-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 10000;
+    visibility: hidden;
+    transition: visibility 0.3s ease;
+}
+
+.slide-menu.active {
+    visibility: visible;
+}
+
+.slide-menu__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.slide-menu.active .slide-menu__overlay {
+    opacity: 1;
+}
+
+.slide-menu__panel {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 280px;
+    height: 100%;
+    background: #fff;
+    padding: 60px 30px 30px;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+}
+
+.slide-menu.active .slide-menu__panel {
+    transform: translateX(0);
+}
+
+.slide-menu__close {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #2D2D2D;
+}
+
+.slide-menu__panel ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.slide-menu__panel ul li a {
+    text-decoration: none;
+    color: #2D2D2D;
+    font-weight: 600;
+    font-size: 1.1rem;
+    display: block;
+    padding: 8px 0;
+}
+
+.slide-menu__panel ul li a:hover {
+    color: #E8A598;
+}
+
+.slide-menu__panel .nav-link-cta {
+    background-color: #E8A598;
+    color: #fff !important;
+    padding: 12px 18px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* На маленьких экранах панель уже */
+@media (max-width: 400px) {
+    .slide-menu__panel {
+        width: 260px;
+    }
+}

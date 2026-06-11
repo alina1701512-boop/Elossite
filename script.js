@@ -269,11 +269,11 @@ honeycombGrid.style.transform = 'translate(-50%, -50%)';
 honeycombGrid.style.left = '50%';
 honeycombGrid.style.top = '50%';
 var isDragging = false;
-var startX, startY;
+var startX, startY, gridStartX = 0, gridStartY = 0;
 var currentGridX = isMobile ? 0 : 50, currentGridY = 0;
 var maxX = isMobile ? cellW * 3 : cellW * 2;
 var minX = -maxX;
-
+        
 function updateGridPosition() {
     var tx = Math.max(minX, Math.min(maxX, currentGridX));
     var ty = Math.max(-10, Math.min(10, currentGridY));
@@ -281,17 +281,19 @@ function updateGridPosition() {
 }
 
         honeycombViewport.addEventListener('mousedown', function(e) {
-            if (e.target.classList.contains('honeycomb-cell')) return;
-            document.querySelectorAll('.honeycomb-cell.expanded').forEach(function(c) {
-                c.classList.remove('expanded');
-            });
-            isDragging = true;
-            startX = e.clientX;
-            startY = e.clientY;
-            honeycombViewport.style.cursor = 'grabbing';
-            e.preventDefault();
-        });
-
+    if (e.target.classList.contains('honeycomb-cell')) return;
+    document.querySelectorAll('.honeycomb-cell.expanded').forEach(function(c) {
+        c.classList.remove('expanded');
+    });
+    isDragging = true;
+    startX = e.clientX;
+    startY = e.clientY;
+    gridStartX = currentGridX;
+    gridStartY = currentGridY;
+    honeycombViewport.style.cursor = 'grabbing';
+    e.preventDefault();
+});
+        
         window.addEventListener('mousemove', function(e) {
             if (!isDragging) return;
             var dx = e.clientX - startX;
@@ -306,14 +308,16 @@ function updateGridPosition() {
             honeycombViewport.style.cursor = 'grab';
         });
 
-        honeycombViewport.addEventListener('touchstart', function(e) {
-            if (e.target.classList.contains('honeycomb-cell')) return;
-            if (e.touches.length === 1) {
-                isDragging = true;
-                startX = e.touches[0].clientX;
-                startY = e.touches[0].clientY;
-            }
-        }, { passive: false });
+       honeycombViewport.addEventListener('touchstart', function(e) {
+    if (e.target.classList.contains('honeycomb-cell')) return;
+    if (e.touches.length === 1) {
+        isDragging = true;
+        startX = e.touches[0].clientX;
+        startY = e.touches[0].clientY;
+        gridStartX = currentGridX;
+        gridStartY = currentGridY;
+    }
+}, { passive: false });
 
         honeycombViewport.addEventListener('touchmove', function(e) {
             if (!isDragging) return;

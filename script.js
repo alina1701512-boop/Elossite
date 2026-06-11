@@ -260,19 +260,17 @@ var cols = isMobile ? 5 : 11;
             honeycombGrid.appendChild(cell);
         }
 
-        var gridWidth = cols * cellW + cellW * 2;
-        var gridHeight = visibleRows * rowOffsetY + cellH * 0.3;
-
-        honeycombGrid.style.width = gridWidth + 'px';
-        honeycombGrid.style.height = gridHeight + 'px';
-
-        honeycombGrid.style.transform = 'translate(-50%, -50%)';
-        honeycombGrid.style.left = '50%';
-        honeycombGrid.style.top = '50%';
-
+       // СТАЛО
+var gridWidth = cols * cellW;
+var gridHeight = visibleRows * rowOffsetY + cellH * 0.3;
+honeycombGrid.style.width = gridWidth + 'px';
+honeycombGrid.style.height = gridHeight + 'px';
+honeycombGrid.style.transform = 'translate(-50%, -50%)';
+honeycombGrid.style.left = '50%';
+honeycombGrid.style.top = '50%';
 var isDragging = false;
-var startX, startY, gridStartX = 0, gridStartY = 0;
-var currentGridX = isMobile ? -130 : 50, currentGridY = 0;
+var startX, startY;
+var currentGridX = isMobile ? 0 : 50, currentGridY = 0;
 var maxX = isMobile ? cellW * 3 : cellW * 2;
 var minX = -maxX;
 
@@ -290,8 +288,6 @@ function updateGridPosition() {
             isDragging = true;
             startX = e.clientX;
             startY = e.clientY;
-            gridStartX = currentGridX;
-            gridStartY = currentGridY;
             honeycombViewport.style.cursor = 'grabbing';
             e.preventDefault();
         });
@@ -316,8 +312,6 @@ function updateGridPosition() {
                 isDragging = true;
                 startX = e.touches[0].clientX;
                 startY = e.touches[0].clientY;
-                gridStartX = currentGridX;
-                gridStartY = currentGridY;
             }
         }, { passive: false });
 

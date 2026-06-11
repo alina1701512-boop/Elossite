@@ -272,8 +272,8 @@ var cols = isMobile ? 5 : 11;
 
 var isDragging = false;
 var startX, startY, gridStartX = 0, gridStartY = 0;
-var currentGridX = isMobile ? -cellW * 1.25 : 50, currentGridY = 0;
-var maxX = isMobile ? cellW * 2.5 : cellW * 2;
+var currentGridX = isMobile ? -130 : 50, currentGridY = 0;
+var maxX = isMobile ? cellW * 3 : cellW * 2;
 var minX = -maxX;
 
 function updateGridPosition() {

@@ -270,17 +270,17 @@ var cols = isMobile ? 5 : 11;
         honeycombGrid.style.left = '50%';
         honeycombGrid.style.top = '50%';
 
-        var isDragging = false;
-        var startX, startY, gridStartX = 0, gridStartY = 0;
-        var currentGridX = isMobile ? 0 : 50, currentGridY = 0;
+var isDragging = false;
+var startX, startY, gridStartX = 0, gridStartY = 0;
+var currentGridX = isMobile ? -cellW * 1.25 : 50, currentGridY = 0;
 var maxX = isMobile ? cellW * 2.5 : cellW * 2;
-        var maxY = 10;
+var minX = -maxX;
 
-        function updateGridPosition() {
-            var tx = Math.max(-maxX, Math.min(maxX, currentGridX));
-            var ty = Math.max(-maxY, Math.min(maxY, currentGridY));
-            honeycombGrid.style.transform = 'translate(calc(-50% + ' + tx + 'px), calc(-50% + ' + ty + 'px))';
-        }
+function updateGridPosition() {
+    var tx = Math.max(minX, Math.min(maxX, currentGridX));
+    var ty = Math.max(-10, Math.min(10, currentGridY));
+    honeycombGrid.style.transform = 'translate(calc(-50% + ' + tx + 'px), calc(-50% + ' + ty + 'px))';
+}
 
         honeycombViewport.addEventListener('mousedown', function(e) {
             if (e.target.classList.contains('honeycomb-cell')) return;

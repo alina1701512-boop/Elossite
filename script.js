@@ -193,7 +193,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (popup) popup.classList.remove('visible');
         });
     });
-    // --- 7.5. Сотовая сетка отзывов v2 ---
+    // --- 7.5. Сотовая сетка отзывов v3 ---
     var honeycombGrid = document.getElementById('honeycombGrid');
     var honeycombViewport = document.getElementById('honeycombViewport');
     
@@ -223,57 +223,58 @@ document.addEventListener('DOMContentLoaded', function() {
         ];
 
         var isMobile = window.innerWidth < 768;
-        var cellW = isMobile ? 140 : 170;
-        var cellH = isMobile ? 140 : 170;
-        // Раскладка: 3 ряда. 1-й ряд: 3 ячейки, 2-й ряд: 5 ячеек, 3-й ряд: 3 ячейки
-        var rowConfig = [3, 5, 3];
-        var rowOffsetY = cellH * 0.82;
+        var cellW = isMobile ? 130 : 155;
+        var cellH = isMobile ? 130 : 155;
+        var cols = isMobile ? 7 : 11;
+        var visibleRows = 3;
+        var totalVisible = cols * visibleRows;
+        var rowOffsetY = cellH * 0.85;
 
         honeycombGrid.innerHTML = '';
-        var index = 0;
 
-        rowConfig.forEach(function(cols, row) {
-            var totalWidth = cols * cellW;
-            var startX = -totalWidth / 2 + cellW / 2;
-            for (var col = 0; col < cols; col++) {
-                if (index >= reviews.length) break;
-                var rev = reviews[index];
-                var x = startX + col * cellW;
-                var y = row * rowOffsetY;
-                
-                var cell = document.createElement('div');
-                cell.className = 'honeycomb-cell';
-                cell.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    var wasExpanded = this.classList.contains('expanded');
-                    document.querySelectorAll('.honeycomb-cell.expanded').forEach(function(c) {
-                        c.classList.remove('expanded');
-                    });
-                    if (!wasExpanded) {
-                        this.classList.add('expanded');
-                    }
+        for (var i = 0; i < Math.min(reviews.length, totalVisible); i++) {
+            var row = Math.floor(i / cols);
+            var col = i % cols;
+            var offsetX = (row % 2 === 1) ? cellW / 2 : 0;
+            var x = col * cellW + offsetX;
+            var y = row * rowOffsetY;
+            
+            var rev = reviews[i];
+            var cell = document.createElement('div');
+            cell.className = 'honeycomb-cell';
+            cell.addEventListener('click', function(e) {
+                e.stopPropagation();
+                var wasExpanded = this.classList.contains('expanded');
+                document.querySelectorAll('.honeycomb-cell.expanded').forEach(function(c) {
+                    c.classList.remove('expanded');
                 });
-                cell.style.left = x + 'px';
-                cell.style.top = y + 'px';
-                cell.innerHTML = '<div class="cell-stars">' + rev.stars + '</div>' +
-                                 '<div class="cell-text">' + rev.text + '</div>' +
-                                 '<div class="cell-author">— ' + rev.author + '</div>';
-                honeycombGrid.appendChild(cell);
-                index++;
-            }
-        });
+                if (!wasExpanded) {
+                    this.classList.add('expanded');
+                }
+            });
+            cell.style.left = x + 'px';
+            cell.style.top = y + 'px';
+            cell.innerHTML = '<div class="cell-stars">' + rev.stars + '</div>' +
+                             '<div class="cell-text">' + rev.text + '</div>' +
+                             '<div class="cell-author">— ' + rev.author + '</div>';
+            honeycombGrid.appendChild(cell);
+        }
 
-        var gridWidth = 5 * cellW;
-        var gridHeight = 3 * rowOffsetY + cellH;
+        var gridWidth = cols * cellW;
+        var gridHeight = visibleRows * rowOffsetY + cellH * 0.3;
 
         honeycombGrid.style.width = gridWidth + 'px';
         honeycombGrid.style.height = gridHeight + 'px';
 
+        honeycombGrid.style.transform = 'translate(-50%, -50%)';
+        honeycombGrid.style.left = '50%';
+        honeycombGrid.style.top = '50%';
+
         var isDragging = false;
         var startX, startY, gridStartX = 0, gridStartY = 0;
         var currentGridX = 0, currentGridY = 0;
-        var maxX = cellW * 2;
-        var maxY = 20;
+        var maxX = cellW * 0.5;
+        var maxY = 10;
 
         function updateGridPosition() {
             var tx = Math.max(-maxX, Math.min(maxX, currentGridX));
@@ -335,8 +336,6 @@ document.addEventListener('DOMContentLoaded', function() {
         honeycombViewport.addEventListener('touchend', function() {
             isDragging = false;
         });
-
-        updateGridPosition();
     }
     
 // --- 8. Калькулятор (5 лет, 24 процедуры) ---

@@ -223,9 +223,9 @@ document.addEventListener('DOMContentLoaded', function() {
         ];
 
         var isMobile = window.innerWidth < 768;
-        var cellW = isMobile ? 130 : 155;
-        var cellH = isMobile ? 130 : 155;
-        var cols = isMobile ? 7 : 11;
+var cellW = isMobile ? 150 : 155;
+var cellH = isMobile ? 150 : 155;
+var cols = isMobile ? 5 : 11;
         var visibleRows = 3;
         var totalVisible = cols * visibleRows;
         var rowOffsetY = cellH * 0.85;
@@ -272,8 +272,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
         var isDragging = false;
         var startX, startY, gridStartX = 0, gridStartY = 0;
-        var currentGridX = isMobile ? 40 : 50, currentGridY = 0;
-        var maxX = cellW * 2;
+        var currentGridX = isMobile ? 0 : 50, currentGridY = 0;
+var maxX = isMobile ? cellW * 2.5 : cellW * 2;
         var maxY = 10;
 
         function updateGridPosition() {

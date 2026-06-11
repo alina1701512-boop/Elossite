@@ -2007,11 +2007,12 @@ section.section-padding:not(#hero)::before {
     overflow: hidden;
     cursor: grab;
     border-radius: var(--radius-lg);
-    background-color: transparent;
+    background-color: rgba(255, 255, 255, 0.35);
     position: relative;
     touch-action: pan-y;
     user-select: none;
     -webkit-user-select: none;
+    padding-left: 30px;
 }
 
 .honeycomb-viewport:active {
@@ -2121,6 +2122,7 @@ section.section-padding:not(#hero)::before {
 @media (min-width: 768px) {
     .honeycomb-viewport {
         height: 500px;
+        padding-left: 40px;
     }
     .honeycomb-cell {
         width: 140px;

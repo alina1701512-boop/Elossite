@@ -260,7 +260,7 @@ document.addEventListener('DOMContentLoaded', function() {
             honeycombGrid.appendChild(cell);
         }
 
-        var gridWidth = cols * cellW;
+        var gridWidth = cols * cellW + cellW * 2;
         var gridHeight = visibleRows * rowOffsetY + cellH * 0.3;
 
         honeycombGrid.style.width = gridWidth + 'px';
@@ -273,7 +273,7 @@ document.addEventListener('DOMContentLoaded', function() {
         var isDragging = false;
         var startX, startY, gridStartX = 0, gridStartY = 0;
         var currentGridX = 0, currentGridY = 0;
-        var maxX = cellW * 0.5;
+        var maxX = cellW * 2;
         var maxY = 10;
 
         function updateGridPosition() {

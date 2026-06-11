@@ -272,7 +272,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         var isDragging = false;
         var startX, startY, gridStartX = 0, gridStartY = 0;
-        var currentGridX = isMobile ? 20 : 30, currentGridY = 0;
+        var currentGridX = isMobile ? 40 : 50, currentGridY = 0;
         var maxX = cellW * 2;
         var maxY = 10;
 

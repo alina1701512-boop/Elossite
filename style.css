@@ -1267,15 +1267,6 @@ section.section-padding:not(#hero)::before {
 }
 
 /* ========================================
-   💬 СОТЫ (доп. классы)
-   ======================================== */
-.honeycomb-hint {
-    margin-top: 12px;
-    color: var(--color-text-light);
-    font-size: 0.8rem;
-}
-
-/* ========================================
    💰 ЦЕНЫ (доп. классы)
    ======================================== */
 .pricing-subtitle {
@@ -1727,117 +1718,6 @@ section.section-padding:not(#hero)::before {
 
     .pain-note {
         margin-top: 24px;
-    }
-
-/* Соты с отзывами */
-    .honeycomb-viewport {
-        height: 420px;
-    }
-        .honeycomb-grid {
-        width: 900px;
-        height: 900px;
-        padding-top: 60px;
-    }
-    .honeycomb-cell {
-        width: 120px;
-        height: 120px;
-        padding: 15px 10px;
-    }
-    .honeycomb-cell.expanded {
-        width: 220px;
-        height: 220px;
-        padding: 25px 20px;
-    }
-    .honeycomb-cell .cell-text {
-        font-size: 0.5rem;
-        -webkit-line-clamp: 3;
-    }
-    .honeycomb-cell.expanded .cell-text {
-        font-size: 0.65rem;
-    }
-    .honeycomb-cell .cell-stars {
-        font-size: 0.6rem;
-    }
-    .honeycomb-cell .cell-author {
-        font-size: 0.5rem;
-    }
-    .honeycomb-cell::after {
-        font-size: 0.45rem;
-        bottom: 8px;
-    }
-
-/* Цены */
-    .pricing-grid {
-        gap: 6px;
-        margin: 32px 0;
-    }
-
-    .price-card {
-        padding: 12px 6px;
-    }
-
-    .price-zone-label {
-        font-size: 0.6rem;
-        margin-bottom: 6px;
-    }
-
-    .price-old {
-        font-size: 0.6rem;
-    }
-
-    .price-new {
-        font-size: 1rem;
-    }
-
-    .badge-sale {
-        font-size: 0.55rem;
-        padding: 2px 6px;
-    }
-
-    .price-save {
-        font-size: 0.6rem;
-    }
-
-    .price-card .btn {
-        padding: 8px 4px;
-        font-size: 0.65rem;
-    }
-
-    .badge {
-        font-size: 0.55rem;
-        padding: 3px 6px;
-    }
-
-    .pricing-subtitle {
-        margin-top: 8px;
-        margin-bottom: 28px;
-    }
-
-    .pricing-info {
-        margin-top: 28px;
-    }
-
-    /* Акции */
-    .promo-grid {
-        margin: 32px 0;
-    }
-
-    .promo-card {
-        padding: 28px 20px;
-    }
-
-    /* FAQ */
-    .faq-list {
-        margin: 24px auto 0;
-    }
-
-    /* Контакты */
-    .contacts-grid {
-        margin-top: 28px;
-    }
-
-    .ya-form-iframe {
-        height: 550px;
     }
 
     /* Мобильное меню */

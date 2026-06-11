@@ -194,47 +194,51 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // --- 7.5. Сотовая сетка отзывов ---
+// --- 7.5. Сотовая сетка отзывов ---
     var honeycombGrid = document.getElementById('honeycombGrid');
     var honeycombViewport = document.getElementById('honeycombViewport');
     
     if (honeycombGrid && honeycombViewport) {
-       var reviews = [
-    { stars: '⭐⭐⭐⭐⭐', text: '«Минусов вообще нет! Комфортная обстановка и располагающий мастер!»', author: 'Валерия Р.' },
-    { stars: '⭐⭐⭐⭐⭐', text: '«Хожу уже год, очень нравится мастер Алина, и цена и качество»', author: 'Инкогнито 7258' },
-    { stars: '⭐⭐⭐⭐⭐', text: '«Отличное место, комфортный мастер. Приятные цены и интерьер»', author: 'Поля' },
-    { stars: '⭐⭐⭐⭐⭐', text: '«Пришла по рекомендации подруги. Очень волновалась, но всё прошло отлично»', author: 'Эльмира' },
-    { stars: '⭐⭐⭐⭐⭐', text: '«Отличная студия, хороший мастер, знающий свою работу»', author: 'Ирэн' },
-    { stars: '⭐⭐⭐⭐⭐', text: '«Был на лазерной эпиляции, очень всё понравилось. Персонал классный»', author: 'Максим К.' },
-    { stars: '⭐⭐⭐⭐⭐', text: '«Хожу теперь только к вам! Приятная и уютная атмосфера»', author: 'Алёна С.' },
-    { stars: '⭐⭐⭐⭐⭐', text: '«Уютная и комфортная студия, мастера профессионалы своего дела»', author: 'Татьяна Р.' },
-    { stars: '⭐⭐⭐⭐⭐', text: '«Отличное место, уютная атмосфера, грамотные специалисты»', author: 'Анастасия' },
-    { stars: '⭐⭐⭐⭐⭐', text: '«Корректировал бороду, результатом доволен. Парковка бесплатная»', author: 'Искандер Х.' },
-    { stars: '⭐⭐⭐⭐⭐', text: '«Мастер Алина просто супер! Встретила, всё рассказала, очень чисто»', author: 'Михаил Л.' },
-    { stars: '⭐⭐⭐⭐⭐', text: '«Очень боялась, но с 1 процедуры волос попадало больше чем у подруг за 2»', author: 'Анастасия Ч.' },
-    { stars: '⭐⭐⭐⭐⭐', text: '«Благодарю мастера Алину за мужскую эпиляцию и непринуждённое общение»', author: 'Рустам К.' },
-    { stars: '⭐⭐⭐⭐⭐', text: '«2 процедуры и ушло уже 30% волос, очень крутой результат»', author: 'Alina' },
-    { stars: '⭐⭐⭐⭐⭐', text: '«Спасибо за тёплый приём! Сервис, уют, атмосфера — на высшем уровне!»', author: 'Регишка С.' },
-    { stars: '⭐⭐⭐⭐⭐', text: '«Делала процедуру впервые и ужасно боялась. Но всё прошло замечательно!»', author: 'Екатерина П.' },
-    { stars: '⭐⭐⭐⭐⭐', text: '«Прошла курс в этой студии, этим летом я как младенец без растительности»', author: 'Татьяна А.' },
-    { stars: '⭐⭐⭐⭐⭐', text: '«Очень понравился персонал, все вежливые. Рада, что выбрала эту студию»', author: 'Мария Р.' },
-    { stars: '⭐⭐⭐⭐⭐', text: '«Была у мастера Ирины. Очень понравилось, спасибо за внимательность!»', author: 'Аня С.' },
-    { stars: '⭐⭐⭐⭐⭐', text: '«Девчата вы лучшие, за красотой только к вам! Рекомендую всем!»', author: 'Наталья Г.' },
-    { stars: '⭐⭐⭐⭐⭐', text: '«Отличный салон, всегда приятная обстановка и лучший результат»', author: 'Иринка К.' }
-];
+        var reviews = [
+            { stars: '⭐⭐⭐⭐⭐', text: '«Минусов вообще нет! Комфортная обстановка и располагающий мастер!»', author: 'Валерия Р.' },
+            { stars: '⭐⭐⭐⭐⭐', text: '«Хожу уже год, очень нравится мастер Алина, и цена и качество»', author: 'Инкогнито 7258' },
+            { stars: '⭐⭐⭐⭐⭐', text: '«Отличное место, комфортный мастер. Приятные цены и интерьер»', author: 'Поля' },
+            { stars: '⭐⭐⭐⭐⭐', text: '«Пришла по рекомендации подруги. Очень волновалась, но всё прошло отлично»', author: 'Эльмира' },
+            { stars: '⭐⭐⭐⭐⭐', text: '«Отличная студия, хороший мастер, знающий свою работу»', author: 'Ирэн' },
+            { stars: '⭐⭐⭐⭐⭐', text: '«Был на лазерной эпиляции, очень всё понравилось. Персонал классный»', author: 'Максим К.' },
+            { stars: '⭐⭐⭐⭐⭐', text: '«Хожу теперь только к вам! Приятная и уютная атмосфера»', author: 'Алёна С.' },
+            { stars: '⭐⭐⭐⭐⭐', text: '«Уютная и комфортная студия, мастера профессионалы своего дела»', author: 'Татьяна Р.' },
+            { stars: '⭐⭐⭐⭐⭐', text: '«Отличное место, уютная атмосфера, грамотные специалисты»', author: 'Анастасия' },
+            { stars: '⭐⭐⭐⭐⭐', text: '«Корректировал бороду, результатом доволен. Парковка бесплатная»', author: 'Искандер Х.' },
+            { stars: '⭐⭐⭐⭐⭐', text: '«Мастер Алина просто супер! Встретила, всё рассказала, очень чисто»', author: 'Михаил Л.' },
+            { stars: '⭐⭐⭐⭐⭐', text: '«Очень боялась, но с 1 процедуры волос попадало больше чем у подруг за 2»', author: 'Анастасия Ч.' },
+            { stars: '⭐⭐⭐⭐⭐', text: '«Благодарю мастера Алину за мужскую эпиляцию и непринуждённое общение»', author: 'Рустам К.' },
+            { stars: '⭐⭐⭐⭐⭐', text: '«2 процедуры и ушло уже 30% волос, очень крутой результат»', author: 'Alina' },
+            { stars: '⭐⭐⭐⭐⭐', text: '«Спасибо за тёплый приём! Сервис, уют, атмосфера — на высшем уровне!»', author: 'Регишка С.' },
+            { stars: '⭐⭐⭐⭐⭐', text: '«Делала процедуру впервые и ужасно боялась. Но всё прошло замечательно!»', author: 'Екатерина П.' },
+            { stars: '⭐⭐⭐⭐⭐', text: '«Прошла курс в этой студии, этим летом я как младенец без растительности»', author: 'Татьяна А.' },
+            { stars: '⭐⭐⭐⭐⭐', text: '«Очень понравился персонал, все вежливые. Рада, что выбрала эту студию»', author: 'Мария Р.' },
+            { stars: '⭐⭐⭐⭐⭐', text: '«Была у мастера Ирины. Очень понравилось, спасибо за внимательность!»', author: 'Аня С.' },
+            { stars: '⭐⭐⭐⭐⭐', text: '«Девчата вы лучшие, за красотой только к вам! Рекомендую всем!»', author: 'Наталья Г.' },
+            { stars: '⭐⭐⭐⭐⭐', text: '«Отличный салон, всегда приятная обстановка и лучший результат»', author: 'Иринка К.' }
+        ];
 
         var isMobile = window.innerWidth < 768;
-        var cols = isMobile ? 5 : 6;
-        var cellW = isMobile ? 140 : 170;
-        var cellH = isMobile ? 160 : 190;
-        var rowOffsetX = isMobile ? 70 : 85;
+        var cols = isMobile ? 5 : 7;
+        var cellW = isMobile ? 140 : 160;
+        var cellH = isMobile ? 150 : 170;
+        var rowOffsetX = cellW / 2;
+        var startOffsetX = isMobile ? 10 : 30;
+        var startOffsetY = isMobile ? 20 : 30;
+
+        honeycombGrid.innerHTML = '';
 
         reviews.forEach(function(rev, i) {
             var row = Math.floor(i / cols);
             var col = i % cols;
             var offsetX = (row % 2 === 1) ? rowOffsetX : 0;
-            var x = col * cellW + offsetX;
-            var y = row * cellH * 0.75;
+            var x = col * cellW + offsetX + startOffsetX;
+            var y = row * cellH * 0.78 + startOffsetY;
             
             var cell = document.createElement('div');
             cell.className = 'honeycomb-cell';
@@ -257,29 +261,37 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         var totalRows = Math.ceil(reviews.length / cols);
-        var gridHeight = totalRows * cellH * 0.75 + cellH * 0.25;
+        var gridWidth = cols * cellW + startOffsetX * 2;
+        var gridHeight = totalRows * cellH * 0.78 + startOffsetY * 2;
+
+        honeycombGrid.style.width = gridWidth + 'px';
+        honeycombGrid.style.height = gridHeight + 'px';
 
         var isDragging = false;
-        var startX, startY, gridX = 0, gridY = 0;
+        var startX, startY, gridStartX = 0, gridStartY = 0;
         var currentGridX = 0, currentGridY = 0;
-        var maxX = isMobile ? 250 : 300;
-        var maxY = isMobile ? 150 : 300;
+
+        var viewportWidth = honeycombViewport.clientWidth;
+        var viewportHeight = honeycombViewport.clientHeight;
+        var maxX = Math.max(0, (gridWidth - viewportWidth) / 2 + 50);
+        var maxY = Math.max(0, (gridHeight - viewportHeight) / 2 + 30);
 
         function updateGridPosition() {
-            honeycombGrid.style.transform = 'translate(calc(-50% + ' + currentGridX + 'px), calc(-50% + ' + currentGridY + 'px))';
+            var tx = Math.max(-maxX, Math.min(maxX, currentGridX));
+            var ty = Math.max(-maxY, Math.min(maxY, currentGridY));
+            honeycombGrid.style.transform = 'translate(calc(-50% + ' + tx + 'px), calc(-50% + ' + ty + 'px))';
         }
 
         honeycombViewport.addEventListener('mousedown', function(e) {
-            if (e.target === honeycombViewport || e.target === honeycombGrid) {
-                document.querySelectorAll('.honeycomb-cell.expanded').forEach(function(c) {
-                    c.classList.remove('expanded');
-                });
-            }
+            if (e.target.classList.contains('honeycomb-cell')) return;
+            document.querySelectorAll('.honeycomb-cell.expanded').forEach(function(c) {
+                c.classList.remove('expanded');
+            });
             isDragging = true;
             startX = e.clientX;
             startY = e.clientY;
-            gridX = currentGridX;
-            gridY = currentGridY;
+            gridStartX = currentGridX;
+            gridStartY = currentGridY;
             honeycombViewport.style.cursor = 'grabbing';
             e.preventDefault();
         });
@@ -288,25 +300,24 @@ document.addEventListener('DOMContentLoaded', function() {
             if (!isDragging) return;
             var dx = e.clientX - startX;
             var dy = e.clientY - startY;
-            currentGridX = Math.max(-maxX, Math.min(maxX, gridX + dx));
-            currentGridY = Math.max(-maxY, Math.min(maxY, gridY + dy));
+            currentGridX = gridStartX + dx;
+            currentGridY = gridStartY + dy;
             updateGridPosition();
         });
 
         window.addEventListener('mouseup', function() {
-            if (isDragging) {
-                isDragging = false;
-                honeycombViewport.style.cursor = 'grab';
-            }
+            isDragging = false;
+            honeycombViewport.style.cursor = 'grab';
         });
 
         honeycombViewport.addEventListener('touchstart', function(e) {
+            if (e.target.classList.contains('honeycomb-cell')) return;
             if (e.touches.length === 1) {
                 isDragging = true;
                 startX = e.touches[0].clientX;
                 startY = e.touches[0].clientY;
-                gridX = currentGridX;
-                gridY = currentGridY;
+                gridStartX = currentGridX;
+                gridStartY = currentGridY;
             }
         });
 
@@ -314,17 +325,19 @@ document.addEventListener('DOMContentLoaded', function() {
             if (!isDragging) return;
             var dx = e.touches[0].clientX - startX;
             var dy = e.touches[0].clientY - startY;
-            currentGridX = Math.max(-maxX, Math.min(maxX, gridX + dx));
-            currentGridY = Math.max(-maxY, Math.min(maxY, gridY + dy));
+            currentGridX = gridStartX + dx;
+            currentGridY = gridStartY + dy;
             updateGridPosition();
         });
 
         honeycombViewport.addEventListener('touchend', function() {
             isDragging = false;
         });
+
+        updateGridPosition();
     }
 
-    // --- 8. Калькулятор (5 лет, 24 процедуры) ---
+// --- 8. Калькулятор (5 лет, 24 процедуры) ---
     var calcButton = document.getElementById('calcButton');
     var calcMethod = document.getElementById('calcMethod');
     var monthlyLabel = document.getElementById('monthlyLabel');

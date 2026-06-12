@@ -6,9 +6,12 @@ document.addEventListener('DOMContentLoaded', function() {
     var slideMenuClose = document.getElementById('slideMenuClose');
     var slideMenuOverlay = slideMenu ? slideMenu.querySelector('.slide-menu__overlay') : null;
 
-    if (burgerMenu && slideMenu) {
-        burgerMenu.addEventListener('click', function() {
-            slideMenu.classList.add('active');
+    if         burgerMenu.addEventListener('click', function() {
+            if (slideMenu.classList.contains('active')) {
+                slideMenu.classList.remove('active');
+            } else {
+                slideMenu.classList.add('active');
+            }
         });
 
         if (slideMenuClose) {

@@ -42,7 +42,7 @@
     <span></span><span></span><span></span>
 </button>
 
-<!-- Выдвижное меню (БЕЗ КРЕСТИКА) -->
+<!-- Выдвижное меню (полупрозрачный фон) -->
 <div class="slide-menu" id="slideMenu">
     <div class="slide-menu__overlay"></div>
     <div class="slide-menu__panel">
@@ -65,6 +65,7 @@
 <header class="site-header" id="mainHeader">
     <div class="container nav-container">
         <a href="index.html" class="logo">Elos</a>
+        <!-- ДЕСКТОПНОЕ МЕНЮ (скрыто на мобильных) -->
         <nav class="main-nav" id="mainNav">
             <ul>
                 <li><a href="#why-us">Мастер</a></li>
@@ -363,7 +364,7 @@
             <h2 class="section-title text-center fade-in-section">Акции</h2>
             <div class="promo-grid-vertical">
                 <div class="promo-card fade-in-section">
-                    <i class="fas fa-mug-hot"></i>
+                    <i class="fas fa                    <i class="fas fa-mug-hot"></i>
                     <h3>Тест-драйв: подмышки за 250 ₽</h3>
                     <p>Попробуйте лазер по цене чашки кофе. Без риска — поймёте всё сами.</p>
                     <a href="https://dkd.su/714399/s/22597670" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Записаться на тест-драйв</a>
@@ -384,72 +385,83 @@
         </div>
     </section>
 
-    <!-- Секция FAQ (все вопросы закрыты) -->
+    <!-- Секция FAQ (все вопросы закрыты, аккордеон) -->
     <section id="faq" class="section-padding bg-surface">
         <div class="container">
             <h2 class="section-title text-center fade-in-section">FAQ</h2>
-            <div class="faq-list">
+            <div class="faq-list" id="faqList">
+                <!-- Вопрос 1 -->
                 <div class="faq-item fade-in-section">
                     <button class="faq-question" aria-expanded="false">Больно ли делать лазерную эпиляцию?</button>
                     <div class="faq-answer"><p>Зависит от индивидуальной чувствительности. Я подбираю мощность индивидуально. Большинство клиенток говорят: «Как лёгкие щипки». Начинаем с маленькой зоны, чтобы вы привыкли.</p></div>
                 </div>
+                <!-- Вопрос 2 -->
                 <div class="faq-item fade-in-section">
                     <button class="faq-question" aria-expanded="false">Сколько процедур нужно для полного удаления волос?</button>
                     <div class="faq-answer"><p>В среднем 8-12 процедур с интервалом 6-8 недель. Точное количество зависит от типа волос, гормонального фона и зоны. Я честно скажу вам прогноз после первой процедуры и теста.</p></div>
                 </div>
+                <!-- Вопрос 3 -->
                 <div class="faq-item fade-in-section">
                     <button class="faq-question" aria-expanded="false">Когда будет виден первый результат?</button>
                     <div class="faq-answer"><p>Первые волоски начнут выпадать через 1-2 недели после процедуры. После 3-4 процедуры разница становится очень заметной.</p></div>
                 </div>
+                <!-- Вопрос 4 -->
                 <div class="faq-item fade-in-section">
                     <button class="faq-question" aria-expanded="false">Как подготовиться к процедуре?</button>
                     <div class="faq-answer"><p>За неделю: не загорать, не использовать автозагар. За 2-3 дня: побрить зону (только бритьё!). В день процедуры: чистая кожа без косметики и крема.</p></div>
                 </div>
+                <!-- Вопрос 5 -->
                 <div class="faq-item fade-in-section">
                     <button class="faq-question" aria-expanded="false">Какие противопоказания у лазерной эпиляции?</button>
                     <div class="faq-answer"><p>Беременность, кормление грудью, онкология, свежий загар, приём фотосенсибилизирующих препаратов. Всё обсуждаем на консультации.</p></div>
                 </div>
+                <!-- Вопрос 6 -->
                 <div class="faq-item fade-in-section">
                     <button class="faq-question" aria-expanded="false">Что нельзя делать после процедуры?</button>
                     <div class="faq-answer"><p>48 часов: не загорать, не ходить в баню/сауну/бассейн, не принимать горячую ванну, не тереть кожу мочалкой.</p></div>
                 </div>
+                <!-- Вопрос 7 -->
                 <div class="faq-item fade-in-section">
                     <button class="faq-question" aria-expanded="false">Можно ли делать лазерную эпиляцию летом?</button>
                     <div class="faq-answer"><p>Да, можно. Но важно не загорать минимум неделю до и после. Летом удобно делать закрытые зоны.</p></div>
                 </div>
+                <!-- Вопрос 8 -->
                 <div class="faq-item fade-in-section">
                     <button class="faq-question" aria-expanded="false">Можно ли бриться между процедурами?</button>
                     <div class="faq-answer"><p>Да! Только бритьё. Никакого воска, шугаринга или эпилятора — они выдёргивают волос с корнем.</p></div>
                 </div>
+                <!-- Вопрос 9 -->
                 <div class="faq-item fade-in-section">
                     <button class="faq-question" aria-expanded="false">Почему нельзя загорать до и после?</button>
                     <div class="faq-answer"><p>Лазер воздействует на меланин. Загорелая кожа содержит много меланина — есть риск ожога. Минимум 7 дней без загара.</p></div>
                 </div>
+                <!-- Вопрос 10 -->
                 <div class="faq-item fade-in-section">
                     <button class="faq-question" aria-expanded="false">Помогает ли лазер от вросших волос?</button>
                     <div class="faq-answer"><p>Да! Лазер разрушает фолликул, вросшие волосы исчезают, кожа становится гладкой без воспалений.</p></div>
                 </div>
-                <div class="faq-item fade-in-section">
+                <!-- Дополнительные вопросы (будут перенесены в hiddenFaq при клике) -->
+                <div class="faq-item additional-faq fade-in-section">
                     <button class="faq-question" aria-expanded="false">Может ли лазер вызвать пигментацию или ожог?</button>
                     <div class="faq-answer"><p>На правильно настроенном оборудовании и при соблюдении рекомендаций — нет. Важно честно предупредить меня о загаре и лекарствах.</p></div>
                 </div>
-                <div class="faq-item fade-in-section">
+                <div class="faq-item additional-faq fade-in-section">
                     <button class="faq-question" aria-expanded="false">Можно ли делать лазер при беременности?</button>
                     <div class="faq-answer"><p>Нет. Во время беременности и кормления грудью процедура не проводится. Это временное противопоказание.</p></div>
                 </div>
-                <div class="faq-item fade-in-section">
+                <div class="faq-item additional-faq fade-in-section">
                     <button class="faq-question" aria-expanded="false">Можно ли делать лазер при онкологии?</button>
                     <div class="faq-answer"><p>Нет. Даже в ремиссии требуется разрешение лечащего врача. Безопасность клиента — превыше всего.</p></div>
                 </div>
-                <div class="faq-item fade-in-section">
+                <div class="faq-item additional-faq fade-in-section">
                     <button class="faq-question" aria-expanded="false">Как лазер влияет на самооценку?</button>
                     <div class="faq-answer"><p>Вы перестаёте думать о волосах, планировать бритьё, стесняться щетины. Это свобода носить что угодно. Спокойствие и уверенность.</p></div>
                 </div>
-                <div class="faq-item fade-in-section">
+                <div class="faq-item additional-faq fade-in-section">
                     <button class="faq-question" aria-expanded="false">Почему волосы выпадают не сразу?</button>
                     <div class="faq-answer"><p>Лазер разрушает фолликул, но волос остаётся в коже. Организму нужно 1-2 недели, чтобы «вытолкнуть» его.</p></div>
                 </div>
-                <div class="faq-item fade-in-section">
+                <div class="faq-item additional-faq fade-in-section">
                     <button class="faq-question" aria-expanded="false">Можно ли оставить полоску или треугольник?</button>
                     <div class="faq-answer"><p>Да! Я подстраиваю форму бикини под вас. Хоть полоску, хоть треугольник, хоть полностью.</p></div>
                 </div>
@@ -461,13 +473,14 @@
         </div>
     </section>
 
-    <!-- Секция контактов (кнопки вверху) -->
+    <!-- Секция контактов (кнопки вверху + кнопка телефона) -->
     <section id="contacts" class="section-padding bg-pastel contacts-section">
         <div class="container">
             <h2 class="section-title text-center fade-in-section">Контакты</h2>
             <div class="contacts-grid">
                 <!-- КНОПКИ В САМОМ ВЕРХУ -->
                 <div class="contact-buttons-top fade-in-section">
+                    <a href="tel:+79969005413" class="btn btn-secondary"><i class="fas fa-phone"></i> +7 996 900-54-13</a>
                     <a href="https://t.me/+79969005413" target="_blank" rel="noopener noreferrer" class="btn btn-secondary"><i class="fab fa-telegram"></i> Telegram</a>
                     <a href="https://wa.me/79969005413?text=Здравствуйте!%20Хочу%20записаться%20на%20консультацию" target="_blank" rel="noopener noreferrer" class="btn btn-secondary"><i class="fab fa-whatsapp"></i> WhatsApp</a>
                     <a href="https://yandex.ru/maps/43/kazan/?ll=49.103307%2C55.793353&mode=routes&routes%5BactiveComparisonMode%5D=auto&rtext=55.796127%2C49.106415~55.792709%2C49.103627&rtt=comparison&ruri=~&z=16.57" target="_blank" rel="noopener noreferrer" class="btn btn-secondary"><i class="fas fa-map-marked-alt"></i> Как добраться</a>
@@ -479,8 +492,8 @@
                         <p><strong>Центр Казани</strong><br>ул. Московская, 13а, 3 этаж<br>(вход через «Электроцентр», подъезд со двора)</p>
                     </div>
                     <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <p><a href="tel:+79969005413" style="color: var(--color-text); text-decoration: none;">+7 996 900-54-13</a></p>
+                        <i class="fas fa-clock"></i>
+                        <p>Ежедневно 10:00 – 23:00</p>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-train"></i>
@@ -493,10 +506,6 @@
                     <div class="contact-item">
                         <i class="fas fa-square-parking"></i>
                         <p>Парковка бесплатная вечером и в воскресенье</p>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-clock"></i>
-                        <p>Ежедневно 10:00 – 23:00</p>
                     </div>
                 </div>
                 

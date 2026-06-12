@@ -1,23 +1,19 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-    // ========== 1. МЕНЮ (БУРГЕР) - ОТКРЫТИЕ/ЗАКРЫТИЕ ==========
+    // ========== 1. МЕНЮ (БУРГЕР) ==========
     var burgerMenu = document.getElementById('burgerMenu');
     var slideMenu = document.getElementById('slideMenu');
-    var slideMenuClose = document.getElementById('slideMenuClose');
     var slideMenuOverlay = slideMenu ? slideMenu.querySelector('.slide-menu__overlay') : null;
 
     if (burgerMenu && slideMenu) {
-        // Открытие меню
+        // Открытие/закрытие по клику на бургер (переключатель)
         burgerMenu.addEventListener('click', function() {
-            slideMenu.classList.add('active');
-        });
-
-        // Закрытие через кнопку ✕
-        if (slideMenuClose) {
-            slideMenuClose.addEventListener('click', function() {
+            if (slideMenu.classList.contains('active')) {
                 slideMenu.classList.remove('active');
-            });
-        }
+            } else {
+                slideMenu.classList.add('active');
+            }
+        });
 
         // Закрытие через overlay (фон)
         if (slideMenuOverlay) {
@@ -34,24 +30,20 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // ========== 2. FAQ: 10 вопросов открыты по умолчанию ==========
-    // (В HTML уже проставлен класс open-by-default и aria-expanded="true")
-
-    // ========== 3. FAQ: Кнопка "Смотреть все вопросы" ==========
+    // ========== 2. FAQ: Кнопка "Смотреть все вопросы" ==========
     var hiddenFaq = document.getElementById('hiddenFaq');
     var toggleAllFaq = document.getElementById('toggleAllFaq');
     var showAllButton = document.getElementById('showAllFaqButton');
 
     if (toggleAllFaq && hiddenFaq && showAllButton) {
         toggleAllFaq.addEventListener('click', function() {
-            // Переносим дополнительные вопросы в hiddenFaq при первом клике
             if (hiddenFaq.children.length === 0) {
-                var additionalFaq = document.querySelectorAll('.faq-item:not(.open-by-default)');
+                var additionalFaq = document.querySelectorAll('.faq-item:not(:first-child):not(:nth-child(2)):not(:nth-child(3)):not(:nth-child(4)):not(:nth-child(5)):not(:nth-child(6)):not(:nth-child(7)):not(:nth-child(8)):not(:nth-child(9)):not(:nth-child(10))');
+                additionalFaq = Array.from(additionalFaq).slice(10);
                 additionalFaq.forEach(function(item) {
                     hiddenFaq.appendChild(item.cloneNode(true));
                     item.remove();
                 });
-                // Добавляем кнопку скрытия
                 var hideBtn = document.createElement('div');
                 hideBtn.className = 'text-center faq-toggle-wrapper';
                 hideBtn.innerHTML = '<button class="btn btn-secondary" id="hideAllFaq"><i class="fas fa-chevron-up"></i> Скрыть вопросы ↑</button>';
@@ -70,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // ========== 4. Раскрывающийся список "Другие зоны" ==========
+    // ========== 3. Раскрывающийся список "Другие зоны" ==========
     var toggleZones = document.getElementById('toggleZones');
     var otherZones = document.getElementById('otherZones');
     if (toggleZones && otherZones) {
@@ -85,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // ========== 5. Анимация при скролле ==========
+    // ========== 4. Анимация при скролле ==========
     var fadeSections = document.querySelectorAll('.fade-in-section');
     var observer = new IntersectionObserver(function(entries) {
         entries.forEach(function(entry) {
@@ -99,7 +91,7 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(section);
     });
 
-    // ========== 6. Попап при уходе ==========
+    // ========== 5. Попап при уходе ==========
     var exitPopup1 = document.getElementById('exitPopup1');
     var exitPopup2 = document.getElementById('exitPopup2');
     var popup1Shown = false;
@@ -170,7 +162,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // ========== 7. Сотовая сетка отзывов ==========
+    // ========== 6. Сотовая сетка отзывов ==========
     var honeycombGrid = document.getElementById('honeycombGrid');
     var honeycombViewport = document.getElementById('honeycombViewport');
     
@@ -313,7 +305,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // ========== 8. КАЛЬКУЛЯТОР ==========
+    // ========== 7. КАЛЬКУЛЯТОР ==========
     var calcButton = document.getElementById('calcButton');
     var calcMethod = document.getElementById('calcMethod');
     var monthlyLabel = document.getElementById('monthlyLabel');

@@ -1,118 +1,91 @@
-// 📝 Изменено: 2026-06-06 / Соты: 3 отзыва перенесены вниз + уменьшена высота грида на мобильных
 document.addEventListener('DOMContentLoaded', function() {
-// --- 0. Новое меню (выдвижное справа) ---
+
+    // ========== 1. МЕНЮ (БУРГЕР) - ОТКРЫТИЕ/ЗАКРЫТИЕ ==========
     var burgerMenu = document.getElementById('burgerMenu');
     var slideMenu = document.getElementById('slideMenu');
     var slideMenuClose = document.getElementById('slideMenuClose');
     var slideMenuOverlay = slideMenu ? slideMenu.querySelector('.slide-menu__overlay') : null;
 
-    if         burgerMenu.addEventListener('click', function() {
-            if (slideMenu.classList.contains('active')) {
-                slideMenu.classList.remove('active');
-            } else {
-                slideMenu.classList.add('active');
-            }
+    if (burgerMenu && slideMenu) {
+        // Открытие меню
+        burgerMenu.addEventListener('click', function() {
+            slideMenu.classList.add('active');
         });
 
+        // Закрытие через кнопку ✕
         if (slideMenuClose) {
             slideMenuClose.addEventListener('click', function() {
                 slideMenu.classList.remove('active');
             });
         }
 
+        // Закрытие через overlay (фон)
         if (slideMenuOverlay) {
             slideMenuOverlay.addEventListener('click', function() {
                 slideMenu.classList.remove('active');
             });
         }
 
-        // Закрытие по клику на ссылку
+        // Закрытие по клику на ссылку в меню
         slideMenu.querySelectorAll('a').forEach(function(link) {
             link.addEventListener('click', function() {
                 slideMenu.classList.remove('active');
             });
         });
     }
-    
-// --- 2. FAQ: Плавный ховер ---
-    var faqItems = document.querySelectorAll('.faq-item');
-    var hoverTimeout;
-    var leaveTimeout;
 
-    faqItems.forEach(function(item) {
-        var question = item.querySelector('.faq-question');
-        if (!question) return;
+    // ========== 2. FAQ: 10 вопросов открыты по умолчанию ==========
+    // (В HTML уже проставлен класс open-by-default и aria-expanded="true")
 
-        item.addEventListener('mouseenter', function() {
-            clearTimeout(leaveTimeout);
-            hoverTimeout = setTimeout(function() {
-                document.querySelectorAll('.faq-question').forEach(function(q) {
-                    q.setAttribute('aria-expanded', 'false');
-                });
-                question.setAttribute('aria-expanded', 'true');
-            }, 200);
-        });
-
-        item.addEventListener('mouseleave', function() {
-            clearTimeout(hoverTimeout);
-            leaveTimeout = setTimeout(function() {
-                question.setAttribute('aria-expanded', 'false');
-            }, 300);
-        });
-    });
-
-    // --- 3. FAQ: Клик ---
-    var faqQuestions = document.querySelectorAll('.faq-question');
-    faqQuestions.forEach(function(question) {
-        question.addEventListener('click', function(e) {
-            clearTimeout(hoverTimeout);
-            clearTimeout(leaveTimeout);
-            var isExpanded = this.getAttribute('aria-expanded') === 'true';
-            faqQuestions.forEach(function(q) {
-                q.setAttribute('aria-expanded', 'false');
-            });
-            if (!isExpanded) {
-                this.setAttribute('aria-expanded', 'true');
-            }
-        });
-    });
-
-    // --- 4. Кнопки "Смотреть все" и "Скрыть" ---
+    // ========== 3. FAQ: Кнопка "Смотреть все вопросы" ==========
     var hiddenFaq = document.getElementById('hiddenFaq');
     var toggleAllFaq = document.getElementById('toggleAllFaq');
-    var hideAllFaq = document.getElementById('hideAllFaq');
     var showAllButton = document.getElementById('showAllFaqButton');
 
     if (toggleAllFaq && hiddenFaq && showAllButton) {
         toggleAllFaq.addEventListener('click', function() {
+            // Переносим дополнительные вопросы в hiddenFaq при первом клике
+            if (hiddenFaq.children.length === 0) {
+                var additionalFaq = document.querySelectorAll('.faq-item:not(.open-by-default)');
+                additionalFaq.forEach(function(item) {
+                    hiddenFaq.appendChild(item.cloneNode(true));
+                    item.remove();
+                });
+                // Добавляем кнопку скрытия
+                var hideBtn = document.createElement('div');
+                hideBtn.className = 'text-center faq-toggle-wrapper';
+                hideBtn.innerHTML = '<button class="btn btn-secondary" id="hideAllFaq"><i class="fas fa-chevron-up"></i> Скрыть вопросы ↑</button>';
+                hiddenFaq.appendChild(hideBtn);
+                
+                var hideAllFaq = document.getElementById('hideAllFaq');
+                if (hideAllFaq) {
+                    hideAllFaq.addEventListener('click', function() {
+                        hiddenFaq.style.display = 'none';
+                        showAllButton.style.display = 'block';
+                    });
+                }
+            }
             hiddenFaq.style.display = 'block';
             showAllButton.style.display = 'none';
         });
     }
 
-    if (hideAllFaq && hiddenFaq && showAllButton) {
-        hideAllFaq.addEventListener('click', function() {
-            hiddenFaq.style.display = 'none';
-            showAllButton.style.display = 'block';
-        });
-    }
-
-    // --- 5. Раскрывающийся список "Другие зоны" ---
+    // ========== 4. Раскрывающийся список "Другие зоны" ==========
     var toggleZones = document.getElementById('toggleZones');
     var otherZones = document.getElementById('otherZones');
     if (toggleZones && otherZones) {
         toggleZones.addEventListener('click', function() {
-            if (otherZones.style.display === 'none') {
+            if (otherZones.style.display === 'none' || getComputedStyle(otherZones).display === 'none') {
                 otherZones.style.display = 'block';
-                toggleZones.textContent = 'Скрыть другие зоны ↑';
+                toggleZones.innerHTML = '<i class="fas fa-list"></i> Скрыть другие зоны ↑';
             } else {
                 otherZones.style.display = 'none';
-                toggleZones.textContent = 'Смотреть другие зоны и цены ↓';
+                toggleZones.innerHTML = '<i class="fas fa-list"></i> Смотреть все зоны и цены ↓';
             }
         });
     }
 
-    // --- 6. Анимация при скролле ---
+    // ========== 5. Анимация при скролле ==========
     var fadeSections = document.querySelectorAll('.fade-in-section');
     var observer = new IntersectionObserver(function(entries) {
         entries.forEach(function(entry) {
@@ -126,7 +99,7 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(section);
     });
 
-    // --- 7. Попап при уходе (С ТАЙМЕРОМ 30 СЕКУНД МЕЖДУ ПОПАПАМИ) ---
+    // ========== 6. Попап при уходе ==========
     var exitPopup1 = document.getElementById('exitPopup1');
     var exitPopup2 = document.getElementById('exitPopup2');
     var popup1Shown = false;
@@ -196,7 +169,8 @@ document.addEventListener('DOMContentLoaded', function() {
             if (popup) popup.classList.remove('visible');
         });
     });
-    // --- 7.5. Сотовая сетка отзывов v3 ---
+
+    // ========== 7. Сотовая сетка отзывов ==========
     var honeycombGrid = document.getElementById('honeycombGrid');
     var honeycombViewport = document.getElementById('honeycombViewport');
     
@@ -226,9 +200,9 @@ document.addEventListener('DOMContentLoaded', function() {
         ];
 
         var isMobile = window.innerWidth < 768;
-var cellW = isMobile ? 150 : 155;
-var cellH = isMobile ? 150 : 155;
-var cols = isMobile ? 5 : 11;
+        var cellW = isMobile ? 130 : 155;
+        var cellH = isMobile ? 130 : 155;
+        var cols = isMobile ? 5 : 11;
         var visibleRows = 3;
         var totalVisible = cols * visibleRows;
         var rowOffsetY = cellH * 0.85;
@@ -263,39 +237,39 @@ var cols = isMobile ? 5 : 11;
             honeycombGrid.appendChild(cell);
         }
 
-       // СТАЛО
-var gridWidth = cols * cellW;
-var gridHeight = visibleRows * rowOffsetY + cellH * 0.3;
-honeycombGrid.style.width = gridWidth + 'px';
-honeycombGrid.style.height = gridHeight + 'px';
-honeycombGrid.style.transform = 'translate(-50%, -50%)';
-honeycombGrid.style.left = '50%';
-honeycombGrid.style.top = '50%';
-var isDragging = false;
-var startX, startY, gridStartX = 0, gridStartY = 0;
-var currentGridX = isMobile ? 0 : 50, currentGridY = 0;
-var maxX = isMobile ? cellW * 3 : cellW * 2;
-var minX = -maxX;
+        var gridWidth = cols * cellW;
+        var gridHeight = visibleRows * rowOffsetY + cellH * 0.3;
+        honeycombGrid.style.width = gridWidth + 'px';
+        honeycombGrid.style.height = gridHeight + 'px';
+        honeycombGrid.style.transform = 'translate(-50%, -50%)';
+        honeycombGrid.style.left = '50%';
+        honeycombGrid.style.top = '50%';
         
-function updateGridPosition() {
-    var tx = Math.max(minX, Math.min(maxX, currentGridX));
-    var ty = Math.max(-10, Math.min(10, currentGridY));
-    honeycombGrid.style.transform = 'translate(calc(-50% + ' + tx + 'px), calc(-50% + ' + ty + 'px))';
-}
+        var isDragging = false;
+        var startX, startY, gridStartX = 0, gridStartY = 0;
+        var currentGridX = isMobile ? 0 : 50, currentGridY = 0;
+        var maxX = isMobile ? cellW * 3 : cellW * 2;
+        var minX = -maxX;
+        
+        function updateGridPosition() {
+            var tx = Math.max(minX, Math.min(maxX, currentGridX));
+            var ty = Math.max(-10, Math.min(10, currentGridY));
+            honeycombGrid.style.transform = 'translate(calc(-50% + ' + tx + 'px), calc(-50% + ' + ty + 'px))';
+        }
 
         honeycombViewport.addEventListener('mousedown', function(e) {
-    if (e.target.classList.contains('honeycomb-cell')) return;
-    document.querySelectorAll('.honeycomb-cell.expanded').forEach(function(c) {
-        c.classList.remove('expanded');
-    });
-    isDragging = true;
-    startX = e.clientX;
-    startY = e.clientY;
-    gridStartX = currentGridX;
-    gridStartY = currentGridY;
-    honeycombViewport.style.cursor = 'grabbing';
-    e.preventDefault();
-});
+            if (e.target.classList.contains('honeycomb-cell')) return;
+            document.querySelectorAll('.honeycomb-cell.expanded').forEach(function(c) {
+                c.classList.remove('expanded');
+            });
+            isDragging = true;
+            startX = e.clientX;
+            startY = e.clientY;
+            gridStartX = currentGridX;
+            gridStartY = currentGridY;
+            honeycombViewport.style.cursor = 'grabbing';
+            e.preventDefault();
+        });
         
         window.addEventListener('mousemove', function(e) {
             if (!isDragging) return;
@@ -311,16 +285,16 @@ function updateGridPosition() {
             honeycombViewport.style.cursor = 'grab';
         });
 
-       honeycombViewport.addEventListener('touchstart', function(e) {
-    if (e.target.classList.contains('honeycomb-cell')) return;
-    if (e.touches.length === 1) {
-        isDragging = true;
-        startX = e.touches[0].clientX;
-        startY = e.touches[0].clientY;
-        gridStartX = currentGridX;
-        gridStartY = currentGridY;
-    }
-}, { passive: false });
+        honeycombViewport.addEventListener('touchstart', function(e) {
+            if (e.target.classList.contains('honeycomb-cell')) return;
+            if (e.touches.length === 1) {
+                isDragging = true;
+                startX = e.touches[0].clientX;
+                startY = e.touches[0].clientY;
+                gridStartX = currentGridX;
+                gridStartY = currentGridY;
+            }
+        }, { passive: false });
 
         honeycombViewport.addEventListener('touchmove', function(e) {
             if (!isDragging) return;
@@ -339,13 +313,12 @@ function updateGridPosition() {
         });
     }
     
-// --- 8. Калькулятор (5 лет, 24 процедуры) ---
+    // ========== 8. КАЛЬКУЛЯТОР ==========
     var calcButton = document.getElementById('calcButton');
     var calcMethod = document.getElementById('calcMethod');
     var monthlyLabel = document.getElementById('monthlyLabel');
     var calcMonthly = document.getElementById('calcMonthly');
 
-    // Меняем подпись поля при выборе эпилятора
     if (calcMethod) {
         calcMethod.addEventListener('change', function() {
             if (this.value === 'Эпилятор') {
@@ -449,16 +422,14 @@ function updateGridPosition() {
                 saveText = 'Да, лазер стоит своих денег. Но за 5 лет ты провела ' + totalHours + ' часов ' + methodText + '. Лазер — это всего ' + totalLaserHours + ' часов за 5 лет и свобода от щетины.';
             }
 
-            // Обновляем текст на странице
             document.getElementById('calcYears').textContent = years;
             document.getElementById('calcMoney').textContent = totalMoney.toLocaleString() + ' ₽';
             document.getElementById('calcTime').textContent = totalHours.toLocaleString() + ' часов';
             document.getElementById('calcLaserCostTable').textContent = totalLaserCost.toLocaleString() + ' ₽';
-document.getElementById('calcLaserTimeTable').textContent = totalLaserHours + ' часов';
+            document.getElementById('calcLaserTimeTable').textContent = totalLaserHours + ' часов';
             document.getElementById('calcSave').textContent = saveText;
             document.getElementById('calcResult').style.display = 'block';
 
-            // Обновляем ссылку на запись
             var calcLink = document.getElementById('calcLink');
             if (calcLink && dikidiLink) {
                 calcLink.href = dikidiLink;

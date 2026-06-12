@@ -42,11 +42,10 @@
     <span></span><span></span><span></span>
 </button>
 
-<!-- Выдвижное меню -->
+<!-- Выдвижное меню (БЕЗ КРЕСТИКА) -->
 <div class="slide-menu" id="slideMenu">
     <div class="slide-menu__overlay"></div>
     <div class="slide-menu__panel">
-        <button class="slide-menu__close" id="slideMenuClose" aria-label="Закрыть меню">✕</button>
         <ul>
             <li><a href="#problem">Знакомо?</a></li>
             <li><a href="#why-us">Почему здесь иначе</a></li>
@@ -123,7 +122,6 @@
             <span><i class="fas fa-location-dot"></i> В центре, рядом с метро</span>
             <span><i class="fas fa-certificate"></i> Гарантия результата</span>
             <span><i class="fas fa-hand-sparkles"></i> Уход и поддержка после</span>
-            <!-- дублируем для бесконечной анимации -->
             <span><i class="fas fa-check-circle"></i> 5635+ довольных клиенток</span>
             <span><i class="fas fa-star"></i> 5.0 на Яндекс.Картах и 2ГИС</span>
             <span><i class="fas fa-bolt"></i> Результат после 1 процедуры</span>
@@ -196,7 +194,6 @@
             </div>
         </div>
         <div class="container">
-            <!-- Фото Алины в рамке -->
             <div class="master-card fade-in-section">
                 <div class="master-card-inner">
                     <img src="assets/master-alina-round.png" alt="Алина, мастер" class="master-card-photo">
@@ -360,65 +357,78 @@
         </div>
     </section>
 
-    <!-- Секция акций (3 карточки в ряд на мобильных) -->
+    <!-- Секция акций (вертикально, друг за другом) -->
     <section id="promo" class="section-padding bg-pastel">
         <div class="container">
             <h2 class="section-title text-center fade-in-section">Акции</h2>
-            <div class="promo-grid">
-                <div class="promo-card fade-in-section"><i class="fas fa-mug-hot"></i><h3>Тест-драйв: подмышки за 250 ₽</h3><p>Попробуйте лазер по цене чашки кофе. Без риска — поймёте всё сами.</p><a href="https://dkd.su/714399/s/22597670" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Записаться на тест-драйв</a></div>
-                <div class="promo-card promo-card--featured fade-in-section"><i class="fas fa-gift"></i><h3>Скидка 35% для новых клиенток</h3><p>Первый визит — скидка 35% на любой комплекс.<br>Не подойдёт — не буду уговаривать.</p><a href="https://dikidi.app/714399?p=0.pi-po-ss-sd-cf-ai&o=2&m=1701055&s=8690938" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Записаться со скидкой</a></div>
-                <div class="promo-card fade-in-section"><i class="fas fa-users"></i><h3>Приведи подругу</h3><p>Приведите подругу — обе получаете −20% на любой комплекс.</p><a href="#contacts" class="btn btn-secondary">Записаться вдвоём</a></div>
+            <div class="promo-grid-vertical">
+                <div class="promo-card fade-in-section">
+                    <i class="fas fa-mug-hot"></i>
+                    <h3>Тест-драйв: подмышки за 250 ₽</h3>
+                    <p>Попробуйте лазер по цене чашки кофе. Без риска — поймёте всё сами.</p>
+                    <a href="https://dkd.su/714399/s/22597670" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Записаться на тест-драйв</a>
+                </div>
+                <div class="promo-card promo-card--featured fade-in-section">
+                    <i class="fas fa-gift"></i>
+                    <h3>Скидка 35% для новых клиенток</h3>
+                    <p>Первый визит — скидка 35% на любой комплекс. Не подойдёт — не буду уговаривать.</p>
+                    <a href="https://dikidi.app/714399?p=0.pi-po-ss-sd-cf-ai&o=2&m=1701055&s=8690938" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Записаться со скидкой</a>
+                </div>
+                <div class="promo-card fade-in-section">
+                    <i class="fas fa-users"></i>
+                    <h3>Приведи подругу</h3>
+                    <p>Приведите подругу — обе получаете −20% на любой комплекс.</p>
+                    <a href="#contacts" class="btn btn-secondary">Записаться вдвоём</a>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Секция FAQ (10 открытых вопросов) -->
+    <!-- Секция FAQ (все вопросы закрыты) -->
     <section id="faq" class="section-padding bg-surface">
         <div class="container">
             <h2 class="section-title text-center fade-in-section">FAQ</h2>
             <div class="faq-list">
-                <!-- Первые 10 вопросов всегда открыты -->
-                <div class="faq-item open-by-default fade-in-section">
-                    <button class="faq-question" aria-expanded="true">Больно ли делать лазерную эпиляцию?</button>
+                <div class="faq-item fade-in-section">
+                    <button class="faq-question" aria-expanded="false">Больно ли делать лазерную эпиляцию?</button>
                     <div class="faq-answer"><p>Зависит от индивидуальной чувствительности. Я подбираю мощность индивидуально. Большинство клиенток говорят: «Как лёгкие щипки». Начинаем с маленькой зоны, чтобы вы привыкли.</p></div>
                 </div>
-                <div class="faq-item open-by-default fade-in-section">
-                    <button class="faq-question" aria-expanded="true">Сколько процедур нужно для полного удаления волос?</button>
+                <div class="faq-item fade-in-section">
+                    <button class="faq-question" aria-expanded="false">Сколько процедур нужно для полного удаления волос?</button>
                     <div class="faq-answer"><p>В среднем 8-12 процедур с интервалом 6-8 недель. Точное количество зависит от типа волос, гормонального фона и зоны. Я честно скажу вам прогноз после первой процедуры и теста.</p></div>
                 </div>
-                <div class="faq-item open-by-default fade-in-section">
-                    <button class="faq-question" aria-expanded="true">Когда будет виден первый результат?</button>
+                <div class="faq-item fade-in-section">
+                    <button class="faq-question" aria-expanded="false">Когда будет виден первый результат?</button>
                     <div class="faq-answer"><p>Первые волоски начнут выпадать через 1-2 недели после процедуры. После 3-4 процедуры разница становится очень заметной.</p></div>
                 </div>
-                <div class="faq-item open-by-default fade-in-section">
-                    <button class="faq-question" aria-expanded="true">Как подготовиться к процедуре?</button>
+                <div class="faq-item fade-in-section">
+                    <button class="faq-question" aria-expanded="false">Как подготовиться к процедуре?</button>
                     <div class="faq-answer"><p>За неделю: не загорать, не использовать автозагар. За 2-3 дня: побрить зону (только бритьё!). В день процедуры: чистая кожа без косметики и крема.</p></div>
                 </div>
-                <div class="faq-item open-by-default fade-in-section">
-                    <button class="faq-question" aria-expanded="true">Какие противопоказания у лазерной эпиляции?</button>
+                <div class="faq-item fade-in-section">
+                    <button class="faq-question" aria-expanded="false">Какие противопоказания у лазерной эпиляции?</button>
                     <div class="faq-answer"><p>Беременность, кормление грудью, онкология, свежий загар, приём фотосенсибилизирующих препаратов. Всё обсуждаем на консультации.</p></div>
                 </div>
-                <div class="faq-item open-by-default fade-in-section">
-                    <button class="faq-question" aria-expanded="true">Что нельзя делать после процедуры?</button>
+                <div class="faq-item fade-in-section">
+                    <button class="faq-question" aria-expanded="false">Что нельзя делать после процедуры?</button>
                     <div class="faq-answer"><p>48 часов: не загорать, не ходить в баню/сауну/бассейн, не принимать горячую ванну, не тереть кожу мочалкой.</p></div>
                 </div>
-                <div class="faq-item open-by-default fade-in-section">
-                    <button class="faq-question" aria-expanded="true">Можно ли делать лазерную эпиляцию летом?</button>
+                <div class="faq-item fade-in-section">
+                    <button class="faq-question" aria-expanded="false">Можно ли делать лазерную эпиляцию летом?</button>
                     <div class="faq-answer"><p>Да, можно. Но важно не загорать минимум неделю до и после. Летом удобно делать закрытые зоны.</p></div>
                 </div>
-                <div class="faq-item open-by-default fade-in-section">
-                    <button class="faq-question" aria-expanded="true">Можно ли бриться между процедурами?</button>
+                <div class="faq-item fade-in-section">
+                    <button class="faq-question" aria-expanded="false">Можно ли бриться между процедурами?</button>
                     <div class="faq-answer"><p>Да! Только бритьё. Никакого воска, шугаринга или эпилятора — они выдёргивают волос с корнем.</p></div>
                 </div>
-                <div class="faq-item open-by-default fade-in-section">
-                    <button class="faq-question" aria-expanded="true">Почему нельзя загорать до и после?</button>
+                <div class="faq-item fade-in-section">
+                    <button class="faq-question" aria-expanded="false">Почему нельзя загорать до и после?</button>
                     <div class="faq-answer"><p>Лазер воздействует на меланин. Загорелая кожа содержит много меланина — есть риск ожога. Минимум 7 дней без загара.</p></div>
                 </div>
-                <div class="faq-item open-by-default fade-in-section">
-                    <button class="faq-question" aria-expanded="true">Помогает ли лазер от вросших волос?</button>
+                <div class="faq-item fade-in-section">
+                    <button class="faq-question" aria-expanded="false">Помогает ли лазер от вросших волос?</button>
                     <div class="faq-answer"><p>Да! Лазер разрушает фолликул, вросшие волосы исчезают, кожа становится гладкой без воспалений.</p></div>
                 </div>
-                <!-- Дополнительные вопросы (скрыты по умолчанию) -->
                 <div class="faq-item fade-in-section">
                     <button class="faq-question" aria-expanded="false">Может ли лазер вызвать пигментацию или ожог?</button>
                     <div class="faq-answer"><p>На правильно настроенном оборудовании и при соблюдении рекомендаций — нет. Важно честно предупредить меня о загаре и лекарствах.</p></div>
@@ -443,17 +453,26 @@
                     <button class="faq-question" aria-expanded="false">Можно ли оставить полоску или треугольник?</button>
                     <div class="faq-answer"><p>Да! Я подстраиваю форму бикини под вас. Хоть полоску, хоть треугольник, хоть полностью.</p></div>
                 </div>
-                <div class="text-center faq-toggle-wrapper" id="showAllFaqButton"><button class="btn btn-secondary" id="toggleAllFaq"><i class="fas fa-chevron-down"></i> Смотреть все вопросы ↓</button></div>
+                <div class="text-center faq-toggle-wrapper" id="showAllFaqButton">
+                    <button class="btn btn-secondary" id="toggleAllFaq"><i class="fas fa-chevron-down"></i> Смотреть все вопросы ↓</button>
+                </div>
                 <div id="hiddenFaq" style="display: none;"></div>
             </div>
         </div>
     </section>
 
-    <!-- Секция контактов: кнопки → форма → карта -->
+    <!-- Секция контактов (кнопки вверху) -->
     <section id="contacts" class="section-padding bg-pastel contacts-section">
         <div class="container">
             <h2 class="section-title text-center fade-in-section">Контакты</h2>
             <div class="contacts-grid">
+                <!-- КНОПКИ В САМОМ ВЕРХУ -->
+                <div class="contact-buttons-top fade-in-section">
+                    <a href="https://t.me/+79969005413" target="_blank" rel="noopener noreferrer" class="btn btn-secondary"><i class="fab fa-telegram"></i> Telegram</a>
+                    <a href="https://wa.me/79969005413?text=Здравствуйте!%20Хочу%20записаться%20на%20консультацию" target="_blank" rel="noopener noreferrer" class="btn btn-secondary"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                    <a href="https://yandex.ru/maps/43/kazan/?ll=49.103307%2C55.793353&mode=routes&routes%5BactiveComparisonMode%5D=auto&rtext=55.796127%2C49.106415~55.792709%2C49.103627&rtt=comparison&ruri=~&z=16.57" target="_blank" rel="noopener noreferrer" class="btn btn-secondary"><i class="fas fa-map-marked-alt"></i> Как добраться</a>
+                </div>
+                
                 <div class="contact-details fade-in-section">
                     <div class="contact-item">
                         <i class="fas fa-location-dot"></i>
@@ -479,15 +498,12 @@
                         <i class="fas fa-clock"></i>
                         <p>Ежедневно 10:00 – 23:00</p>
                     </div>
-                    <div class="contact-buttons">
-                        <a href="https://t.me/+79969005413" target="_blank" rel="noopener noreferrer" class="btn btn-secondary"><i class="fab fa-telegram"></i> Telegram</a>
-                        <a href="https://wa.me/79969005413?text=Здравствуйте!%20Хочу%20записаться%20на%20консультацию" target="_blank" rel="noopener noreferrer" class="btn btn-secondary"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-                        <a href="https://yandex.ru/maps/43/kazan/?ll=49.103307%2C55.793353&mode=routes&routes%5BactiveComparisonMode%5D=auto&rtext=55.796127%2C49.106415~55.792709%2C49.103627&rtt=comparison&ruri=~&z=16.57" target="_blank" rel="noopener noreferrer" class="btn btn-secondary"><i class="fas fa-map-marked-alt"></i> Как добраться</a>
-                    </div>
                 </div>
+                
                 <div class="contact-form-block fade-in-section">
                     <iframe class="ya-form-iframe" src="https://forms.yandex.ru/u/6a22c0366d2d730888cd5d8c?iframe=1" frameborder="0" name="ya-form-6a22c0366d2d730888cd5d8c"></iframe>
                 </div>
+                
                 <div id="mapAnchor"></div>
                 <div class="map-container fade-in-section">
                     <iframe src="https://yandex.ru/map-widget/v1/?z=17&ol=biz&oid=210422081484" width="100%" height="350" class="map-iframe" allowfullscreen="" loading="lazy"></iframe>

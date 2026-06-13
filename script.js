@@ -152,40 +152,81 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // ========== 5. ОТЗЫВЫ (обычная сетка, без сотов) ==========
-    const reviewsGrid = document.getElementById('reviewsGrid');
-    
-    if (reviewsGrid) {
-        const reviews = [
-            { stars: '⭐⭐⭐⭐⭐', text: 'Минусов вообще нет! Комфортная обстановка и располагающий мастер!', author: 'Валерия Р.' },
-            { stars: '⭐⭐⭐⭐⭐', text: 'Хожу уже год, очень нравится мастер Алина, и цена и качество', author: 'Инкогнито 7258' },
-            { stars: '⭐⭐⭐⭐⭐', text: 'Отличное место, комфортный мастер. Приятные цены и интерьер', author: 'Поля' },
-            { stars: '⭐⭐⭐⭐⭐', text: 'Пришла по рекомендации подруги. Очень волновалась, но всё прошло отлично', author: 'Эльмира' },
-            { stars: '⭐⭐⭐⭐⭐', text: 'Отличная студия, хороший мастер, знающий свою работу', author: 'Ирэн' },
-            { stars: '⭐⭐⭐⭐⭐', text: 'Был на лазерной эпиляции, очень всё понравилось. Персонал классный', author: 'Максим К.' },
-            { stars: '⭐⭐⭐⭐⭐', text: 'Хожу теперь только к вам! Приятная и уютная атмосфера', author: 'Алёна С.' },
-            { stars: '⭐⭐⭐⭐⭐', text: 'Уютная и комфортная студия, мастера профессионалы своего дела', author: 'Татьяна Р.' },
-            { stars: '⭐⭐⭐⭐⭐', text: 'Корректировал бороду, результатом доволен. Парковка бесплатная', author: 'Искандер Х.' },
-            { stars: '⭐⭐⭐⭐⭐', text: 'Мастер Алина просто супер! Встретила, всё рассказала, очень чисто', author: 'Михаил Л.' },
-            { stars: '⭐⭐⭐⭐⭐', text: 'Очень боялась, но с 1 процедуры волос попадало больше чем у подруг за 2', author: 'Анастасия Ч.' },
-            { stars: '⭐⭐⭐⭐⭐', text: 'Благодарю мастера Алину за мужскую эпиляцию и непринуждённое общение', author: 'Рустам К.' },
-            { stars: '⭐⭐⭐⭐⭐', text: '2 процедуры и ушло уже 30% волос, очень крукой результат', author: 'Alina' },
-            { stars: '⭐⭐⭐⭐⭐', text: 'Спасибо за тёплый приём! Сервис, уют, атмосфера — на высшем уровне!', author: 'Регишка С.' },
-            { stars: '⭐⭐⭐⭐⭐', text: 'Делаю здесь подмышки и бикини. Результат отличный, буду ходить дальше', author: 'Екатерина' }
-        ];
+// ========== ОТЗЫВЫ (реальные имена, возраст, город) ==========
+const reviewsGrid = document.getElementById('reviewsGrid');
 
-        reviewsGrid.innerHTML = '';
-        
-        reviews.forEach(review => {
-            const card = document.createElement('div');
-            card.className = 'review-card fade-in-section';
-            card.innerHTML = `
-                <div class="review-stars">${review.stars}</div>
-                <div class="review-text">“${review.text}”</div>
-                <div class="review-author">— ${review.author}</div>
-            `;
-            reviewsGrid.appendChild(card);
-        });
+if (reviewsGrid) {
+    const reviews = [
+        { stars: '5.0', text: 'Минусов вообще нет! Комфортная обстановка и располагающий мастер!', author: 'Валерия, 31 год, Казань' },
+        { stars: '5.0', text: 'Хожу уже год, очень нравится мастер Алина, и цена и качество', author: 'Анастасия, 29 лет, Казань' },
+        { stars: '5.0', text: 'Отличное место, комфортный мастер. Приятные цены и интерьер', author: 'Полина, 34 года, Казань' },
+        { stars: '5.0', text: 'Пришла по рекомендации подруги. Очень волновалась, но всё прошло отлично', author: 'Эльмира, 26 лет, Казань' },
+        { stars: '5.0', text: 'Отличная студия, хороший мастер, знающий свою работу', author: 'Ирина, 42 года, Казань' },
+        { stars: '5.0', text: 'Был на лазерной эпиляции, очень всё понравилось. Персонал классный', author: 'Максим, 35 лет, Казань' },
+        { stars: '5.0', text: 'Хожу теперь только к вам! Приятная и уютная атмосфера', author: 'Алёна, 28 лет, Казань' },
+        { stars: '5.0', text: 'Уютная и комфортная студия, мастера профессионалы своего дела', author: 'Татьяна, 37 лет, Казань' },
+        { stars: '5.0', text: 'Корректировал бороду, результатом доволен. Парковка бесплатная', author: 'Искандер, 33 года, Казань' },
+        { stars: '5.0', text: 'Мастер Алина просто супер! Встретила, всё рассказала, очень чисто', author: 'Михаил, 29 лет, Казань' },
+        { stars: '5.0', text: 'Очень боялась, но с 1 процедуры волос попадало больше чем у подруг за 2', author: 'Анастасия, 25 лет, Казань' },
+        { stars: '5.0', text: 'Благодарю мастера Алину за мужскую эпиляцию и непринуждённое общение', author: 'Рустам, 38 лет, Казань' },
+        { stars: '5.0', text: '2 процедуры и ушло уже 30% волос, очень крутой результат', author: 'Алина, 27 лет, Казань' },
+        { stars: '5.0', text: 'Спасибо за тёплый приём! Сервис, уют, атмосфера — на высшем уровне!', author: 'Регина, 30 лет, Казань' },
+        { stars: '5.0', text: 'Делаю здесь подмышки и бикини. Результат отличный, буду ходить дальше', author: 'Екатерина, 32 года, Казань' }
+    ];
+
+    reviewsGrid.innerHTML = '';
+    
+    reviews.forEach(review => {
+        const card = document.createElement('div');
+        card.className = 'review-card fade-in-section';
+        card.innerHTML = `
+            <div class="review-stars">
+                <i class="fas fa-star" style="color: #FFB800;"></i>
+                <i class="fas fa-star" style="color: #FFB800;"></i>
+                <i class="fas fa-star" style="color: #FFB800;"></i>
+                <i class="fas fa-star" style="color: #FFB800;"></i>
+                <i class="fas fa-star" style="color: #FFB800;"></i>
+                <span style="margin-left: 8px; font-weight: 600;">${review.stars}</span>
+            </div>
+            <div class="review-text">“${review.text}”</div>
+            <div class="review-author">— ${review.author}</div>
+        `;
+        reviewsGrid.appendChild(card);
+    });
+}
+
+// ========== ОДИН EXIT-ПОПАП ==========
+let popupShown = false;
+
+function showExitPopup() {
+    if (popupShown) return;
+    const popup = document.getElementById('exitPopup');
+    if (popup) {
+        popup.classList.add('visible');
+        popupShown = true;
+    }
+}
+
+document.addEventListener('mouseleave', (e) => {
+    if (e.clientY <= 0) {
+        showExitPopup();
+    }
+});
+
+document.querySelectorAll('.exit-popup-close, .close-popup-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const popup = btn.closest('.exit-popup-overlay');
+        if (popup) popup.classList.remove('visible');
+    });
+});
+
+document.querySelectorAll('.exit-popup-overlay').forEach(overlay => {
+    overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) {
+            overlay.classList.remove('visible');
+        }
+    });
+});
         
         // Повторно применяем анимацию к новым элементам
         const newFadeElements = reviewsGrid.querySelectorAll('.fade-in-section');

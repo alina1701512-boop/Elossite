@@ -791,6 +791,12 @@ body {
     margin-right: 8px;
 }
 
+.price-full {
+    font-size: 0.75rem;
+    color: var(--color-text-light);
+    margin-bottom: 16px;
+}
+
 /* ========================================
    🎁 АКЦИИ
    ======================================== */

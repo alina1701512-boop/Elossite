@@ -98,53 +98,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     fadeElements.forEach(el => observer.observe(el));
 
-    // ========== 4. ОТЗЫВЫ ==========
-    const reviewsGrid = document.getElementById('reviewsGrid');
-
-    if (reviewsGrid) {
-        const reviews = [
-            { stars: '5.0', text: 'Минусов вообще нет! Комфортная обстановка и располагающий мастер!', author: 'Валерия, 31 год, Казань' },
-            { stars: '5.0', text: 'Хожу уже год, очень нравится мастер Алина, и цена и качество', author: 'Анастасия, 29 лет, Казань' },
-            { stars: '5.0', text: 'Отличное место, комфортный мастер. Приятные цены и интерьер', author: 'Полина, 34 года, Казань' },
-            { stars: '5.0', text: 'Пришла по рекомендации подруги. Очень волновалась, но всё прошло отлично', author: 'Эльмира, 26 лет, Казань' },
-            { stars: '5.0', text: 'Отличная студия, хороший мастер, знающий свою работу', author: 'Ирина, 42 года, Казань' },
-            { stars: '5.0', text: 'Был на лазерной эпиляции, очень всё понравилось. Персонал классный', author: 'Максим, 35 лет, Казань' },
-            { stars: '5.0', text: 'Хожу теперь только к вам! Приятная и уютная атмосфера', author: 'Алёна, 28 лет, Казань' },
-            { stars: '5.0', text: 'Уютная и комфортная студия, мастера профессионалы своего дела', author: 'Татьяна, 37 лет, Казань' },
-            { stars: '5.0', text: 'Корректировал бороду, результатом доволен. Парковка бесплатная', author: 'Искандер, 33 года, Казань' },
-            { stars: '5.0', text: 'Мастер Алина просто супер! Встретила, всё рассказала, очень чисто', author: 'Михаил, 29 лет, Казань' },
-            { stars: '5.0', text: 'Очень боялась, но с 1 процедуры волос попадало больше чем у подруг за 2', author: 'Анастасия, 25 лет, Казань' },
-            { stars: '5.0', text: 'Благодарю мастера Алину за мужскую эпиляцию и непринуждённое общение', author: 'Рустам, 38 лет, Казань' },
-            { stars: '5.0', text: '2 процедуры и ушло уже 30% волос, очень крутой результат', author: 'Алина, 27 лет, Казань' },
-            { stars: '5.0', text: 'Спасибо за тёплый приём! Сервис, уют, атмосфера — на высшем уровне!', author: 'Регина, 30 лет, Казань' },
-            { stars: '5.0', text: 'Делаю здесь подмышки и бикини. Результат отличный, буду ходить дальше', author: 'Екатерина, 32 года, Казань' }
-        ];
-
-        reviewsGrid.innerHTML = '';
-        
-        reviews.forEach(review => {
-            const card = document.createElement('div');
-            card.className = 'review-card fade-in-section';
-            card.innerHTML = `
-                <div class="review-stars">
-                    <i class="fas fa-star" style="color: #FFB800;"></i>
-                    <i class="fas fa-star" style="color: #FFB800;"></i>
-                    <i class="fas fa-star" style="color: #FFB800;"></i>
-                    <i class="fas fa-star" style="color: #FFB800;"></i>
-                    <i class="fas fa-star" style="color: #FFB800;"></i>
-                    <span style="margin-left: 8px; font-weight: 600;">${review.stars}</span>
-                </div>
-                <div class="review-text">“${review.text}”</div>
-                <div class="review-author">— ${review.author}</div>
-            `;
-            reviewsGrid.appendChild(card);
-        });
-        
-        const newFadeElements = reviewsGrid.querySelectorAll('.fade-in-section');
-        newFadeElements.forEach(el => observer.observe(el));
-    }
-
-    // ========== 5. ВЫХОДНОЙ ПОПАП (СКРОЛЛ 50%) ==========
+    // ========== 4. ВЫХОДНОЙ ПОПАП (СКРОЛЛ 50%) ==========
     let popupShown = false;
 
     function showExitPopup() {
@@ -156,7 +110,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Триггер: скролл 50% страницы
     window.addEventListener('scroll', function() {
         if (popupShown) return;
         const scrollPercent = (window.scrollY + window.innerHeight) / document.documentElement.scrollHeight;
@@ -181,7 +134,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // ========== 6. ПЛАВНЫЙ СКРОЛЛ ПО ЯКОРЯМ ==========
+    // ========== 5. ПЛАВНЫЙ СКРОЛЛ ПО ЯКОРЯМ ==========
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
@@ -204,7 +157,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // ========== 7. УМНЫЙ МАРШРУТ (геолокация) ==========
+    // ========== 6. УМНЫЙ МАРШРУТ ==========
     function buildSmartRoute() {
         var destination = "55.792709,49.103627";
         var destinationAddress = "Казань, ул. Московская, 13а";
@@ -224,6 +177,5 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Делаем buildSmartRoute глобальной
     window.buildSmartRoute = buildSmartRoute;
 });

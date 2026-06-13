@@ -131,28 +131,28 @@
 
     <!-- ===== Секция "Знакомо?" ===== -->
     <section id="problem" class="section-padding bg-surface">
-        <div class="container">
-            <h2 class="section-title text-center fade-in-section">Знакомо?</h2>
-            <div class="problems-grid">
-                <div class="problem-card fade-in-section">
-                    <i class="fas fa-cut problem-icon"></i>
-                    <h3>После бритья</h3>
-                    <p>Щетина к вечеру. Вросшие волосы, раздражение. И так — каждый день.</p>
-                </div>
-                <div class="problem-card fade-in-section">
-                    <i class="fas fa-fire problem-icon"></i>
-                    <h3>Шугаринг</h3>
-                    <p>Больно. Нужно отращивать неделю. Летом и в отпуске — невозможно.</p>
-                </div>
-                <div class="problem-card fade-in-section">
-                    <i class="fas fa-laser problem-icon"></i>
-                    <h3>Пробовали лазер</h3>
-                    <p>Обещали «5 сеансов — и всё». А волосы всё равно растут.</p>
-                </div>
+    <div class="container">
+        <h2 class="section-title text-center fade-in-section">Знакомо?</h2>
+        <div class="problems-grid">
+            <div class="problem-card fade-in-section">
+                <div class="problem-icon">😫</div>
+                <h3>После бритья</h3>
+                <p>Щетина к вечеру. Вросшие волосы, раздражение. И так — каждый день.</p>
             </div>
-            <p class="section-subtext text-center fade-in-section">Вы устали. Вы хотите просто носить что угодно, когда угодно.<br>Не думать «успею ли я побриться?», не краснеть при близости.</p>
+            <div class="problem-card fade-in-section">
+                <div class="problem-icon">🔥</div>
+                <h3>Шугаринг</h3>
+                <p>Больно. Нужно отращивать неделю. Летом и в отпуске — невозможно.</p>
+            </div>
+            <div class="problem-card fade-in-section">
+                <div class="problem-icon">❌</div>
+                <h3>Пробовали лазер</h3>
+                <p>Обещали «5 сеансов — и всё». А волосы всё равно растут.</p>
+            </div>
         </div>
-    </section>
+        <p class="section-subtext text-center fade-in-section">Вы устали. Вы хотите просто носить что угодно, когда угодно.<br>Не думать «успею ли я побриться?», не краснеть при близости.</p>
+    </div>
+</section>
 
     <!-- ===== О мастере ===== -->
     <section id="why-us" class="section-padding bg-pastel">
@@ -281,13 +281,13 @@
 
     <!-- ===== ОТЗЫВЫ — обычная сетка (без сотов) ===== -->
     <section id="testimonials" class="section-padding bg-surface">
-        <div class="container">
-            <h2 class="section-title text-center fade-in-section">Они уже забыли о волосах</h2>
-            <div class="reviews-grid" id="reviewsGrid">
-                <!-- отзывы грузятся из JS -->
-            </div>
+    <div class="container">
+        <h2 class="section-title text-center fade-in-section">Они уже забыли о волосах</h2>
+        <div class="reviews-grid" id="reviewsGrid">
+            <!-- отзывы грузятся из JS -->
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- ===== ЦЕНЫ ===== -->
     <section id="pricing" class="section-padding bg-pastel">
@@ -345,11 +345,11 @@
                     <a href="https://dikidi.app/714399?p=0.pi-po-ss-sd-cf-ai&o=2&m=1701055&s=8690938" target="_blank" class="btn btn-primary">Записаться</a>
                 </div>
                 <div class="promo-card fade-in-section">
-                    <i class="fas fa-users"></i>
-                    <h3>Приведи подругу</h3>
-                    <p>Приведите подругу — обе получаете −20% на любой комплекс.</p>
-                    <a href="#contacts" class="btn btn-secondary">Записаться вдвоём</a>
-                </div>
+    <i class="fas fa-users"></i>
+    <h3>Приведи подругу</h3>
+    <p>Приведите подругу — обе получаете −20% на любой комплекс.</p>
+    <a href="https://t.me/+79969005413" target="_blank" class="btn btn-secondary">Записаться вдвоём в Telegram</a>
+</div>
             </div>
         </div>
     </section>
@@ -440,7 +440,16 @@
 <a href="https://dikidi.ru/ru/profile/elos_714399" target="_blank" class="floating-cta" aria-label="Записаться"><i class="fas fa-calendar-alt"></i> Записаться</a>
 
 <!-- Exit popups -->
-<div class="exit-popup-overlay" id="exitPopup1"><div class="exit-popup"><button class="exit-popup-close" id="closePopup1">✕</button><i class="fas fa-mug-hot"></i><h3>Уже уходите?</h3><p>Запишитесь на тест-драйв за 250 ₽ и попробуйте лазер по цене чашки кофе.</p><a href="https://dkd.su/714399/s/22597670" target="_blank" class="btn btn-primary btn-block">Записаться</a><button class="btn-text-link close-popup-btn">Нет, спасибо</button></div></div>
+<div class="exit-popup-overlay" id="exitPopup">
+    <div class="exit-popup">
+        <button class="exit-popup-close" id="closePopup">✕</button>
+        <i class="fas fa-mug-hot"></i>
+        <h3>Уже уходите?</h3>
+        <p>Запишитесь на тест-драйв за <strong>250 ₽</strong> и попробуйте лазер по цене чашки кофе. Без риска.</p>
+        <a href="https://dkd.su/714399/s/22597670" target="_blank" class="btn btn-primary btn-block">Записаться на тест-драйв</a>
+        <button class="btn-text-link close-popup-btn">Нет, спасибо</button>
+    </div>
+</div>
 <div class="exit-popup-overlay" id="exitPopup2"><div class="exit-popup"><button class="exit-popup-close" id="closePopup2">✕</button><i class="fas fa-gift"></i><h3>Специальное предложение</h3><p>Скидка 40% на первый визит для новых клиенток.</p><a href="https://dikidi.app/714399?p=0.pi-po-ss-sd-cf-ai&o=2&m=1701055&s=8690938" target="_blank" class="btn btn-primary btn-block">Записаться</a><button class="btn-text-link close-popup-btn">Нет, спасибо</button></div></div>
 
 <!-- Yandex Metrika -->

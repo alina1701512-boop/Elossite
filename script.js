@@ -201,4 +201,27 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+    // ========== УМНЫЙ МАРШРУТ (геолокация) ==========
+function buildSmartRoute() {
+    // Координаты вашей студии: ул. Московская, 13а, Казань
+    var destination = "55.792709,49.103627";
+    var destinationAddress = "Казань, ул. Московская, 13а";
+    
+    if ("geolocation" in navigator) {
+        navigator.geolocation.getCurrentPosition(
+            function(position) {
+                // Успешно определили местоположение — строим маршрут
+                var from = position.coords.latitude + "," + position.coords.longitude;
+                window.open("https://yandex.ru/maps/?rtext=" + from + "~" + destination + "&rtt=auto", "_blank");
+            },
+            function() {
+                // Пользователь не разрешил геолокацию — показываем карту с адресом
+                window.open("https://yandex.ru/maps/?text=" + encodeURIComponent(destinationAddress), "_blank");
+            }
+        );
+    } else {
+        // Браузер не поддерживает геолокацию
+        window.open("https://yandex.ru/maps/?text=" + encodeURIComponent(destinationAddress), "_blank");
+    }
+}
 });

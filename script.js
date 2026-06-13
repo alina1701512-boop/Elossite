@@ -140,12 +140,11 @@ document.addEventListener('DOMContentLoaded', function() {
             reviewsGrid.appendChild(card);
         });
         
-        // Применяем анимацию к новым отзывам
         const newFadeElements = reviewsGrid.querySelectorAll('.fade-in-section');
         newFadeElements.forEach(el => observer.observe(el));
     }
 
-    // ========== 5. ВЫХОДНОЙ ПОПАП (ОДИН) ==========
+    // ========== 5. ВЫХОДНОЙ ПОПАП (СКРОЛЛ 50%) ==========
     let popupShown = false;
 
     function showExitPopup() {
@@ -157,8 +156,11 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    document.addEventListener('mouseleave', (e) => {
-        if (e.clientY <= 0) {
+    // Триггер: скролл 50% страницы
+    window.addEventListener('scroll', function() {
+        if (popupShown) return;
+        const scrollPercent = (window.scrollY + window.innerHeight) / document.documentElement.scrollHeight;
+        if (scrollPercent > 0.5) {
             showExitPopup();
         }
     });
@@ -201,27 +203,27 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-    // ========== УМНЫЙ МАРШРУТ (геолокация) ==========
-function buildSmartRoute() {
-    // Координаты вашей студии: ул. Московская, 13а, Казань
-    var destination = "55.792709,49.103627";
-    var destinationAddress = "Казань, ул. Московская, 13а";
-    
-    if ("geolocation" in navigator) {
-        navigator.geolocation.getCurrentPosition(
-            function(position) {
-                // Успешно определили местоположение — строим маршрут
-                var from = position.coords.latitude + "," + position.coords.longitude;
-                window.open("https://yandex.ru/maps/?rtext=" + from + "~" + destination + "&rtt=auto", "_blank");
-            },
-            function() {
-                // Пользователь не разрешил геолокацию — показываем карту с адресом
-                window.open("https://yandex.ru/maps/?text=" + encodeURIComponent(destinationAddress), "_blank");
-            }
-        );
-    } else {
-        // Браузер не поддерживает геолокацию
-        window.open("https://yandex.ru/maps/?text=" + encodeURIComponent(destinationAddress), "_blank");
+
+    // ========== 7. УМНЫЙ МАРШРУТ (геолокация) ==========
+    function buildSmartRoute() {
+        var destination = "55.792709,49.103627";
+        var destinationAddress = "Казань, ул. Московская, 13а";
+        
+        if ("geolocation" in navigator) {
+            navigator.geolocation.getCurrentPosition(
+                function(position) {
+                    var from = position.coords.latitude + "," + position.coords.longitude;
+                    window.open("https://yandex.ru/maps/?rtext=" + from + "~" + destination + "&rtt=auto", "_blank");
+                },
+                function() {
+                    window.open("https://yandex.ru/maps/?text=" + encodeURIComponent(destinationAddress), "_blank");
+                }
+            );
+        } else {
+            window.open("https://yandex.ru/maps/?text=" + encodeURIComponent(destinationAddress), "_blank");
+        }
     }
-}
+
+    // Делаем buildSmartRoute глобальной
+    window.buildSmartRoute = buildSmartRoute;
 });

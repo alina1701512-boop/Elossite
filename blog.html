@@ -1,48 +1,196 @@
-<!--/ 📝 Финальная версия: 2026-06-03 / -->
+<!--/ 📝 Финальная версия: 2026-06-13 /-->
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Блог | Elos — Лазерная эпиляция в Казани</title>
-    <meta name="description" content="Полезные статьи о лазерной эпиляции. Уход, подготовка, мифы и правда о процедурах.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Блог | Elos — лазерная эпиляция в Казани</title>
+    <meta name="description" content="Полезные статьи о лазерной эпиляции. Честно о диодном лазере Honkon, сравнение методов, кому подходит процедура.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* Дополнительные стили для блога */
+        .blog-header {
+            background: linear-gradient(135deg, var(--color-pastel) 0%, #fff 100%);
+            padding: 60px 0 40px;
+            text-align: center;
+        }
+        .blog-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .blog-card {
+            background: var(--color-surface);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        .blog-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+        }
+        .blog-card-content {
+            padding: 32px;
+        }
+        .blog-tag {
+            display: inline-block;
+            background: var(--color-pastel);
+            color: var(--color-accent);
+            font-size: 0.7rem;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 16px;
+        }
+        .blog-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+        .blog-title a {
+            color: var(--color-text);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        .blog-title a:hover {
+            color: var(--color-accent);
+        }
+        .blog-excerpt {
+            color: var(--color-text-light);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        .blog-meta {
+            display: flex;
+            gap: 20px;
+            font-size: 0.75rem;
+            color: var(--color-text-light);
+            margin-bottom: 20px;
+        }
+        .blog-meta i {
+            margin-right: 6px;
+            color: var(--color-accent);
+        }
+        .read-more {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--color-accent);
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        .read-more:hover {
+            gap: 12px;
+        }
+        @media (min-width: 768px) {
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
 
     <header class="site-header">
         <div class="container nav-container">
-            <a href="index.html" class="logo" aria-label="Логотип Elos">Elos</a>
-            <nav aria-label="Навигация блога">
+            <a href="index.html" class="logo">Elos</a>
+            <nav>
                 <a href="index.html" class="btn btn-secondary">← Вернуться на сайт</a>
             </nav>
         </div>
     </header>
 
-    <main>
-        <nav class="breadcrumbs" aria-label="Хлебные крошки">
-            <div class="container">
-                <ol>
-                    <li><a href="index.html">Главная</a></li>
-                    <li aria-current="page">Блог</li>
-                </ol>
-            </div>
-        </nav>
+    <div class="blog-header">
+        <div class="container">
+            <h1 class="section-title" style="margin-bottom: 16px;">Блог</h1>
+            <p class="section-subtext" style="margin-bottom: 0;">Полезные статьи о лазерной эпиляции.<br>Честно, без воды, с научным подходом.</p>
+        </div>
+    </div>
 
-        <section class="section-padding bg-surface">
+    <main>
+        <section class="section-padding bg-surface" style="padding-top: 40px;">
             <div class="container">
-                <h1 class="section-title text-center">Блог</h1>
-                <p class="text-center section-subtext">Скоро здесь появятся полезные статьи о лазерной эпиляции.</p>
-                <div style="margin-top: 40px; padding: 60px 20px; background-color: var(--color-pastel); border-radius: var(--radius-lg); text-align: center;">
-                    <p style="font-size: 3rem; margin-bottom: 15px;">📝</p>
-                    <p style="color: var(--color-text-light); font-size: 1.1rem;">Статей пока нет. Загляните позже!</p>
-                </div>
-                <div class="text-center" style="margin-top: 40px;">
-                    <a href="index.html" class="btn btn-primary">← Вернуться на главную</a>
+                <div class="blog-grid">
+
+                    <!-- СТАТЬЯ 1: Честно о диодном лазере Honkon KK1200 -->
+                    <article class="blog-card">
+                        <div class="blog-card-content">
+                            <span class="blog-tag">🔬 Технология</span>
+                            <h2 class="blog-title">
+                                <a href="#article1" onclick="showArticle(1); return false;">Честно о диодном лазере Honkon KK1200</a>
+                            </h2>
+                            <div class="blog-meta">
+                                <span><i class="far fa-calendar-alt"></i> 13 июня 2026</span>
+                                <span><i class="far fa-clock"></i> 5 мин чтения</span>
+                            </div>
+                            <p class="blog-excerpt">
+                                Диодный лазер — это свет, а не радиация. Разбираем главные страхи: вызывает ли рак, 
+                                излучает ли радиацию, почему волосы не уходят за 1 раз.
+                            </p>
+                            <a href="#" onclick="showArticle(1); return false;" class="read-more">Читать статью →</a>
+                        </div>
+                    </article>
+
+                    <!-- СТАТЬЯ 2: Сравнение методов эпиляции -->
+                    <article class="blog-card">
+                        <div class="blog-card-content">
+                            <span class="blog-tag">📊 Сравнение</span>
+                            <h2 class="blog-title">
+                                <a href="#article2" onclick="showArticle(2); return false;">Диодный лазер vs бритва vs шугаринг</a>
+                            </h2>
+                            <div class="blog-meta">
+                                <span><i class="far fa-calendar-alt"></i> 13 июня 2026</span>
+                                <span><i class="far fa-clock"></i> 4 мин чтения</span>
+                            </div>
+                            <p class="blog-excerpt">
+                                Что выгоднее? Что эффективнее? Честное сравнение по критериям: боль, время, деньги, 
+                                результат. Таблица и расчёты.
+                            </p>
+                            <a href="#" onclick="showArticle(2); return false;" class="read-more">Читать статью →</a>
+                        </div>
+                    </article>
+
+                    <!-- СТАТЬЯ 3: Кому подходит лазерная эпиляция -->
+                    <article class="blog-card">
+                        <div class="blog-card-content">
+                            <span class="blog-tag">📋 Рекомендации</span>
+                            <h2 class="blog-title">
+                                <a href="#article3" onclick="showArticle(3); return false;">Кому подходит диодный лазер? А кому нет?</a>
+                            </h2>
+                            <div class="blog-meta">
+                                <span><i class="far fa-calendar-alt"></i> 13 июня 2026</span>
+                                <span><i class="far fa-clock"></i> 3 мин чтения</span>
+                            </div>
+                            <p class="blog-excerpt">
+                                От цвета волос до загара и беременности. Чёткие критерии: когда процедура идеальна, 
+                                когда возможны нюансы, а когда нужна консультация врача.
+                            </p>
+                            <a href="#" onclick="showArticle(3); return false;" class="read-more">Читать статью →</a>
+                        </div>
+                    </article>
+
                 </div>
             </div>
         </section>
     </main>
+
+    <!-- Модальное окно для показа полной статьи -->
+    <div id="articleModal" class="article-modal" style="display: none;">
+        <div class="article-modal-content">
+            <button class="article-modal-close" onclick="closeArticle()">✕</button>
+            <div id="articleContent"></div>
+        </div>
+    </div>
 
     <footer class="site-footer">
         <div class="container footer-content">
@@ -51,5 +199,185 @@
         </div>
     </footer>
 
+    <style>
+        .article-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 10000;
+            overflow-y: auto;
+            padding: 40px 20px;
+        }
+        .article-modal-content {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--color-surface);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            position: relative;
+        }
+        .article-modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--color-text-light);
+        }
+        .article-modal-close:hover {
+            color: var(--color-accent);
+        }
+        @media (max-width: 768px) {
+            .article-modal-content {
+                padding: 24px;
+            }
+        }
+    </style>
+
+    <script>
+        function showArticle(articleId) {
+            const modal = document.getElementById('articleModal');
+            const content = document.getElementById('articleContent');
+            
+            const articles = {
+                1: `
+                    <h1 style="margin-bottom: 16px;">Честно о диодном лазере Honkon KK1200</h1>
+                    <p style="color: var(--color-text-light); margin-bottom: 24px;">13 июня 2026 · 5 мин чтения</p>
+                    
+                    <h3>🔬 Это свет, а не радиация</h3>
+                    <p>Диодный лазер Honkon KK1200 излучает свет определённой длины волны — 808 нм. Такой же принцип, как у светодиодной лампы или лазерной указки. <strong>Никакого ионизирующего излучения</strong> — это физический факт.</p>
+                    
+                    <h3>🛡️ Не вызывает рак кожи</h3>
+                    <p>Лазер воздействует только на волосяной фолликул, не проникая в глубокие слои кожи. Мировая дерматологическая ассоциация подтверждает: риск отсутствует при правильном использовании.</p>
+                    
+                    <h3>📈 Почему нужен курс процедур</h3>
+                    <p>Волосы растут циклами. За одну процедуру лазер «видит» только те волосы, которые находятся в активной фазе роста (анаген). Их около 20-30% в любой момент времени. Чтобы обработать все фолликулы, нужно 6-10 сеансов с интервалом 6-8 недель.</p>
+                    
+                    <h3>⚡ Безопасно даже для чувствительной кожи</h3>
+                    <p>Honkon KK1200 имеет встроенную систему охлаждения сапфировым наконечником. Это делает процедуру комфортной даже на зоне глубокого бикини.</p>
+                    
+                    <div style="background: var(--color-pastel); padding: 20px; border-radius: 16px; margin: 24px 0;">
+                        <p><strong>💡 Коротко:</strong> Диодный лазер — это безопасная технология. Боитесь — напишите мне в Telegram, отвечу на любые вопросы.</p>
+                    </div>
+                    
+                    <a href="https://dikidi.ru/ru/profile/elos_714399" target="_blank" class="btn btn-primary" style="margin-top: 16px;">Записаться на консультацию</a>
+                `,
+                2: `
+                    <h1 style="margin-bottom: 16px;">Диодный лазер vs бритва vs шугаринг</h1>
+                    <p style="color: var(--color-text-light); margin-bottom: 24px;">13 июня 2026 · 4 мин чтения</p>
+                    
+                    <div style="overflow-x: auto;">
+                        <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+                            <tr style="background: var(--color-accent); color: #fff;">
+                                <th style="padding: 12px; text-align: left;">Критерий</th>
+                                <th style="padding: 12px; text-align: left;">Диодный лазер</th>
+                                <th style="padding: 12px; text-align: left;">Бритва</th>
+                                <th style="padding: 12px; text-align: left;">Шугаринг</th>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #eee;">
+                                <td style="padding: 12px;">Результат</td>
+                                <td style="padding: 12px;">✅ 80-95% волос уходит навсегда</td>
+                                <td style="padding: 12px;">❌ Щетина через 1-2 дня</td>
+                                <td style="padding: 12px;">❌ Гладкость 1-2 недели</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #eee;">
+                                <td style="padding: 12px;">Боль</td>
+                                <td style="padding: 12px;">⭐ Лёгкое пощипывание</td>
+                                <td style="padding: 12px;">⭐ Нет</td>
+                                <td style="padding: 12px;">⭐⭐⭐⭐ Болезненно</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #eee;">
+                                <td style="padding: 12px;">Нужно отращивать</td>
+                                <td style="padding: 12px;">✅ Нет</td>
+                                <td style="padding: 12px;">✅ Нет</td>
+                                <td style="padding: 12px;">❌ 3-5 мм</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #eee;">
+                                <td style="padding: 12px;">Вросшие волосы</td>
+                                <td style="padding: 12px;">✅ Исчезают</td>
+                                <td style="padding: 12px;">❌ Часто</td>
+                                <td style="padding: 12px;">❌ Часто</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 12px;">Экономия за 5 лет*</td>
+                                <td style="padding: 12px;">💎 24 000 ₽</td>
+                                <td style="padding: 12px;">📉 48 000 ₽</td>
+                                <td style="padding: 12px;">📉 98 000 ₽</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <p style="font-size: 0.75rem; color: var(--color-text-light);">*Расчёт для зоны «подмышки + бикини + голени»</p>
+                    
+                    <h3>🎯 Вердикт</h3>
+                    <p>Лазер проигрывает по цене в моменте, но выигрывает по результату и экономии через 2-3 года. А ещё — вы перестаёте думать о волосах. Это, пожалуй, главное.</p>
+                    
+                    <a href="https://dikidi.ru/ru/profile/elos_714399" target="_blank" class="btn btn-primary" style="margin-top: 16px;">Записаться на процедуру</a>
+                `,
+                3: `
+                    <h1 style="margin-bottom: 16px;">Кому подходит диодный лазер? А кому нет?</h1>
+                    <p style="color: var(--color-text-light); margin-bottom: 24px;">13 июня 2026 · 3 мин чтения</p>
+                    
+                    <div style="background: #E8F5E9; padding: 20px; border-radius: 16px; margin: 20px 0;">
+                        <h3 style="color: #2E7D32;">✅ Подходит отлично</h3>
+                        <ul style="margin-top: 10px;">
+                            <li>Тёмные волосы (чёрные, каштановые, русые)</li>
+                            <li>Светлая и смуглая кожа (до загара)</li>
+                            <li>Все зоны: ноги, подмышки, бикини, руки, спина</li>
+                            <li>Мужчины (борода, спина, плечи)</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="background: #FFF3E0; padding: 20px; border-radius: 16px; margin: 20px 0;">
+                        <h3 style="color: #E86A3B;">⚠️ Результат будет, но дольше</h3>
+                        <ul style="margin-top: 10px;">
+                            <li>Светлые / рыжие / седые волосы</li>
+                            <li>Загорелая кожа (нужно ждать 2 недели)</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="background: #FFEBEE; padding: 20px; border-radius: 16px; margin: 20px 0;">
+                        <h3 style="color: #C62828;">🩺 Проконсультируйтесь с врачом</h3>
+                        <ul style="margin-top: 10px;">
+                            <li>Беременность и кормление грудью</li>
+                            <li>Онкология (в т.ч. в ремиссии)</li>
+                            <li>Приём фотосенсибилизирующих препаратов</li>
+                            <li>Сахарный диабет (тяжёлая форма)</li>
+                            <li>Герпес в активной фазе</li>
+                        </ul>
+                    </div>
+                    
+                    <p>Если сомневаетесь — <strong>напишите мне в Telegram</strong>. Я честно скажу, подходит ли вам процедура. Без воды и навязывания.</p>
+                    
+                    <div style="display: flex; gap: 16px; margin-top: 24px; flex-wrap: wrap;">
+                        <a href="https://dikidi.ru/ru/profile/elos_714399" target="_blank" class="btn btn-primary">Записаться</a>
+                        <a href="https://t.me/+79969005413" target="_blank" class="btn btn-secondary">Спросить в Telegram</a>
+                    </div>
+                `
+            };
+            
+            content.innerHTML = articles[articleId];
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeArticle() {
+            const modal = document.getElementById('articleModal');
+            modal.style.display = 'none';
+            document.body.style.overflow = '';
+        }
+        
+        // Закрытие по клику вне окна
+        window.onclick = function(event) {
+            const modal = document.getElementById('articleModal');
+            if (event.target === modal) {
+                closeArticle();
+            }
+        }
+    </script>
 </body>
 </html>

@@ -257,6 +257,18 @@ body {
     color: var(--color-accent);
 }
 
+.slide-menu__panel .nav-link-phone {
+    color: var(--color-accent) !important;
+    font-weight: 700;
+    display: block;
+    padding: 8px 0;
+    font-size: 1.1rem;
+}
+
+.slide-menu__panel .nav-link-phone i {
+    margin-right: 8px;
+}
+
 .slide-menu__panel .nav-link-cta {
     background-color: var(--color-accent);
     color: #fff !important;
@@ -1189,6 +1201,22 @@ body {
         color: var(--color-accent);
     }
     
+    .nav-link-phone {
+        color: var(--color-accent) !important;
+        font-weight: 700;
+        white-space: nowrap;
+    }
+    
+    .nav-link-phone:hover {
+        color: var(--color-accent-hover) !important;
+        text-decoration: underline;
+    }
+    
+    .nav-link-phone i {
+        margin-right: 6px;
+        font-size: 0.8rem;
+    }
+    
     .main-nav .nav-link-cta {
         background: var(--color-accent);
         color: #fff;
@@ -1263,6 +1291,7 @@ body {
     box-shadow: var(--shadow);
     transition: var(--transition);
     text-align: center;
+    cursor: pointer;
 }
 
 .blog-preview-card:hover {
@@ -1310,59 +1339,8 @@ body {
 }
 
 /* ========================================
-   БЛОК ПРЕВЬЮ БЛОГА (на главной)
+   📖 МОДАЛЬНОЕ ОКНО СТАТЕЙ
    ======================================== */
-.blog-preview-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 24px;
-    margin-top: 20px;
-}
-
-.blog-preview-card {
-    background: var(--color-surface);
-    border-radius: var(--radius-md);
-    padding: 24px;
-    box-shadow: var(--shadow);
-    transition: var(--transition);
-    text-align: center;
-    cursor: pointer;
-}
-
-.blog-preview-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-hover);
-}
-
-.blog-preview-tag {
-    display: inline-block;
-    background: var(--color-pastel);
-    color: var(--color-accent);
-    font-size: 0.7rem;
-    padding: 4px 12px;
-    border-radius: 20px;
-    margin-bottom: 16px;
-}
-
-.blog-preview-card h3 {
-    font-size: 1.1rem;
-    margin-bottom: 12px;
-}
-
-.blog-preview-card p {
-    font-size: 0.85rem;
-    color: var(--color-text-light);
-    margin-bottom: 16px;
-}
-
-@media (min-width: 768px) {
-    .blog-preview-grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 30px;
-    }
-}
-
-/* Модальное окно для статей */
 .article-modal {
     position: fixed;
     top: 0;

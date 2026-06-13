@@ -409,45 +409,6 @@
 </div>
 
 <script>
-    // Подключаем статьи
-    if (typeof ARTICLES !== 'undefined') {
-        // Отрисовка карточек
-        const grid = document.getElementById('blogPreviewGrid');
-        if (grid) {
-            for (let id = 1; id <= 3; id++) {
-                const article = ARTICLES[id];
-                const card = document.createElement('div');
-                card.className = 'blog-preview-card';
-                card.onclick = () => openArticleModal(id);
-                card.innerHTML = `
-                    <span class="blog-preview-tag">${article.tag}</span>
-                    <h3>${article.title}</h3>
-                    <p>${article.excerpt}</p>
-                `;
-                grid.appendChild(card);
-            }
-        }
-    }
-    
-    function openArticleModal(articleId) {
-        const article = ARTICLES[articleId];
-        if (article) {
-            document.getElementById('articleModalContent').innerHTML = article.fullContent;
-            document.getElementById('articleModal').style.display = 'block';
-            document.body.style.overflow = 'hidden';
-        }
-    }
-    
-    window.closeArticleModal = function() {
-        document.getElementById('articleModal').style.display = 'none';
-        document.body.style.overflow = '';
-    };
-    
-    window.onclick = function(event) {
-        const modal = document.getElementById('articleModal');
-        if (event.target === modal) closeArticleModal();
-    };
-</script>
     
     <!-- ===== FAQ (аккордеон) ===== -->
     <section id="faq" class="section-padding bg-pastel">
@@ -550,7 +511,6 @@
 <script type="text/javascript">(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,'script','https://mc.yandex.ru/metrika/tag.js','ym');ym(109650228,'init',{clickmap:true,trackLinks:true,accurateTrackBounce:true,webvisor:true});</script>
 <noscript><div><img src="https://mc.yandex.ru/watch/109650228" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 
-<script src="articles.js"></script>
 <script src="script.js"></script>
 </body>
 </html>

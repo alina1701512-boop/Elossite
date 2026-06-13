@@ -381,34 +381,51 @@ body {
 }
 
 /* ========================================
-   📊 TRUST BAR (сокращён до 8 пунктов)
+   📊 TRUST BAR (без анимации, статичный ряд)
    ======================================== */
 .trust-bar {
     background-color: var(--color-text);
     color: #fff;
     padding: 12px 0;
-    overflow: hidden;
+    overflow-x: auto;
     white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+}
+
+.trust-bar::-webkit-scrollbar {
+    display: none;
 }
 
 .trust-bar__inner {
-    display: inline-block;
-    animation: scroll 20s linear infinite;
+    display: inline-flex;
+    gap: 32px;
+    padding: 0 20px;
 }
 
 .trust-bar__inner span {
-    margin: 0 24px;
     font-size: 0.8rem;
     font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
 }
 
 .trust-bar__inner i {
-    margin-right: 6px;
+    font-size: 0.9rem;
 }
 
-@keyframes scroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+/* На десктопе — без скролла, всё помещается */
+@media (min-width: 1024px) {
+    .trust-bar {
+        overflow-x: visible;
+    }
+    .trust-bar__inner {
+        justify-content: center;
+        flex-wrap: wrap;
+        white-space: normal;
+        gap: 24px;
+    }
 }
 
 /* ========================================

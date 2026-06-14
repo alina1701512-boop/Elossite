@@ -581,7 +581,7 @@
     </div>
 </div>
 
-<!-- Yandex Metrika (отложенная загрузка) -->
+<!-- Yandex Metrika -->
 <script type="text/javascript">
 (function(m,e,t,r,i,k,a){
     m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
@@ -593,10 +593,13 @@ ym(109650228,'init',{
     clickmap:true,
     trackLinks:true,
     accurateTrackBounce:true,
-    webvisor:false
+    webvisor:true,
+    triggerEvent:true
 });
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/109650228" style="position:absolute; left:-9999px;" alt=""></div></noscript>
-<script src="script.js"></script>
+ <script>
+ym(109650228, 'replacePhones');
+</script>   
 </body>
 </html>

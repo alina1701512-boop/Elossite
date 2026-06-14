@@ -1093,45 +1093,6 @@ body {
 }
 
 /* ========================================
-   📨 ПРЯМАЯ ФОРМА В TELEGRAM
-   ======================================== */
-.direct-form {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.form-input {
-    width: 100%;
-    padding: 14px 16px;
-    border: 1.5px solid #E0E0E0;
-    border-radius: var(--radius-sm);
-    font-family: inherit;
-    font-size: 0.9rem;
-    background: var(--color-surface);
-    transition: var(--transition);
-}
-
-.form-input:focus {
-    outline: none;
-    border-color: var(--color-accent);
-    box-shadow: 0 0 0 3px rgba(232, 106, 59, 0.1);
-}
-
-.form-textarea {
-    resize: vertical;
-    min-height: 60px;
-}
-
-.backup-form {
-    transition: var(--transition);
-}
-
-.backup-form:hover {
-    border-color: var(--color-accent);
-}
-
-/* ========================================
    📞 ПОДВАЛ
    ======================================== */
 .site-footer {

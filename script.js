@@ -111,8 +111,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     fadeElements.forEach(el => observer.observe(el));
 
-    // ========== 5. ВЫХОДНОЙ ПОПАП (ТОЛЬКО ДЕСКТОП ≥768px) ==========
+        // ========== 5. ВЫХОДНОЙ ПОПАП (ТОЛЬКО ДЕСКТОП ≥768px, mouseleave) ==========
     let popupShown = false;
+    let exitIntentListenerAdded = false;
 
     function showExitPopup() {
         if (popupShown) return;
@@ -124,16 +125,31 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    window.addEventListener('scroll', function() {
-        if (popupShown) return;
+    // Добавляем детект ухода мыши ТОЛЬКО на десктопе
+    function initExitIntent() {
+        if (exitIntentListenerAdded) return;
         if (window.innerWidth < 768) return;
-        const scrollPercent = (window.scrollY + window.innerHeight) / document.documentElement.scrollHeight;
-        if (scrollPercent > 0.5) {
-            showExitPopup();
+        
+        document.addEventListener('mouseleave', function(e) {
+            if (e.clientY <= 0 && !popupShown) {
+                showExitPopup();
+            }
+        });
+        
+        exitIntentListenerAdded = true;
+    }
+
+    // Запускаем при загрузке
+    initExitIntent();
+
+    // Переинициализируем при изменении размера окна (если стало десктопом)
+    window.addEventListener('resize', function() {
+        if (window.innerWidth >= 768 && !exitIntentListenerAdded) {
+            initExitIntent();
         }
     });
 
-    // Закрытие попапов
+    // Закрытие попапов (оставляем как было)
     document.querySelectorAll('.exit-popup-close, .close-popup-btn').forEach(btn => {
         btn.addEventListener('click', () => {
             const popup = btn.closest('.exit-popup-overlay');

@@ -42,36 +42,37 @@ body {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 16px;
 }
 
+/* Базовые паддинги секций (для M-диапазона 375-413px) */
 .section-padding {
-    padding: 48px 0;
+    padding: 44px 0;
 }
 
 .section-title {
-    font-size: 1.75rem;
+    font-size: 1.65rem;
     font-weight: 700;
     text-align: center;
-    margin-bottom: 36px;
+    margin-bottom: 32px;
     letter-spacing: -0.02em;
 }
 
 .section-title::after {
     content: '';
     display: block;
-    width: 56px;
+    width: 48px;
     height: 3px;
     background: var(--color-accent);
-    margin: 14px auto 0;
+    margin: 12px auto 0;
     border-radius: 3px;
 }
 
 .section-subtext {
     text-align: center;
     color: var(--color-text-light);
-    margin-bottom: 32px;
-    font-size: 0.95rem;
+    margin-bottom: 28px;
+    font-size: 0.9rem;
 }
 
 .bg-pastel {
@@ -91,11 +92,11 @@ body {
    ======================================== */
 .btn {
     display: inline-block;
-    padding: 14px 28px;
+    padding: 13px 24px;
     border-radius: var(--radius-sm);
     text-decoration: none;
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     text-align: center;
     cursor: pointer;
     transition: var(--transition);
@@ -130,13 +131,13 @@ body {
 }
 
 .btn-lg {
-    padding: 16px 36px;
-    font-size: 1rem;
+    padding: 15px 32px;
+    font-size: 0.95rem;
 }
 
 .btn-sm {
-    padding: 10px 20px;
-    font-size: 0.8rem;
+    padding: 9px 18px;
+    font-size: 0.78rem;
 }
 
 .btn-block {
@@ -145,15 +146,15 @@ body {
 }
 
 .btn-large {
-    padding: 18px 32px;
-    font-size: 1.1rem;
+    padding: 16px 28px;
+    font-size: 1rem;
 }
 
 .btn-text-link {
     background: none;
     border: none;
     color: var(--color-text-light);
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     text-decoration: underline;
     padding: 0;
 }
@@ -167,8 +168,8 @@ body {
    ======================================== */
 .burger-menu {
     position: fixed;
-    top: 18px;
-    right: 20px;
+    top: 16px;
+    right: 16px;
     z-index: 10001;
     background: none;
     border: none;
@@ -181,7 +182,7 @@ body {
 
 .burger-menu span {
     display: block;
-    width: 24px;
+    width: 22px;
     height: 2px;
     background-color: var(--color-text);
     transition: var(--transition);
@@ -222,11 +223,11 @@ body {
     position: absolute;
     top: 0;
     right: 0;
-    width: 280px;
+    width: 270px;
     height: 100%;
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(12px);
-    padding: 80px 25px 30px;
+    padding: 70px 22px 30px;
     transform: translateX(100%);
     transition: transform 0.3s ease;
     box-shadow: -5px 0 25px rgba(0, 0, 0, 0.1);
@@ -241,16 +242,16 @@ body {
 }
 
 .slide-menu__panel ul li {
-    margin-bottom: 16px;
+    margin-bottom: 14px;
 }
 
 .slide-menu__panel ul li a {
     text-decoration: none;
     color: var(--color-text);
     font-weight: 600;
-    font-size: 1.05rem;
+    font-size: 1rem;
     display: block;
-    padding: 8px 0;
+    padding: 7px 0;
     transition: var(--transition);
 }
 
@@ -270,10 +271,10 @@ body {
 .slide-menu__panel .nav-link-cta {
     background-color: var(--color-accent);
     color: #fff !important;
-    padding: 12px 18px;
+    padding: 11px 16px;
     border-radius: var(--radius-sm);
     text-align: center;
-    margin-top: 20px;
+    margin-top: 18px;
 }
 
 /* Десктопное меню */
@@ -282,7 +283,7 @@ body {
 }
 
 .site-header {
-    padding: 14px 0;
+    padding: 12px 0;
     background-color: rgba(255, 255, 255, 0.5);
     backdrop-filter: blur(12px);
     position: sticky;
@@ -292,7 +293,7 @@ body {
 }
 
 .logo {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-weight: 800;
     color: var(--color-accent);
     text-decoration: none;
@@ -309,63 +310,63 @@ body {
    🎯 HERO
    ======================================== */
 .hero-section {
-    padding: 40px 0 48px;
+    padding: 36px 0 40px;
 }
 
 .hero-grid {
     display: flex;
     flex-direction: column;
-    gap: 28px;
+    gap: 24px;
 }
 
 .hero-trust-badge {
     display: flex;
     flex-wrap: wrap;
-    gap: 12px;
-    margin-bottom: 16px;
+    gap: 10px;
+    margin-bottom: 14px;
 }
 
 .hero-trust-badge span {
     background: #F0F0F0;
-    padding: 5px 12px;
+    padding: 4px 10px;
     border-radius: 30px;
-    font-size: 0.7rem;
+    font-size: 0.68rem;
     font-weight: 500;
     color: var(--color-text-light);
 }
 
 .hero-title {
-    font-size: 1.7rem;
+    font-size: 1.55rem;
     font-weight: 800;
     line-height: 1.2;
-    margin-bottom: 14px;
+    margin-bottom: 12px;
     letter-spacing: -0.02em;
 }
 
 .hero-description {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     color: var(--color-text-light);
-    margin-bottom: 24px;
+    margin-bottom: 22px;
 }
 
 .hero-buttons {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 18px;
 }
 
 .hero-meta {
     display: flex;
     flex-wrap: wrap;
-    gap: 16px;
-    font-size: 0.75rem;
+    gap: 14px;
+    font-size: 0.72rem;
     color: var(--color-text-light);
 }
 
 .hero-meta i, .hero-meta a i {
     color: var(--color-accent);
-    margin-right: 6px;
+    margin-right: 5px;
 }
 
 .hero-map-link {
@@ -380,7 +381,7 @@ body {
 .hero-photo {
     display: none;
     width: 100%;
-    max-width: 340px;
+    max-width: 300px;
     border-radius: var(--radius-lg);
     object-fit: cover;
     box-shadow: var(--shadow);
@@ -389,19 +390,15 @@ body {
 /* ========================================
    👣 ШАГИ К ПЕРВОЙ ПРОЦЕДУРЕ
    ======================================== */
-.steps-section {
-    padding: 48px 0;
-}
-
 .steps-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 20px;
+    gap: 16px;
 }
 
 .step-card {
     text-align: center;
-    padding: 24px 16px;
+    padding: 22px 14px;
     background: var(--color-surface);
     border-radius: var(--radius-md);
     box-shadow: var(--shadow);
@@ -419,12 +416,12 @@ body {
     top: -10px;
     left: 50%;
     transform: translateX(-50%);
-    width: 28px;
-    height: 28px;
+    width: 26px;
+    height: 26px;
     background: var(--color-accent);
     color: #fff;
     border-radius: 50%;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     font-weight: 700;
     display: flex;
     align-items: center;
@@ -432,18 +429,18 @@ body {
 }
 
 .step-icon {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     color: var(--color-accent);
-    margin: 16px 0 10px;
+    margin: 14px 0 8px;
 }
 
 .step-card h3 {
-    font-size: 0.95rem;
-    margin-bottom: 6px;
+    font-size: 0.9rem;
+    margin-bottom: 4px;
 }
 
 .step-card p {
-    font-size: 0.78rem;
+    font-size: 0.73rem;
     color: var(--color-text-light);
 }
 
@@ -453,7 +450,7 @@ body {
 .trust-bar {
     background-color: var(--color-text);
     color: #fff;
-    padding: 10px 0;
+    padding: 9px 0;
     overflow-x: auto;
     white-space: nowrap;
     -webkit-overflow-scrolling: touch;
@@ -466,16 +463,16 @@ body {
 
 .trust-bar__inner {
     display: inline-flex;
-    gap: 28px;
-    padding: 0 20px;
+    gap: 24px;
+    padding: 0 16px;
 }
 
 .trust-bar__inner span {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     font-weight: 500;
     display: inline-flex;
     align-items: center;
-    gap: 6px;
+    gap: 5px;
 }
 
 /* ========================================
@@ -484,12 +481,12 @@ body {
 .problems-grid {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 14px;
 }
 
 .problem-card {
     background: var(--color-surface);
-    padding: 20px;
+    padding: 18px;
     border-radius: var(--radius-md);
     box-shadow: var(--shadow);
     text-align: center;
@@ -502,25 +499,25 @@ body {
 }
 
 .problem-icon {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     color: var(--color-accent);
-    margin-bottom: 12px;
+    margin-bottom: 10px;
 }
 
 .problem-card h3 {
-    font-size: 1rem;
-    margin-bottom: 6px;
+    font-size: 0.95rem;
+    margin-bottom: 5px;
 }
 
 .problem-card p {
-    font-size: 0.8rem;
+    font-size: 0.76rem;
     color: var(--color-text-light);
 }
 
 .section-subtext {
-    margin-top: 28px;
+    margin-top: 24px;
     text-align: center;
-    font-size: 0.85rem;
+    font-size: 0.82rem;
     color: var(--color-text-light);
 }
 
@@ -530,12 +527,12 @@ body {
 .how-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 16px;
 }
 
 .how-card {
     text-align: center;
-    padding: 24px 20px;
+    padding: 22px 18px;
     background: var(--color-surface);
     border-radius: var(--radius-md);
     box-shadow: var(--shadow);
@@ -548,18 +545,18 @@ body {
 }
 
 .how-icon {
-    font-size: 2rem;
+    font-size: 1.8rem;
     color: var(--color-accent);
-    margin-bottom: 12px;
+    margin-bottom: 10px;
 }
 
 .how-card h3 {
-    font-size: 1rem;
-    margin-bottom: 8px;
+    font-size: 0.95rem;
+    margin-bottom: 6px;
 }
 
 .how-card p {
-    font-size: 0.8rem;
+    font-size: 0.76rem;
     color: var(--color-text-light);
     line-height: 1.5;
 }
@@ -570,8 +567,8 @@ body {
 .master-card {
     background: var(--color-surface);
     border-radius: var(--radius-lg);
-    padding: 24px;
-    margin-bottom: 32px;
+    padding: 20px;
+    margin-bottom: 28px;
     box-shadow: var(--shadow);
     border: 1px solid rgba(232, 106, 59, 0.2);
 }
@@ -581,73 +578,73 @@ body {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 18px;
+    gap: 16px;
 }
 
 .master-card-photo {
-    width: 110px;
-    height: 110px;
+    width: 90px;
+    height: 90px;
     border-radius: 50%;
     object-fit: cover;
     border: 3px solid var(--color-accent);
 }
 
 .master-card-info h3 {
-    font-size: 1.2rem;
-    margin-bottom: 6px;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
 }
 
 .master-card-info p {
     color: var(--color-text-light);
-    margin-bottom: 14px;
-    font-size: 0.85rem;
+    margin-bottom: 12px;
+    font-size: 0.8rem;
 }
 
 .master-features {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 14px;
-    margin-top: 10px;
+    gap: 12px;
+    margin-top: 8px;
 }
 
 .master-features span {
-    font-size: 0.78rem;
+    font-size: 0.73rem;
     color: var(--color-text-light);
 }
 
 .master-features i {
     color: var(--color-success);
-    margin-right: 5px;
+    margin-right: 4px;
 }
 
 .why-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 16px;
 }
 
 .why-item {
     text-align: center;
-    padding: 20px 16px;
+    padding: 18px 14px;
     background: var(--color-surface);
     border-radius: var(--radius-md);
     box-shadow: var(--shadow);
 }
 
 .why-icon {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     color: var(--color-accent);
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 .why-item h3 {
-    font-size: 0.95rem;
-    margin-bottom: 6px;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
 }
 
 .why-item p {
-    font-size: 0.78rem;
+    font-size: 0.74rem;
     color: var(--color-text-light);
 }
 
@@ -657,7 +654,7 @@ body {
 .beforeafter-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 16px;
 }
 
 .beforeafter-card {
@@ -684,27 +681,27 @@ body {
 }
 
 .beforeafter-info {
-    padding: 14px;
+    padding: 12px;
     text-align: center;
 }
 
 .beforeafter-info p {
-    font-size: 0.85rem;
-    margin-bottom: 6px;
+    font-size: 0.8rem;
+    margin-bottom: 5px;
 }
 
 .beforeafter-badge {
     display: inline-block;
     background: var(--color-pastel);
     color: var(--color-accent);
-    padding: 4px 12px;
+    padding: 3px 10px;
     border-radius: 20px;
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     font-weight: 600;
 }
 
 .text-small {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     opacity: 0.7;
 }
 
@@ -723,9 +720,9 @@ body {
 .pain-row {
     display: grid;
     grid-template-columns: 1fr 1.5fr 0.6fr;
-    padding: 12px 14px;
+    padding: 11px 12px;
     border-bottom: 1px solid #eee;
-    font-size: 0.82rem;
+    font-size: 0.78rem;
 }
 
 .pain-row--header {
@@ -735,15 +732,15 @@ body {
 }
 
 .pain-note {
-    margin-top: 20px;
+    margin-top: 18px;
     text-align: center;
-    font-size: 0.8rem;
+    font-size: 0.76rem;
     color: var(--color-text-light);
 }
 
 .pain-note i {
     color: var(--color-accent);
-    margin-right: 6px;
+    margin-right: 5px;
 }
 
 /* ========================================
@@ -752,13 +749,13 @@ body {
 .reviews-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 16px;
+    gap: 14px;
 }
 
 .review-card {
     background: var(--color-surface);
     border-radius: var(--radius-md);
-    padding: 18px;
+    padding: 16px;
     box-shadow: var(--shadow);
     transition: var(--transition);
 }
@@ -769,25 +766,25 @@ body {
 }
 
 .review-stars {
-    font-size: 0.85rem;
-    margin-bottom: 10px;
+    font-size: 0.8rem;
+    margin-bottom: 8px;
     color: var(--color-star);
 }
 
 .review-stars span {
     color: var(--color-text-light);
-    font-size: 0.75rem;
+    font-size: 0.7rem;
 }
 
 .review-text {
-    font-size: 0.82rem;
+    font-size: 0.78rem;
     color: var(--color-text);
     line-height: 1.5;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 .review-author {
-    font-size: 0.7rem;
+    font-size: 0.66rem;
     color: var(--color-text-light);
     font-weight: 600;
 }
@@ -798,13 +795,13 @@ body {
 .pricing-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 18px;
-    margin-bottom: 32px;
+    gap: 16px;
+    margin-bottom: 28px;
 }
 
 .price-card {
     background: var(--color-surface);
-    padding: 22px 16px;
+    padding: 20px 14px;
     border-radius: var(--radius-md);
     text-align: center;
     box-shadow: var(--shadow);
@@ -824,72 +821,83 @@ body {
 
 .badge {
     position: absolute;
-    top: -12px;
+    top: -11px;
     left: 50%;
     transform: translateX(-50%);
     background: var(--color-accent);
     color: #fff;
-    font-size: 0.7rem;
-    padding: 4px 12px;
+    font-size: 0.65rem;
+    padding: 3px 10px;
     border-radius: 30px;
     white-space: nowrap;
 }
 
 .price-zone-label {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     font-weight: 700;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 .price-new {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     font-weight: 800;
     color: var(--color-accent);
-    margin: 6px 0;
+    margin: 5px 0;
 }
 
 .badge-sale {
     display: inline-block;
     background: #FFF0EB;
     color: var(--color-accent);
-    padding: 4px 12px;
+    padding: 3px 10px;
     border-radius: 20px;
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     font-weight: 600;
-    margin-bottom: 14px;
+    margin-bottom: 12px;
 }
 
 .price-full {
-    font-size: 0.72rem;
+    font-size: 0.68rem;
     color: var(--color-text-light);
-    margin-bottom: 14px;
+    margin-bottom: 12px;
 }
 
 .pricing-info {
-    margin-top: 28px;
+    margin-top: 24px;
     text-align: center;
 }
 
-.pricing-info p {
-    font-size: 0.78rem;
-    color: var(--color-text-light);
-    margin-bottom: 6px;
+.pricing-info--compact {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px 12px;
+    text-align: left;
+    max-width: 480px;
+    margin: 20px auto 0;
 }
 
-.pricing-info i {
+.pricing-info p,
+.pricing-info--compact p {
+    font-size: 0.73rem;
+    color: var(--color-text-light);
+    margin-bottom: 0;
+}
+
+.pricing-info i,
+.pricing-info--compact i {
     color: var(--color-success);
-    margin-right: 6px;
+    margin-right: 5px;
 }
 
 .promo-grid {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 16px;
 }
 
 .promo-card {
     background: var(--color-surface);
-    padding: 24px 18px;
+    padding: 22px 16px;
     border-radius: var(--radius-md);
     text-align: center;
     box-shadow: var(--shadow);
@@ -909,31 +917,53 @@ body {
 .promo-card.featured::before {
     content: '🔥 Выгодно';
     position: absolute;
-    top: -12px;
+    top: -11px;
     left: 50%;
     transform: translateX(-50%);
     background: var(--color-accent);
     color: #fff;
-    font-size: 0.7rem;
-    padding: 4px 14px;
+    font-size: 0.65rem;
+    padding: 3px 12px;
     border-radius: 30px;
 }
 
 .promo-card i {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     color: var(--color-accent);
-    margin-bottom: 14px;
+    margin-bottom: 12px;
 }
 
 .promo-card h3 {
-    font-size: 1rem;
-    margin-bottom: 8px;
+    font-size: 0.95rem;
+    margin-bottom: 7px;
 }
 
 .promo-card p {
-    font-size: 0.8rem;
+    font-size: 0.76rem;
     color: var(--color-text-light);
-    margin-bottom: 18px;
+    margin-bottom: 16px;
+}
+
+/* Плашка "Приведи подругу" */
+.referral-banner-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    background: var(--color-surface);
+    border-radius: var(--radius-md);
+    padding: 18px 16px;
+    box-shadow: var(--shadow);
+    text-align: center;
+}
+
+.referral-banner-inner i {
+    font-size: 1.4rem;
+    color: var(--color-accent);
+}
+
+.referral-banner-inner span {
+    font-size: 0.78rem;
 }
 
 /* ========================================
@@ -958,10 +988,10 @@ body {
     text-align: left;
     background: none;
     border: none;
-    padding: 16px 0;
+    padding: 14px 0;
     font-family: inherit;
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     cursor: pointer;
     display: flex;
     justify-content: space-between;
@@ -979,7 +1009,7 @@ body {
 
 .faq-question::after {
     content: '+';
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: var(--color-accent);
 }
 
@@ -994,8 +1024,8 @@ body {
 }
 
 .faq-answer p {
-    padding-bottom: 16px;
-    font-size: 0.82rem;
+    padding-bottom: 14px;
+    font-size: 0.78rem;
     color: var(--color-text-light);
     line-height: 1.5;
 }
@@ -1004,55 +1034,55 @@ body {
    📍 КОНТАКТЫ
    ======================================== */
 .contacts-section {
-    padding: 48px 0;
+    padding: 44px 0;
 }
 
 .contact-buttons {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 8px;
     justify-content: center;
-    margin-bottom: 28px;
+    margin-bottom: 24px;
 }
 
 .contact-buttons .btn {
-    padding: 12px 18px;
-    font-size: 0.82rem;
+    padding: 11px 16px;
+    font-size: 0.78rem;
 }
 
 .contact-info {
-    margin-bottom: 28px;
+    margin-bottom: 24px;
 }
 
 .contact-item {
     display: flex;
     align-items: flex-start;
-    gap: 12px;
-    margin-bottom: 16px;
+    gap: 10px;
+    margin-bottom: 14px;
 }
 
 .contact-item i {
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: var(--color-accent);
-    width: 22px;
+    width: 20px;
     text-align: center;
     margin-top: 2px;
 }
 
 .contact-item p {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     line-height: 1.4;
 }
 
 .map-container {
     border-radius: var(--radius-md);
     overflow: hidden;
-    margin-bottom: 28px;
+    margin-bottom: 24px;
 }
 
 .map-container iframe {
     width: 100%;
-    height: 260px;
+    height: 240px;
     border: none;
 }
 
@@ -1066,7 +1096,7 @@ body {
 .site-footer {
     background: var(--color-text);
     color: #fff;
-    padding: 36px 0;
+    padding: 32px 0;
     text-align: center;
 }
 
@@ -1082,28 +1112,28 @@ body {
 .footer-content {
     display: flex;
     flex-direction: column;
-    gap: 14px;
+    gap: 12px;
     align-items: center;
-    font-size: 0.78rem;
+    font-size: 0.74rem;
 }
 
 .footer-blog {
-    margin-bottom: 8px;
+    margin-bottom: 6px;
 }
 
 .footer-blog h4 {
-    font-size: 0.95rem;
-    margin-bottom: 10px;
+    font-size: 0.9rem;
+    margin-bottom: 8px;
 }
 
 .footer-blog-links {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 5px;
 }
 
 .footer-blog-links a {
-    font-size: 0.78rem;
+    font-size: 0.74rem;
     color: #ccc;
     text-decoration: none;
     transition: var(--transition);
@@ -1114,7 +1144,7 @@ body {
 }
 
 .text-small {
-    font-size: 0.68rem;
+    font-size: 0.64rem;
     opacity: 0.7;
 }
 
@@ -1123,15 +1153,15 @@ body {
    ======================================== */
 .floating-cta {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    bottom: 16px;
+    right: 16px;
     background: var(--color-accent);
     color: #fff;
-    padding: 14px 22px;
+    padding: 13px 20px;
     border-radius: 50px;
     text-decoration: none;
     font-weight: 700;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     box-shadow: 0 4px 15px rgba(232, 106, 59, 0.4);
     z-index: 99;
     transition: var(--transition);
@@ -1164,39 +1194,39 @@ body {
 
 .exit-popup {
     background: var(--color-surface);
-    padding: 28px 22px;
+    padding: 26px 20px;
     border-radius: var(--radius-lg);
     text-align: center;
-    max-width: 320px;
+    max-width: 300px;
     width: 90%;
     position: relative;
 }
 
 .exit-popup-close {
     position: absolute;
-    top: 10px;
-    right: 14px;
+    top: 8px;
+    right: 12px;
     background: none;
     border: none;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     cursor: pointer;
     color: var(--color-text-light);
 }
 
 .exit-popup i {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     color: var(--color-accent);
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 .exit-popup h3 {
-    margin-bottom: 10px;
-    font-size: 1.1rem;
+    margin-bottom: 8px;
+    font-size: 1rem;
 }
 
 .exit-popup p {
-    font-size: 0.82rem;
-    margin-bottom: 18px;
+    font-size: 0.78rem;
+    margin-bottom: 16px;
     color: var(--color-text-light);
 }
 
@@ -1213,135 +1243,432 @@ body {
     opacity: 1;
     transform: translateY(0);
 }
-/* ========================================
-   🔧 БАЛАНСИРОВКА ВЫСОТЫ БЛОКОВ
-   ======================================== */
-
-/* Секции — единый ритм */
-.steps-section,
-.how-section,
-.pain-section,
-.faq-section {
-    padding: 56px 0;
-}
-
-/* Шаги — крупнее иконки */
-.steps-grid {
-    gap: 24px;
-}
-
-.step-card {
-    padding: 28px 18px;
-}
-
-.step-icon {
-    font-size: 2rem;
-    margin: 18px 0 12px;
-}
-
-/* Как работает — крупнее иконки */
-.how-icon {
-    font-size: 2.2rem;
-}
-
-/* О мастере — компакт */
-.master-card--compact {
-    padding: 20px;
-    margin-bottom: 24px;
-}
-
-.master-card-photo--sm {
-    width: 90px;
-    height: 90px;
-}
-
-.why-grid--compact {
-    gap: 16px;
-}
-
-/* Цены — компактные условия */
-.pricing-info--compact {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px 16px;
-    text-align: left;
-    max-width: 500px;
-    margin: 24px auto 0;
-}
-
-.pricing-info--compact p {
-    font-size: 0.76rem;
-    margin-bottom: 0;
-}
-
-/* Плашка "Приведи подругу" */
-.referral-banner-inner {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    background: var(--color-surface);
-    border-radius: var(--radius-md);
-    padding: 20px 24px;
-    box-shadow: var(--shadow);
-    flex-wrap: wrap;
-    justify-content: center;
-    text-align: center;
-}
-
-.referral-banner-inner i {
-    font-size: 1.5rem;
-    color: var(--color-accent);
-    flex-shrink: 0;
-}
-
-.referral-banner-inner span {
-    font-size: 0.85rem;
-    flex: 1;
-    min-width: 200px;
-}
-
-/* FAQ — 5 видимых, 1 скрыт */
-.faq-item:last-child.faq-hidden {
-    display: none;
-}
 
 /* ========================================
-   📱 МОБИЛЬНЫЕ (до 768px)
+   📱 ДИАПАЗОН S: 320-374px (iPhone SE, старые Xiaomi)
    ======================================== */
-@media (max-width: 767px) {
+@media (max-width: 374px) {
+    .container {
+        padding: 0 12px;
+    }
+
+    .section-padding {
+        padding: 32px 0;
+    }
+
+    .section-title {
+        font-size: 1.4rem;
+        margin-bottom: 24px;
+    }
+
+    .section-title::after {
+        width: 40px;
+        height: 2px;
+        margin: 10px auto 0;
+    }
+
+    .section-subtext {
+        font-size: 0.78rem;
+        margin-bottom: 22px;
+    }
+
+    .hero-section {
+        padding: 28px 0 32px;
+    }
+
+    .hero-title {
+        font-size: 1.3rem;
+    }
+
+    .hero-description {
+        font-size: 0.78rem;
+    }
+
+    .hero-trust-badge span {
+        font-size: 0.62rem;
+        padding: 3px 8px;
+    }
+
+    .hero-meta {
+        font-size: 0.66rem;
+        gap: 10px;
+    }
+
+    .btn {
+        padding: 11px 20px;
+        font-size: 0.78rem;
+    }
+
+    .btn-lg {
+        padding: 13px 26px;
+        font-size: 0.85rem;
+    }
+
+    .btn-sm {
+        padding: 8px 14px;
+        font-size: 0.7rem;
+    }
+
+    .steps-grid {
+        gap: 12px;
+    }
+
+    .step-card {
+        padding: 18px 10px;
+    }
+
+    .step-icon {
+        font-size: 1.3rem;
+        margin: 12px 0 6px;
+    }
+
+    .step-card h3 {
+        font-size: 0.78rem;
+    }
+
+    .step-card p {
+        font-size: 0.66rem;
+    }
+
+    .step-number {
+        width: 22px;
+        height: 22px;
+        font-size: 0.62rem;
+        top: -8px;
+    }
+
+    .trust-bar__inner {
+        gap: 18px;
+        padding: 0 12px;
+    }
+
+    .trust-bar__inner span {
+        font-size: 0.64rem;
+    }
+
+    .problems-grid {
+        gap: 10px;
+    }
+
+    .problem-card {
+        padding: 14px;
+    }
+
+    .problem-icon {
+        font-size: 1.3rem;
+    }
+
+    .problem-card h3 {
+        font-size: 0.82rem;
+    }
+
+    .problem-card p {
+        font-size: 0.68rem;
+    }
+
+    .how-grid {
+        gap: 12px;
+    }
+
+    .how-card {
+        padding: 18px 14px;
+    }
+
+    .how-icon {
+        font-size: 1.4rem;
+    }
+
+    .how-card h3 {
+        font-size: 0.82rem;
+    }
+
+    .how-card p {
+        font-size: 0.68rem;
+    }
+
+    .master-card {
+        padding: 16px;
+        margin-bottom: 22px;
+    }
+
+    .master-card-photo {
+        width: 72px;
+        height: 72px;
+    }
+
+    .master-card-info h3 {
+        font-size: 0.95rem;
+    }
+
+    .master-card-info p {
+        font-size: 0.7rem;
+    }
+
+    .master-features span {
+        font-size: 0.66rem;
+    }
+
+    .why-grid {
+        gap: 12px;
+    }
+
+    .why-item {
+        padding: 14px 10px;
+    }
+
+    .why-icon {
+        font-size: 1.3rem;
+    }
+
+    .why-item h3 {
+        font-size: 0.78rem;
+    }
+
+    .why-item p {
+        font-size: 0.66rem;
+    }
+
+    .beforeafter-grid {
+        gap: 12px;
+    }
+
+    .beforeafter-info p {
+        font-size: 0.7rem;
+    }
+
+    .pain-row {
+        padding: 9px 10px;
+        font-size: 0.7rem;
+    }
+
+    .pain-note {
+        font-size: 0.68rem;
+    }
+
+    .reviews-grid {
+        gap: 10px;
+    }
+
+    .review-card {
+        padding: 14px;
+    }
+
+    .review-text {
+        font-size: 0.7rem;
+    }
+
+    .pricing-grid {
+        gap: 12px;
+    }
+
+    .price-card {
+        padding: 16px 10px;
+    }
+
+    .price-zone-label {
+        font-size: 0.78rem;
+    }
+
+    .price-new {
+        font-size: 1.1rem;
+    }
+
     .pricing-info--compact {
-        grid-template-columns: 1fr 1fr;
-        gap: 6px 12px;
-        text-align: left;
+        gap: 4px 8px;
     }
 
     .pricing-info--compact p {
+        font-size: 0.66rem;
+    }
+
+    .promo-grid {
+        gap: 12px;
+    }
+
+    .promo-card {
+        padding: 18px 12px;
+    }
+
+    .promo-card h3 {
+        font-size: 0.82rem;
+    }
+
+    .promo-card p {
+        font-size: 0.68rem;
+    }
+
+    .faq-question {
+        font-size: 0.76rem;
+        padding: 12px 0;
+    }
+
+    .faq-answer p {
+        font-size: 0.7rem;
+    }
+
+    .contact-buttons .btn {
+        padding: 9px 12px;
+        font-size: 0.7rem;
+    }
+
+    .contact-item p {
         font-size: 0.72rem;
     }
 
-    .referral-banner-inner {
-        flex-direction: column;
-        gap: 12px;
-        padding: 18px 16px;
+    .map-container iframe {
+        height: 200px;
     }
 
-    .referral-banner-inner span {
-        font-size: 0.8rem;
+    .floating-cta {
+        padding: 10px 16px;
+        font-size: 0.72rem;
+        bottom: 12px;
+        right: 12px;
     }
 
-    .why-grid--compact {
-        grid-template-columns: 1fr;
-        gap: 14px;
+    .burger-menu {
+        top: 12px;
+        right: 12px;
+    }
+
+    .slide-menu__panel {
+        width: 250px;
+        padding: 60px 18px 24px;
+    }
+
+    .slide-menu__panel ul li a {
+        font-size: 0.9rem;
     }
 }
 
-/* Планшеты — why-grid в 2 колонки */
-@media (min-width: 768px) {
-    .why-grid--compact {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 16px;
+/* ========================================
+   📱 ДИАПАЗОН L: 414px+ (iPhone 14 Pro Max, Plus)
+   ======================================== */
+@media (min-width: 414px) and (max-width: 767px) {
+    .container {
+        padding: 0 20px;
+    }
+
+    .section-padding {
+        padding: 52px 0;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 36px;
+    }
+
+    .section-title::after {
+        width: 56px;
+        margin: 14px auto 0;
+    }
+
+    .section-subtext {
+        font-size: 0.95rem;
+        margin-bottom: 32px;
+    }
+
+    .hero-section {
+        padding: 44px 0 48px;
+    }
+
+    .hero-title {
+        font-size: 1.8rem;
+    }
+
+    .hero-description {
+        font-size: 0.95rem;
+    }
+
+    .hero-trust-badge span {
+        font-size: 0.72rem;
+        padding: 5px 12px;
+    }
+
+    .hero-meta {
+        font-size: 0.78rem;
+    }
+
+    .btn-lg {
+        padding: 17px 36px;
+        font-size: 1rem;
+    }
+
+    .steps-grid {
+        gap: 20px;
+    }
+
+    .step-card {
+        padding: 26px 18px;
+    }
+
+    .step-icon {
+        font-size: 1.9rem;
+    }
+
+    .step-card h3 {
+        font-size: 0.95rem;
+    }
+
+    .step-card p {
+        font-size: 0.78rem;
+    }
+
+    .problem-card {
+        padding: 22px;
+    }
+
+    .problem-icon {
+        font-size: 1.8rem;
+    }
+
+    .how-card {
+        padding: 26px 20px;
+    }
+
+    .how-icon {
+        font-size: 2rem;
+    }
+
+    .master-card {
+        padding: 24px;
+    }
+
+    .master-card-photo {
+        width: 100px;
+        height: 100px;
+    }
+
+    .why-item {
+        padding: 22px 18px;
+    }
+
+    .why-icon {
+        font-size: 1.8rem;
+    }
+
+    .price-card {
+        padding: 24px 18px;
+    }
+
+    .price-new {
+        font-size: 1.5rem;
+    }
+
+    .promo-card {
+        padding: 26px 20px;
+    }
+
+    .faq-question {
+        font-size: 0.9rem;
+    }
+
+    .floating-cta {
+        padding: 15px 24px;
+        font-size: 0.88rem;
     }
 }
+
 /* ========================================
    📱 ПЛАНШЕТЫ (768px+)
    ======================================== */
@@ -1436,6 +1763,12 @@ body {
         flex: 1;
     }
 
+    .referral-banner-inner {
+        flex-direction: row;
+        gap: 16px;
+        padding: 20px 24px;
+    }
+
     .main-nav {
         display: block;
     }
@@ -1494,6 +1827,11 @@ body {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 16px;
+    }
+
+    .pricing-info--compact {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px 16px;
     }
 }
 

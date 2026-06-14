@@ -1213,7 +1213,135 @@ body {
     opacity: 1;
     transform: translateY(0);
 }
+/* ========================================
+   🔧 БАЛАНСИРОВКА ВЫСОТЫ БЛОКОВ
+   ======================================== */
 
+/* Секции — единый ритм */
+.steps-section,
+.how-section,
+.pain-section,
+.faq-section {
+    padding: 56px 0;
+}
+
+/* Шаги — крупнее иконки */
+.steps-grid {
+    gap: 24px;
+}
+
+.step-card {
+    padding: 28px 18px;
+}
+
+.step-icon {
+    font-size: 2rem;
+    margin: 18px 0 12px;
+}
+
+/* Как работает — крупнее иконки */
+.how-icon {
+    font-size: 2.2rem;
+}
+
+/* О мастере — компакт */
+.master-card--compact {
+    padding: 20px;
+    margin-bottom: 24px;
+}
+
+.master-card-photo--sm {
+    width: 90px;
+    height: 90px;
+}
+
+.why-grid--compact {
+    gap: 16px;
+}
+
+/* Цены — компактные условия */
+.pricing-info--compact {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 16px;
+    text-align: left;
+    max-width: 500px;
+    margin: 24px auto 0;
+}
+
+.pricing-info--compact p {
+    font-size: 0.76rem;
+    margin-bottom: 0;
+}
+
+/* Плашка "Приведи подругу" */
+.referral-banner-inner {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: var(--color-surface);
+    border-radius: var(--radius-md);
+    padding: 20px 24px;
+    box-shadow: var(--shadow);
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+}
+
+.referral-banner-inner i {
+    font-size: 1.5rem;
+    color: var(--color-accent);
+    flex-shrink: 0;
+}
+
+.referral-banner-inner span {
+    font-size: 0.85rem;
+    flex: 1;
+    min-width: 200px;
+}
+
+/* FAQ — 5 видимых, 1 скрыт */
+.faq-item:last-child.faq-hidden {
+    display: none;
+}
+
+/* ========================================
+   📱 МОБИЛЬНЫЕ (до 768px)
+   ======================================== */
+@media (max-width: 767px) {
+    .pricing-info--compact {
+        grid-template-columns: 1fr 1fr;
+        gap: 6px 12px;
+        text-align: left;
+    }
+
+    .pricing-info--compact p {
+        font-size: 0.72rem;
+    }
+
+    .referral-banner-inner {
+        flex-direction: column;
+        gap: 12px;
+        padding: 18px 16px;
+    }
+
+    .referral-banner-inner span {
+        font-size: 0.8rem;
+    }
+
+    .why-grid--compact {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+}
+
+/* Планшеты — why-grid в 2 колонки */
+@media (min-width: 768px) {
+    .why-grid--compact {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+}
 /* ========================================
    📱 ПЛАНШЕТЫ (768px+)
    ======================================== */

@@ -10,6 +10,7 @@
     --color-accent-hover: #D45628;
     --color-pastel: #FEF6F2;
     --color-success: #2E7D32;
+    --color-star: #FFD700;
     --radius-sm: 12px;
     --radius-md: 20px;
     --radius-lg: 32px;
@@ -45,32 +46,32 @@ body {
 }
 
 .section-padding {
-    padding: 64px 0;
+    padding: 48px 0;
 }
 
 .section-title {
-    font-size: 2rem;
+    font-size: 1.75rem;
     font-weight: 700;
     text-align: center;
-    margin-bottom: 48px;
+    margin-bottom: 36px;
     letter-spacing: -0.02em;
 }
 
 .section-title::after {
     content: '';
     display: block;
-    width: 64px;
+    width: 56px;
     height: 3px;
     background: var(--color-accent);
-    margin: 16px auto 0;
+    margin: 14px auto 0;
     border-radius: 3px;
 }
 
 .section-subtext {
     text-align: center;
     color: var(--color-text-light);
-    margin-bottom: 40px;
-    font-size: 1rem;
+    margin-bottom: 32px;
+    font-size: 0.95rem;
 }
 
 .bg-pastel {
@@ -86,7 +87,7 @@ body {
 }
 
 /* ========================================
-   🔘 КНОПКИ (контрастные)
+   🔘 КНОПКИ
    ======================================== */
 .btn {
     display: inline-block;
@@ -223,7 +224,7 @@ body {
     right: 0;
     width: 280px;
     height: 100%;
-    background: rgba(255, 255, 255, 0.98);
+    background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(12px);
     padding: 80px 25px 30px;
     transform: translateX(100%);
@@ -240,14 +241,14 @@ body {
 }
 
 .slide-menu__panel ul li {
-    margin-bottom: 20px;
+    margin-bottom: 16px;
 }
 
 .slide-menu__panel ul li a {
     text-decoration: none;
     color: var(--color-text);
     font-weight: 600;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     display: block;
     padding: 8px 0;
     transition: var(--transition);
@@ -260,9 +261,6 @@ body {
 .slide-menu__panel .nav-link-phone {
     color: var(--color-accent) !important;
     font-weight: 700;
-    display: block;
-    padding: 8px 0;
-    font-size: 1.1rem;
 }
 
 .slide-menu__panel .nav-link-phone i {
@@ -284,9 +282,9 @@ body {
 }
 
 .site-header {
-    padding: 16px 0;
-    background-color: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(8px);
+    padding: 14px 0;
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(12px);
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -308,64 +306,60 @@ body {
 }
 
 /* ========================================
-   🎯 HERO (доверие с первого экрана)
+   🎯 HERO
    ======================================== */
 .hero-section {
-    padding: 48px 0 64px;
+    padding: 40px 0 48px;
 }
 
 .hero-grid {
     display: flex;
     flex-direction: column;
-    gap: 32px;
+    gap: 28px;
 }
 
 .hero-trust-badge {
     display: flex;
     flex-wrap: wrap;
-    gap: 16px;
-    margin-bottom: 20px;
+    gap: 12px;
+    margin-bottom: 16px;
 }
 
 .hero-trust-badge span {
     background: #F0F0F0;
-    padding: 6px 14px;
+    padding: 5px 12px;
     border-radius: 30px;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     font-weight: 500;
     color: var(--color-text-light);
 }
 
 .hero-title {
-    font-size: 1.8rem;
+    font-size: 1.7rem;
     font-weight: 800;
     line-height: 1.2;
-    margin-bottom: 16px;
+    margin-bottom: 14px;
     letter-spacing: -0.02em;
 }
 
-.hero-accent {
-    color: var(--color-accent);
-}
-
 .hero-description {
-    font-size: 1rem;
+    font-size: 0.95rem;
     color: var(--color-text-light);
-    margin-bottom: 28px;
+    margin-bottom: 24px;
 }
 
 .hero-buttons {
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    margin-bottom: 24px;
+    gap: 10px;
+    margin-bottom: 20px;
 }
 
 .hero-meta {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
-    font-size: 0.8rem;
+    gap: 16px;
+    font-size: 0.75rem;
     color: var(--color-text-light);
 }
 
@@ -386,19 +380,80 @@ body {
 .hero-photo {
     display: none;
     width: 100%;
-    max-width: 360px;
+    max-width: 340px;
     border-radius: var(--radius-lg);
     object-fit: cover;
     box-shadow: var(--shadow);
 }
 
 /* ========================================
-   📊 TRUST BAR (без анимации, статичный ряд)
+   👣 ШАГИ К ПЕРВОЙ ПРОЦЕДУРЕ
+   ======================================== */
+.steps-section {
+    padding: 48px 0;
+}
+
+.steps-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.step-card {
+    text-align: center;
+    padding: 24px 16px;
+    background: var(--color-surface);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow);
+    position: relative;
+    transition: var(--transition);
+}
+
+.step-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-hover);
+}
+
+.step-number {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 28px;
+    height: 28px;
+    background: var(--color-accent);
+    color: #fff;
+    border-radius: 50%;
+    font-size: 0.75rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.step-icon {
+    font-size: 1.8rem;
+    color: var(--color-accent);
+    margin: 16px 0 10px;
+}
+
+.step-card h3 {
+    font-size: 0.95rem;
+    margin-bottom: 6px;
+}
+
+.step-card p {
+    font-size: 0.78rem;
+    color: var(--color-text-light);
+}
+
+/* ========================================
+   📊 TRUST BAR
    ======================================== */
 .trust-bar {
     background-color: var(--color-text);
     color: #fff;
-    padding: 12px 0;
+    padding: 10px 0;
     overflow-x: auto;
     white-space: nowrap;
     -webkit-overflow-scrolling: touch;
@@ -411,33 +466,16 @@ body {
 
 .trust-bar__inner {
     display: inline-flex;
-    gap: 32px;
+    gap: 28px;
     padding: 0 20px;
 }
 
 .trust-bar__inner span {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     font-weight: 500;
     display: inline-flex;
     align-items: center;
     gap: 6px;
-}
-
-.trust-bar__inner i {
-    font-size: 0.9rem;
-}
-
-/* На десктопе — без скролла, всё помещается */
-@media (min-width: 1024px) {
-    .trust-bar {
-        overflow-x: visible;
-    }
-    .trust-bar__inner {
-        justify-content: center;
-        flex-wrap: wrap;
-        white-space: normal;
-        gap: 24px;
-    }
 }
 
 /* ========================================
@@ -446,12 +484,12 @@ body {
 .problems-grid {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 16px;
 }
 
 .problem-card {
     background: var(--color-surface);
-    padding: 24px;
+    padding: 20px;
     border-radius: var(--radius-md);
     box-shadow: var(--shadow);
     text-align: center;
@@ -459,31 +497,71 @@ body {
 }
 
 .problem-card:hover {
-    transform: translateY(-4px);
+    transform: translateY(-3px);
     box-shadow: var(--shadow-hover);
 }
 
 .problem-icon {
-    font-size: 2rem;
+    font-size: 1.8rem;
     color: var(--color-accent);
-    margin-bottom: 16px;
+    margin-bottom: 12px;
 }
 
 .problem-card h3 {
-    font-size: 1.1rem;
-    margin-bottom: 8px;
+    font-size: 1rem;
+    margin-bottom: 6px;
 }
 
 .problem-card p {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     color: var(--color-text-light);
 }
 
 .section-subtext {
-    margin-top: 32px;
+    margin-top: 28px;
     text-align: center;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: var(--color-text-light);
+}
+
+/* ========================================
+   ⚙️ КАК ЭТО РАБОТАЕТ
+   ======================================== */
+.how-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.how-card {
+    text-align: center;
+    padding: 24px 20px;
+    background: var(--color-surface);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.how-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-hover);
+}
+
+.how-icon {
+    font-size: 2rem;
+    color: var(--color-accent);
+    margin-bottom: 12px;
+}
+
+.how-card h3 {
+    font-size: 1rem;
+    margin-bottom: 8px;
+}
+
+.how-card p {
+    font-size: 0.8rem;
+    color: var(--color-text-light);
+    line-height: 1.5;
 }
 
 /* ========================================
@@ -492,8 +570,8 @@ body {
 .master-card {
     background: var(--color-surface);
     border-radius: var(--radius-lg);
-    padding: 28px;
-    margin-bottom: 40px;
+    padding: 24px;
+    margin-bottom: 32px;
     box-shadow: var(--shadow);
     border: 1px solid rgba(232, 106, 59, 0.2);
 }
@@ -503,82 +581,83 @@ body {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 20px;
+    gap: 18px;
 }
 
 .master-card-photo {
-    width: 120px;
-    height: 120px;
+    width: 110px;
+    height: 110px;
     border-radius: 50%;
     object-fit: cover;
     border: 3px solid var(--color-accent);
 }
 
 .master-card-info h3 {
-    font-size: 1.3rem;
-    margin-bottom: 8px;
+    font-size: 1.2rem;
+    margin-bottom: 6px;
 }
 
 .master-card-info p {
     color: var(--color-text-light);
-    margin-bottom: 16px;
+    margin-bottom: 14px;
+    font-size: 0.85rem;
 }
 
 .master-features {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 16px;
-    margin-top: 12px;
+    gap: 14px;
+    margin-top: 10px;
 }
 
 .master-features span {
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     color: var(--color-text-light);
 }
 
 .master-features i {
     color: var(--color-success);
-    margin-right: 6px;
+    margin-right: 5px;
 }
 
 .why-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 24px;
+    gap: 20px;
 }
 
 .why-item {
     text-align: center;
-    padding: 20px;
+    padding: 20px 16px;
     background: var(--color-surface);
     border-radius: var(--radius-md);
     box-shadow: var(--shadow);
 }
 
 .why-icon {
-    font-size: 2rem;
+    font-size: 1.8rem;
     color: var(--color-accent);
-    margin-bottom: 12px;
+    margin-bottom: 10px;
 }
 
 .why-item h3 {
-    font-size: 1rem;
-    margin-bottom: 8px;
+    font-size: 0.95rem;
+    margin-bottom: 6px;
 }
 
 .why-item p {
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     color: var(--color-text-light);
 }
 
 /* ========================================
-   📸 ДО/ПОСЛЕ (НОВЫЙ БЛОК)
+   📸 ДО/ПОСЛЕ
    ======================================== */
 .beforeafter-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 24px;
+    gap: 20px;
 }
 
 .beforeafter-card {
@@ -590,7 +669,7 @@ body {
 }
 
 .beforeafter-card:hover {
-    transform: translateY(-4px);
+    transform: translateY(-3px);
     box-shadow: var(--shadow-hover);
 }
 
@@ -605,13 +684,13 @@ body {
 }
 
 .beforeafter-info {
-    padding: 16px;
+    padding: 14px;
     text-align: center;
 }
 
 .beforeafter-info p {
-    font-size: 0.9rem;
-    margin-bottom: 8px;
+    font-size: 0.85rem;
+    margin-bottom: 6px;
 }
 
 .beforeafter-badge {
@@ -622,6 +701,11 @@ body {
     border-radius: 20px;
     font-size: 0.7rem;
     font-weight: 600;
+}
+
+.text-small {
+    font-size: 0.7rem;
+    opacity: 0.7;
 }
 
 /* ========================================
@@ -639,9 +723,9 @@ body {
 .pain-row {
     display: grid;
     grid-template-columns: 1fr 1.5fr 0.6fr;
-    padding: 14px 16px;
+    padding: 12px 14px;
     border-bottom: 1px solid #eee;
-    font-size: 0.85rem;
+    font-size: 0.82rem;
 }
 
 .pain-row--header {
@@ -651,9 +735,9 @@ body {
 }
 
 .pain-note {
-    margin-top: 24px;
+    margin-top: 20px;
     text-align: center;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     color: var(--color-text-light);
 }
 
@@ -663,18 +747,18 @@ body {
 }
 
 /* ========================================
-   💬 ОТЗЫВЫ (обычная сетка, без сотов)
+   💬 ОТЗЫВЫ
    ======================================== */
 .reviews-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 16px;
 }
 
 .review-card {
     background: var(--color-surface);
     border-radius: var(--radius-md);
-    padding: 20px;
+    padding: 18px;
     box-shadow: var(--shadow);
     transition: var(--transition);
 }
@@ -685,15 +769,21 @@ body {
 }
 
 .review-stars {
-    font-size: 0.9rem;
-    margin-bottom: 12px;
+    font-size: 0.85rem;
+    margin-bottom: 10px;
+    color: var(--color-star);
+}
+
+.review-stars span {
+    color: var(--color-text-light);
+    font-size: 0.75rem;
 }
 
 .review-text {
-    font-size: 0.85rem;
+    font-size: 0.82rem;
     color: var(--color-text);
     line-height: 1.5;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
 }
 
 .review-author {
@@ -703,18 +793,18 @@ body {
 }
 
 /* ========================================
-   💰 ЦЕНЫ
+   💰 ЦЕНЫ + АКЦИИ
    ======================================== */
 .pricing-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 20px;
-    margin-bottom: 40px;
+    gap: 18px;
+    margin-bottom: 32px;
 }
 
 .price-card {
     background: var(--color-surface);
-    padding: 24px 16px;
+    padding: 22px 16px;
     border-radius: var(--radius-md);
     text-align: center;
     box-shadow: var(--shadow);
@@ -723,7 +813,7 @@ body {
 }
 
 .price-card:hover {
-    transform: translateY(-4px);
+    transform: translateY(-3px);
     box-shadow: var(--shadow-hover);
 }
 
@@ -746,22 +836,16 @@ body {
 }
 
 .price-zone-label {
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 700;
-    margin-bottom: 12px;
-}
-
-.price-old {
-    font-size: 0.8rem;
-    text-decoration: line-through;
-    color: var(--color-text-light);
+    margin-bottom: 10px;
 }
 
 .price-new {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-weight: 800;
     color: var(--color-accent);
-    margin: 8px 0;
+    margin: 6px 0;
 }
 
 .badge-sale {
@@ -772,43 +856,40 @@ body {
     border-radius: 20px;
     font-size: 0.7rem;
     font-weight: 600;
-    margin-bottom: 16px;
+    margin-bottom: 14px;
+}
+
+.price-full {
+    font-size: 0.72rem;
+    color: var(--color-text-light);
+    margin-bottom: 14px;
 }
 
 .pricing-info {
-    margin-top: 32px;
+    margin-top: 28px;
     text-align: center;
 }
 
 .pricing-info p {
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     color: var(--color-text-light);
-    margin-bottom: 8px;
+    margin-bottom: 6px;
 }
 
 .pricing-info i {
     color: var(--color-success);
-    margin-right: 8px;
+    margin-right: 6px;
 }
 
-.price-full {
-    font-size: 0.75rem;
-    color: var(--color-text-light);
-    margin-bottom: 16px;
-}
-
-/* ========================================
-   🎁 АКЦИИ
-   ======================================== */
 .promo-grid {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 20px;
 }
 
 .promo-card {
     background: var(--color-surface);
-    padding: 28px 20px;
+    padding: 24px 18px;
     border-radius: var(--radius-md);
     text-align: center;
     box-shadow: var(--shadow);
@@ -816,7 +897,7 @@ body {
 }
 
 .promo-card:hover {
-    transform: translateY(-4px);
+    transform: translateY(-3px);
     box-shadow: var(--shadow-hover);
 }
 
@@ -834,25 +915,25 @@ body {
     background: var(--color-accent);
     color: #fff;
     font-size: 0.7rem;
-    padding: 4px 16px;
+    padding: 4px 14px;
     border-radius: 30px;
 }
 
 .promo-card i {
-    font-size: 2rem;
+    font-size: 1.8rem;
     color: var(--color-accent);
-    margin-bottom: 16px;
+    margin-bottom: 14px;
 }
 
 .promo-card h3 {
-    font-size: 1.1rem;
-    margin-bottom: 10px;
+    font-size: 1rem;
+    margin-bottom: 8px;
 }
 
 .promo-card p {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     color: var(--color-text-light);
-    margin-bottom: 20px;
+    margin-bottom: 18px;
 }
 
 /* ========================================
@@ -868,15 +949,19 @@ body {
     background: transparent;
 }
 
+.faq-hidden {
+    display: none;
+}
+
 .faq-question {
     width: 100%;
     text-align: left;
     background: none;
     border: none;
-    padding: 18px 0;
+    padding: 16px 0;
     font-family: inherit;
     font-weight: 600;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     cursor: pointer;
     display: flex;
     justify-content: space-between;
@@ -909,65 +994,65 @@ body {
 }
 
 .faq-answer p {
-    padding-bottom: 18px;
-    font-size: 0.85rem;
+    padding-bottom: 16px;
+    font-size: 0.82rem;
     color: var(--color-text-light);
     line-height: 1.5;
 }
 
 /* ========================================
-   📍 КОНТАКТЫ (без iframe)
+   📍 КОНТАКТЫ
    ======================================== */
 .contacts-section {
-    padding: 64px 0;
+    padding: 48px 0;
 }
 
 .contact-buttons {
     display: flex;
     flex-wrap: wrap;
-    gap: 12px;
+    gap: 10px;
     justify-content: center;
-    margin-bottom: 32px;
+    margin-bottom: 28px;
 }
 
 .contact-buttons .btn {
-    padding: 12px 20px;
-    font-size: 0.85rem;
+    padding: 12px 18px;
+    font-size: 0.82rem;
 }
 
 .contact-info {
-    margin-bottom: 32px;
+    margin-bottom: 28px;
 }
 
 .contact-item {
     display: flex;
     align-items: flex-start;
-    gap: 14px;
-    margin-bottom: 20px;
+    gap: 12px;
+    margin-bottom: 16px;
 }
 
 .contact-item i {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: var(--color-accent);
-    width: 24px;
+    width: 22px;
     text-align: center;
     margin-top: 2px;
 }
 
 .contact-item p {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     line-height: 1.4;
 }
 
 .map-container {
     border-radius: var(--radius-md);
     overflow: hidden;
-    margin-bottom: 32px;
+    margin-bottom: 28px;
 }
 
 .map-container iframe {
     width: 100%;
-    height: 280px;
+    height: 260px;
     border: none;
 }
 
@@ -981,7 +1066,7 @@ body {
 .site-footer {
     background: var(--color-text);
     color: #fff;
-    padding: 40px 0;
+    padding: 36px 0;
     text-align: center;
 }
 
@@ -997,18 +1082,44 @@ body {
 .footer-content {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 14px;
     align-items: center;
-    font-size: 0.8rem;
+    font-size: 0.78rem;
+}
+
+.footer-blog {
+    margin-bottom: 8px;
+}
+
+.footer-blog h4 {
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+}
+
+.footer-blog-links {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.footer-blog-links a {
+    font-size: 0.78rem;
+    color: #ccc;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.footer-blog-links a:hover {
+    color: var(--color-accent);
 }
 
 .text-small {
-    font-size: 0.7rem;
+    font-size: 0.68rem;
     opacity: 0.7;
 }
 
 /* ========================================
-   🎈 ПЛАВАЮЩАЯ КНОПКА (Sticky CTA)
+   🎈 ПЛАВАЮЩАЯ КНОПКА
    ======================================== */
 .floating-cta {
     position: fixed;
@@ -1016,11 +1127,11 @@ body {
     right: 20px;
     background: var(--color-accent);
     color: #fff;
-    padding: 14px 24px;
+    padding: 14px 22px;
     border-radius: 50px;
     text-decoration: none;
     font-weight: 700;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     box-shadow: 0 4px 15px rgba(232, 106, 59, 0.4);
     z-index: 99;
     transition: var(--transition);
@@ -1053,18 +1164,18 @@ body {
 
 .exit-popup {
     background: var(--color-surface);
-    padding: 32px 24px;
+    padding: 28px 22px;
     border-radius: var(--radius-lg);
     text-align: center;
-    max-width: 340px;
+    max-width: 320px;
     width: 90%;
     position: relative;
 }
 
 .exit-popup-close {
     position: absolute;
-    top: 12px;
-    right: 16px;
+    top: 10px;
+    right: 14px;
     background: none;
     border: none;
     font-size: 1.3rem;
@@ -1073,19 +1184,19 @@ body {
 }
 
 .exit-popup i {
-    font-size: 2rem;
+    font-size: 1.8rem;
     color: var(--color-accent);
-    margin-bottom: 12px;
+    margin-bottom: 10px;
 }
 
 .exit-popup h3 {
-    margin-bottom: 12px;
-    font-size: 1.2rem;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
 }
 
 .exit-popup p {
-    font-size: 0.85rem;
-    margin-bottom: 20px;
+    font-size: 0.82rem;
+    margin-bottom: 18px;
     color: var(--color-text-light);
 }
 
@@ -1110,300 +1221,180 @@ body {
     .container {
         padding: 0 32px;
     }
-    
+
+    .section-padding {
+        padding: 56px 0;
+    }
+
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 40px;
+    }
+
     .hero-grid {
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
     }
-    
+
     .hero-content {
         flex: 1;
     }
-    
+
     .hero-title {
-        font-size: 2.5rem;
+        font-size: 2.3rem;
     }
-    
+
     .hero-buttons {
         flex-direction: row;
         align-items: center;
     }
-    
+
     .hero-photo {
         display: block;
-        flex: 0 0 280px;
+        flex: 0 0 270px;
     }
-    
+
+    .steps-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
     .problems-grid {
         flex-direction: row;
-        gap: 30px;
+        gap: 24px;
     }
-    
+
     .problem-card {
         flex: 1;
     }
-    
+
+    .how-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
     .master-card-inner {
         flex-direction: row;
         text-align: left;
-        gap: 32px;
+        gap: 28px;
     }
-    
+
     .master-features {
         justify-content: flex-start;
     }
-    
+
     .why-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
     }
-    
+
     .beforeafter-grid {
         grid-template-columns: repeat(3, 1fr);
     }
-    
+
     .reviews-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-    
+
     .pricing-grid {
         grid-template-columns: repeat(3, 1fr);
-        gap: 24px;
+        gap: 20px;
     }
-    
+
     .promo-grid {
         flex-direction: row;
-        gap: 24px;
+        gap: 20px;
     }
-    
+
     .promo-card {
         flex: 1;
     }
-    
+
     .main-nav {
         display: block;
     }
-    
+
     .burger-menu {
         display: none;
     }
-    
+
     .main-nav ul {
         display: flex;
-        gap: 24px;
+        gap: 20px;
         list-style: none;
+        align-items: center;
     }
-    
+
     .main-nav a {
         text-decoration: none;
         color: var(--color-text-light);
-        font-size: 0.85rem;
+        font-size: 0.82rem;
         font-weight: 500;
         transition: var(--transition);
     }
-    
+
     .main-nav a:hover {
         color: var(--color-accent);
     }
-    
+
     .nav-link-phone {
         color: var(--color-accent) !important;
         font-weight: 700;
         white-space: nowrap;
     }
-    
-    .nav-link-phone:hover {
-        color: var(--color-accent-hover) !important;
-        text-decoration: underline;
-    }
-    
+
     .nav-link-phone i {
-        margin-right: 6px;
-        font-size: 0.8rem;
+        margin-right: 5px;
+        font-size: 0.75rem;
     }
-    
+
     .main-nav .nav-link-cta {
         background: var(--color-accent);
         color: #fff;
-        padding: 8px 18px;
+        padding: 8px 16px;
         border-radius: var(--radius-sm);
     }
-    
+
     .main-nav .nav-link-cta:hover {
         background: var(--color-accent-hover);
         color: #fff;
     }
-    
+
     .contact-buttons {
-        gap: 16px;
+        gap: 14px;
     }
-    
+
     .contact-info {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
+        gap: 16px;
     }
 }
 
 /* ========================================
-   📱 ДЕСКТОП (1024px+)
+   💻 ДЕСКТОП (1024px+)
    ======================================== */
 @media (min-width: 1024px) {
     .section-padding {
-        padding: 80px 0;
+        padding: 64px 0;
     }
-    
+
     .section-title {
-        font-size: 2.5rem;
-        margin-bottom: 56px;
+        font-size: 2.2rem;
+        margin-bottom: 44px;
     }
-    
+
     .hero-title {
-        font-size: 3rem;
+        font-size: 2.8rem;
     }
-    
+
     .hero-photo {
-        flex: 0 0 340px;
+        flex: 0 0 320px;
     }
-    
+
     .why-grid {
         grid-template-columns: repeat(4, 1fr);
     }
-    
+
     .reviews-grid {
         grid-template-columns: repeat(3, 1fr);
     }
-    
-    .contact-info {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-/* ========================================
-   📚 БЛОК-ПРЕВЬЮ НА ГЛАВНОЙ
-   ======================================== */
-.blog-preview-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 24px;
-    margin-top: 20px;
-}
-
-.blog-preview-card {
-    background: var(--color-surface);
-    border-radius: var(--radius-md);
-    padding: 24px;
-    box-shadow: var(--shadow);
-    transition: var(--transition);
-    text-align: center;
-    cursor: pointer;
-}
-
-.blog-preview-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-hover);
-}
-
-.blog-preview-tag {
-    display: inline-block;
-    background: var(--color-pastel);
-    color: var(--color-accent);
-    font-size: 0.7rem;
-    padding: 4px 12px;
-    border-radius: 20px;
-    margin-bottom: 16px;
-}
-
-.blog-preview-card h3 {
-    font-size: 1.1rem;
-    margin-bottom: 12px;
-}
-
-.blog-preview-card p {
-    font-size: 0.85rem;
-    color: var(--color-text-light);
-    margin-bottom: 16px;
-}
-
-.blog-preview-link {
-    color: var(--color-accent);
-    font-weight: 600;
-    text-decoration: none;
-    font-size: 0.85rem;
-}
-
-.blog-preview-link:hover {
-    text-decoration: underline;
-}
-
-@media (min-width: 768px) {
-    .blog-preview-grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 30px;
-    }
-}
-
-/* ========================================
-   📖 МОДАЛЬНОЕ ОКНО СТАТЕЙ
-   ======================================== */
-.article-modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    z-index: 10000;
-    overflow-y: auto;
-    padding: 40px 20px;
-}
-
-.article-modal-content {
-    max-width: 800px;
-    margin: 0 auto;
-    background: var(--color-surface);
-    border-radius: var(--radius-lg);
-    padding: 40px;
-    position: relative;
-}
-
-.article-modal-close {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: var(--color-text-light);
-}
-
-.article-modal-close:hover {
-    color: var(--color-accent);
-}
-
-.info-box, .info-box-green, .info-box-orange, .info-box-red {
-    padding: 20px;
-    border-radius: 16px;
-    margin: 20px 0;
-}
-.info-box { background: var(--color-pastel); }
-.info-box-green { background: #E8F5E9; }
-.info-box-orange { background: #FFF3E0; }
-.info-box-red { background: #FFEBEE; }
-
-.compare-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0;
-}
-.compare-table th, .compare-table td {
-    padding: 12px;
-    text-align: left;
-    border-bottom: 1px solid #eee;
-}
-.compare-table th {
-    background: var(--color-accent);
-    color: #fff;
 }

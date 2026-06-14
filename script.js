@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     fadeElements.forEach(el => observer.observe(el));
 
-        // ========== 5. ВЫХОДНОЙ ПОПАП (ТОЛЬКО ДЕСКТОП ≥768px) ==========
+    // ========== 5. ВЫХОДНОЙ ПОПАП (ТОЛЬКО ДЕСКТОП ≥768px) ==========
     let popupShown = false;
 
     function showExitPopup() {
@@ -193,7 +193,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     window.buildSmartRoute = buildSmartRoute;
-        // ========== 8. КНОПКА «ПОДРОБНЕЕ О МАСТЕРЕ» ==========
+    
+    // ========== 8. КНОПКА «ПОДРОБНЕЕ О МАСТЕРЕ» ==========
     const whyToggle = document.getElementById('whyToggle');
     const whyExtras = document.getElementById('whyExtras');
 
@@ -208,4 +209,67 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+
+    // ========== 9. ОТСЛЕЖИВАНИЕ ПРОКРУТКИ ДО БЛОКОВ ДЛЯ ЯНДЕКС МЕТРИКИ ==========
+    // Номер счётчика: 109650228
+    // Каждая цель срабатывает один раз за визит при появлении блока в окне браузера
+    
+    (function() {
+        // Список блоков для отслеживания
+        const scrollTargets = [
+            { elementId: 'hero', goalId: 'scroll-hero' },
+            { elementId: 'steps-section', goalId: 'scroll-steps' },
+            { elementId: 'problem', goalId: 'scroll-problem' },
+            { elementId: 'how-it-works', goalId: 'scroll-how' },
+            { elementId: 'why-us', goalId: 'scroll-why' },
+            { elementId: 'pricing', goalId: 'scroll-pricing' },
+            { elementId: 'testimonials', goalId: 'scroll-testimonials' },
+            { elementId: 'contact-form', goalId: 'scroll-contact-form' },
+            { elementId: 'contacts', goalId: 'scroll-contacts' },
+            { elementId: 'footer', goalId: 'scroll-footer' }
+        ];
+
+        // Хранилище для отслеживания уже сработавших целей
+        const triggered = {};
+
+        // Настройки Intersection Observer: блок считается видимым,
+        // когда 70% блока появилось в области просмотра
+        const scrollObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const target = scrollTargets.find(t => 
+                        t.elementId === entry.target.dataset.scrollTarget
+                    );
+                    if (target && !triggered[target.goalId]) {
+                        triggered[target.goalId] = true;
+                        if (typeof ym !== 'undefined') {
+                            ym(109650228, 'reachGoal', target.goalId);
+                            console.log('Метрика: цель достигнута -', target.goalId);
+                        }
+                        // Отключаем наблюдение за этим блоком после срабатывания
+                        scrollObserver.unobserve(entry.target);
+                    }
+                }
+            });
+        }, { threshold: 0.7 }); // 70% блока видно
+
+        // Находим все блоки и начинаем за ними следить
+        scrollTargets.forEach(target => {
+            let element = null;
+            if (target.elementId === 'footer') {
+                element = document.querySelector('footer');
+            } else {
+                element = document.getElementById(target.elementId);
+                // Если не нашли по ID, пробуем найти по классу
+                if (!element) {
+                    element = document.querySelector('.' + target.elementId);
+                }
+            }
+            if (element) {
+                element.dataset.scrollTarget = target.elementId;
+                scrollObserver.observe(element);
+            }
+        });
+    })();
+
 });

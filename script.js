@@ -85,7 +85,20 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // ========== 3. АНИМАЦИЯ ПРИ СКРОЛЛЕ ==========
+    // ========== 3. FAQ КНОПКА «СМОТРЕТЬ ВСЕ» ==========
+    const faqShowAllBtn = document.getElementById('faqShowAll');
+    const hiddenFaqItems = document.querySelectorAll('.faq-hidden');
+
+    if (faqShowAllBtn && hiddenFaqItems.length > 0) {
+        faqShowAllBtn.addEventListener('click', function() {
+            hiddenFaqItems.forEach(item => {
+                item.style.display = 'block';
+            });
+            faqShowAllBtn.style.display = 'none';
+        });
+    }
+
+    // ========== 4. АНИМАЦИЯ ПРИ СКРОЛЛЕ ==========
     const fadeElements = document.querySelectorAll('.fade-in-section');
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -98,7 +111,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     fadeElements.forEach(el => observer.observe(el));
 
-    // ========== 4. ВЫХОДНОЙ ПОПАП (СКРОЛЛ 50%) ==========
+    // ========== 5. ВЫХОДНОЙ ПОПАП (СКРОЛЛ 50%) ==========
     let popupShown = false;
 
     function showExitPopup() {
@@ -134,7 +147,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // ========== 5. ПЛАВНЫЙ СКРОЛЛ ПО ЯКОРЯМ ==========
+    // ========== 6. ПЛАВНЫЙ СКРОЛЛ ПО ЯКОРЯМ ==========
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
@@ -157,7 +170,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // ========== 6. УМНЫЙ МАРШРУТ ==========
+    // ========== 7. УМНЫЙ МАРШРУТ ==========
     function buildSmartRoute() {
         var destination = "55.792709,49.103627";
         var destinationAddress = "Казань, ул. Московская, 13а";

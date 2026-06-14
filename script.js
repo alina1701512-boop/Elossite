@@ -111,11 +111,12 @@ document.addEventListener('DOMContentLoaded', function() {
     
     fadeElements.forEach(el => observer.observe(el));
 
-    // ========== 5. ВЫХОДНОЙ ПОПАП (СКРОЛЛ 50%) ==========
+        // ========== 5. ВЫХОДНОЙ ПОПАП (ТОЛЬКО ДЕСКТОП ≥768px) ==========
     let popupShown = false;
 
     function showExitPopup() {
         if (popupShown) return;
+        if (window.innerWidth < 768) return;
         const popup = document.getElementById('exitPopup');
         if (popup) {
             popup.classList.add('visible');
@@ -125,6 +126,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     window.addEventListener('scroll', function() {
         if (popupShown) return;
+        if (window.innerWidth < 768) return;
         const scrollPercent = (window.scrollY + window.innerHeight) / document.documentElement.scrollHeight;
         if (scrollPercent > 0.5) {
             showExitPopup();

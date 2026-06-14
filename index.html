@@ -231,15 +231,13 @@
         </div>
     </section>
     
-        <!-- ===== ФОРМА ОБРАТНОЙ СВЯЗИ ===== -->
+            <!-- ===== ФОРМА ОБРАТНОЙ СВЯЗИ ===== -->
     <section class="section-padding bg-surface" id="contact-form">
         <div class="container" style="max-width: 650px;">
             <h2 class="section-title text-center fade-in-section">Остались сомнения?</h2>
             <p class="section-subtext text-center fade-in-section" style="margin-bottom: 24px;">
                 Напишите мне, и я честно отвечу на все вопросы. Без спама и навязывания.
             </p>
-
-            <!-- Основная форма (Яндекс) -->
             <script src="https://forms.yandex.ru/_static/embed.js"></script>
             <iframe 
                 src="https://forms.yandex.ru/cloud/6a2e663e90fa7ba712a30761?iframe=1" 
@@ -250,26 +248,6 @@
                 style="border: none; border-radius: var(--radius-md); background: var(--color-pastel);"
                 title="Форма обратной связи"
             ></iframe>
-
-            <!-- Резервная форма (прямая в Telegram) -->
-            <div class="backup-form fade-in-section" style="margin-top: 24px; background: var(--color-pastel); border-radius: var(--radius-md); padding: 24px 20px; border: 1px dashed var(--color-accent);">
-                <p style="text-align: center; font-size: 0.8rem; color: var(--color-text-light); margin-bottom: 16px;">
-                    ⚡ Или напишите мне напрямую — приходит мгновенно в Telegram
-                </p>
-                <form id="telegramForm" class="direct-form" onsubmit="return submitToTelegram(event);">
-                    <input type="text" id="tgName" placeholder="Ваше имя" required class="form-input">
-                    <input type="tel" id="tgPhone" placeholder="+7 (999) 000-00-00" required class="form-input">
-                    <textarea id="tgQuestion" placeholder="О чём спросить? (необязательно)" class="form-input form-textarea" rows="2"></textarea>
-                    <button type="submit" class="btn btn-primary btn-block">Отправить в Telegram</button>
-                    <p id="tgSuccess" style="display: none; text-align: center; color: var(--color-success); margin-top: 12px; font-size: 0.85rem;">
-                        ✅ Спасибо! Я отвечу в ближайшее время.
-                    </p>
-                    <p id="tgError" style="display: none; text-align: center; color: #C62828; margin-top: 12px; font-size: 0.85rem;">
-                        ⚠️ Не получилось отправить. Позвоните мне: +7 996 900-54-13
-                    </p>
-                </form>
-            </div>
-
             <p style="text-align: center; font-size: 0.7rem; color: var(--color-text-light); margin-top: 12px;">
                 Нажимая «Отправить», вы соглашаетесь с <a href="privacy.html" style="color: var(--color-accent);">политикой конфиденциальности</a>
             </p>

@@ -225,12 +225,13 @@ body {
     right: 0;
     width: 270px;
     height: 100%;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(12px);
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     padding: 70px 22px 30px;
     transform: translateX(100%);
     transition: transform 0.3s ease;
-    box-shadow: -5px 0 25px rgba(0, 0, 0, 0.1);
+    box-shadow: -5px 0 25px rgba(0, 0, 0, 0.08);
 }
 
 .slide-menu.active .slide-menu__panel {
@@ -379,9 +380,10 @@ body {
 }
 
 .hero-photo {
-    display: none;
+    display: block;
     width: 100%;
-    max-width: 300px;
+    max-width: 280px;
+    margin: 0 auto;
     border-radius: var(--radius-lg);
     object-fit: cover;
     box-shadow: var(--shadow);
@@ -1539,6 +1541,9 @@ body {
     .slide-menu__panel ul li a {
         font-size: 0.9rem;
     }
+       .hero-photo {
+        max-width: 220px;
+    }
 }
 
 /* ========================================
@@ -1667,6 +1672,9 @@ body {
         padding: 15px 24px;
         font-size: 0.88rem;
     }
+       .hero-photo {
+        max-width: 300px;
+    }
 }
 
 /* ========================================
@@ -1705,9 +1713,11 @@ body {
         align-items: center;
     }
 
-    .hero-photo {
+        .hero-photo {
         display: block;
         flex: 0 0 270px;
+        max-width: 270px;
+        margin: 0;
     }
 
     .steps-grid {
@@ -1852,8 +1862,10 @@ body {
         font-size: 2.8rem;
     }
 
-    .hero-photo {
-        flex: 0 0 320px;
+        .hero-photo {
+        flex: 0 0 340px;
+        max-width: 340px;
+        margin: 0;
     }
 
     .why-grid {

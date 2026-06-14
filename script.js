@@ -191,4 +191,19 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     window.buildSmartRoute = buildSmartRoute;
+        // ========== 8. КНОПКА «ПОДРОБНЕЕ О МАСТЕРЕ» ==========
+    const whyToggle = document.getElementById('whyToggle');
+    const whyExtras = document.getElementById('whyExtras');
+
+    if (whyToggle && whyExtras) {
+        whyToggle.addEventListener('click', function() {
+            if (whyExtras.style.display === 'none' || whyExtras.style.display === '') {
+                whyExtras.style.display = 'block';
+                whyToggle.textContent = 'Скрыть подробности';
+            } else {
+                whyExtras.style.display = 'none';
+                whyToggle.textContent = 'Подробнее о мастере';
+            }
+        });
+    }
 });

@@ -412,6 +412,7 @@ body {
     color: var(--color-accent);
 }
 
+/* Фото мастера */
 .hero-photo {
     display: block;
     width: 100%;
@@ -420,6 +421,33 @@ body {
     object-fit: cover;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
     border: 4px solid #FFFFFF;
+}
+
+/* Подпись под фото */
+.hero-image {
+    position: relative;
+    text-align: center;
+}
+
+.hero-image::before {
+    content: '★';
+    display: block;
+    font-size: 0.7rem;
+    color: var(--color-star);
+    margin-bottom: -8px;
+    margin-top: 10px;
+    letter-spacing: 3px;
+}
+
+.hero-image::after {
+    content: 'Алина, ваш мастер';
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    color: var(--color-text);
+    margin-top: 6px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
 }
 
 /* ========================================
@@ -485,9 +513,9 @@ body {
    📊 TRUST BAR
    ======================================== */
 .trust-bar {
-    background-color: #2A2A2A;
-    color: #fff;
-    padding: 12px 0;
+    background-color: #3D2C26;
+    color: #F6EFEB;
+    padding: 14px 0;
     overflow-x: auto;
     white-space: nowrap;
     -webkit-overflow-scrolling: touch;
@@ -505,12 +533,12 @@ body {
 }
 
 .trust-bar__inner span {
-    font-size: 0.75rem;
+    font-size: 0.78rem;
     font-weight: 500;
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    opacity: 0.9;
+    opacity: 0.95;
 }
 
 /* ========================================
@@ -529,12 +557,42 @@ body {
     box-shadow: var(--shadow);
     text-align: center;
     transition: var(--transition);
-    border: 1px solid rgba(0, 0, 0, 0.02);
+    border-left: 4px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.problem-card:nth-child(1) {
+    border-left-color: #C67A5C;
+}
+
+.problem-card:nth-child(2) {
+    border-left-color: #D4AF37;
+}
+
+.problem-card:nth-child(3) {
+    border-left-color: #3E6B4F;
+}
+
+.problem-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(198, 122, 92, 0.03) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 .problem-card:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow-hover);
+}
+
+.problem-card:hover::before {
+    opacity: 1;
 }
 
 .problem-icon {
@@ -551,6 +609,30 @@ body {
 .problem-card p {
     font-size: 0.85rem;
     color: var(--color-text-light);
+}
+
+/* Плашка-мост между карточками боли и кнопкой */
+.problems-grid + .section-subtext {
+    background: #FDF9F7;
+    padding: 18px 20px;
+    border-radius: var(--radius-md);
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: var(--color-text);
+    border-left: 3px solid var(--color-accent);
+    text-align: left;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 28px;
+}
+
+/* Текст под кнопкой — заметнее */
+.problems-grid + .section-subtext + .text-center p {
+    font-size: 0.85rem !important;
+    color: var(--color-text) !important;
+    font-weight: 500;
+    margin-top: 14px;
 }
 
 /* ========================================
@@ -575,6 +657,20 @@ body {
 .how-card:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow-hover);
+}
+
+/* Первая карточка — главная */
+.how-card:first-child {
+    border-top: 3px solid var(--color-accent);
+    background: #FFFCFA;
+}
+
+.how-card:first-child .how-icon {
+    font-size: 2.2rem;
+}
+
+.how-card:not(:first-child) {
+    opacity: 0.95;
 }
 
 .how-icon {
@@ -656,10 +752,19 @@ body {
     color: var(--color-success);
 }
 
+/* Показываем все преимущества сразу */
+#whyExtras {
+    display: block !important;
+}
+
+#whyToggle {
+    display: none;
+}
+
 .why-grid {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
 }
 
 .why-item {
@@ -686,6 +791,19 @@ body {
 .why-item p {
     font-size: 0.85rem;
     color: var(--color-text-light);
+}
+
+/* Переход к "До/После" */
+#why-us .container::after {
+    content: 'Смотрите реальные результаты клиентов ↓';
+    display: block;
+    text-align: center;
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    color: var(--color-accent);
+    margin-top: 32px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
 }
 
 /* ========================================
@@ -742,6 +860,15 @@ body {
     font-weight: 600;
 }
 
+/* Пояснение к цифрам */
+.beforeafter-badge::after {
+    content: ' (после 1, 3 и 5 процедур)';
+    font-size: 0.65rem;
+    color: var(--color-text-light);
+    font-weight: 400;
+    opacity: 0.8;
+}
+
 .text-small {
     font-size: 0.7rem;
     opacity: 0.7;
@@ -773,6 +900,33 @@ body {
     color: #fff;
     font-weight: 600;
     font-family: var(--font-heading);
+    border-left: none !important;
+}
+
+/* Цветовое кодирование */
+.pain-row:nth-child(2) {
+    background: #FDF8F6;
+    border-left: 3px solid #D4A592;
+}
+
+.pain-row:nth-child(3) {
+    background: #F8FAF6;
+    border-left: 3px solid #8FAF7E;
+}
+
+.pain-row:nth-child(4) {
+    background: #FDF9F7;
+    border-left: 3px solid #D4A592;
+}
+
+.pain-row:nth-child(5) {
+    background: #FAFAF8;
+    border-left: 3px solid #B8B8A0;
+}
+
+.pain-row:nth-child(6) {
+    background: #F8FAF6;
+    border-left: 3px solid #8FAF7E;
 }
 
 .pain-note {
@@ -794,6 +948,22 @@ body {
     display: grid;
     grid-template-columns: 1fr;
     gap: 16px;
+}
+
+/* Плашка-сводка перед отзывами */
+.reviews-grid::before {
+    content: '⭐ 5.0 · 24 отзыва на Яндекс.Картах · 100% рекомендуют';
+    display: block;
+    text-align: center;
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    color: var(--color-text);
+    margin-bottom: 24px;
+    padding: 12px 20px;
+    background: var(--color-surface);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow);
+    grid-column: 1 / -1;
 }
 
 .review-card {
@@ -898,18 +1068,27 @@ body {
     display: inline-block;
     background: #FCF3EF;
     color: var(--color-accent);
-    padding: 4px 14px;
+    padding: 6px 18px;
     border-radius: 40px;
-    font-size: 0.7rem;
-    font-weight: 600;
-    margin-bottom: 16px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-bottom: 14px;
+    letter-spacing: 0.02em;
+    border: 1px solid rgba(198, 122, 92, 0.2);
 }
 
 .price-full {
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     color: var(--color-text-light);
     margin-bottom: 16px;
     text-decoration: line-through;
+    opacity: 0.7;
+}
+
+.price-full::before {
+    content: 'Обычно ';
+    text-decoration: none;
+    opacity: 0.8;
 }
 
 .pricing-info--compact {
@@ -964,6 +1143,25 @@ body {
     font-size: 0.7rem;
     padding: 4px 16px;
     border-radius: 40px;
+}
+
+/* Тест-драйв — выделение */
+.promo-card:first-child {
+    border: 2px dashed rgba(198, 122, 92, 0.3);
+    background: #FFFCFA;
+}
+
+.promo-card:first-child .btn {
+    animation: softPulse 2.5s infinite ease-in-out;
+}
+
+@keyframes softPulse {
+    0%, 100% {
+        box-shadow: 0 4px 12px rgba(198, 122, 92, 0.2);
+    }
+    50% {
+        box-shadow: 0 8px 24px rgba(198, 122, 92, 0.4);
+    }
 }
 
 .promo-card i {
@@ -1035,7 +1233,6 @@ body {
     font-size: 0.95rem;
     cursor: pointer;
     display: flex;
-    justify-content: space-between;
     align-items: center;
     transition: var(--transition);
 }
@@ -1048,11 +1245,37 @@ body {
     color: var(--color-accent);
 }
 
+/* Иконка слева */
+.faq-question::before {
+    content: '?';
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background: var(--color-pastel);
+    color: var(--color-accent);
+    border-radius: 50%;
+    font-weight: 700;
+    font-size: 0.8rem;
+    margin-right: 12px;
+    flex-shrink: 0;
+    font-family: var(--font-body);
+}
+
+.faq-question.active::before {
+    content: '✓';
+    background: var(--color-accent);
+    color: #fff;
+}
+
+/* Иконка справа */
 .faq-question::after {
     content: '+';
     font-size: 1.4rem;
     color: var(--color-accent);
     opacity: 0.7;
+    margin-left: auto;
 }
 
 .faq-question.active::after {
@@ -1086,6 +1309,20 @@ body {
 .contact-buttons .btn {
     padding: 12px 20px;
     font-size: 0.8rem;
+}
+
+/* Кнопка "Как добраться" */
+.contact-buttons .btn:last-child {
+    border-color: var(--color-accent);
+    border-width: 1.5px;
+}
+
+.contact-buttons .btn:last-child i {
+    color: var(--color-accent);
+}
+
+.contact-buttons .btn:last-child:hover {
+    background: #FDF9F7;
 }
 
 .contact-info {
@@ -1181,11 +1418,6 @@ body {
     color: var(--color-accent);
 }
 
-.text-small {
-    font-size: 0.7rem;
-    opacity: 0.7;
-}
-
 /* ========================================
    🎈 ПЛАВАЮЩАЯ КНОПКА
    ======================================== */
@@ -1271,6 +1503,28 @@ body {
 }
 
 /* ========================================
+   📋 ФОРМА ОБРАТНОЙ СВЯЗИ
+   ======================================== */
+#contact-form iframe {
+    background: var(--color-surface) !important;
+    border-radius: var(--radius-md) !important;
+    box-shadow: var(--shadow) !important;
+    border: 1px solid rgba(0, 0, 0, 0.04) !important;
+}
+
+#contact-form .container > p {
+    font-size: 0.75rem;
+    color: var(--color-text-light);
+    opacity: 0.75;
+    margin-top: 14px;
+    text-align: center;
+}
+
+#contact-form .section-subtext {
+    margin-bottom: 20px;
+}
+
+/* ========================================
    🎬 АНИМАЦИИ
    ======================================== */
 .fade-in-section {
@@ -1285,7 +1539,7 @@ body {
 }
 
 /* ========================================
-   📱 ДИАПАЗОН S: 320-374px (iPhone SE, старые Xiaomi)
+   📱 ДИАПАЗОН S: 320-374px
    ======================================== */
 @media (max-width: 374px) {
     .container {
@@ -1332,6 +1586,11 @@ body {
     .hero-meta {
         font-size: 0.75rem;
         gap: 12px;
+    }
+
+    .hero-image::after {
+        font-size: 0.8rem;
+        margin-top: 10px;
     }
 
     .btn {
@@ -1406,6 +1665,11 @@ body {
         font-size: 0.78rem;
     }
 
+    .problems-grid + .section-subtext {
+        font-size: 0.8rem;
+        padding: 14px 16px;
+    }
+
     .how-grid {
         gap: 14px;
     }
@@ -1468,12 +1732,22 @@ body {
         font-size: 0.78rem;
     }
 
+    #why-us .container::after {
+        font-size: 0.8rem;
+        margin-top: 24px;
+    }
+
     .beforeafter-grid {
         gap: 14px;
     }
 
     .beforeafter-info p {
         font-size: 0.85rem;
+    }
+
+    .beforeafter-badge::after {
+        content: ' (1-3-5 процедур)';
+        font-size: 0.6rem;
     }
 
     .pain-row {
@@ -1483,6 +1757,12 @@ body {
 
     .pain-note {
         font-size: 0.78rem;
+    }
+
+    .reviews-grid::before {
+        font-size: 0.85rem;
+        padding: 10px 16px;
+        margin-bottom: 16px;
     }
 
     .reviews-grid {
@@ -1586,7 +1866,7 @@ body {
 }
 
 /* ========================================
-   📱 ДИАПАЗОН L: 414px+ (iPhone 14 Pro Max, Plus)
+   📱 ДИАПАЗОН L: 414px+
    ======================================== */
 @media (min-width: 414px) and (max-width: 767px) {
     .container {
@@ -1802,7 +2082,8 @@ body {
     }
 
     .why-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
     }
 
     .beforeafter-grid {

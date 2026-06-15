@@ -417,10 +417,12 @@ body {
     display: block;
     width: 100%;
     max-width: 280px;
+    aspect-ratio: 3 / 4;
     border-radius: 50%;
     object-fit: cover;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
     border: 4px solid #FFFFFF;
+    background: #F0E8E4;
 }
 
 /* Подпись под фото */
@@ -767,6 +769,12 @@ body {
     gap: 16px;
 }
 
+/* Отступ между верхней и нижней парой карточек */
+.why-grid + .why-grid,
+#whyExtras .why-grid {
+    margin-top: 16px;
+}
+
 .why-item {
     text-align: center;
     padding: 24px 20px;
@@ -1083,12 +1091,6 @@ body {
     margin-bottom: 16px;
     text-decoration: line-through;
     opacity: 0.7;
-}
-
-.price-full::before {
-    content: 'Обычно ';
-    text-decoration: none;
-    opacity: 0.8;
 }
 
 .pricing-info--compact {

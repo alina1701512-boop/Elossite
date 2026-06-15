@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
 Sitemap: https://elos-kazan.ru/sitemap.xml
+Host: elos-kazan.ru

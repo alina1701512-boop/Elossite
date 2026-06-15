@@ -425,6 +425,13 @@ body {
     background: #F0E8E4;
 }
 
+/* Чтобы picture не ломал вёрстку */
+picture {
+    display: block;
+    width: 100%;
+    max-width: 280px;
+}
+
 /* Подпись под фото */
 .hero-image {
     position: relative;

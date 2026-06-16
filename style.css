@@ -1245,6 +1245,331 @@ body {
 }
 
 /* ========================================
+   📦 КАРТОЧКИ КОМПЛЕКСОВ (страница /services/kompleksy/)
+   ======================================== */
+.complex-grid {
+    display: grid;
+    gap: 24px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.complex-card {
+    background: var(--color-pastel);
+    border-radius: var(--radius-md);
+    padding: 28px 24px;
+    box-shadow: var(--shadow);
+    position: relative;
+    transition: var(--transition);
+}
+
+.complex-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-hover);
+}
+
+.complex-card--featured {
+    background: var(--color-surface);
+    border: 2px solid var(--color-accent);
+}
+
+.complex-card--student {
+    background: #FFF9C4;
+}
+
+.complex-card__badge--top {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--color-accent);
+    color: #fff;
+    font-size: 0.7rem;
+    padding: 4px 14px;
+    border-radius: 30px;
+    white-space: nowrap;
+}
+
+.complex-card__badge--hit {
+    background: var(--color-accent);
+}
+
+.complex-card__title {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    margin-top: 12px;
+}
+
+.complex-card__title:first-child {
+    margin-top: 0;
+}
+
+.complex-card__desc {
+    font-size: 0.85rem;
+    color: var(--color-text-light);
+    margin-bottom: 12px;
+}
+
+.complex-card__price {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.complex-card__price-new {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--color-accent);
+}
+
+.complex-card__price-old {
+    font-size: 0.8rem;
+    color: var(--color-text-light);
+    text-decoration: line-through;
+}
+
+.complex-card__tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+}
+
+.complex-card__tag {
+    font-size: 0.7rem;
+    background: #fff;
+    padding: 4px 10px;
+    border-radius: 20px;
+}
+
+.complex-card--featured .complex-card__tag {
+    background: var(--color-pastel);
+}
+
+.complex-card__tag--sale {
+    background: #E8F5E9;
+    color: #2E7D32;
+}
+
+.complex-card__action {
+    margin-top: 16px;
+}
+
+/* Строки в "Студент" */
+.complex-student__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #E0D89C;
+    font-size: 0.85rem;
+}
+
+.complex-student__row:last-of-type {
+    border-bottom: none;
+}
+
+/* ========================================
+   📐 СЕТКА "ДРУГИЕ УСЛУГИ" (страницы услуг)
+   ======================================== */
+.other-services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 14px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.other-service-link {
+    background: var(--color-pastel);
+    padding: 16px;
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    color: var(--color-text);
+    transition: var(--transition);
+}
+
+.other-service-link:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+}
+
+.other-service-link p {
+    font-size: 0.75rem;
+    color: var(--color-text-light);
+}
+
+.other-service-link--cta {
+    background: var(--color-accent);
+    color: #fff;
+}
+
+.other-service-link--cta p {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+/* Узкие экраны — одна колонка */
+@media (max-width: 320px) {
+    .other-services-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Интро на страницах услуг */
+.service-intro {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* ========================================
+   📋 ТАБЛИЦА ЦЕН НА СТРАНИЦАХ УСЛУГ
+   ======================================== */
+.service-price-table {
+    background: var(--color-surface);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+
+.service-price-table table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+}
+
+.service-price-table thead th {
+    padding: 12px 16px;
+    background: var(--color-accent);
+    color: #fff;
+    text-align: left;
+    font-weight: 600;
+}
+
+.service-price-table thead th:not(:first-child) {
+    text-align: center;
+}
+
+.service-price-table tbody td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #f5f5f5;
+}
+
+.service-price-table tbody td:not(:first-child) {
+    text-align: center;
+}
+
+.service-price-table__price {
+    font-weight: 700;
+}
+
+.service-price-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* ========================================
+   🏷️ ТЕГИ В HERO СТРАНИЦ УСЛУГ
+   ======================================== */
+.service-hero-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+}
+
+.service-hero-tags span {
+    background: #F0F0F0;
+    padding: 6px 14px;
+    border-radius: 30px;
+    font-size: 0.75rem;
+}
+
+.service-hero-cta {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+/* ========================================
+   👣 СПИСОК ШАГОВ (Как проходит процедура)
+   ======================================== */
+.steps-list {
+    display: grid;
+    gap: 16px;
+}
+
+.steps-list__item {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+}
+
+.steps-list__number {
+    background: var(--color-accent);
+    color: #fff;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.8rem;
+    flex-shrink: 0;
+}
+
+.steps-list__item strong {
+    display: block;
+    margin-bottom: 2px;
+}
+
+.steps-list__item p {
+    font-size: 0.85rem;
+    color: var(--color-text-light);
+}
+
+/* ========================================
+   📊 ТАБЛИЦА СРАВНЕНИЯ
+   ======================================== */
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.8rem;
+}
+
+.comparison-table caption {
+    font-size: 0.7rem;
+    color: var(--color-text-light);
+    margin-bottom: 8px;
+    text-align: left;
+}
+
+.comparison-table thead th {
+    padding: 10px;
+    text-align: center;
+    background: var(--color-accent);
+    color: #fff;
+}
+
+.comparison-table thead th:first-child {
+    text-align: left;
+}
+
+.comparison-table thead th:not(:first-child) {
+    background: #999;
+}
+
+.comparison-table tbody td {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    text-align: center;
+}
+
+.comparison-table tbody td:first-child {
+    text-align: left;
+}
+
+/* ========================================
    📍 КОНТАКТЫ
    ======================================== */
 .contact-buttons {

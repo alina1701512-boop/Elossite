@@ -2596,3 +2596,405 @@ body {
 .services-catalog-card--yellow {
     background: #FFF9C4;
 }
+
+/* ========================================
+   🎁 АКЦИИ (страница /akcii/)
+   ======================================== */
+.akcii-grid {
+    display: grid;
+    gap: 24px;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.akcii-card {
+    border-radius: var(--radius-lg);
+    padding: 28px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.akcii-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-hover);
+}
+
+.akcii-card--yellow {
+    background: #FFF9C4;
+}
+
+.akcii-card--featured {
+    background: var(--color-pastel);
+    border: 2px solid var(--color-accent);
+    position: relative;
+}
+
+.akcii-card--green {
+    background: #E8F5E9;
+}
+
+.akcii-card--purple {
+    background: #F3E5F5;
+}
+
+.akcii-card__badge {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--color-accent);
+    color: #fff;
+    font-size: 0.75rem;
+    padding: 6px 16px;
+    border-radius: 30px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.akcii-card__icon {
+    font-size: 2rem;
+    margin-bottom: 8px;
+}
+
+.akcii-card__title {
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+}
+
+.akcii-card--featured .akcii-card__title {
+    margin-top: 10px;
+}
+
+.akcii-card__desc {
+    font-size: 0.85rem;
+    color: var(--color-text-light);
+    margin-bottom: 16px;
+}
+
+.akcii-card__price-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.akcii-card__price-old {
+    text-decoration: line-through;
+    color: var(--color-text-light);
+}
+
+.akcii-card__price-new {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--color-accent);
+}
+
+.akcii-card__note {
+    font-size: 0.8rem;
+    color: var(--color-text-light);
+    margin-bottom: 20px;
+}
+
+/* Список комплексов в карточке 35% */
+.akcii-card__complex-list {
+    display: grid;
+    gap: 8px;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.akcii-card__complex-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+    border-bottom: 1px solid #E8D5CF;
+    font-size: 0.85rem;
+}
+
+.akcii-card__complex-row:last-child {
+    border-bottom: none;
+}
+
+/* Студенческие строки */
+.akcii-card__student-list {
+    margin-bottom: 16px;
+}
+
+.akcii-card__student-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #C8E6C9;
+    text-align: left;
+    font-size: 0.85rem;
+}
+
+.akcii-card__student-row:last-child {
+    border-bottom: none;
+}
+
+/* Условия акций */
+.akcii-terms {
+    max-width: 700px;
+    text-align: center;
+}
+
+.akcii-terms ul {
+    text-align: left;
+    font-size: 0.8rem;
+    color: var(--color-text-light);
+    line-height: 1.6;
+    list-style: none;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.akcii-terms ul li {
+    margin-bottom: 6px;
+}
+
+.akcii-terms ul li::before {
+    content: '•';
+    margin-right: 8px;
+    color: var(--color-accent);
+}
+
+/* ========================================
+   💰 ПРАЙС-ЛИСТ (страница /price/)
+   ======================================== */
+.price-section {
+    max-width: 800px;
+}
+
+.price-section__heading {
+    font-size: 1.2rem;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Тёмный вариант шапки для таблицы "Отдельные зоны" */
+.price-table--dark thead th {
+    background: var(--color-text);
+}
+
+.price-table--dark thead th:first-child {
+    background: var(--color-text);
+}
+
+/* ========================================
+   💬 СТРАНИЦА ОТЗЫВОВ (страница /reviews/)
+   ======================================== */
+.reviews-hero {
+    text-align: center;
+}
+
+.reviews-hero__stars {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.reviews-hero__stars-icons {
+    font-size: 1.5rem;
+    color: #FFD700;
+}
+
+.reviews-hero__stars-value {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.reviews-hero__based-on {
+    font-size: 0.85rem;
+    color: var(--color-text-light);
+}
+
+.reviews-page-grid {
+    display: grid;
+    gap: 16px;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.reviews-page-card {
+    background: var(--color-pastel);
+    border-radius: var(--radius-md);
+    padding: 20px;
+    box-shadow: var(--shadow);
+}
+
+.reviews-page-card__stars {
+    color: #FFD700;
+    margin-bottom: 8px;
+}
+
+.reviews-page-card__stars span {
+    color: var(--color-text-light);
+    font-size: 0.8rem;
+}
+
+.reviews-page-card__text {
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+}
+
+.reviews-page-card__author {
+    font-size: 0.75rem;
+    color: var(--color-text-light);
+    font-weight: 600;
+}
+
+/* ========================================
+   📝 БЛОГ (blog.html)
+   ======================================== */
+.blog-hero {
+    background: linear-gradient(135deg, var(--color-pastel) 0%, #fff 100%);
+    padding: 60px 0 40px;
+    text-align: center;
+}
+
+.blog-grid {
+    display: grid;
+    gap: 40px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.blog-article {
+    background: var(--color-surface);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    padding: 32px;
+}
+
+.blog-article__tag {
+    display: inline-block;
+    background: var(--color-pastel);
+    color: var(--color-accent);
+    font-size: 0.7rem;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+}
+
+.blog-article__title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.blog-article__meta {
+    font-size: 0.75rem;
+    color: var(--color-text-light);
+    margin-bottom: 20px;
+}
+
+.blog-article p {
+    margin-bottom: 16px;
+}
+
+.blog-article__highlight {
+    background: var(--color-pastel);
+    padding: 20px;
+    border-radius: var(--radius-sm);
+    margin: 20px 0;
+}
+
+.blog-article__list {
+    margin-left: 20px;
+    margin-top: 8px;
+}
+
+.blog-article__box {
+    padding: 20px;
+    border-radius: var(--radius-sm);
+    margin: 20px 0;
+}
+
+.blog-article__box h3 {
+    margin-bottom: 8px;
+}
+
+.blog-article__box--green {
+    background: #E8F5E9;
+}
+
+.blog-article__box--green h3 {
+    color: #2E7D32;
+}
+
+.blog-article__box--orange {
+    background: #FFF3E0;
+}
+
+.blog-article__box--orange h3 {
+    color: #E86A3B;
+}
+
+.blog-article__box--red {
+    background: #FFEBEE;
+}
+
+.blog-article__box--red h3 {
+    color: #C62828;
+}
+
+.blog-article__actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+}
+
+/* ========================================
+   🔒 ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ (privacy.html)
+   ======================================== */
+.privacy-content {
+    max-width: 800px;
+}
+
+.privacy-text {
+    margin-top: 40px;
+    line-height: 1.8;
+}
+
+.privacy-text h2 {
+    font-family: var(--font-heading);
+    margin-bottom: 15px;
+    margin-top: 30px;
+    font-size: 1.2rem;
+}
+
+.privacy-text ul {
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.privacy-contacts {
+    list-style: none;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.privacy-contacts a {
+    color: var(--color-accent);
+    text-decoration: none;
+}
+
+.privacy-contacts a:hover {
+    text-decoration: underline;
+}
+
+.privacy-footer-note {
+    margin-top: 30px;
+    color: var(--color-text-light);
+    font-size: 0.9rem;
+}
+

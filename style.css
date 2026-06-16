@@ -1,8 +1,6 @@
 /* ========================================
-   📦 ПЕРЕМЕННЫЕ И ИМПОРТЫ
+   📦 ПЕРЕМЕННЫЕ
    ======================================== */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&display=swap');
-
 :root {
     --color-bg: #FAF7F5;
     --color-surface: #FFFFFF;
@@ -21,6 +19,9 @@
     --shadow: 0 8px 30px rgba(0, 0, 0, 0.03);
     --shadow-hover: 0 16px 40px rgba(0, 0, 0, 0.06);
     --transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+    /* Явно говорим браузеру: только светлая тема */
+    color-scheme: only light;
 }
 
 * {
@@ -41,6 +42,19 @@ body {
     color: var(--color-text);
     background-color: var(--color-bg);
     -webkit-font-smoothing: antialiased;
+}
+
+/* ========================================
+   ⌨️ Доступность: фокус для клавиатуры
+   ======================================== */
+:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+}
+
+/* Снимаем стандартный outline для мыши, но оставляем для :focus-visible */
+:focus:not(:focus-visible) {
+    outline: none;
 }
 
 .container {
@@ -280,7 +294,7 @@ body {
 }
 
 .slide-menu__panel .nav-link-phone {
-    color: var(--color-accent) !important;
+    color: var(--color-accent);
     font-weight: 600;
     font-family: var(--font-body);
 }
@@ -291,7 +305,7 @@ body {
 
 .slide-menu__panel .nav-link-cta {
     background-color: var(--color-accent);
-    color: #fff !important;
+    color: #fff;
     padding: 12px 20px;
     border-radius: 40px;
     text-align: center;
@@ -307,12 +321,14 @@ body {
 
 .site-header {
     padding: 15px 0;
-    background-color: rgba(250, 247, 245, 0.7);
+    background-color: rgba(250, 247, 245, 0.85);
     backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
     position: sticky;
     top: 0;
     z-index: 1000;
     border-bottom: 1px solid rgba(0,0,0,0.03);
+    will-change: transform;
 }
 
 .logo {
@@ -423,40 +439,6 @@ body {
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
     border: 4px solid #FFFFFF;
     background: #F0E8E4;
-}
-
-/* Чтобы picture не ломал вёрстку */
-picture {
-    display: block;
-    width: 100%;
-    max-width: 280px;
-}
-
-/* Подпись под фото */
-.hero-image {
-    position: relative;
-    text-align: center;
-}
-
-.hero-image::before {
-    content: '★';
-    display: block;
-    font-size: 0.7rem;
-    color: var(--color-star);
-    margin-bottom: -8px;
-    margin-top: 10px;
-    letter-spacing: 3px;
-}
-
-.hero-image::after {
-    content: 'Алина, ваш мастер';
-    display: block;
-    font-family: var(--font-heading);
-    font-size: 0.9rem;
-    color: var(--color-text);
-    margin-top: 6px;
-    font-weight: 600;
-    letter-spacing: 0.02em;
 }
 
 /* ========================================
@@ -620,30 +602,6 @@ picture {
     color: var(--color-text-light);
 }
 
-/* Плашка-мост между карточками боли и кнопкой */
-.problems-grid + .section-subtext {
-    background: #FDF9F7;
-    padding: 18px 20px;
-    border-radius: var(--radius-md);
-    font-size: 0.9rem;
-    line-height: 1.7;
-    color: var(--color-text);
-    border-left: 3px solid var(--color-accent);
-    text-align: left;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 28px;
-}
-
-/* Текст под кнопкой — заметнее */
-.problems-grid + .section-subtext + .text-center p {
-    font-size: 0.85rem !important;
-    color: var(--color-text) !important;
-    font-weight: 500;
-    margin-top: 14px;
-}
-
 /* ========================================
    ⚙️ КАК ЭТО РАБОТАЕТ
    ======================================== */
@@ -761,13 +719,13 @@ picture {
     color: var(--color-success);
 }
 
-/* Показываем все преимущества сразу */
+/* #whyExtras — управляется через JS, по умолчанию скрыто */
 #whyExtras {
-    display: block !important;
+    display: none;
 }
 
 #whyToggle {
-    display: none;
+    display: block;
 }
 
 .why-grid {
@@ -776,7 +734,6 @@ picture {
     gap: 16px;
 }
 
-/* Отступ между верхней и нижней парой карточек */
 .why-grid + .why-grid,
 #whyExtras .why-grid {
     margin-top: 16px;
@@ -806,19 +763,6 @@ picture {
 .why-item p {
     font-size: 0.85rem;
     color: var(--color-text-light);
-}
-
-/* Переход к "До/После" */
-#why-us .container::after {
-    content: 'Смотрите реальные результаты клиентов ↓';
-    display: block;
-    text-align: center;
-    font-family: var(--font-heading);
-    font-size: 0.9rem;
-    color: var(--color-accent);
-    margin-top: 32px;
-    font-weight: 600;
-    letter-spacing: 0.03em;
 }
 
 /* ========================================
@@ -875,9 +819,8 @@ picture {
     font-weight: 600;
 }
 
-/* Пояснение к цифрам */
-.beforeafter-badge::after {
-    content: ' (после 1, 3 и 5 процедур)';
+/* Суффикс к бейджу — через data-атрибут или span, а не ::after */
+.beforeafter-badge-suffix {
     font-size: 0.65rem;
     color: var(--color-text-light);
     font-weight: 400;
@@ -915,7 +858,7 @@ picture {
     color: #fff;
     font-weight: 600;
     font-family: var(--font-heading);
-    border-left: none !important;
+    border-left: none;
 }
 
 /* Цветовое кодирование */
@@ -965,10 +908,7 @@ picture {
     gap: 16px;
 }
 
-/* Плашка-сводка перед отзывами */
-.reviews-grid::before {
-    content: '⭐ 5.0 · 24 отзыва на Яндекс.Картах · 100% рекомендуют';
-    display: block;
+.reviews-summary {
     text-align: center;
     font-family: var(--font-heading);
     font-size: 1rem;
@@ -1515,10 +1455,10 @@ picture {
    📋 ФОРМА ОБРАТНОЙ СВЯЗИ
    ======================================== */
 #contact-form iframe {
-    background: var(--color-surface) !important;
-    border-radius: var(--radius-md) !important;
-    box-shadow: var(--shadow) !important;
-    border: 1px solid rgba(0, 0, 0, 0.04) !important;
+    background: var(--color-surface);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(0, 0, 0, 0.04);
 }
 
 #contact-form .container > p {
@@ -1548,9 +1488,9 @@ picture {
 }
 
 /* ========================================
-   📱 ДИАПАЗОН S: 320-374px
+   📱 ДИАПАЗОН S: 320-413px
    ======================================== */
-@media (max-width: 374px) {
+@media (max-width: 413px) {
     .container {
         padding: 0 14px;
     }
@@ -1595,11 +1535,6 @@ picture {
     .hero-meta {
         font-size: 0.75rem;
         gap: 12px;
-    }
-
-    .hero-image::after {
-        font-size: 0.8rem;
-        margin-top: 10px;
     }
 
     .btn {
@@ -1674,11 +1609,6 @@ picture {
         font-size: 0.78rem;
     }
 
-    .problems-grid + .section-subtext {
-        font-size: 0.8rem;
-        padding: 14px 16px;
-    }
-
     .how-grid {
         gap: 14px;
     }
@@ -1741,22 +1671,12 @@ picture {
         font-size: 0.78rem;
     }
 
-    #why-us .container::after {
-        font-size: 0.8rem;
-        margin-top: 24px;
-    }
-
     .beforeafter-grid {
         gap: 14px;
     }
 
     .beforeafter-info p {
         font-size: 0.85rem;
-    }
-
-    .beforeafter-badge::after {
-        content: ' (1-3-5 процедур)';
-        font-size: 0.6rem;
     }
 
     .pain-row {
@@ -1768,7 +1688,7 @@ picture {
         font-size: 0.78rem;
     }
 
-    .reviews-grid::before {
+    .reviews-summary {
         font-size: 0.85rem;
         padding: 10px 16px;
         margin-bottom: 16px;
@@ -2151,7 +2071,7 @@ picture {
     }
 
     .nav-link-phone {
-        color: var(--color-accent) !important;
+        color: var(--color-accent);
         font-weight: 700;
         white-space: nowrap;
     }

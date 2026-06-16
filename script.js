@@ -1,38 +1,63 @@
 document.addEventListener('DOMContentLoaded', function() {
 
+    // ========== 0. ЗАГЛУШКА ДЛЯ YM (если Метрика заблокирована) ==========
+    if (typeof ym === 'undefined') {
+        window.ym = function() {};
+    }
+
+    // ========== 0.1. ОБРАБОТЧИК data-ym-goal ==========
+    document.addEventListener('click', function(e) {
+        var target = e.target.closest('[data-ym-goal]');
+        if (target) {
+            var goal = target.getAttribute('data-ym-goal');
+            ym(109650228, 'reachGoal', goal);
+        }
+    });
+
     // ========== 1. МЕНЮ (БУРГЕР) ==========
-    const burgerMenu = document.getElementById('burgerMenu');
-    const slideMenu = document.getElementById('slideMenu');
-    const slideMenuOverlay = document.querySelector('.slide-menu__overlay');
+    var burgerMenu = document.getElementById('burgerMenu');
+    var slideMenu = document.getElementById('slideMenu');
+    var slideMenuOverlay = document.querySelector('.slide-menu__overlay');
 
     if (burgerMenu && slideMenu) {
         burgerMenu.addEventListener('click', function(e) {
-            e.stopPropagation();
+            // Не используем stopPropagation — вместо этого глобальный слушатель ниже
             slideMenu.classList.toggle('active');
         });
 
+        // Закрытие по клику на оверлей
         if (slideMenuOverlay) {
             slideMenuOverlay.addEventListener('click', function() {
                 slideMenu.classList.remove('active');
             });
         }
 
-        const menuLinks = slideMenu.querySelectorAll('a');
-        menuLinks.forEach(link => {
+        // Закрытие по клику на ссылки внутри меню
+        var menuLinks = slideMenu.querySelectorAll('a');
+        menuLinks.forEach(function(link) {
             link.addEventListener('click', function() {
                 slideMenu.classList.remove('active');
             });
         });
     }
 
+    // Глобальное закрытие меню по клику ВНЕ его
+    document.addEventListener('click', function(e) {
+        if (slideMenu && slideMenu.classList.contains('active')) {
+            if (!slideMenu.contains(e.target) && e.target !== burgerMenu) {
+                slideMenu.classList.remove('active');
+            }
+        }
+    });
+
     // ========== 2. FAQ (АККОРДЕОН) ==========
-    const faqItems = document.querySelectorAll('.faq-item');
-    let currentlyOpen = null;
+    var faqItems = document.querySelectorAll('.faq-item');
+    var currentlyOpen = null;
 
     function closeAllFaq() {
-        faqItems.forEach(item => {
-            const button = item.querySelector('.faq-question');
-            const answer = item.querySelector('.faq-answer');
+        faqItems.forEach(function(item) {
+            var button = item.querySelector('.faq-question');
+            var answer = item.querySelector('.faq-answer');
             if (button) {
                 button.classList.remove('active');
                 button.setAttribute('aria-expanded', 'false');
@@ -45,36 +70,39 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function openFaq(item) {
-        const button = item.querySelector('.faq-question');
-        const answer = item.querySelector('.faq-answer');
+        var button = item.querySelector('.faq-question');
+        var answer = item.querySelector('.faq-answer');
         if (button && answer) {
             button.classList.add('active');
             button.setAttribute('aria-expanded', 'true');
-            answer.style.maxHeight = answer.scrollHeight + 'px';
+            // Читаем scrollHeight и записываем
+            var h = answer.scrollHeight;
+            answer.style.maxHeight = h + 'px';
             currentlyOpen = item;
         }
     }
 
-    faqItems.forEach(item => {
-        const button = item.querySelector('.faq-question');
+    faqItems.forEach(function(item) {
+        var button = item.querySelector('.faq-question');
         if (button) {
             button.classList.remove('active');
             button.setAttribute('aria-expanded', 'false');
-            const answer = item.querySelector('.faq-answer');
+            // aria-controls уже задан в HTML (id у answer)
+            var answer = item.querySelector('.faq-answer');
             if (answer) {
                 answer.style.maxHeight = null;
             }
 
             button.addEventListener('click', function(e) {
                 e.stopPropagation();
-                const isOpen = button.classList.contains('active');
+                var isOpen = button.classList.contains('active');
                 
                 if (isOpen) {
                     button.classList.remove('active');
                     button.setAttribute('aria-expanded', 'false');
-                    const answer = item.querySelector('.faq-answer');
-                    if (answer) {
-                        answer.style.maxHeight = null;
+                    var ans = item.querySelector('.faq-answer');
+                    if (ans) {
+                        ans.style.maxHeight = null;
                     }
                     currentlyOpen = null;
                 } else {
@@ -86,12 +114,12 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // ========== 3. FAQ КНОПКА «СМОТРЕТЬ ВСЕ» ==========
-    const faqShowAllBtn = document.getElementById('faqShowAll');
-    const hiddenFaqItems = document.querySelectorAll('.faq-hidden');
+    var faqShowAllBtn = document.getElementById('faqShowAll');
+    var hiddenFaqItems = document.querySelectorAll('.faq-hidden');
 
     if (faqShowAllBtn && hiddenFaqItems.length > 0) {
         faqShowAllBtn.addEventListener('click', function() {
-            hiddenFaqItems.forEach(item => {
+            hiddenFaqItems.forEach(function(item) {
                 item.style.display = 'block';
             });
             faqShowAllBtn.style.display = 'none';
@@ -99,9 +127,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // ========== 4. АНИМАЦИЯ ПРИ СКРОЛЛЕ ==========
-    const fadeElements = document.querySelectorAll('.fade-in-section');
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
+    var fadeElements = document.querySelectorAll('.fade-in-section');
+    var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
                 observer.unobserve(entry.target);
@@ -109,23 +137,22 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
     
-    fadeElements.forEach(el => observer.observe(el));
+    fadeElements.forEach(function(el) { observer.observe(el); });
 
-        // ========== 5. ВЫХОДНОЙ ПОПАП (ТОЛЬКО ДЕСКТОП ≥768px, mouseleave) ==========
-    let popupShown = false;
-    let exitIntentListenerAdded = false;
+    // ========== 5. ВЫХОДНОЙ ПОПАП (ТОЛЬКО ДЕСКТОП >=768px, mouseleave) ==========
+    var popupShown = false;
+    var exitIntentListenerAdded = false;
 
     function showExitPopup() {
         if (popupShown) return;
         if (window.innerWidth < 768) return;
-        const popup = document.getElementById('exitPopup');
+        var popup = document.getElementById('exitPopup');
         if (popup) {
             popup.classList.add('visible');
             popupShown = true;
         }
     }
 
-    // Добавляем детект ухода мыши ТОЛЬКО на десктопе
     function initExitIntent() {
         if (exitIntentListenerAdded) return;
         if (window.innerWidth < 768) return;
@@ -139,26 +166,29 @@ document.addEventListener('DOMContentLoaded', function() {
         exitIntentListenerAdded = true;
     }
 
-    // Запускаем при загрузке
     initExitIntent();
 
-    // Переинициализируем при изменении размера окна (если стало десктопом)
+    // debounce для resize
+    var resizeTimer;
     window.addEventListener('resize', function() {
-        if (window.innerWidth >= 768 && !exitIntentListenerAdded) {
-            initExitIntent();
-        }
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function() {
+            if (window.innerWidth >= 768 && !exitIntentListenerAdded) {
+                initExitIntent();
+            }
+        }, 200);
     });
 
-    // Закрытие попапов (оставляем как было)
-    document.querySelectorAll('.exit-popup-close, .close-popup-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-            const popup = btn.closest('.exit-popup-overlay');
+    // Закрытие попапов
+    document.querySelectorAll('.exit-popup-close, .close-popup-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            var popup = btn.closest('.exit-popup-overlay');
             if (popup) popup.classList.remove('visible');
         });
     });
 
-    document.querySelectorAll('.exit-popup-overlay').forEach(overlay => {
-        overlay.addEventListener('click', (e) => {
+    document.querySelectorAll('.exit-popup-overlay').forEach(function(overlay) {
+        overlay.addEventListener('click', function(e) {
             if (e.target === overlay) {
                 overlay.classList.remove('visible');
             }
@@ -166,13 +196,13 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // ========== 6. ПЛАВНЫЙ СКРОЛЛ ПО ЯКОРЯМ ==========
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
         anchor.addEventListener('click', function(e) {
-            const href = this.getAttribute('href');
+            var href = this.getAttribute('href');
             if (href === '#' || href === '') return;
             
-            const targetId = href.substring(1);
-            const targetElement = document.getElementById(targetId);
+            var targetId = href.substring(1);
+            var targetElement = document.getElementById(targetId);
             
             if (targetElement) {
                 e.preventDefault();
@@ -193,26 +223,39 @@ document.addEventListener('DOMContentLoaded', function() {
         var destination = "55.792709,49.103627";
         var destinationAddress = "Казань, ул. Московская, 13а";
         
+        function openMap(url) {
+            var newWindow = window.open(url, "_blank");
+            if (newWindow) {
+                newWindow.opener = null;
+            }
+        }
+        
         if ("geolocation" in navigator) {
             navigator.geolocation.getCurrentPosition(
                 function(position) {
                     var from = position.coords.latitude + "," + position.coords.longitude;
-                    window.open("https://yandex.ru/maps/?rtext=" + from + "~" + destination + "&rtt=auto", "_blank");
+                    openMap("https://yandex.ru/maps/?rtext=" + from + "~" + destination + "&rtt=auto");
                 },
                 function() {
-                    window.open("https://yandex.ru/maps/?text=" + encodeURIComponent(destinationAddress), "_blank");
+                    openMap("https://yandex.ru/maps/?text=" + encodeURIComponent(destinationAddress));
                 }
             );
         } else {
-            window.open("https://yandex.ru/maps/?text=" + encodeURIComponent(destinationAddress), "_blank");
+            openMap("https://yandex.ru/maps/?text=" + encodeURIComponent(destinationAddress));
         }
     }
 
     window.buildSmartRoute = buildSmartRoute;
+
+    // Привязываем к кнопке "Как добраться"
+    var smartRouteBtn = document.getElementById('smartRouteBtn');
+    if (smartRouteBtn) {
+        smartRouteBtn.addEventListener('click', buildSmartRoute);
+    }
     
     // ========== 8. КНОПКА «ПОДРОБНЕЕ О МАСТЕРЕ» ==========
-    const whyToggle = document.getElementById('whyToggle');
-    const whyExtras = document.getElementById('whyExtras');
+    var whyToggle = document.getElementById('whyToggle');
+    var whyExtras = document.getElementById('whyExtras');
 
     if (whyToggle && whyExtras) {
         whyToggle.addEventListener('click', function() {
@@ -227,12 +270,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // ========== 9. ОТСЛЕЖИВАНИЕ ПРОКРУТКИ ДО БЛОКОВ ДЛЯ ЯНДЕКС МЕТРИКИ ==========
-    // Номер счётчика: 109650228
-    // Каждая цель срабатывает один раз за визит при появлении блока в окне браузера
-    
     (function() {
-        // Список блоков для отслеживания
-        const scrollTargets = [
+        var scrollTargets = [
             { elementId: 'hero', goalId: 'scroll-hero' },
             { elementId: 'steps-section', goalId: 'scroll-steps' },
             { elementId: 'problem', goalId: 'scroll-problem' },
@@ -245,38 +284,29 @@ document.addEventListener('DOMContentLoaded', function() {
             { elementId: 'footer', goalId: 'scroll-footer' }
         ];
 
-        // Хранилище для отслеживания уже сработавших целей
-        const triggered = {};
+        var triggered = {};
 
-        // Настройки Intersection Observer: блок считается видимым,
-        // когда 70% блока появилось в области просмотра
-        const scrollObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
+        var scrollObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
                 if (entry.isIntersecting) {
-                    const target = scrollTargets.find(t => 
-                        t.elementId === entry.target.dataset.scrollTarget
-                    );
+                    var target = scrollTargets.find(function(t) {
+                        return t.elementId === entry.target.dataset.scrollTarget;
+                    });
                     if (target && !triggered[target.goalId]) {
                         triggered[target.goalId] = true;
-                        if (typeof ym !== 'undefined') {
-                            ym(109650228, 'reachGoal', target.goalId);
-                            console.log('Метрика: цель достигнута -', target.goalId);
-                        }
-                        // Отключаем наблюдение за этим блоком после срабатывания
+                        ym(109650228, 'reachGoal', target.goalId);
                         scrollObserver.unobserve(entry.target);
                     }
                 }
             });
-        }, { threshold: 0.7 }); // 70% блока видно
+        }, { threshold: 0.7 });
 
-        // Находим все блоки и начинаем за ними следить
-        scrollTargets.forEach(target => {
-            let element = null;
+        scrollTargets.forEach(function(target) {
+            var element = null;
             if (target.elementId === 'footer') {
                 element = document.querySelector('footer');
             } else {
                 element = document.getElementById(target.elementId);
-                // Если не нашли по ID, пробуем найти по классу
                 if (!element) {
                     element = document.querySelector('.' + target.elementId);
                 }

@@ -1518,6 +1518,14 @@ body {
     flex-shrink: 0;
 }
 
+.steps-list__number--check {
+    background: transparent;
+    color: inherit;
+    font-size: 1.5rem;
+    width: auto;
+    height: auto;
+}
+
 .steps-list__item strong {
     display: block;
     margin-bottom: 2px;
@@ -2464,4 +2472,127 @@ body {
     .reviews-grid {
         grid-template-columns: repeat(3, 1fr);
     }
+}
+
+/* ========================================
+   ☕ ТЕСТ-ДРАЙВ (страница /services/test-drive/)
+   ======================================== */
+.test-drive-hero {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.test-drive-hero__icon {
+    font-size: 2rem;
+    margin-bottom: 16px;
+}
+
+.test-drive-hero__subtitle {
+    font-size: 1.1rem;
+    color: var(--color-text-light);
+    margin-bottom: 8px;
+}
+
+.test-drive-hero__desc {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin-bottom: 24px;
+}
+
+.test-drive-hero__price-card {
+    background: var(--color-surface);
+    padding: 28px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow);
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.test-drive-hero__price-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 10px;
+}
+
+.test-drive-hero__price-old {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    text-decoration: line-through;
+}
+
+.test-drive-hero__price-new {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--color-accent);
+}
+
+.test-drive-hero__price-zone {
+    font-size: 0.8rem;
+    color: var(--color-text-light);
+    margin-top: 4px;
+}
+
+.test-drive-hero__cta {
+    font-size: 1rem;
+    padding: 16px 40px;
+}
+
+/* ========================================
+   📂 СЕТКА КАТАЛОГА УСЛУГ (страница /services/)
+   ======================================== */
+.services-catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.services-catalog-card {
+    background: var(--color-pastel);
+    padding: 20px;
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    color: var(--color-text);
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.services-catalog-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+}
+
+.services-catalog-card h3 {
+    font-size: 1rem;
+    margin-bottom: 6px;
+}
+
+.services-catalog-card p {
+    font-size: 0.8rem;
+    color: var(--color-text-light);
+}
+
+.services-catalog-card--dark {
+    background: var(--color-text);
+    color: #fff;
+}
+
+.services-catalog-card--dark p {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.services-catalog-card--accent {
+    background: var(--color-accent);
+    color: #fff;
+}
+
+.services-catalog-card--accent p {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.services-catalog-card--yellow {
+    background: #FFF9C4;
 }

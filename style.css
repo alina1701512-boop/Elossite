@@ -1,26 +1,39 @@
 /* ========================================
-   📦 ПЕРЕМЕННЫЕ
+   📦 ПЕРЕМЕННЫЕ — БРЕНДБУК ELOS
    ======================================== */
 :root {
-    --color-bg: #FAF7F5;
+    /* Основная палитра */
+    --color-bg: #FFFFFF;
     --color-surface: #FFFFFF;
-    --color-text: #1E1E1E;
-    --color-text-light: #5A5A5A;
-    --color-accent: #C67A5C;
-    --color-accent-hover: #A86348;
-    --color-pastel: #F6EFEB;
-    --color-success: #3E6B4F;
-    --color-star: #D4AF37;
-    --font-heading: 'Playfair Display', Georgia, serif;
-    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --color-pastel: #F2F4F7;
+    --color-text: #2B2D2F;
+    --color-text-light: #6b7174;
+    --color-accent: #9DB2A9;
+    --color-accent-hover: #89A298;
+    --color-skin: #E6C2A5;
+    --color-skin-light: rgba(230, 194, 165, 0.15);
+    --color-success: #9DB2A9;
+    --color-star: #E6C2A5;
+    --color-footer-bg: #2B2D2F;
+    --color-footer-text: #F2F4F7;
+
+    /* Типографика */
+    --font-heading: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-body: 'Source Sans 3', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+    /* Скругления */
     --radius-sm: 16px;
     --radius-md: 24px;
     --radius-lg: 36px;
-    --shadow: 0 8px 30px rgba(0, 0, 0, 0.03);
-    --shadow-hover: 0 16px 40px rgba(0, 0, 0, 0.06);
+
+    /* Тени — graphite с прозрачностью */
+    --shadow: 0 8px 30px rgba(43, 45, 47, 0.04);
+    --shadow-hover: 0 16px 40px rgba(43, 45, 47, 0.08);
+    --shadow-featured: 0 8px 24px rgba(157, 178, 169, 0.2);
+
     --transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
 
-    /* Явно говорим браузеру: только светлая тема */
+    /* Только светлая тема */
     color-scheme: only light;
 }
 
@@ -45,18 +58,20 @@ body {
 }
 
 /* ========================================
-   ⌨️ Доступность: фокус для клавиатуры
+   ⌨️ ДОСТУПНОСТЬ
    ======================================== */
 :focus-visible {
     outline: 2px solid var(--color-accent);
     outline-offset: 2px;
 }
 
-/* Снимаем стандартный outline для мыши, но оставляем для :focus-visible */
 :focus:not(:focus-visible) {
     outline: none;
 }
 
+/* ========================================
+   📐 КОНТЕЙНЕР
+   ======================================== */
 .container {
     width: 100%;
     max-width: 1200px;
@@ -64,41 +79,14 @@ body {
     padding: 0 20px;
 }
 
-/* Базовые паддинги секций */
 .section-padding {
-    padding: 60px 0;
+    padding: 80px 0;
 }
 
-.section-title {
-    font-family: var(--font-heading);
-    font-size: 1.8rem;
-    font-weight: 600;
-    text-align: center;
-    margin-bottom: 40px;
-    letter-spacing: -0.01em;
-    color: var(--color-text);
-}
-
-.section-title::after {
-    content: '';
-    display: block;
-    width: 60px;
-    height: 4px;
-    background: var(--color-accent);
-    margin: 16px auto 0;
-    border-radius: 2px;
-    opacity: 0.8;
-}
-
-.section-subtext {
-    text-align: center;
-    color: var(--color-text-light);
-    margin-bottom: 36px;
-    font-size: 0.95rem;
-    font-weight: 400;
-    line-height: 1.5;
-}
-
+/* ========================================
+   🧱 ЧЕРЕДОВАНИЕ ФОНА СЕКЦИЙ (брендбук)
+   Белый → #F2F4F7 → Белый → #F2F4F7
+   ======================================== */
 .bg-pastel {
     background-color: var(--color-pastel);
 }
@@ -112,12 +100,73 @@ body {
 }
 
 /* ========================================
+   ✍️ ЗАГОЛОВКИ (без ::after — брендбук)
+   ======================================== */
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 40px;
+    letter-spacing: -0.3px;
+    color: var(--color-text);
+}
+
+.section-title::after {
+    display: none;
+}
+
+.section-subtext {
+    text-align: center;
+    color: var(--color-text-light);
+    margin-bottom: 36px;
+    font-size: 0.95rem;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+/* ========================================
+   🏷️ ПОДЧЁРКИВАНИЕ SKIN QUARTZ (брендбук)
+   Цвет: #E6C2A5, толщина 2px, отступ 4px
+   ======================================== */
+u, .text-underline {
+    text-decoration: none;
+    border-bottom: 2px solid var(--color-skin);
+    padding-bottom: 2px;
+    text-underline-offset: 4px;
+}
+
+/* Анимированное подчёркивание при загрузке (брендбук: 0.8s) */
+@keyframes underlineDraw {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+.underline-animated {
+    position: relative;
+    text-decoration: none;
+}
+
+.underline-animated::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--color-skin);
+    animation: underlineDraw 0.8s ease forwards;
+    animation-delay: 0.3s;
+}
+
+/* ========================================
    🔘 КНОПКИ
+   CTA: фон Sage #9DB2A9, hover затемнение 10%, border-radius 12px
    ======================================== */
 .btn {
     display: inline-block;
     padding: 14px 28px;
-    border-radius: 40px;
+    border-radius: 12px;
     text-decoration: none;
     font-weight: 600;
     font-size: 0.85rem;
@@ -132,13 +181,13 @@ body {
 .btn-primary {
     background-color: var(--color-accent);
     color: #fff;
-    box-shadow: 0 4px 12px rgba(198, 122, 92, 0.25);
+    box-shadow: 0 4px 12px rgba(157, 178, 169, 0.25);
 }
 
 .btn-primary:hover {
     background-color: var(--color-accent-hover);
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(198, 122, 92, 0.35);
+    box-shadow: 0 8px 20px rgba(157, 178, 169, 0.35);
 }
 
 .btn-primary:active {
@@ -153,7 +202,7 @@ body {
 
 .btn-secondary:hover {
     border-color: var(--color-accent);
-    background-color: #FCF9F8;
+    background-color: rgba(157, 178, 169, 0.05);
 }
 
 .btn-lg {
@@ -209,7 +258,7 @@ body {
     gap: 5px;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    box-shadow: 0 4px 15px rgba(43, 45, 47, 0.04);
 }
 
 .burger-menu span {
@@ -263,7 +312,7 @@ body {
     padding: 80px 28px 30px;
     transform: translateX(100%);
     transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.05);
+    box-shadow: -10px 0 30px rgba(43, 45, 47, 0.05);
 }
 
 .slide-menu.active .slide-menu__panel {
@@ -307,7 +356,7 @@ body {
     background-color: var(--color-accent);
     color: #fff;
     padding: 12px 20px;
-    border-radius: 40px;
+    border-radius: 12px;
     text-align: center;
     margin-top: 24px;
     font-family: var(--font-body);
@@ -321,7 +370,7 @@ body {
 
 .site-header {
     padding: 15px 0;
-    background-color: rgba(250, 247, 245, 0.85);
+    background-color: rgba(255, 255, 255, 0.9);
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
     position: sticky;
@@ -351,6 +400,7 @@ body {
    ======================================== */
 .hero-section {
     padding: 40px 0 50px;
+    background-color: var(--color-bg);
 }
 
 .hero-grid {
@@ -369,32 +419,40 @@ body {
 }
 
 .hero-trust-badge span {
-    background: #FFFFFF;
+    background: var(--color-pastel);
     padding: 6px 16px;
     border-radius: 40px;
     font-size: 0.75rem;
     font-weight: 500;
-    color: var(--color-text-light);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
-    border: 1px solid #EEEEEE;
+    color: var(--color-text);
+    box-shadow: 0 2px 10px rgba(43, 45, 47, 0.03);
 }
 
 .hero-title {
     font-family: var(--font-heading);
     font-size: 2rem;
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1.2;
     margin-bottom: 16px;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.3px;
     text-align: center;
+    color: var(--color-text);
 }
 
 .hero-description {
     font-size: 1rem;
+    color: var(--color-text);
+    margin-bottom: 12px;
+    text-align: center;
+    line-height: 1.6;
+}
+
+.hero-sub {
+    font-size: 0.95rem;
     color: var(--color-text-light);
     margin-bottom: 28px;
     text-align: center;
-    line-height: 1.6;
+    line-height: 1.5;
 }
 
 .hero-buttons {
@@ -428,7 +486,6 @@ body {
     color: var(--color-accent);
 }
 
-/* Фото мастера */
 .hero-photo {
     display: block;
     width: 100%;
@@ -436,13 +493,13 @@ body {
     aspect-ratio: 3 / 4;
     border-radius: 50%;
     object-fit: cover;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-    border: 4px solid #FFFFFF;
+    box-shadow: 0 20px 40px rgba(43, 45, 47, 0.08);
+    border: 4px solid var(--color-pastel);
     background: #F0E8E4;
 }
 
 /* ========================================
-   👣 ШАГИ К ПЕРВОЙ ПРОЦЕДУРЕ
+   👣 ПЕРВЫЙ ВИЗИТ (шаги)
    ======================================== */
 .steps-grid {
     display: grid;
@@ -458,7 +515,7 @@ body {
     box-shadow: var(--shadow);
     position: relative;
     transition: var(--transition);
-    border: 1px solid rgba(0, 0, 0, 0.02);
+    border: 1px solid rgba(0, 0, 0, 0.03);
 }
 
 .step-card:hover {
@@ -492,7 +549,9 @@ body {
 .step-card h3 {
     font-family: var(--font-heading);
     font-size: 1rem;
+    font-weight: 600;
     margin-bottom: 8px;
+    color: var(--color-text);
 }
 
 .step-card p {
@@ -504,8 +563,8 @@ body {
    📊 TRUST BAR
    ======================================== */
 .trust-bar {
-    background-color: #3D2C26;
-    color: #F6EFEB;
+    background-color: var(--color-footer-bg);
+    color: var(--color-footer-text);
     padding: 14px 0;
     overflow-x: auto;
     white-space: nowrap;
@@ -553,17 +612,9 @@ body {
     overflow: hidden;
 }
 
-.problem-card:nth-child(1) {
-    border-left-color: #C67A5C;
-}
-
-.problem-card:nth-child(2) {
-    border-left-color: #D4AF37;
-}
-
-.problem-card:nth-child(3) {
-    border-left-color: #3E6B4F;
-}
+.problem-card:nth-child(1) { border-left-color: var(--color-accent); }
+.problem-card:nth-child(2) { border-left-color: var(--color-skin); }
+.problem-card:nth-child(3) { border-left-color: var(--color-text); }
 
 .problem-card::before {
     content: '';
@@ -572,7 +623,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(198, 122, 92, 0.03) 0%, transparent 50%);
+    background: linear-gradient(135deg, rgba(157, 178, 169, 0.04) 0%, transparent 50%);
     opacity: 0;
     transition: opacity 0.3s ease;
 }
@@ -594,7 +645,9 @@ body {
 .problem-card h3 {
     font-family: var(--font-heading);
     font-size: 1.1rem;
+    font-weight: 600;
     margin-bottom: 8px;
+    color: var(--color-text);
 }
 
 .problem-card p {
@@ -603,7 +656,7 @@ body {
 }
 
 /* ========================================
-   ⚙️ КАК ЭТО РАБОТАЕТ
+   ⚙️ ПОЧЕМУ НЕ БОЛЬНО И БЕЗОПАСНО
    ======================================== */
 .how-grid {
     display: grid;
@@ -618,7 +671,7 @@ body {
     border-radius: var(--radius-md);
     box-shadow: var(--shadow);
     transition: var(--transition);
-    border: 1px solid rgba(0, 0, 0, 0.02);
+    border: 1px solid rgba(0, 0, 0, 0.03);
 }
 
 .how-card:hover {
@@ -626,10 +679,8 @@ body {
     box-shadow: var(--shadow-hover);
 }
 
-/* Первая карточка — главная */
 .how-card:first-child {
     border-top: 3px solid var(--color-accent);
-    background: #FFFCFA;
 }
 
 .how-card:first-child .how-icon {
@@ -649,7 +700,9 @@ body {
 .how-card h3 {
     font-family: var(--font-heading);
     font-size: 1.1rem;
+    font-weight: 600;
     margin-bottom: 10px;
+    color: var(--color-text);
 }
 
 .how-card p {
@@ -667,7 +720,7 @@ body {
     padding: 28px;
     margin-bottom: 36px;
     box-shadow: var(--shadow);
-    border: 1px solid rgba(198, 122, 92, 0.15);
+    border: 1px solid rgba(157, 178, 169, 0.2);
 }
 
 .master-card-inner {
@@ -684,13 +737,15 @@ body {
     border-radius: 50%;
     object-fit: cover;
     border: 3px solid var(--color-accent);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 8px 20px rgba(43, 45, 47, 0.06);
 }
 
 .master-card-info h3 {
     font-family: var(--font-heading);
     font-size: 1.3rem;
+    font-weight: 600;
     margin-bottom: 8px;
+    color: var(--color-text);
 }
 
 .master-card-info p {
@@ -719,7 +774,6 @@ body {
     color: var(--color-success);
 }
 
-/* #whyExtras — управляется через JS, по умолчанию скрыто */
 #whyExtras {
     display: none;
 }
@@ -745,7 +799,7 @@ body {
     background: var(--color-surface);
     border-radius: var(--radius-md);
     box-shadow: var(--shadow);
-    border: 1px solid rgba(0, 0, 0, 0.02);
+    border: 1px solid rgba(0, 0, 0, 0.03);
 }
 
 .why-icon {
@@ -757,7 +811,9 @@ body {
 .why-item h3 {
     font-family: var(--font-heading);
     font-size: 1rem;
+    font-weight: 600;
     margin-bottom: 8px;
+    color: var(--color-text);
 }
 
 .why-item p {
@@ -780,7 +836,7 @@ body {
     overflow: hidden;
     box-shadow: var(--shadow);
     transition: var(--transition);
-    border: 1px solid rgba(0, 0, 0, 0.02);
+    border: 1px solid rgba(0, 0, 0, 0.03);
 }
 
 .beforeafter-card:hover {
@@ -806,7 +862,9 @@ body {
 .beforeafter-info p {
     font-family: var(--font-heading);
     font-size: 0.95rem;
+    font-weight: 600;
     margin-bottom: 8px;
+    color: var(--color-text);
 }
 
 .beforeafter-badge {
@@ -819,7 +877,6 @@ body {
     font-weight: 600;
 }
 
-/* Суффикс к бейджу — через data-атрибут или span, а не ::after */
 .beforeafter-badge-suffix {
     font-size: 0.65rem;
     color: var(--color-text-light);
@@ -833,7 +890,7 @@ body {
 }
 
 /* ========================================
-   🗺️ КАРТА БОЛИ
+   🗺️ ТАБЛИЦА ОЩУЩЕНИЙ
    ======================================== */
 .pain-table {
     max-width: 600px;
@@ -842,14 +899,14 @@ body {
     border-radius: var(--radius-md);
     overflow: hidden;
     box-shadow: var(--shadow);
-    border: 1px solid rgba(0, 0, 0, 0.02);
+    border: 1px solid rgba(0, 0, 0, 0.03);
 }
 
 .pain-row {
     display: grid;
     grid-template-columns: 1fr 1.5fr 0.5fr;
     padding: 14px 16px;
-    border-bottom: 1px solid #F5F5F5;
+    border-bottom: 1px solid #e9ecef;
     font-size: 0.85rem;
 }
 
@@ -858,34 +915,13 @@ body {
     color: #fff;
     font-weight: 600;
     font-family: var(--font-heading);
-    border-left: none;
 }
 
-/* Цветовое кодирование */
-.pain-row:nth-child(2) {
-    background: #FDF8F6;
-    border-left: 3px solid #D4A592;
-}
-
-.pain-row:nth-child(3) {
-    background: #F8FAF6;
-    border-left: 3px solid #8FAF7E;
-}
-
-.pain-row:nth-child(4) {
-    background: #FDF9F7;
-    border-left: 3px solid #D4A592;
-}
-
-.pain-row:nth-child(5) {
-    background: #FAFAF8;
-    border-left: 3px solid #B8B8A0;
-}
-
-.pain-row:nth-child(6) {
-    background: #F8FAF6;
-    border-left: 3px solid #8FAF7E;
-}
+.pain-row:nth-child(2) { background: rgba(157, 178, 169, 0.05); border-left: 3px solid var(--color-accent); }
+.pain-row:nth-child(3) { background: rgba(157, 178, 169, 0.03); border-left: 3px solid var(--color-accent); }
+.pain-row:nth-child(4) { background: rgba(157, 178, 169, 0.05); border-left: 3px solid var(--color-accent); }
+.pain-row:nth-child(5) { background: rgba(230, 194, 165, 0.05); border-left: 3px solid var(--color-skin); }
+.pain-row:nth-child(6) { background: rgba(157, 178, 169, 0.03); border-left: 3px solid var(--color-accent); }
 
 .pain-note {
     margin-top: 24px;
@@ -927,7 +963,7 @@ body {
     padding: 22px;
     box-shadow: var(--shadow);
     transition: var(--transition);
-    border: 1px solid rgba(0, 0, 0, 0.02);
+    border: 1px solid rgba(0, 0, 0, 0.03);
 }
 
 .review-card:hover {
@@ -979,7 +1015,7 @@ body {
     box-shadow: var(--shadow);
     transition: var(--transition);
     position: relative;
-    border: 1px solid rgba(0, 0, 0, 0.02);
+    border: 1px solid rgba(0, 0, 0, 0.03);
 }
 
 .price-card:hover {
@@ -989,26 +1025,35 @@ body {
 
 .price-card.featured {
     border: 2px solid var(--color-accent);
-    position: relative;
+    box-shadow: var(--shadow-featured);
 }
 
+/* Плашка «Хит» — фон Skin Quartz 15% (брендбук) */
 .badge {
     position: absolute;
     top: -12px;
     left: 50%;
     transform: translateX(-50%);
-    background: var(--color-accent);
-    color: #fff;
+    background: var(--color-skin-light);
+    color: var(--color-text);
     font-size: 0.7rem;
     padding: 4px 16px;
     border-radius: 40px;
     white-space: nowrap;
+    font-weight: 600;
 }
 
 .price-zone-label {
     font-family: var(--font-heading);
     font-size: 1rem;
     font-weight: 600;
+    margin-bottom: 4px;
+    color: var(--color-text);
+}
+
+.price-small {
+    font-size: 0.8rem;
+    color: var(--color-text-light);
     margin-bottom: 12px;
 }
 
@@ -1021,7 +1066,7 @@ body {
 
 .badge-sale {
     display: inline-block;
-    background: #FCF3EF;
+    background: rgba(157, 178, 169, 0.1);
     color: var(--color-accent);
     padding: 6px 18px;
     border-radius: 40px;
@@ -1029,14 +1074,13 @@ body {
     font-weight: 700;
     margin-bottom: 14px;
     letter-spacing: 0.02em;
-    border: 1px solid rgba(198, 122, 92, 0.2);
+    border: 1px solid rgba(157, 178, 169, 0.2);
 }
 
 .price-full {
     font-size: 0.8rem;
     color: var(--color-text-light);
     margin-bottom: 16px;
-    text-decoration: line-through;
     opacity: 0.7;
 }
 
@@ -1068,7 +1112,7 @@ body {
     text-align: center;
     box-shadow: var(--shadow);
     transition: var(--transition);
-    border: 1px solid rgba(0, 0, 0, 0.02);
+    border: 1px solid rgba(0, 0, 0, 0.03);
 }
 
 .promo-card:hover {
@@ -1078,7 +1122,6 @@ body {
 
 .promo-card.featured {
     border: 2px solid var(--color-accent);
-    position: relative;
 }
 
 .promo-card.featured::before {
@@ -1087,17 +1130,16 @@ body {
     top: -12px;
     left: 50%;
     transform: translateX(-50%);
-    background: var(--color-accent);
-    color: #fff;
+    background: var(--color-skin-light);
+    color: var(--color-text);
     font-size: 0.7rem;
     padding: 4px 16px;
     border-radius: 40px;
+    font-weight: 600;
 }
 
-/* Тест-драйв — выделение */
 .promo-card:first-child {
-    border: 2px dashed rgba(198, 122, 92, 0.3);
-    background: #FFFCFA;
+    border: 2px dashed rgba(157, 178, 169, 0.3);
 }
 
 .promo-card:first-child .btn {
@@ -1105,12 +1147,8 @@ body {
 }
 
 @keyframes softPulse {
-    0%, 100% {
-        box-shadow: 0 4px 12px rgba(198, 122, 92, 0.2);
-    }
-    50% {
-        box-shadow: 0 8px 24px rgba(198, 122, 92, 0.4);
-    }
+    0%, 100% { box-shadow: 0 4px 12px rgba(157, 178, 169, 0.2); }
+    50% { box-shadow: 0 8px 24px rgba(157, 178, 169, 0.4); }
 }
 
 .promo-card i {
@@ -1122,7 +1160,9 @@ body {
 .promo-card h3 {
     font-family: var(--font-heading);
     font-size: 1.1rem;
+    font-weight: 600;
     margin-bottom: 10px;
+    color: var(--color-text);
 }
 
 .promo-card p {
@@ -1141,7 +1181,7 @@ body {
     padding: 24px;
     box-shadow: var(--shadow);
     text-align: center;
-    border: 1px solid rgba(0, 0, 0, 0.02);
+    border: 1px solid rgba(0, 0, 0, 0.03);
 }
 
 .referral-banner-inner i {
@@ -1163,7 +1203,7 @@ body {
 }
 
 .faq-item {
-    border-bottom: 1px solid #EEEEEE;
+    border-bottom: 1px solid #e9ecef;
     background: transparent;
 }
 
@@ -1184,6 +1224,7 @@ body {
     display: flex;
     align-items: center;
     transition: var(--transition);
+    color: var(--color-text);
 }
 
 .faq-question:hover {
@@ -1194,7 +1235,6 @@ body {
     color: var(--color-accent);
 }
 
-/* Иконка слева */
 .faq-question::before {
     content: '?';
     display: inline-flex;
@@ -1218,7 +1258,6 @@ body {
     color: #fff;
 }
 
-/* Иконка справа */
 .faq-question::after {
     content: '+';
     font-size: 1.4rem;
@@ -1282,22 +1321,25 @@ body {
     top: -12px;
     left: 50%;
     transform: translateX(-50%);
-    background: var(--color-accent);
-    color: #fff;
+    background: var(--color-skin-light);
+    color: var(--color-text);
     font-size: 0.7rem;
     padding: 4px 14px;
     border-radius: 30px;
     white-space: nowrap;
+    font-weight: 600;
 }
 
 .complex-card__badge--hit {
-    background: var(--color-accent);
+    background: var(--color-skin-light);
 }
 
 .complex-card__title {
     font-size: 1.2rem;
+    font-weight: 600;
     margin-bottom: 8px;
     margin-top: 12px;
+    color: var(--color-text);
 }
 
 .complex-card__title:first-child {
@@ -1356,7 +1398,6 @@ body {
     margin-top: 16px;
 }
 
-/* Строки в "Студент" */
 .complex-student__row {
     display: flex;
     justify-content: space-between;
@@ -1371,7 +1412,7 @@ body {
 }
 
 /* ========================================
-   📐 СЕТКА "ДРУГИЕ УСЛУГИ" (страницы услуг)
+   📐 СЕТКА "ДРУГИЕ УСЛУГИ"
    ======================================== */
 .other-services-grid {
     display: grid;
@@ -1409,14 +1450,12 @@ body {
     color: rgba(255, 255, 255, 0.85);
 }
 
-/* Узкие экраны — одна колонка */
 @media (max-width: 320px) {
     .other-services-grid {
         grid-template-columns: 1fr;
     }
 }
 
-/* Интро на страницах услуг */
 .service-intro {
     max-width: 800px;
     margin: 0 auto;
@@ -1452,7 +1491,7 @@ body {
 
 .service-price-table tbody td {
     padding: 12px 16px;
-    border-bottom: 1px solid #f5f5f5;
+    border-bottom: 1px solid #e9ecef;
 }
 
 .service-price-table tbody td:not(:first-child) {
@@ -1478,10 +1517,11 @@ body {
 }
 
 .service-hero-tags span {
-    background: #F0F0F0;
+    background: var(--color-pastel);
     padding: 6px 14px;
     border-radius: 30px;
     font-size: 0.75rem;
+    color: var(--color-text);
 }
 
 .service-hero-cta {
@@ -1491,7 +1531,7 @@ body {
 }
 
 /* ========================================
-   👣 СПИСОК ШАГОВ (Как проходит процедура)
+   👣 СПИСОК ШАГОВ
    ======================================== */
 .steps-list {
     display: grid;
@@ -1569,7 +1609,7 @@ body {
 
 .comparison-table tbody td {
     padding: 10px;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #e9ecef;
     text-align: center;
 }
 
@@ -1593,7 +1633,6 @@ body {
     font-size: 0.8rem;
 }
 
-/* Кнопка "Как добраться" */
 .contact-buttons .btn:last-child {
     border-color: var(--color-accent);
     border-width: 1.5px;
@@ -1604,7 +1643,7 @@ body {
 }
 
 .contact-buttons .btn:last-child:hover {
-    background: #FDF9F7;
+    background: rgba(157, 178, 169, 0.05);
 }
 
 .contact-info {
@@ -1648,8 +1687,8 @@ body {
    📞 ПОДВАЛ
    ======================================== */
 .site-footer {
-    background: #1E1E1E;
-    color: #fff;
+    background: var(--color-footer-bg);
+    color: var(--color-footer-text);
     padding: 40px 0;
     text-align: center;
 }
@@ -1680,6 +1719,7 @@ body {
 .footer-blog h4 {
     font-family: var(--font-heading);
     font-size: 1rem;
+    font-weight: 600;
     margin-bottom: 12px;
 }
 
@@ -1714,7 +1754,7 @@ body {
     text-decoration: none;
     font-weight: 700;
     font-size: 0.85rem;
-    box-shadow: 0 8px 20px rgba(198, 122, 92, 0.35);
+    box-shadow: 0 8px 20px rgba(157, 178, 169, 0.35);
     z-index: 99;
     transition: var(--transition);
 }
@@ -1752,7 +1792,7 @@ body {
     max-width: 320px;
     width: 90%;
     position: relative;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 20px 50px rgba(43, 45, 47, 0.1);
 }
 
 .exit-popup-close {
@@ -1776,6 +1816,7 @@ body {
     font-family: var(--font-heading);
     margin-bottom: 12px;
     font-size: 1.1rem;
+    font-weight: 600;
 }
 
 .exit-popup p {
@@ -1835,12 +1876,6 @@ body {
     .section-title {
         font-size: 1.5rem;
         margin-bottom: 32px;
-    }
-
-    .section-title::after {
-        width: 50px;
-        height: 3px;
-        margin: 12px auto 0;
     }
 
     .section-subtext {
@@ -2144,11 +2179,6 @@ body {
         margin-bottom: 44px;
     }
 
-    .section-title::after {
-        width: 70px;
-        margin: 16px auto 0;
-    }
-
     .section-subtext {
         font-size: 1rem;
         margin-bottom: 40px;
@@ -2268,7 +2298,7 @@ body {
     }
 
     .section-padding {
-        padding: 70px 0;
+        padding: 80px 0;
     }
 
     .section-title {
@@ -2292,6 +2322,10 @@ body {
     }
 
     .hero-description {
+        text-align: left;
+    }
+
+    .hero-sub {
         text-align: left;
     }
 
@@ -2418,7 +2452,7 @@ body {
         background: var(--color-accent);
         color: #fff;
         padding: 10px 20px;
-        border-radius: 40px;
+        border-radius: 12px;
     }
 
     .main-nav .nav-link-cta:hover {
@@ -2447,7 +2481,7 @@ body {
    ======================================== */
 @media (min-width: 1024px) {
     .section-padding {
-        padding: 80px 0;
+        padding: 100px 0;
     }
 
     .section-title {
@@ -2567,6 +2601,7 @@ body {
 
 .services-catalog-card h3 {
     font-size: 1rem;
+    font-weight: 600;
     margin-bottom: 6px;
 }
 
@@ -2643,8 +2678,8 @@ body {
     top: -14px;
     left: 50%;
     transform: translateX(-50%);
-    background: var(--color-accent);
-    color: #fff;
+    background: var(--color-skin-light);
+    color: var(--color-text);
     font-size: 0.75rem;
     padding: 6px 16px;
     border-radius: 30px;
@@ -2659,7 +2694,9 @@ body {
 
 .akcii-card__title {
     font-size: 1.3rem;
+    font-weight: 600;
     margin-bottom: 8px;
+    color: var(--color-text);
 }
 
 .akcii-card--featured .akcii-card__title {
@@ -2697,7 +2734,6 @@ body {
     margin-bottom: 20px;
 }
 
-/* Список комплексов в карточке 35% */
 .akcii-card__complex-list {
     display: grid;
     gap: 8px;
@@ -2709,7 +2745,7 @@ body {
     display: flex;
     justify-content: space-between;
     padding: 6px 0;
-    border-bottom: 1px solid #E8D5CF;
+    border-bottom: 1px solid #e9ecef;
     font-size: 0.85rem;
 }
 
@@ -2717,7 +2753,6 @@ body {
     border-bottom: none;
 }
 
-/* Студенческие строки */
 .akcii-card__student-list {
     margin-bottom: 16px;
 }
@@ -2735,7 +2770,6 @@ body {
     border-bottom: none;
 }
 
-/* Условия акций */
 .akcii-terms {
     max-width: 700px;
     text-align: center;
@@ -2770,13 +2804,13 @@ body {
 
 .price-section__heading {
     font-size: 1.2rem;
+    font-weight: 600;
     margin-bottom: 16px;
     display: flex;
     align-items: center;
     gap: 8px;
 }
 
-/* Тёмный вариант шапки для таблицы "Отдельные зоны" */
 .price-table--dark thead th {
     background: var(--color-text);
 }
@@ -2997,4 +3031,3 @@ body {
     color: var(--color-text-light);
     font-size: 0.9rem;
 }
-

@@ -21,18 +21,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (burgerMenu && slideMenu) {
         burgerMenu.addEventListener('click', function(e) {
-            // Не используем stopPropagation — вместо этого глобальный слушатель ниже
             slideMenu.classList.toggle('active');
         });
 
-        // Закрытие по клику на оверлей
         if (slideMenuOverlay) {
             slideMenuOverlay.addEventListener('click', function() {
                 slideMenu.classList.remove('active');
             });
         }
 
-        // Закрытие по клику на ссылки внутри меню
         var menuLinks = slideMenu.querySelectorAll('a');
         menuLinks.forEach(function(link) {
             link.addEventListener('click', function() {
@@ -41,7 +38,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Глобальное закрытие меню по клику ВНЕ его
     document.addEventListener('click', function(e) {
         if (slideMenu && slideMenu.classList.contains('active')) {
             if (!slideMenu.contains(e.target) && e.target !== burgerMenu) {
@@ -75,7 +71,6 @@ document.addEventListener('DOMContentLoaded', function() {
         if (button && answer) {
             button.classList.add('active');
             button.setAttribute('aria-expanded', 'true');
-            // Читаем scrollHeight и записываем
             var h = answer.scrollHeight;
             answer.style.maxHeight = h + 'px';
             currentlyOpen = item;
@@ -87,7 +82,6 @@ document.addEventListener('DOMContentLoaded', function() {
         if (button) {
             button.classList.remove('active');
             button.setAttribute('aria-expanded', 'false');
-            // aria-controls уже задан в HTML (id у answer)
             var answer = item.querySelector('.faq-answer');
             if (answer) {
                 answer.style.maxHeight = null;
@@ -116,6 +110,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // ========== 3. FAQ КНОПКА «СМОТРЕТЬ ВСЕ» ==========
     var faqShowAllBtn = document.getElementById('faqShowAll');
     var hiddenFaqItems = document.querySelectorAll('.faq-hidden');
+
+    // Явно скрываем faq-hidden при загрузке (на случай переопределения стилей)
+    hiddenFaqItems.forEach(function(item) {
+        item.style.display = 'none';
+    });
 
     if (faqShowAllBtn && hiddenFaqItems.length > 0) {
         faqShowAllBtn.addEventListener('click', function() {
@@ -168,7 +167,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     initExitIntent();
 
-    // debounce для resize
     var resizeTimer;
     window.addEventListener('resize', function() {
         clearTimeout(resizeTimer);
@@ -179,7 +177,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 200);
     });
 
-    // Закрытие попапов
     document.querySelectorAll('.exit-popup-close, .close-popup-btn').forEach(function(btn) {
         btn.addEventListener('click', function() {
             var popup = btn.closest('.exit-popup-overlay');
@@ -247,7 +244,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     window.buildSmartRoute = buildSmartRoute;
 
-    // Привязываем к кнопке "Как добраться"
     var smartRouteBtn = document.getElementById('smartRouteBtn');
     if (smartRouteBtn) {
         smartRouteBtn.addEventListener('click', buildSmartRoute);
@@ -261,7 +257,7 @@ document.addEventListener('DOMContentLoaded', function() {
         whyToggle.addEventListener('click', function() {
             if (whyExtras.style.display === 'none' || whyExtras.style.display === '') {
                 whyExtras.style.display = 'block';
-                whyToggle.textContent = 'Скрыть подробности';
+                whyToggle.textContent = 'Скрыть';
             } else {
                 whyExtras.style.display = 'none';
                 whyToggle.textContent = 'Подробнее о мастере';
